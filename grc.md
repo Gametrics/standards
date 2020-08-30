@@ -48,6 +48,12 @@ The keywords **MUST**, **MUST NOT**, **REQUIRED**, **SHALL**, **SHALL NOT**, **S
 **SHOULD NOT**, **RECOMMENDED**, **MAY**, and **OPTIONAL**, when they appear in this document, are
  to be interpreted as described in [@RFC2119].
 
+## Availability & Updates
+
+The latest version document will always be hosted at https://gamerepair.codes.
+
+To propose changes, please submit a pull request at https://github.com/Karunamon/grc
+
 ## Versioning
 The GRC follows semantic versioning. Minor changes such as additions to company codes **MAY** be published as a point release (ex: 1.1). Any backwards-incompatible changes, such as changing the format or ordering of a field, will require bumping the major version number.
 
