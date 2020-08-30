@@ -1,12 +1,12 @@
-# This is a basic workflow to help you get started with Actions
-
 name: CI
 
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the master branch
 on:
   push:
     branches: master
+    paths:
+      - 'grc.md'
+  pull_request:
+    branches:  master
     paths:
       - 'grc.md'
 
@@ -50,6 +50,9 @@ jobs:
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
+        # Only trigger deploy if we're pushing to master
+        if: ${{ github.event_name == 'push' && github.ref == 'master' }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
+        
