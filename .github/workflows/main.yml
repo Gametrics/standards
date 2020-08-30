@@ -1,0 +1,50 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+          fetch-depth: 0
+
+      - name: Setup Golang
+        uses: actions/setup-go@v2
+        with:
+          go-version: '1.11.6'
+      
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.7.3'
+      
+      - name: Install dependencies
+        run: |
+          pip3 install xml2rfc
+          git clone https://github.com/mmarkdown/mmark.git
+          cd mmark && go get && cd ..
+          
+      - name: Compile output page
+        run: |
+          mmark/mmark grc.md > grc.xml
+          xml2rfc grc.xml --html
+          mkdir public
+          mv grc.html public/index.html
+          
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
