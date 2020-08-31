@@ -279,7 +279,7 @@ After each item, you **SHOULD** include a space character and up to 20 character
 
 # Example code
 ```
-GRC1|BN,GNGC,RU,TC,CPL,V1.0|PU,DCS|20200829 M Chp HyperBoot,20200829 M LED Ctrlr,20200829 S Shl Oem Top,20200829 S Shl Oem Hsd,20200829 R DDL Clean,20211224 R Msc M HyperBoot,20211224 S Msc OEM Ctrlport3,20211224 S DDA 3rd`
+GRC1|BNINT,AOEM,FNGC,RU,TCON,CPLA,V000|PUSD,DSHCSMKTXTSmoking_home|20200829MCHPHyperBoot,20200829MLEDCtrlr,20200829SSHLOEMTop,20200829SSHLOEMHsd,20200829RDDLClean,20211224RMSCMHyperBoot,20211224SMSCOEMCtrlport3,20211224SDDA3RD|
 ```
 Figure: A GCR1 in its regular format
 
@@ -287,22 +287,25 @@ Figure: A GCR1 in its regular format
 
 ```
 GRC1                            // Code generation
-|BNIN,                          // Brand: Nintendo
-GNGC,                           // Console: Gamecube
-RU,                             // Region: North America
-TC,                             // Type: Console
-CPL,                            // Color: Platinum // Should reflect brand official color names. Dandelion instead of yellow, Platinum instead of Silver
-V1.0                            // Revision: 0 / DOL-001
-|PU,                            // Physical condition: Used
-DCS                             // Damages: Cracks, smoke
-|20200829 M Chp HyperBoot,      // On August 29, 2020: Mod installed / Modchip / Hyperboot
-20200829 M LED Ctrlr,           // On August 29, 2020: Mod installed / LED(s) / Controller ports
-20200829 S Shl Oem Top,         // On August 29, 2020: Swapped part / Shell / OEM part / Top shell
-20200829 S Shl Oem Hsd,         // On August 29, 2020: Swapped part / Shell / OEM part / High speed data port cover
-20200829 R DDL Clean,           // * On August 29, 2020: Repaired / Disc drive laser / Cleaned
-20211224 R Msc M HyperBoot,     // On November 24, 2021: Repaired / Miscellaneous component / Hyperboot modchip 
-20211224 S Msc OEM Ctrlport3,   // On November 24, 2021: Swapped part / Miscellaneous component / OEM part / Controller port 3
-20211224 S DDA 3rd              // On November 24, 2021: Swapped part / Disc Drive assembly / 3rd party component
+|B NINT,                         // Brand: Nintendo
+A OEM,                           // Authenticity: Verified OEM (Original Equipment Manufacturer)
+F NGC,                           // Console family: GameCube
+R U,                             // Regional variant: North America (United States)
+T CON,                           // Type of hardware: Console
+C PLA,                           // Color: Platinum (Brand's own naming scheme)
+V 000                            // Revision: 0 / DOL-001 in the case of the GameCube
+|P USD,                          // Physical condition: Used
+D SHC SMK TXT Smoking_home          // Damage: Cracks in shell,  Smoke, [Freetext] Smoking home
+|20200829 M CHP HyperBoot,      // On August 29, 2020: Mod installed / Modchip / [Freetext] Hyperboot
+20200829 M LED Ctrlr,           // On August 29, 2020: Mod installed / LED(s) / [Freetext] Controller ports
+20200829 S SHL OEM Top,         // On August 29, 2020: Swapped part / Shell / OEM part / [Freetext] Top shell
+20200829 S SHL OEM Hsd,         // On August 29, 2020: Swapped part / Shell / OEM part / [Freetext] High speed data port cover
+20200829 R DDL Clean,           // * On August 29, 2020: Repaired / Disc drive laser / [Freetext] Cleaned
+20211224 R MSC M HyperBoot,     // On November 24, 2021: Repaired / Miscellaneous component / [Freetext] Hyperboot modchip
+20211224 S MSC OEM Ctrlport3,   // On November 24, 2021: Swapped part / Miscellaneous component / OEM part / [Freetext] Controller port 3
+20211224 S DDA 3RD|              // On November 24, 2021: Swapped part / Disc Drive assembly / 3rd party component
+
+* As the disc drive assembly was swapped on November 24, 2021, the earlier entry involving cleaning the previous laser is now a candidate for removal once the length of the string exceeds the maximum number of characters due to lack of importance.
 ```
 Figure: A full GCR1 with history, expanded for ease of reading (note: not a valid code on its own, as newlines are not an allowed character {#encoding})
 
