@@ -1,7 +1,7 @@
 name: CI
 
 on:
-  pull_request:
+  push:
     branches:  master
     paths:
       - 'grc.md'
@@ -46,8 +46,6 @@ jobs:
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
-        # Only trigger deploy if we're pushing to master
-        if: ${{ github.event.pull_request.merged == true }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
