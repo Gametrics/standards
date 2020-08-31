@@ -171,10 +171,10 @@ Type Code | Description
 CON       | Console
 DEV       | Devkit console
 SFT       | Game or software
-1st       | First-party software peripheral (ex: Super Scope)
-3rd       | 3rd-party software peripheral (ex: Konami Justifier)
-Cnt       | Console intrinsic component (ex: power adapter, RF switch, video adapter)
-Snt       | Software intrinsic component (ex: standalone case or disc for a multi-disc game)
+1ST       | First-party software peripheral (ex: Super Scope)
+3RD       | 3rd-party software peripheral (ex: Konami Justifier)
+CNT       | Console intrinsic component (ex: power adapter, RF switch, video adapter)
+SNT       | Software intrinsic component (ex: standalone case or disc for a multi-disc game)
 Table: Reserved/recognized type codes
 
 In the case of peripherals that have multiple independent parts (example: Super Scope itself, and the IR dongle that connects to the console), each part **MUST** be considered as its own unique peripheral. (I.e. the scope and the dongle would have their own individual codes). Batching components together **MUST NOT** be done.
