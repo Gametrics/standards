@@ -140,7 +140,7 @@ Code creators **SHOULD** use the brand/manufacturer when determining whether a d
 ### Family (F)
 The *first* release of any hardware system in any region defines the family, i.e. the US NES is still part of the Famicom family of systems. Use three-letter abbreviation based on these rules.
 
-For systems with unnecessarily confusing naming schemes (Xbox 1 vs original Xbox vs Xbox One X vs Xbox smfh), the generation number willb be used (ex XB1=Original xbox, XB2=Xbox 360/Slim, Xb3=Xbox One/Xbox One S/X) 
+For systems with unnecessarily confusing naming schemes (Xbox 1 vs original Xbox vs Xbox One X vs Xbox), the generation number willb be used (ex XB1=Original xbox, XB2=Xbox 360/Slim, Xb3=Xbox One/Xbox One S/X) 
 
 For software, the family indicates the primary system the software is intended to run on.
 
