@@ -371,11 +371,18 @@ D SHC SMK TXT Smoking_home       // Damage: Cracks in shell,  Smoke, [Freetext] 
 ```
 Figure: A full GCR1 with history, expanded for ease of reading (note: not a valid code on its own, as newlines are not an allowed character {#encoding})
 
-# Safety/Security Considerations
+# Legal
+
+## Safety/Security Considerations
 It should be noted that nothing prevents an unscrupulous seller from misrepresenting their product. A GRC is intended for shorthand to describe a device and its history, not as a mark of safety or trustworthiness.
 
-# Legal Notice
+## Disclaimer
 The authors of GRC offer this standard and any related applications or services on a BEST EFFORT basis. It is not warrantied to be accurate, up to date, or fit for any particular purpose.
+
+## Copyright
+Copyright (2020) - Mike Parks & Alexander Parrish.
+
+Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.  A copy of the license is included in the file `LICENSE.MD`.
 
 {backmatter}
 
