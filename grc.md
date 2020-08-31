@@ -270,14 +270,14 @@ If new damage occurs, or if damage is repaired by console service, such as a she
   
 * **TXT**: 24 characters of freetext follow; **MUST** come last, only one is permitted per GRC
 
-## Modifications \(M\)
+### Modifications \(M\)
 A list of the item’s aftermarket modifications, including such things as custom shells, LED modifications, software and hardware modifications.
 
 What constitutes a modification rather than a repair is whether the console appears or behaves differently from a stock console. Replacing a damaged shell with an identical shell is a repair (swap), whereas replacing a shell with a different color of shell is a modification.
 
 If there are no modifications present, this field **MUST** be populated with "STK".
 
-### Reserved/Known Modification Codes
+#### Reserved/Known Modification Codes
 * **STK**: No known modifications present on this console
 
 * **LED**: LED modification; lights have been added to part of the item that did not have them before, or existing colors were replaced
