@@ -40,13 +40,15 @@ This document proposes a new standard encoding method for consumer game console,
 
 # Introduction
 
-The GRC is an ASCII, pipe ("|") delimited string intended to denote the general status, details, and repair history of consumer video game consoles, software, and peripherals.
+The GRC, Game Repair Code, is a condensed text string intended to denote the general status, details, and repair history of consumer video game consoles, software, and peripherals. It is intended for use by collectors, curators, retailers, resellers and enthusiasts, for any use case where a standardized way of representing the history and condition of video game paraphernalia would be useful.
+
+## Status of This Document
+
+GRC v1 is currently in a develomental, RFC draft phase. It should not be used for any purpose until being finalized and tooling has been developed.
 
 ## Terminology
 
-The keywords **MUST**, **MUST NOT**, **REQUIRED**, **SHALL**, **SHALL NOT**, **SHOULD**,
-**SHOULD NOT**, **RECOMMENDED**, **MAY**, and **OPTIONAL**, when they appear in this document, are
- to be interpreted as described in [@RFC2119].
+The keywords **MUST**, **MUST NOT**, **REQUIRED**, **SHALL**, **SHALL NOT**, **SHOULD**, **SHOULD NOT**, **RECOMMENDED**, **MAY**, and **OPTIONAL**, when they appear in this document, are to be interpreted as described in [@RFC2119].
 
 ## Availability & Updates
 
@@ -54,8 +56,10 @@ The latest version document will always be hosted at https://gamerepair.codes
 
 To propose changes, please submit a pull request at https://github.com/Karunamon/grc
 
+The MASTER branch of the above-named repository is considered to be the most up-to-date version of this standard.
+
 ## Versioning
-The GRC version is a monotonic counter. Any backwards-incompatible changes, such as changing the format or ordering of a field, will be reflected by incrementing the counter by one.
+The GRC version is a monotonic counter. Any backwards-incompatible changes, such as changing the format or ordering of a field or attribute, will be reflected by incrementing the counter by one.
 
 # Syntax
 
@@ -69,9 +73,9 @@ A valid GRC string **MUST NOT** exceed 1024 characters *before* encoding/compres
 ## Encoding {#encoding}
 A GRC string **MAY** be compressed for inclusion in tweets, QR codes, etc. 
 
-A compressed GRC string **MUST** use the Deflate algorithm.
+A compressed GRC string **MUST** use the Deflate algorithm and no others.
 
-Usable characters in a GRC string are the letters A through Z, numbers 0 through 9, and the symbols "!?;|,". Most characters are usable in freetext strings, however, the pipe and comma `|` `,` are reserved as separators and **MUST NOT** be used in freetext strings. Note that spaces **MUST NOT** be used.
+Usable characters in a GRC string are the letters A through Z, numbers 0 through 9, and the symbols `!?;|,`. Most characters are usable in freetext strings, however, the pipe and comma `|` `,` are reserved as separators and **MUST NOT** be used in freetext strings, while spaces ` ` **MUST NOT** be used at all.
 
 The underscore character `_` **MAY** be used to indicate a word break in freetext sections. The PCRE regex `^([A-Z]|[a-z]|[0-9]|[\!\?\|,;_])+$` **MAY** be used to check whether a GRC string contains valid characters.
 
