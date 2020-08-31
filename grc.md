@@ -6,7 +6,7 @@ category = "info"
 
 ipr = "none"
 area = "General"
-workgroup = "Retro Gaming Broadcast Workgroup"
+workgroup = "Game Repair Code Workgroup"
 
 [seriesInfo]
 name = "RFC"
@@ -22,7 +22,6 @@ fullname="Michael Parks"
 organization="TKWare Enterprises"
  [author.address]
  email = "mparks@tkware.info"
- phone = "+1 (307)335-3132"
 [[author]]
 initials="A."
 surname="Parrish"
@@ -75,9 +74,9 @@ A GRC string **MAY** be compressed for inclusion in tweets, QR codes, etc.
 
 A compressed GRC string **MUST** use the Deflate algorithm and no others.
 
-Usable characters in a GRC string are the letters A through Z, numbers 0 through 9, and the symbols `!?;|,`. Most characters are usable in freetext strings, however, the pipe and comma `|` `,` are reserved as separators and **MUST NOT** be used in freetext strings, while spaces ` ` **MUST NOT** be used at all.
+Usable characters in a GRC string are the letters A through Z, numbers 0 through 9, and the symbols `!?;|,`. Most characters are usable in freetext strings, however, the pipe and comma `|` `,` are reserved as separators and **MUST NOT** be used in freetext strings.
 
-The underscore character `_` **MAY** be used to indicate a word break in freetext sections. The PCRE regex `^([A-Z]|[a-z]|[0-9]|[\!\?\|,;_])+$` **MAY** be used to check whether a GRC string contains valid characters.
+Spaces ` ` **MUST NOT** be used at all. The underscore character `_` **MAY** instead be used to indicate a word break in freetext sections if desired. The PCRE regex `^([A-Z]|[a-z]|[0-9]|[\!\?\|,;_])+$` **MAY** be used to check whether a GRC string contains valid characters.
 
 ## Version Field
 This field **MUST** begin with an all-caps "GRC" followed by a monotonic counter indicating the revision of the standard used. This document is the first revision, and so this field would read `GRC1`
@@ -346,12 +345,14 @@ This attribute represents the nature of the repair or replacement made. It **MUS
 After each item, include up to 20 characters of free-form text with any other pertinent details. This text is not delimited from the repair code, i.e. to indicate installation of a modchip, you would enter `MCHPHyperBoot`
 
 # Example Code
+The following is an example GRC code that fits this standard:
+
 ```
 GRC1|BNINT,AOEM,FNGC,RU,TCON,CPLA,V000|PUSD,DSHCSMKTXTSmoking_home|MCHPLED|20200829MCHPHyperBoot,20200829MLEDCtrlr,20200829SSHLOEMTop,20200829SSHLOEMHsd,20211224RMSCMHyperBoot,20211224SMSCOEMCtrlport3,20211224SDDA3RD|
 ```
 Figure: A GCR1 in its regular format
 
-## Human-Readable:
+By adding newlines and spaces, it is possible to break this code down into a more human-readable format:
 
 ```
 GRC1                             // Code generation
@@ -373,7 +374,7 @@ D SHC SMK TXT Smoking_home       // Damage: Cracks in shell,  Smoke, [Freetext] 
 20211224 S MSC OEM Ctrlport3,    // On November 24, 2021: Swapped part / Miscellaneous component / OEM part / [Freetext] Controller port 3
 20211224 S DDA 3RD|              // On November 24, 2021: Swapped part / Disc Drive assembly / 3rd party component
 ```
-Figure: A full GCR1 with history, expanded for ease of reading (note: not a valid code on its own, as newlines are not an allowed character {#encoding})
+Figure: A full GCR1 with history, expanded for ease of reading (note: not a valid code on its own, as newlines and spaces not an allowed characters [#encoding])
 
 # Legal
 
