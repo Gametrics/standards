@@ -50,7 +50,7 @@ The keywords **MUST**, **MUST NOT**, **REQUIRED**, **SHALL**, **SHALL NOT**, **S
 
 ## Availability & Updates
 
-The latest version document will always be hosted at https://gamerepair.codes.
+The latest version document will always be hosted at https://gamerepair.codes
 
 To propose changes, please submit a pull request at https://github.com/Karunamon/grc
 
@@ -73,13 +73,13 @@ A GRC string **MAY** be compressed for inclusion in tweets, QR codes, etc.
 
 A compressed GRC string **MUST NOT** use any algorithm other than Deflate.
 
-Usable characters in a GRC string are the letters A through Z, numbers zero through 9, and the symbols "!?|,". The PCRE regex `([A-Z][a-z][0-9][\!\?\|,])+` **MAY** be used to check whether a GRC string contains valid characters.
+Usable characters in a GRC string are the letters A through Z, numbers zero through 9, and the symbols "!?;|,". Most characters are usable in freetext strings, however, "|," are reserved as separators and **MUST NOT** be used in freetext strings. Note that spaces **MUST NOT** be used, and the underscore character "_" **MAY** be used to indicate a word break in freetext sections. The PCRE regex `^([A-Z]|[a-z]|[0-9]|[\!\?\|,;_])+$` **MAY** be used to check whether a GRC string contains valid characters.
 
-## Version field
+## Version Field
 This field **MUST** begin with an all-caps "GRC" followed by a monotonic counter indicating the revision of the standard used. This document is the first revision, and so this field would read `GRC1`
 
 
-## Hardware field
+## Hardware Field
 A definition of the actual physical object this code is referencing.
 
 This field **MUST** be formatted in this order, as follows:
@@ -92,7 +92,7 @@ If the manufacturer is defunct, renamed, or was purchased by another entity, the
 
 If the company's name is included in the reserved list below, that abbreviation **MUST** be used.
 
-#### Subsidiaries and regional branches
+#### Subsidiaries and Regional Branches
 If hardware/software is known to be released by a subsidiary of a larger company, the code creator **MUST** use the subsidiary's name (i.e. Tengen would be its own company, not Atari, even though Tengen was an Atari subsidiary).
 
 This does not apply in the case of identically-named regional susidiaries, such as Nintendo of Japan or Nintendo of America, or Rockstar North  In these cases, use the code of the parent company.
@@ -119,7 +119,7 @@ UNKN: Brand is unknow*able* (third party "no name" with no meaningful brand info
 ?abcd: Prefix for non-standard name (see next section)
 
 
-#### Unknown or non-standardized names
+#### Unknown or Non-Standardized Names
 Company codes prefixed with a "?" are non-standard. Tools that create or parse GRCs **SHOULD NOT** attempt to create a mapping of nonstandard names to full names, as nonstandard names could be duplicated.
 
 If a a company is not listed in this standard, the code creator **MUST** do one of the following:
@@ -160,7 +160,7 @@ XB4         | Xbox Series X
 PC8         | NEC PC-88
 Table: Reserved/recognized family codes
 
-### Region (R)
+### Region \(R\)
 This field **MUST** be one of the one or two-letter GoodTools country codes. [@goodtools-country]
 
 ### Type (T) (Console/Accessory)
@@ -179,17 +179,19 @@ Table: Reserved/recognized type codes
 
 In the case of peripherals that have multiple independent parts (example: Super Scope itself, and the IR dongle that connects to the console), each part **MUST** be considered as its own unique peripheral. (I.e. the scope and the dongle would have their own individual codes). Batching components together **MUST NOT** be done.
 
-### Color (C) (optional)
+### Color \(C\) (Optional)
 This field is **OPTIONAL** and can be ignored.
 
 If included, this field **MUST** contain the first three letters of the official color as given by the manufacturer. If the manufacturer calls their color "platinum", use PLT, not SLV (silver). 
  
-
 ### ReVision (V)
 Revision 
 
 
-### Physical Condition (P)
+## Condition Field
+A definition of the item's current physical condition, specifically regarding wear and damage.
+
+### Physical Condition \(P\)
 Represents the quality of the physical condition of the hardware. **MUST** be one of the following:
 
 Condition Code | Description
@@ -201,28 +203,32 @@ PNF            | Used, partially nonfunctional (system is fit for purpose but ce
 CNF            | Completely nonfunctional (system is no longer fit for purpose)
 Table: Reserved/recognized physical condition codes
 
-### Currently known damage (D)
+### Currently Known Damage (D)
 Damage consists of hardware or software deformities, with each class of damage having its own unique 3-letter code. If multiple classes of damage apply to the hardware, list them consecutively with no delimiter. For a yellowed case with smoke damage and missing fasteners, this would read `SHYSMKFST`.
 
-#### Reserved/known damage codes
+If new damage occurs, or if damage is repaired by console service, such as a shell replacement, the known damage fields **MUST** be updated to reflect the current condition of the item.
+
+#### Reserved/Known Damage Codes
 * **SH\***: Shell/Case issues
   * **SHC**: Shell cracks
   * **SHS**: Shell scratches
   * **SHY**: Yellowing
   * **SHF**: Faded wording or print
-* **PCB or components**
-  * **PCB**: Damage to the board itself, such as cracks or lifted traces
-  * **PCC**: Visible damage to board components, such as blown capacitors or transistors
+  * **SHL**: Missing, damaged labels or stickers
+  * **SHM**: Missing shell parts, such as a battery cover
+* **EC\***: Electrical component issues
+  * **ECP**: Damage to the board itself, such as cracks or lifted traces
+  * **ECC**: Visible damage to board components, such as blown capacitors or transistors
 * **SMK**: Smoke (either nicotine or from fire) damage
 * **WAT**: Water/moisture damage, including rust
 * **BLK**: Battery leakage or corrosion
 * **OL\***: Online service issues
   * **OLS**: Limited access to online services (game bans, or restriction to updates only)
   * **OLB**: No access to online services (hard console ban, updates not allowed) 
-* **LC\***: Lose or intermittent connectors 
+* **LC\***: Loose or intermittent connectors 
   * **LCC**: Loose controller port
   * **LCV**: Loose video port
-  * **LCE**: Loose expansion port
+  * **LCE**: Loose expansion or memory card port
   * **LCP**: Loose power connector
   * **LCS**: Loose switch of any kind (power/mode/etc.)
 * **DNS**: Does not save. Battery backup/saving failure
@@ -233,27 +239,54 @@ Damage consists of hardware or software deformities, with each class of damage h
   * **OMD**: Scratches, deep (reading is impacted)
   * **OMC**: Cracks, superficial (in the center ring or not-reading area)
   * **OMX**: Cracks, deep (disc is likely destroyed)
+  * **OMR**: Damage or holes in the data layer due to label damage or "Disc rot"
+* **TXT**: 24 characters of freetext follow; **MUST** come last and only one entry is permitted per code
 
-* **TXT**: None of the known items matches, 24 characters of freetext follows 
+## Modifications Field
+A list of the item’s aftermarket modifications, including such things as custom shells, LED modifications, software and hardware modifications.
+
+What constitutes a modification rather than a repair is whether the console appears or behaves differently from a stock console. Replacing a damaged shell with an identical shell is a repair, whereas replacing a shell with a different color of shell is a modification.
+
+If there are no modifications present, this field **MUST** be populated with "STK".
+
+### Reserved/Known Modification Codes
+* **LED**: LED modification; Lights have been added to part of the item that did not have them before, or existing colors were replaced
+* **SHL**: Shell modification; Replacing or painting a shell with a custom color
+* **BKL**: Backlight
+* **RGF**: Region-free
+* **CHP**: Modchip
+* **SFM**: Soft-mod / cfw
+* **CNS**: Consolization
+* **VID**: Video-output (rgb, hdmi)
+* **STO**: Storage modification
+* **BAT**: Battery modification
+* **AUD**: Audio-output modifications (speakers, headphones)
+* **ODE**: Optical drive emulator
+* **STK**: No known modifications present on this console
+
+
 
 ## Service History Field
-The service history field represents a list of repair events. This list **MUST** be in chronological order, each event **MUST** be comma-separated.
+The service history field represents a list of repair events. This list **MUST** be in chronological order, and each event **MUST** be comma-separated.
 
 A single repair is defined as a single item or directly related group of items.
 
-A history entry **MUST** begin with the ISO8601 date (ex: YYYYMMDD) the action was *finished*, with no separator. Example: 20200829 for August 8th, 2020.
+If a service history entry is completely invalidated by a later event, such as if the same component is replaced twice, the earlier entry **MUST** be removed.
+
+### Date of Service
+Each history entry **MUST** begin with the ISO8601 date (ex: YYYYMMDD) the action was *finished*, with no separator. Example: 20200829 for August 29th, 2020.
 
 If the month or date is unknown, a double zero ("00") **MUST** be used for that section of the date instead.
 
 Example: 20200000 for "some time in 2020", or 20200100 for "some time in January in 2020"
 
-If the entire date is unknown, the date should be given as a single zero.
+If the entire date is unknown, the date **MUST** be given as a single zero.
 
 The service history field format is as follows:
 `(Datestamp) (Repair type) (repair item shorthand) (20 characters free text),`
 
 
-### Repair types
+### Repair Types
 Denotes the general disposition of the changes made to the hardware. This **MUST** be one of the 3 following characters:
 
 * M: Mod
@@ -262,28 +295,28 @@ Denotes the general disposition of the changes made to the hardware. This **MUST
 
 Swaps or repairs that require no tools, such as battery replacements or consumer-accessible cleaning (say, taking a cotton swab to a the laser on a disc system) **MUST NOT** have a repair entry added.
 
-### Repair item shorthand
+### Repair Item Shorthand
 This attribute represents the nature of the repair or replacement made. It **MUST** be one of the following:
 
-* Oem: First party
-* 3rd: Third party
-* Rep: Reproduction (third party, looks like OEM)
-* Chp: Modchip
-* Shl: Shell/case
-* Pnt: Paint
-* Rbt: Retrobrite
-* Rpt: Metal replating
-* Msc: Miscellaneous component
+* OEM: First party
+* 3RD: Third party
+* REP: Reproduction (third party, looks like OEM)
+* CHP: Modchip
+* SHL: Shell/case
+* PNT: Paint
+* RBT: Retrobrite
+* RPT: Metal replating
+* MSC: Miscellaneous component
 
 After each item, you **SHOULD** include a space character and up to 20 characters of free-form text with any other pertinent details.
 
-# Example code
+# Example Code
 ```
 GRC1|BNINT,AOEM,FNGC,RU,TCON,CPLA,V000|PUSD,DSHCSMKTXTSmoking_home|20200829MCHPHyperBoot,20200829MLEDCtrlr,20200829SSHLOEMTop,20200829SSHLOEMHsd,20200829RDDLClean,20211224RMSCMHyperBoot,20211224SMSCOEMCtrlport3,20211224SDDA3RD|
 ```
 Figure: A GCR1 in its regular format
 
-## Human-readable:
+## Human-Readable:
 
 ```
 GRC1                            // Code generation
@@ -300,19 +333,18 @@ D SHC SMK TXT Smoking_home          // Damage: Cracks in shell,  Smoke, [Freetex
 20200829 M LED Ctrlr,           // On August 29, 2020: Mod installed / LED(s) / [Freetext] Controller ports
 20200829 S SHL OEM Top,         // On August 29, 2020: Swapped part / Shell / OEM part / [Freetext] Top shell
 20200829 S SHL OEM Hsd,         // On August 29, 2020: Swapped part / Shell / OEM part / [Freetext] High speed data port cover
-20200829 R DDL Clean,           // * On August 29, 2020: Repaired / Disc drive laser / [Freetext] Cleaned
 20211224 R MSC M HyperBoot,     // On November 24, 2021: Repaired / Miscellaneous component / [Freetext] Hyperboot modchip
 20211224 S MSC OEM Ctrlport3,   // On November 24, 2021: Swapped part / Miscellaneous component / OEM part / [Freetext] Controller port 3
 20211224 S DDA 3RD|              // On November 24, 2021: Swapped part / Disc Drive assembly / 3rd party component
 
-* As the disc drive assembly was swapped on November 24, 2021, the earlier entry involving cleaning the previous laser is now a candidate for removal once the length of the string exceeds the maximum number of characters due to lack of importance.
+
 ```
 Figure: A full GCR1 with history, expanded for ease of reading (note: not a valid code on its own, as newlines are not an allowed character {#encoding})
 
-# Safety/security considerations
+# Safety/Security Considerations
 It should be noted that nothing prevents an unscrupulous seller from misrepresenting their product. A GRC is intended for shorthand to describe a device and its history, not as a mark of safety or trustworthiness.
 
-# Legal notice
+# Legal Notice
  The authors of GRC offer this standard on a BEST EFFORT basis. It is not warrantied to be free from defects or for fitness for any particular purpose.
 
 {backmatter}
