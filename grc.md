@@ -321,7 +321,6 @@ Repair codes **MUST** be considered permanent and never be removed for any reaso
 * ***NR\****: No repairs, choose one of these two:
   * ***NRS***: No repairs, all seals still intact
   * ***NRO***: No repairs, has been opened (seals broken)
-  
 * **SHL**: Shell repair (resurfacing or crack filling) or replacement, including shell components like switches or buttons (excluding cleaning)
 * **LBL**: Label or printing replacement
 * **BKL**: Backlight
@@ -335,7 +334,8 @@ Repair codes **MUST** be considered permanent and never be removed for any reaso
 * **BAT**: Non-user-accessible batteries
 * **RPT**: Metal replating
 
-* **TXT**: * **TXT**: 24 characters of freetext follow; **MUST** come last, only one is permitted under code E.
+* **REP**: Repro (non-OEM) parts were used for any replacements
+* **TXT**: 24 characters of freetext follow; **MUST** come last, only one is permitted under code E.
 
 ## Service History Field
 The service history field represents a list of repair events.  A "repair event" defined as service of a single item or directly related group of items in a subassembly.
@@ -346,15 +346,19 @@ If a service history entry is invalidated or duplicated by a later event, such a
 
 Code creators **MUST NOT** add new service history items that they did not either personally perform or have done on their behalf.
 
+The service history field format is as follows:
+
+`(Datestamp) (Repair type) (Item repaired) (20 characters free text),`
+
+### Note on OEM Replacements / Refurbishments
+Often, when sending consoles in to OEMs, they may repair a system and send it back, *or* send an entirely new refurbished console. Check the serial numbers in this case. If a new serial number is received, then you have received a new console and **MUST** start a brand new code. Do not carry any history over. If the hardware you received is not in its factory packaging, you **MUST** add a **REF** under code D, and note its status as **USD** under code
+
+Refurbished consoles likely have had components repaired, but unless you are able to determine with certainty which components those were, you **MUST NOT** guess.
+
 ### Date of Service
 Each history entry **MUST** begin with the ISO8601 date (ex: YYYYMMDD) the action was *finished*, with no separator. Example: 20200829 for August 29th, 2020.
 
 If the repair date is entirely unknown, but you know a repair was done, you **MUST NOT** add a history entry for it. Note the nature of the repaired/replaced component under code E (Repairs) instead.
-
-The service history field format is as follows:
-
-`(Datestamp) (Repair type) (repair item shorthand) (20 characters free text),`
-
 
 ### Repair Types
 Denotes the general disposition of the changes made to the hardware. This **MUST** be one of the 3 following characters:
@@ -365,26 +369,8 @@ Denotes the general disposition of the changes made to the hardware. This **MUST
 
 Swaps or repairs that require no tools, such as battery replacements or consumer-accessible cleaning (say, taking a cotton swab to a the laser on a disc system) **MUST NOT** have a repair entry added.
 
-#### OEM Replacements / Refurbishments
-Often, when sending consoles in to OEMs, they may repair a system and send it back, *or* send an entirely new refurbished console. Check the serial numbers in this case. If a new serial number is received, then you have received a new console and **MUST** start a brand new code. Do not carry any history over. If the hardware you received is not in its factory packaging, you **MUST** add a **REF** under code D, and note its status as **USD** under code
-
-Refurbished consoles likely have had components repaired, but unless you are able to determine with certainty which components those were, you **MUST NOT** guess.
-
-### Repair Item Shorthand
-This attribute represents the nature of the repair or replacement made. It **MUST** be one of the following:
-
-* OEM: First party
-* 3RD: Third party
-* REP: Reproduction (third party, looks like OEM)
-* CHP: Modchip
-* SHL: Shell/case
-* PNT: Paint
-* RBT: Retrobrite
-* RPT: Metal replating
-* PCB: PCB component repair (caps, ICs, etc.)
-* MSC: Miscellaneous component
-
-After each item, include up to 20 characters of free-form text with any other pertinent details. This text is not delimited from the repair code, i.e. to indicate installation of a HyperBoot modchip, you would enter `MCHPHyperBoot`
+### Item Repaired
+Use a valid code from the Repairs (E) attribute
 
 # Example Code
 The following is an example GRC code that fits this standard:
