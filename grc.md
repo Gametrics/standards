@@ -66,6 +66,8 @@ A valid GRC string **MUST** follow this format:
 
 `GRC Version Field|Hardware Field|Repair history field|`
 
+Note that all fields and attributes are **REQUIRED** unless otherwise stated.
+
 ## Length
 A valid GRC string **MUST NOT** exceed 1024 characters *before* encoding/compression. If a given code would be above this limit after adding a repair record, the creator of the code **SHOULD** use their best judgment to remove old or less-important records.
 
@@ -137,6 +139,8 @@ This attribute represents the authenticity of the device. It **MUST** be one of 
 * **REP** if it is a repro or bootleg.
 
 Code creators **SHOULD** consider the brand/manufacturer when determining whether a device is OEM or Repro. If a piece of hardware passes itself off as Nintendo hardware but is not made by Nintendo, its proper code is REP. Third party consoles do not pass themselves off as OEM hardware, and **MUST** be given as their own company name with an authenticity of `OEM`.
+
+This code has more to do with manufacturer than components. A Nintendo DS with sigificant modifications is still a Nintendo-made Nintendo DS at the end of the day.
 
 ### Family \(F\)
 This attribute represents the general hardware family of the device. It is composed of a 3-character ALL-CAPS alphanumeric string.
@@ -225,7 +229,7 @@ Condition Code | Description
 ---------------|------------
 NEW            | New, still in *unopened* factory packaging.
 MNT            | Mint, opened, but in best concievable physical shape. **No damage or mods**.
-USD            | Used, but fully functional. May have damage or be modified. Includes manufacturer refurbished hardware.
+USD            | Used, but fully functional. May have damage or be modified. Includes the presence of manufacturer refurbished hardware.
 PNF            | Used, partially nonfunctional (system is fit for purpose but certain functions don't work)
 CNF            | Completely nonfunctional (system is no longer fit for purpose)
 Table: Reserved/recognized physical condition codes
@@ -269,9 +273,18 @@ If new damage occurs, or if damage is repaired by console service, such as a she
   * **OMC**: Cracks, superficial (in the center ring or not-reading area)
   * **OMX**: Cracks, deep (disc is likely destroyed)
   * **OMR**: Damage or holes in the data layer due to label damage or "Disc rot"
+* **SC\***: Screen and digitizer issues
+  * **SCS**: Screen scratches (superficial)
+  * **SCR**: Screen scratches (deep)
+  * **SCC**: Screen cracks (superficial)
+  * **SCA**: Screen cracks (deep, functionality/readability impacted)
+  * **SCU**: Screen colors are obviously incorrect
+  * **SCP**: Dead pixels
+  * **SCD**: Digitizer (touchscreen) issues
+  * **SCX**: Screen is completely dead/nonfunctional for unknown reasons
 * **REF**: Includes refurbished parts
   
-* **TXT**: 24 characters of freetext follow; **MUST** come last, only one is permitted per GRC
+* **TXT**: 24 characters of freetext follow; **MUST** come last, only one is permitted in code D.
 
 ### Modifications \(M\)
 A list of the item’s aftermarket modifications, including such things as custom shells, LED modifications, software and hardware modifications.
@@ -284,36 +297,62 @@ If there are no modifications present, this field **MUST** be populated with "ST
 * **STK**: No known modifications present on this console
 
 * **LED**: LED modification; lights have been added to part of the item that did not have them before, or existing colors were replaced
-* **SHL**: Shell modification; replacing or painting a shell with a custom color
+* **SHL**: Shell modification; replacing with a non-stock shell or painting a shell with a custom color
 * **BKL**: Backlight
 * **RGF**: Region-free
 * **CHP**: Modchip
-* **SFM**: Soft-mod / cfw
+* **SFM**: Soft-mod / custom firmwarre
 * **CNS**: Consolization
 * **VID**: Video-output (rgb, hdmi)
 * **STO**: Storage modification
 * **BAT**: Battery modification
 * **AUD**: Audio-output modifications (speakers, headphones)
+* **PCB**: Circuit or PCB-level mods, not including region-free or modchip installation
 * **ODE**: Optical drive emulator
 
+### Known Repairs/Replacements \(E\)
+This attribute is a list of non-modification repairs. It includes replacement of OEM parts with repro parts *that look and perform identically to their OEM counterparts*. For instance, replacing a cracked shell with an identical one, or replacing minor electronic components, or screen repair, etc. Generally, what differentiates an M from an R is whether the system has been customized or substantially changed from its OEM state. If this difference is ambiguous for your use case, you **SHOULD** default to using the M code instead.
+
+Repairs/replacements of already-modified components **MUST** be treated as a re-modification and not included in this field.
+
+Repair codes **MUST** be considered permanent and never be removed for any reason unless inaccurate.
+
+#### Reserved/Known Repair Codes
+* ***NR\****: No repairs, choose one of these two:
+  * ***NRS***: No repairs, all seals still intact
+  * ***NRO***: No repairs, has been opened (seals broken)
+  
+* **SHL**: Shell repair (resurfacing or crack filling) or replacement, including shell components like switches or buttons (excluding cleaning)
+* **LBL**: Label or printing replacement
+* **BKL**: Backlight
+* **SCR**: Screens/displays
+* **DIG**: Digitizer (touchscreen)
+* **PRT**: Ports (controller, data, video, etc.)
+* **PCB**: PCB components
+* **RBT**: Retrobriting
+* **SFT**: Software / filesystem
+* **SPK**: Speaker / direct sound output (excluding jacks, these **MUST** be classified as **PRT**)
+* **BAT**: Non-user-accessible batteries
+* **RPT**: Metal replating
+
+* **TXT**: * **TXT**: 24 characters of freetext follow; **MUST** come last, only one is permitted under code E.
 
 ## Service History Field
-The service history field represents a list of repair events. This list **MUST** be in chronological order, and each event **MUST** be comma-separated.
+The service history field represents a list of repair events.  A "repair event" defined as service of a single item or directly related group of items in a subassembly.
 
-A "repair event" defined as service of a single item or directly related group of items in a subassembly.
+The history list **MUST** be in chronological order, oldest events first. Each event **MUST** be comma-separated.
 
 If a service history entry is invalidated or duplicated by a later event, such as the same component being replaced twice, the earlier entry **SHOULD** be removed.
+
+Code creators **MUST NOT** add new service history items that they did not either personally perform or have done on their behalf.
 
 ### Date of Service
 Each history entry **MUST** begin with the ISO8601 date (ex: YYYYMMDD) the action was *finished*, with no separator. Example: 20200829 for August 29th, 2020.
 
-If the month or date is unknown, a double zero ("00") **MUST** be used for that section of the date instead.
-
-Example: 20200000 for "some time in 2020", or 20200100 for "some time in January in 2020"
-
-If the entire date is unknown, the date **MUST** be given as all zeroes.
+If the repair date is entirely unknown, but you know a repair was done, you **MUST NOT** add a history entry for it. Note the nature of the repaired/replaced component under code E (Repairs) instead.
 
 The service history field format is as follows:
+
 `(Datestamp) (Repair type) (repair item shorthand) (20 characters free text),`
 
 
@@ -326,8 +365,10 @@ Denotes the general disposition of the changes made to the hardware. This **MUST
 
 Swaps or repairs that require no tools, such as battery replacements or consumer-accessible cleaning (say, taking a cotton swab to a the laser on a disc system) **MUST NOT** have a repair entry added.
 
-#### OEM Replacements
-Often, when sending consoles in to OEMs, they may repair a system and send it back, *or* send an entirely new refurbished console. Check the serial numbers in this case. If a new serial number is received, then you have received a new console and should start a brand new code.
+#### OEM Replacements / Refurbishments
+Often, when sending consoles in to OEMs, they may repair a system and send it back, *or* send an entirely new refurbished console. Check the serial numbers in this case. If a new serial number is received, then you have received a new console and **MUST** start a brand new code. Do not carry any history over. If the hardware you received is not in its factory packaging, you **MUST** add a **REF** under code D, and note its status as **USD** under code
+
+Refurbished consoles likely have had components repaired, but unless you are able to determine with certainty which components those were, you **MUST NOT** guess.
 
 ### Repair Item Shorthand
 This attribute represents the nature of the repair or replacement made. It **MUST** be one of the following:
@@ -340,9 +381,10 @@ This attribute represents the nature of the repair or replacement made. It **MUS
 * PNT: Paint
 * RBT: Retrobrite
 * RPT: Metal replating
+* PCB: PCB component repair (caps, ICs, etc.)
 * MSC: Miscellaneous component
 
-After each item, include up to 20 characters of free-form text with any other pertinent details. This text is not delimited from the repair code, i.e. to indicate installation of a modchip, you would enter `MCHPHyperBoot`
+After each item, include up to 20 characters of free-form text with any other pertinent details. This text is not delimited from the repair code, i.e. to indicate installation of a HyperBoot modchip, you would enter `MCHPHyperBoot`
 
 # Example Code
 The following is an example GRC code that fits this standard:
@@ -374,7 +416,7 @@ D SHC SMK TXT Smoking_home       // Damage: Cracks in shell,  Smoke, [Freetext] 
 20211224 S MSC OEM Ctrlport3,    // On November 24, 2021: Swapped part / Miscellaneous component / OEM part / [Freetext] Controller port 3
 20211224 S DDA 3RD|              // On November 24, 2021: Swapped part / Disc Drive assembly / 3rd party component
 ```
-Figure: A full GCR1 with history, expanded for ease of reading (note: not a valid code on its own, as newlines and spaces not an allowed characters [#encoding])
+Figure: A full GCR1 with history, expanded for ease of reading (note: not a valid code on its own, as newlines and spaces are not allowed characters)
 
 # Legal
 
