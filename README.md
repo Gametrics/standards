@@ -1,6 +1,6 @@
 # Game Repair Code Project
 
-![License](https://img.shields.io/badge/License-GFDLv1.3-blue?link=https://www.gnu.org/licenses/fdl-1.3.en.html) ![Last commit](https://img.shields.io/github/last-commit/karunamon/grc) ![Latest version](https://img.shields.io/badge/Last%20Version-DRAFT-red) 
+![License](https://img.shields.io/badge/License-GFDLv1.3-blue?link=https://www.gnu.org/licenses/fdl-1.3.en.html) ![Last commit](https://img.shields.io/github/last-commit/karunamon/grc) ![Latest version](https://img.shields.io/badge/Last%20Version-DRAFT-red) ![Discord](https://img.shields.io/discord/709655247357739048?logo=discord)(https://discord.gg/XF6dK2S)
 
 The Game Repair Code (GRC) is a [Geek Code](https://github.com/telavivmakers/geek_code)-like system for efficiently storing and sharing the information about a piece of game hardware or software. It is intended for use by collectors, retailers, enthusiasts, or anyone in between with an interest in video game paraphernalia.
 
