@@ -1,0 +1,44 @@
+grc: ID (VERSION | COMPRESSION ) _FS data
+data: (fieldlist | compressdata)
+
+fieldlist: hwblock _FS condblock _FS repairblock
+
+hwblock: brand _DS auth _DS fam _DS region _DS type _DS color _DS rev
+brand: "B" /\??[A-Z]{4}/
+auth: "A" PARTCLASS
+fam: "F" THREEALPHA
+region: "R" UL ~ 1..2
+type: "T" THREEALPHA
+color: "C" THREECAPS
+rev: "V" freetext
+
+condblock: phys _DS dam _DS mod _DS rep
+phys: "P" THREECAPS
+dam: "D" THREECAPS* ["TXT" freetext]
+mod: "M" THREECAPS+
+rep: "E" THREECAPS+ ["TXT" freetext]
+
+repairblock: (repairrecord (_FS | _DS)) *
+repairrecord: (REPAIRDATE REPAIRTYPE REPAIRITEM freetext+)
+REPAIRDATE: DIGIT ~ 8..8
+REPAIRTYPE: ("M"
+            |"S" PARTCLASS
+            |"R")
+REPAIRITEM: THREECAPS
+
+PARTCLASS: ( "OEM" | "REP" )
+
+
+compressdata: /[A-Za-z0-9\/=\+]+/
+ID: "GRC"
+VERSION: "1"
+COMPRESSION: "Z"
+_FS: "|"
+_DS: ","
+THREEALPHA: (UL | DIGIT) ~ 3..3
+THREECAPS: UL ~ 3..3
+freetext: /[\w\?\!;\.]+/
+
+%import common.UCASE_LETTER -> UL
+%import common.LCASE_LETTER -> LL
+%import common.DIGIT -> DIGIT
