@@ -33,21 +33,27 @@ organization="A Force Dynamic"
 
 .# Abstract
 
-This document proposes a new standard encoding method for consumer game console, software, and other related hardware condition and repair information.
+This document proposes a new standard encoding method for consumer game console, software, and other related hardware
+condition and repair information.
 
 {mainmatter}
 
 # Introduction
 
-The GRC, Game Repair Code, is a condensed text string intended to denote the general status, details, and repair history of consumer video game consoles, software, and peripherals. It is intended for use by collectors, curators, retailers, resellers and enthusiasts, for any use case where a standardized way of representing the history and condition of video game paraphernalia would be useful.
+The GRC, Game Repair Code, is a condensed text string intended to denote the general status, details, and repair history
+of consumer video game consoles, software, and peripherals. It is intended for use by collectors, curators, retailers,
+resellers and enthusiasts, for any use case where a standardized way of representing the history and condition of video
+game paraphernalia would be useful.
 
 ## Status of This Document
 
-GRC v1 is currently in a develomental, RFC draft phase. It should not be used for any purpose until being finalized and tooling has been developed.
+GRC v1 is currently in a develomental, RFC draft phase. It should not be used for any purpose until being finalized and
+tooling has been developed.
 
 ## Terminology
 
-The keywords **MUST**, **MUST NOT**, **REQUIRED**, **SHALL**, **SHALL NOT**, **SHOULD**, **SHOULD NOT**, **RECOMMENDED**, **MAY**, and **OPTIONAL**, when they appear in this document, are to be interpreted as described in [@RFC2119].
+The keywords **MUST**, **MUST NOT**, **REQUIRED**, **SHALL**, **SHALL NOT**, **SHOULD**, **SHOULD NOT**, **RECOMMENDED**,
+**MAY**, and **OPTIONAL**, when they appear in this document, are to be interpreted as described in [@RFC2119].
 
 ## Availability & Updates
 
@@ -58,7 +64,8 @@ To propose changes, please submit a pull request at https://github.com/Karunamon
 The MASTER branch of the above-named repository is considered to be the most up-to-date version of this standard.
 
 ## Versioning
-The GRC version is a monotonic counter. Any backwards-incompatible changes, such as changing the format or ordering of a field or attribute, will be reflected by incrementing the counter by one.
+The GRC version is a monotonic counter. Any backwards-incompatible changes, such as changing the format or ordering of a
+field or attribute, will be reflected by incrementing the counter by one.
 
 # Syntax
 
@@ -69,24 +76,34 @@ A valid GRC string **MUST** follow this format:
 Note that all fields and attributes are **REQUIRED** unless otherwise stated.
 
 ## Length
-A valid GRC string **MUST NOT** exceed 1024 characters *before* encoding/compression. If a given code would be above this limit after adding a repair record, the creator of the code **SHOULD** use their best judgment to remove old or less-important records, paying special attention to any attributes in the `damage` fields that may no longer apply as a result of maintenance undertaken.
+A valid GRC string **MUST NOT** exceed 1024 characters *before* encoding/compression. If a given code would be above
+this limit after adding a repair record, the creator of the code **SHOULD** use their best judgment to remove old or
+less-important records, paying special attention to any attributes in the `damage` fields that may no longer apply as a
+result of maintenance undertaken.
 
 ## Encoding {#encoding}
 A GRC string **MAY** be compressed for inclusion in tweets, QR codes, etc. 
 
 A compressed GRC string **MUST** use the Deflate algorithm and no others.
 
-Usable characters in a GRC string are the letters A through Z, numbers 0 through 9, and the symbols `!?;|,`. Most characters are usable in freetext strings, however, the pipe and comma `|` `,` are reserved as separators and **MUST NOT** be used in freetext strings.
+Usable characters in a GRC string are the letters A through Z, numbers 0 through 9, and the symbols `!?;|,`. Most
+characters are usable in freetext strings, however, the pipe and comma `|` `,` are reserved as separators and
+**MUST NOT** be used within attributes or freetext.
 
-Spaces ` ` **MUST NOT** be used at all. The underscore character `_` **MAY** instead be used to indicate a word break in freetext sections if desired. The PCRE regex `^([A-Z]|[a-z]|[0-9]|[\!\?\|,;_])+$` **MAY** be used to check whether a GRC string contains valid characters.
+Whitespace **MUST NOT** be used at all. The underscore character `_` **MAY** instead be used to indicate a word break in
+freetext sections if desired. The PCRE regex `^([A-Z]|[a-z]|[0-9]|[\!\?\|,;_])+$` **MAY** be used to check whether a GRC
+string contains valid characters.
 
 ## Version Field
-This field **MUST** begin with an all-caps "GRC" followed by a monotonic counter indicating the revision of the standard used. This document is the first revision, and so this field would read `GRC1`
+This field **MUST** begin with an all-caps "GRC" followed by a monotonic counter indicating the revision of the standard
+used. This document is the first revision, and so this field would read `GRC1`
 
-In the case of compressed data, the original GRC string, including the number, **MUST** be compressed with Deflate, and a new GRC string constructed with the version set to `Z`, indicating that everything after the counter is to be read as base64-encoded Deflate data.
+In the case of compressed data, the original GRC string, including the number, **MUST** be compressed with Deflate,
+and a new GRC string constructed with the version set to `Z`, indicating that everything after the counter is to be read
+as base64-encoded Deflate data.
 
 
-## Hardware Field
+## Hardware Field {#hardware}
 A definition of the actual physical object this code is referencing.
 
 This field **MUST** be formatted in this order, as follows:
@@ -95,13 +112,16 @@ This field **MUST** be formatted in this order, as follows:
 ### Brand/Manufacturer (B)
 The Brand attribute is a 4-letter representation of the original manufacturer of the hardware or software. 
 
-If the manufacturer is defunct, renamed, or was purchased by another entity, the name being used at the time of release **MUST** be used.
+If the manufacturer is defunct, renamed, or was purchased by another entity, the name being used at the time of release
+**MUST** be used.
 
 If the company's name is included in the reserved list below, that abbreviation **MUST** be used.
 
-If hardware/software is known to be released by a subsidiary of a larger company, the code creator **MUST** use the subsidiary's name (i.e. Tengen would be its own company, not Atari, even though Tengen was an Atari subsidiary).
+If hardware/software is known to be released by a subsidiary of a larger company, the code creator **MUST** use the
+subsidiary's name (i.e. Tengen would be its own company, not Atari, even though Tengen was an Atari subsidiary).
 
-This does not apply in the case of identically-named regional susidiaries, such as Nintendo of Japan or Nintendo of America, or Rockstar North  In these cases, use the code of the parent company.
+This does not apply in the case of identically-named regional susidiaries, such as Nintendo of Japan or Nintendo of
+America. In these cases, use the code of the parent company.
 
 Code | Company
 -----|--------
@@ -117,19 +137,27 @@ Table: Reserved/recognized company codes
 #### Special codes (Unknown or Non-Standardized Names)
 Code | Meaning
 -----|--------
-UNKN | Unknowable
+!NONA| No-name (no brand or brand unknowable)
+!UNKN| Unknown brand (but one probably exists)
 ?ABCD| Non-standard
 Table: Special company codes
 
-The special code **UNKN** indicates that the brand is unknown *and* unknow*able*. This could be a "no name" devie with no meaningful brand information available, and it is unlikely that it will ever be known. This is distinct from "unknown but knowable".
+Codes prefixed with a `!` indicate missing information. `!NONA` indicates that the brand is unknown *and* unknow*able*.
+This could be a "no name" devie with no meaningful brand information available, and it is unlikely that it will ever be
+known. This is distinct from "I don't have the information available", which is the purpose of the code `!UNKN`.
 
-Company codes prefixed with a `?` are non-standard - i.e. they represent a company name that is not defined in this standard. Tools that create or parse GRCs **SHOULD NOT** attempt to create a mapping of nonstandard names to full names, as nonstandard names could be duplicated.
+Codes prefixed with a `?` are non-standard - i.e. they represent a company name that is not defined in this standard.
+Tools that create or parse GRCs **SHOULD NOT** attempt to create a mapping of nonstandard names to full names, as 
+nonstandard names can inherently be duplicated and could have multiple, conflicting meanings.
 
 If a a company is not listed in this standard, the code creator **MUST** do one of the following:
 
-1. If the company is publicly traded, insert a `?` prefix and follow with the first 4 characters of the company's stock exchange ticker symbol. If the ticker symbol is shorter than 4 characters, continue prefixing `?`s up to a maximum length of 4.
+1. If the company is publicly traded, insert a `?` prefix and follow with the first 4 characters of the company's stock
+exchange ticker symbol. If the ticker symbol is shorter than 4 characters, continue prefixing `?`s up to a maximum
+length of 4 letters. 
 
-2. If the company is private or its status is unknown, insert a `?` prefix and invent a reasonable prefix based on the company's name, taking care to not duplicate a reserved code. For example, "FooWare Ltd." could be represnted as `?FOOW`
+2. If the company is private or its status is unknown, insert a `?` prefix and invent a reasonable prefix based on the
+company's name, taking care to not duplicate a reserved code. For example, "FooWare Ltd." could be represnted as `?FOOW`
 
 
 ### Authenticity \(A\)
@@ -138,16 +166,23 @@ This attribute represents the authenticity of the device. It **MUST** be one of 
 * **O** if this is original hardware/software.
 * **R** if it is a repro or bootleg.
 
-Code creators **SHOULD** consider the brand/manufacturer when determining whether a device is OEM or Repro. If a piece of hardware passes itself off as Nintendo hardware but is not made by Nintendo, its proper code is REP. Third party consoles do not pass themselves off as OEM hardware, and **MUST** be given as their own company name with an authenticity of `OEM`.
+Code creators should consider the brand/manufacturer when determining whether a device is OEM or Repro. If a piece of
+hardware passes itself off as Nintendo hardware but is not made by Nintendo, its proper code is **R**. Third party 
+consoles, even if they run OEM software (ex: the Retron series of systems), still do not pass themselves off as OEM
+hardware, and **MUST** be given as their own company name with an authenticity of `OEM`.
 
-This code has more to do with manufacturer than components. A Nintendo DS with sigificant modifications is still a Nintendo-made Nintendo DS at the end of the day.
+This code has more to do with manufacturer than components. A Nintendo DS with sigificant modifications is still a
+Nintendo-made Nintendo DS at the end of the day.
 
 ### Family \(F\)
-This attribute represents the general hardware family of the device. It is composed of a 3-character ALL-CAPS alphanumeric string.
+This attribute represents the general hardware family of the device. It is composed of a 3-character ALL-CAPS
+alphanumeric string.
 
-The *first* release of any hardware system in any region defines the family, i.e. the US NES is still part of the Famicom family of systems. 
+The *first* release of any hardware system in any region defines the family, i.e. the US NES is part of the Famicom
+family of systems. 
 
-For systems with unnecessarily confusing naming schemes (Xbox 1 vs original Xbox vs Xbox One X vs Xbox), the generation number willb be used (ex XB1=Original xbox, XB2=Xbox 360/Slim, Xb3=Xbox One/Xbox One S/X) 
+For systems with unnecessarily confusing naming schemes (Xbox 1 vs original Xbox vs Xbox One X vs Xbox), the generation
+number will be used (ex XB1=Original xbox, XB2=Xbox 360/Slim, Xb3=Xbox One/Xbox One S/X) 
 
 For software, the family indicates the primary system the software is intended to run on.
 
@@ -175,7 +210,8 @@ IBM         | IBM PC Compatible
 Table: Reserved/recognized family codes. This table is in no particular order.
 
 ### Region \(R\)
-This attribute represents the original release region of the item. This field **MUST** a 1 or 2-letter GoodTools country codes. [@goodtools-country]
+This attribute represents the original release region of the item. This field **MUST** a 1 or 2-letter GoodTools
+country codes. [@goodtools-country]
 
 ### Type \(T\)
 This attribute represents the general class of the device. It **MUST** be one of the following:
@@ -195,14 +231,16 @@ Table: Reserved/recognized type codes
 ### Color \(C\)
 This attribute is **OPTIONAL** and can be ignored.
 
-If included, this field **MUST** contain the first three letters of the official color as given by the manufacturer. If the manufacturer calls their color "platinum", use PLT, not SLV (silver). 
+If included, this field **MUST** contain the first three letters of the official color as given by the manufacturer. If
+the manufacturer calls their color "platinum", use PLT, not SLV (silver). 
  
 ### ReVision \(V\)
-This attribute consists of 32 characters of free text, containing a model number if one sufficiently differentiates two pieces of hardware, or a simple digit according to the release order of the hardware within the same family.
+This attribute consists of 32 characters of free text, containing a model number if one sufficiently differentiates two
+pieces of hardware, or a simple digit according to the release order of the hardware within the same family.
 
 
-## Condition Field
-This field defines the item's *current* physical condition, specifically, wear and known damage.
+## Condition Field {#condition}
+This field defines the item's *current* physical condition, including its overall status and any known damage.
 
 ### Physical Condition \(P\)
 Represents an overall judgement of the physical condition of the hardware. **MUST** be one of the following:
@@ -217,11 +255,14 @@ CNF            | Completely nonfunctional (system is no longer fit for purpose)
 Table: Reserved/recognized physical condition codes
 
 ### Currently Known Damage \(D\)
-This attribute tracks various kinds of damage or degradation of an item. Damage consists of hardware or software deformities, with each class of damage having its own unique 3-letter code.
+This attribute tracks various kinds of damage or degradation of an item. Damage consists of hardware or software
+deformities, with each class of damage having its own unique 3-letter code.
 
-If multiple classes of damage apply to the item, they **MUST** be listed consecutively, with no delimiter. Ex: For a device with a yellowed case with smoke damage and missing fasteners, this would read `SHYSMKFST`.
+If multiple classes of damage apply to the item, they **MUST** be listed consecutively, with no delimiter. Ex: For a
+device with a yellowed case with smoke damage and missing fasteners, this would read `SHYSMKFST`.
 
-If new damage occurs, or if damage is repaired by console service, such as a shell replacement, the known damage fields **MUST** be updated to reflect the current condition of the item.
+If new damage occurs, or if damage is repaired by console service, such as a shell replacement, the known damage fields
+**MUST** be updated to reflect the *current condition* of the item.
 
 #### Reserved/Known Damage Codes
 * **SH\***: Shell/Case issues
@@ -269,9 +310,12 @@ If new damage occurs, or if damage is repaired by console service, such as a she
 * **TXT**: 24 characters of freetext follow; **MUST** come last, only one is permitted in code D.
 
 ### Modifications \(M\)
-A list of the item’s aftermarket modifications, including such things as custom shells, LED modifications, software and hardware modifications.
+A list of the item’s aftermarket modifications, including such things as custom shells, LED modifications, software and
+hardware modifications.
 
-What constitutes a modification rather than a repair is whether the console appears or behaves differently from a stock console. Replacing a damaged shell with an identical shell is a repair (swap), whereas replacing a shell with a different color of shell is a modification.
+What constitutes a modification rather than a repair is whether the console appears or behaves differently from a stock
+console. Replacing a damaged shell with an identical shell is a repair (swap), whereas replacing a shell with a
+different color of shell is a modification.
 
 If there are no modifications present, this field **MUST** be populated with "STK".
 
@@ -293,9 +337,14 @@ If there are no modifications present, this field **MUST** be populated with "ST
 * **ODE**: Optical drive emulator
 
 ### Known Repairs/Replacements \(E\)
-This attribute is a list of non-modification repairs. It includes replacement of OEM parts with repro parts *that look and perform identically to their OEM counterparts*. For instance, replacing a cracked shell with an identical one, or replacing minor electronic components, or screen repair, etc. Generally, what differentiates an M from an R is whether the system has been customized or substantially changed from its OEM state. If this difference is ambiguous for your use case, you **SHOULD** default to using the M code instead.
+This attribute is a list of non-modification repairs. It includes replacement of OEM parts with repro parts *that look
+and perform identically to their OEM counterparts*. For instance, replacing a cracked shell with an identical one, or
+replacing minor electronic components, or screen repair, etc. Generally, what differentiates an M from an R is whether
+the system has been customized or substantially changed from its OEM state. If this difference is ambiguous for your use
+case, you **SHOULD** default to using the M code instead.
 
-Repairs/replacements of already-modified components **MUST** be treated as a re-modification and not included in this field.
+Repairs/replacements of already-modified components **MUST** be treated as a re-modification and not included in this
+field.
 
 Repair codes **MUST** be considered permanent and never be removed for any reason unless inaccurate.
 
@@ -319,28 +368,37 @@ Repair codes **MUST** be considered permanent and never be removed for any reaso
 * **REP**: Repro (non-OEM) parts were used for any replacements
 * **TXT**: 24 characters of freetext follow; **MUST** come last, only one is permitted under code E.
 
-## Service History Field
-The service history field represents a list of repair events.  A "repair event" defined as service of a single item or directly related group of items in a subassembly.
+## Service History Field {#servicehistory}
+The service history field represents a list of repair events.  A "repair event" defined as service of a single item or
+directly related group of items in a subassembly.
 
 The history list **MUST** be in chronological order, oldest events first. Each event **MUST** be comma-separated.
 
-If a service history entry is invalidated or duplicated by a later event, such as the same component being replaced twice, the earlier entry **SHOULD** be removed.
+If a service history entry is invalidated or duplicated by a later event, such as the same component being replaced
+twice, the earlier entry **SHOULD** be removed.
 
-Code creators **MUST NOT** add new service history items that they did not either personally perform or have done on their behalf.
+Code creators **MUST NOT** add new service history items that they did not either personally perform or have done on
+their behalf.
 
 The service history field format is as follows:
 
 `(Datestamp) (Repair type) (Item repaired) (20 characters free text),`
 
 ### Note on OEM Replacements / Refurbishments
-Often, when sending consoles in to OEMs, they may repair a system and send it back, *or* send an entirely new refurbished console. Check the serial numbers in this case. If a new serial number is received, then you have received a new console and **MUST** start a brand new code. Do not carry any history over. If the hardware you received is not in its factory packaging, you **MUST** add a **REF** under code D, and note its status as **USD** under code
+Often, when sending consoles in to OEMs, they may repair a system and send it back, *or* send an entirely new
+refurbished console. Check the serial numbers in this case. If a new serial number is received, then you have received a
+new console and **MUST** start a brand new code. Do not carry any history over. If the hardware you received is not in
+its factory packaging, you **MUST** add a **REF** under code D, and note its status as **USD** under code
 
-Refurbished consoles likely have had components repaired, but unless you are able to determine with certainty which components those were, you **MUST NOT** guess.
+Refurbished consoles likely have had components repaired, but unless you are able to determine with certainty which
+components those were, you **MUST NOT** guess.
 
 ### Date of Service
-Each history entry **MUST** begin with the ISO8601 date (ex: YYYYMMDD) the action was *finished*, with no separator. Example: 20200829 for August 29th, 2020.
+Each history entry **MUST** begin with the ISO8601 date (ex: YYYYMMDD) the action was *finished*, with no separator.
+Example: 20200829 for August 29th, 2020.
 
-If the repair date is entirely unknown, but you know a repair was done, you **MUST NOT** add a history entry for it. Note the nature of the repaired/replaced component under code E (Repairs) instead.
+If the repair date is entirely unknown, but you know a repair was done, you **MUST NOT** add a history entry for it.
+Note the nature of the repaired/replaced component under code E (Repairs) instead.
 
 ### Repair Types
 Denotes the general disposition of the changes made to the hardware. This **MUST** be one of the 3 following characters:
@@ -349,20 +407,21 @@ Denotes the general disposition of the changes made to the hardware. This **MUST
 * S: Swap (broken parts to new parts) 
 * R: Repair (existing parts condition improved, or significant cleaning)
 
-Swaps or repairs that require no tools, such as battery replacements or consumer-accessible cleaning (say, taking a cotton swab to a the laser on a disc system) **MUST NOT** have a repair entry added.
+Swaps or repairs that require no tools, such as battery replacements or consumer-accessible cleaning (say, taking a
+cotton swab to a the laser on a disc system) **MUST NOT** have a repair entry added.
 
 ### Item Repaired
-Use a valid reserved code from (#repaircodes)
+Use a valid reserved code from the [list of known/reserved repair codes](#repaircodes)
 
 # Example Code
-The following is an example GRC code that fits this standard:
+The following is an example of a compliant GRC1 code:
 
 ```
 GRC1|BNINT,AO,FNGC,RU,TCON,CPLA,V000|PUSD,DSHCSMKTXTSmoking_home,MCHPLED|20200829MCHPHyperBoot,20200829MLEDCtrlr,20200829SSHLOEMTop,20200829SSHLOEMHsd,20211224RMSCMHyperBoot,20211224SMSCOEMCtrlport3,20211224SDDA3RD|
 ```
 Figure: A GCR1 in its regular format
 
-By adding newlines and spaces, it is possible to break this code down into a more human-readable format:
+By adding newlines and spaces, we break this code down into a more human-readable format:
 
 ```
 GRC1                             // Code generation
@@ -387,53 +446,78 @@ D SHC SMK TXT Smoking_home       // Damage: Cracks in shell,  Smoke, [Freetext] 
 Figure: A full GCR1 with history, expanded for ease of reading (note: not a valid code on its own, as newlines and spaces are not allowed characters)
 
 # Corner Cases and Ambiguities
-The organization scheme this standard sets out is suitable for nearly all purposes, yet there are specific niche pieces of hardware that could lead to ambiguity when defining codes. Some of these will be covered here as a sort of FAQ.
+The organization scheme this standard sets out is suitable for nearly all purposes, yet there are specific niche pieces
+of hardware that could lead to ambiguity when defining codes. Some of these will be covered here as a sort of FAQ.
 
-## Multi-part Peripherals
-In the case of peripherals that have multiple independent parts (example: The SNES Super Scope itself, and the IR dongle that connects to the console), each part **MUST** be considered as its own unique peripheral. (I.e. the scope and the dongle would have their own individual codes). Batching components together **MUST NOT** be done.
+**Multi-part Peripherals**
+: In the case of peripherals that have multiple independent parts (example: The SNES Super Scope itself, and the IR
+dongle that connects to the console), each part **MUST** be considered as its own unique peripheral. (I.e. the scope and
+the dongle would have their own individual GRCs). Batching components together **MUST NOT** be done.
 
 ## Type Classification
-Certain devices may defy the code T classification scheme, or have good arguments for falling under multiple categories. These include the following:
+Certain devices may defy the code T classification scheme, or have good arguments for falling under multiple categories.
+These include the following:
 
-### Cheat Devices
-All-in-one devices (that is, the cheat hardware and software are part of a single physical unit, ex: the NES game genie) should be considered **SFT**. In the case of devices that have a separate cheat device as well as software, such as the Playstation or Gamecube Action Replay, these must have their own separate codes. The disc would be **SFT**, and the device **3RD**. 
+**Cheat Devices**
+: All-in-one devices (that is, the cheat hardware and software are part of a single physical unit, ex: the NES Game
+Genie) are considered **SFT**. In the case of devices that have a separate cheat device as well as software, such as the
+Playstation or Gamecube Action Replay, these must have their own separate GRCs. The disc is **SFT**, and the device
+**3RD**. 
 
-### Cartridge Copiers / Backup Devices
-These are all considered **3RD**.
+**Cartridge Copiers / Backup Devices**
+: These are all considered **3RD**.
 
-### Multiplayer Adapters
-These would fit under the **3RD** category, and include devices such as the XBAND for SNES or Genesis.
+**Multiplayer Adapters**
+: These fit under the **3RD** category, and include devices such as the XBAND for SNES or Genesis. **3RD** would
+also apply to multitap-like devices.
 
-### Cartridge Peripherals
-These would generally fit under the category of **AMD** - devices that plug into the cartridge slot and allow you to play additional content in a format that was not possible on the original hardware. This would include downloading from the internet, received over broadcast services, or alternate physical media formats. Examples would include the Broadcast Satellaview or Sega Channel, Mega CD, Famicom Disk System, etc. It would also include retro compatibility addons, such as the Gameboy Player for the GameCube. Note that the software and hardware must have their own codes if they can be separated. The Satetllaview cartridge, memory unit, and satellite adapter are all distinct devices with distinct codes.
+**Cartridge Peripherals**
+: These would generally fit under the category of **AMD** - devices that plug into the cartridge slot and allow you to
+play additional content in a format that was not possible on the original hardware. This would include downloading from 
+the internet, received over broadcast services, or alternate physical media formats. Examples would include the
+Broadcast Satellaview or Sega Channel, Mega CD, Famicom Disk System, etc. It would also include retro compatibility
+addons, such as the Gameboy Player for the GameCube. 
+
+Note that the software and hardware must have their own codes if they can be separated. The Satetllaview cartridge,
+memory unit, and satellite adapter are all distinct devices with distinct GRCs.
 
 ## Conflicting Codes
 Generally speaking, the "rules" for a GRC code are:
 
-1. Codes **MUST NOT** conflict with one another. Any situation which would result in a conflict is either an unforeseen design flaw, or a case where one or multiple codes must be adjusted.
-2. Codes in the `hardware` field should be considered historic and rarely changed. These should be written according to their validity *at the time of manufacture*. For instance, a console modified with an aftermarket third-party shell of a different color would still be classified with the color of its origignal manufacture.
-3. Codes in the `condition` field relate to the *present* condition of the hardware.
-4. Codes **SHOULD** be constructed such that all pertinent information about a pice of hardware is present even if the `repair history` section is blank.
+1. Codes **MUST NOT** conflict with one another. Any situation which would result in a conflict is either an unforeseen
+   design flaw, or a case where one or multiple codes must be adjusted.
+2. Codes in the [hardware](#hardware) field should be considered historic and rarely changed. These should be written 
+   according to their validity *at the time of manufacture*. For instance, a console modified with an aftermarket
+   third-party shell of a different color would still be classified with the color of its origignal manufacture.
+3. Codes in the [condition](#condition) field relate to the *present* condition of the hardware.
+4. Codes **SHOULD** be constructed such that all pertinent information about a pice of hardware is present even if the
+   [service history](#servicehistory) section is blank.
 
 # Legal
 
 ## Safety/Security Considerations
-It should be noted that nothing prevents an unscrupulous seller from misrepresenting their product. A GRC is intended for shorthand to describe a device and its history, not as a mark of safety or trustworthiness.
+It should be noted that nothing prevents an unscrupulous seller from misrepresenting their product. A GRC is intended
+for shorthand to describe a device and its history, not as a mark of safety or trustworthiness.
 
-## Disclaimer
-The authors of GRC offer this standard and any related applications or services on a BEST EFFORT basis. It is not warrantied to be accurate, up to date, or fit for any particular purpose.
+## Warranty Disclaimer
+The authors of GRC offer this standard and any related applications or services on a BEST EFFORT basis. It is not
+warrantied to be accurate, up to date, or fit for any particular purpose.
 
 ## Copyright
-Copyright (2020) - Mike Parks & Alexander Parrish.
+Copyright 2020 - Mike Parks, Alexander Parrish, and contributors
 
-Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.  A copy of the license is included in the file `LICENSE.MD`.
+Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation
+License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections,
+no Front-Cover Texts, and no Back-Cover Texts.  A copy of the license is included in the file
+[LICENSE.MD](https://raw.githubusercontent.com/Karunamon/grc/master/LICENSE.md), located in the same repository as the
+standard doc.
 
 {backmatter}
 
 <reference anchor='goodtools-country' target='https://emulation.gametechwiki.com/index.php?title=GoodTools'>
     <front>
        <title>GoodTools Country Codes</title>
-       <author fullname='contributors'><organization>Game Tech Wiki</organization></author>
+       <author fullname='GTW Contributors'><organization>Game Tech Wiki</organization></author>
        <date year='2019'/>
     </front>
 </reference>

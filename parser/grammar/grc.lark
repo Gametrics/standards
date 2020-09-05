@@ -16,7 +16,7 @@ condblock: phys _DS dam _DS mod _DS rep
 phys: "P" THREEALPHA
 dam: "D" THREEALPHA* ["TXT" freetext]
 mod: "M" THREEALPHA+
-rep: "E" THREALPHA+ ["TXT" freetext]
+rep: "E" THREEALPHA+ ["TXT" freetext]
 
 repairblock: (repairrecord (_FS | _DS)) *
 repairrecord: (REPAIRDATE REPAIRTYPE REPAIRITEM freetext+)
