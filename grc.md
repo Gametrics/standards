@@ -306,9 +306,9 @@ Repairs/replacements of already-modified components **MUST** be treated as a re-
 Repair codes **MUST** be considered permanent and never be removed for any reason unless inaccurate.
 
 #### Reserved/Known Repair Codes
-* ***NR\****: No repairs, choose one of these two:
-  * ***NRS***: No repairs, all seals still intact
-  * ***NRO***: No repairs, has been opened (seals broken)
+* **NR\***: No repairs, choose one of these two:
+  * **NRS**: No repairs, all seals still intact
+  * **NRO**: No repairs, has been opened (seals broken)
 * **SHL**: Shell repair (resurfacing or crack filling) or replacement, including shell components like switches or buttons (excluding cleaning)
 * **LBL**: Label or printing replacement
 * **BKL**: Backlight
