@@ -8,7 +8,8 @@
 <meta content="Michael Parks" name="author">
 <meta content="Alexander Parrish" name="author">
 <meta content="
-       This document proposes a new standard encoding method for consumer game console, software, and other related hardware condition and repair information. 
+       This document proposes a new standard encoding method for consumer game console, software, and other related hardware
+condition and repair information. 
     " name="description">
 <meta content="xml2rfc 3.0.0" name="generator">
 <meta content="draft-grcv1-01" name="ietf.draft">
@@ -1174,7 +1175,8 @@ dd > ul:first-child {
 <h1 id="title">Game Repair Code v1</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">This document proposes a new standard encoding method for consumer game console, software, and other related hardware condition and repair information.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+<p id="section-abstract-1">This document proposes a new standard encoding method for consumer game console, software, and other related hardware
+condition and repair information.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <div id="toc">
 <section id="section-toc.1">
@@ -1280,27 +1282,10 @@ dd > ul:first-child {
             <p id="section-toc.1-1.4.1"><a href="#section-4" class="xref">4</a>.  <a href="#name-corner-cases-and-ambiguitie" class="xref">Corner Cases and Ambiguities</a><a href="#section-toc.1-1.4.1" class="pilcrow">¶</a></p>
 <ul class="toc ulEmpty compact">
 <li class="toc ulEmpty compact" id="section-toc.1-1.4.2.1">
-                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="xref">4.1</a>.  <a href="#name-multi-part-peripherals" class="xref">Multi-part Peripherals</a><a href="#section-toc.1-1.4.2.1.1" class="pilcrow">¶</a></p>
+                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="xref">4.1</a>.  <a href="#name-type-classification" class="xref">Type Classification</a><a href="#section-toc.1-1.4.2.1.1" class="pilcrow">¶</a></p>
 </li>
               <li class="toc ulEmpty compact" id="section-toc.1-1.4.2.2">
-                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="xref">4.2</a>.  <a href="#name-type-classification" class="xref">Type Classification</a><a href="#section-toc.1-1.4.2.2.1" class="pilcrow">¶</a></p>
-<ul class="toc ulEmpty compact">
-<li class="toc ulEmpty compact" id="section-toc.1-1.4.2.2.2.1">
-                    <p id="section-toc.1-1.4.2.2.2.1.1"><a href="#section-4.2.1" class="xref">4.2.1</a>.  <a href="#name-cheat-devices" class="xref">Cheat Devices</a><a href="#section-toc.1-1.4.2.2.2.1.1" class="pilcrow">¶</a></p>
-</li>
-                  <li class="toc ulEmpty compact" id="section-toc.1-1.4.2.2.2.2">
-                    <p id="section-toc.1-1.4.2.2.2.2.1"><a href="#section-4.2.2" class="xref">4.2.2</a>.  <a href="#name-cartridge-copiers-backup-de" class="xref">Cartridge Copiers / Backup Devices</a><a href="#section-toc.1-1.4.2.2.2.2.1" class="pilcrow">¶</a></p>
-</li>
-                  <li class="toc ulEmpty compact" id="section-toc.1-1.4.2.2.2.3">
-                    <p id="section-toc.1-1.4.2.2.2.3.1"><a href="#section-4.2.3" class="xref">4.2.3</a>.  <a href="#name-multiplayer-adapters" class="xref">Multiplayer Adapters</a><a href="#section-toc.1-1.4.2.2.2.3.1" class="pilcrow">¶</a></p>
-</li>
-                  <li class="toc ulEmpty compact" id="section-toc.1-1.4.2.2.2.4">
-                    <p id="section-toc.1-1.4.2.2.2.4.1"><a href="#section-4.2.4" class="xref">4.2.4</a>.  <a href="#name-cartridge-peripherals" class="xref">Cartridge Peripherals</a><a href="#section-toc.1-1.4.2.2.2.4.1" class="pilcrow">¶</a></p>
-</li>
-                </ul>
-</li>
-              <li class="toc ulEmpty compact" id="section-toc.1-1.4.2.3">
-                <p id="section-toc.1-1.4.2.3.1"><a href="#section-4.3" class="xref">4.3</a>.  <a href="#name-conflicting-codes" class="xref">Conflicting Codes</a><a href="#section-toc.1-1.4.2.3.1" class="pilcrow">¶</a></p>
+                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="xref">4.2</a>.  <a href="#name-conflicting-codes" class="xref">Conflicting Codes</a><a href="#section-toc.1-1.4.2.2.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
@@ -1311,7 +1296,7 @@ dd > ul:first-child {
                 <p id="section-toc.1-1.5.2.1.1"><a href="#section-5.1" class="xref">5.1</a>.  <a href="#name-safety-security-considerati" class="xref">Safety/Security Considerations</a><a href="#section-toc.1-1.5.2.1.1" class="pilcrow">¶</a></p>
 </li>
               <li class="toc ulEmpty compact" id="section-toc.1-1.5.2.2">
-                <p id="section-toc.1-1.5.2.2.1"><a href="#section-5.2" class="xref">5.2</a>.  <a href="#name-disclaimer" class="xref">Disclaimer</a><a href="#section-toc.1-1.5.2.2.1" class="pilcrow">¶</a></p>
+                <p id="section-toc.1-1.5.2.2.1"><a href="#section-5.2" class="xref">5.2</a>.  <a href="#name-warranty-disclaimer" class="xref">Warranty Disclaimer</a><a href="#section-toc.1-1.5.2.2.1" class="pilcrow">¶</a></p>
 </li>
               <li class="toc ulEmpty compact" id="section-toc.1-1.5.2.3">
                 <p id="section-toc.1-1.5.2.3.1"><a href="#section-5.3" class="xref">5.3</a>.  <a href="#name-copyright" class="xref">Copyright</a><a href="#section-toc.1-1.5.2.3.1" class="pilcrow">¶</a></p>
@@ -1333,13 +1318,17 @@ dd > ul:first-child {
       <h2 id="name-introduction">
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
-<p id="section-1-1">The GRC, Game Repair Code, is a condensed text string intended to denote the general status, details, and repair history of consumer video game consoles, software, and peripherals. It is intended for use by collectors, curators, retailers, resellers and enthusiasts, for any use case where a standardized way of representing the history and condition of video game paraphernalia would be useful.<a href="#section-1-1" class="pilcrow">¶</a></p>
+<p id="section-1-1">The GRC, Game Repair Code, is a condensed text string intended to denote the general status, details, and repair history
+of consumer video game consoles, software, and peripherals. It is intended for use by collectors, curators, retailers,
+resellers and enthusiasts, for any use case where a standardized way of representing the history and condition of video
+game paraphernalia would be useful.<a href="#section-1-1" class="pilcrow">¶</a></p>
 <div id="status-of-this-document">
 <section id="section-1.1">
         <h3 id="name-status-of-this-document">
 <a href="#section-1.1" class="section-number selfRef">1.1. </a><a href="#name-status-of-this-document" class="section-name selfRef">Status of This Document</a>
         </h3>
-<p id="section-1.1-1">GRC v1 is currently in a develomental, RFC draft phase. It should not be used for any purpose until being finalized and tooling has been developed.<a href="#section-1.1-1" class="pilcrow">¶</a></p>
+<p id="section-1.1-1">GRC v1 is currently in a develomental, RFC draft phase. It should not be used for any purpose until being finalized and
+tooling has been developed.<a href="#section-1.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="terminology">
@@ -1347,7 +1336,8 @@ dd > ul:first-child {
         <h3 id="name-terminology">
 <a href="#section-1.2" class="section-number selfRef">1.2. </a><a href="#name-terminology" class="section-name selfRef">Terminology</a>
         </h3>
-<p id="section-1.2-1">The keywords <span class="bcp14">MUST</span>, <span class="bcp14">MUST NOT</span>, <span class="bcp14">REQUIRED</span>, <span class="bcp14">SHALL</span>, <span class="bcp14">SHALL NOT</span>, <span class="bcp14">SHOULD</span>, <span class="bcp14">SHOULD NOT</span>, <span class="bcp14">RECOMMENDED</span>, <span class="bcp14">MAY</span>, and <span class="bcp14">OPTIONAL</span>, when they appear in this document, are to be interpreted as described in <span>[<a href="#RFC2119" class="xref">RFC2119</a>]</span>.<a href="#section-1.2-1" class="pilcrow">¶</a></p>
+<p id="section-1.2-1">The keywords <span class="bcp14">MUST</span>, <span class="bcp14">MUST NOT</span>, <span class="bcp14">REQUIRED</span>, <span class="bcp14">SHALL</span>, <span class="bcp14">SHALL NOT</span>, <span class="bcp14">SHOULD</span>, <span class="bcp14">SHOULD NOT</span>, <span class="bcp14">RECOMMENDED</span>,
+<span class="bcp14">MAY</span>, and <span class="bcp14">OPTIONAL</span>, when they appear in this document, are to be interpreted as described in <span>[<a href="#RFC2119" class="xref">RFC2119</a>]</span>.<a href="#section-1.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="availability-updates">
@@ -1365,7 +1355,8 @@ dd > ul:first-child {
         <h3 id="name-versioning">
 <a href="#section-1.4" class="section-number selfRef">1.4. </a><a href="#name-versioning" class="section-name selfRef">Versioning</a>
         </h3>
-<p id="section-1.4-1">The GRC version is a monotonic counter. Any backwards-incompatible changes, such as changing the format or ordering of a field or attribute, will be reflected by incrementing the counter by one.<a href="#section-1.4-1" class="pilcrow">¶</a></p>
+<p id="section-1.4-1">The GRC version is a monotonic counter. Any backwards-incompatible changes, such as changing the format or ordering of a
+field or attribute, will be reflected by incrementing the counter by one.<a href="#section-1.4-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1383,7 +1374,10 @@ dd > ul:first-child {
         <h3 id="name-length">
 <a href="#section-2.1" class="section-number selfRef">2.1. </a><a href="#name-length" class="section-name selfRef">Length</a>
         </h3>
-<p id="section-2.1-1">A valid GRC string <span class="bcp14">MUST NOT</span> exceed 1024 characters <em>before</em> encoding/compression. If a given code would be above this limit after adding a repair record, the creator of the code <span class="bcp14">SHOULD</span> use their best judgment to remove old or less-important records, paying special attention to any attributes in the <code>damage</code> fields that may no longer apply as a result of maintenance undertaken.<a href="#section-2.1-1" class="pilcrow">¶</a></p>
+<p id="section-2.1-1">A valid GRC string <span class="bcp14">MUST NOT</span> exceed 1024 characters <em>before</em> encoding/compression. If a given code would be above
+this limit after adding a repair record, the creator of the code <span class="bcp14">SHOULD</span> use their best judgment to remove old or
+less-important records, paying special attention to any attributes in the <code>damage</code> fields that may no longer apply as a
+result of maintenance undertaken.<a href="#section-2.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="encoding">
@@ -1393,8 +1387,12 @@ dd > ul:first-child {
         </h3>
 <p id="section-2.2-1">A GRC string <span class="bcp14">MAY</span> be compressed for inclusion in tweets, QR codes, etc.<a href="#section-2.2-1" class="pilcrow">¶</a></p>
 <p id="section-2.2-2">A compressed GRC string <span class="bcp14">MUST</span> use the Deflate algorithm and no others.<a href="#section-2.2-2" class="pilcrow">¶</a></p>
-<p id="section-2.2-3">Usable characters in a GRC string are the letters A through Z, numbers 0 through 9, and the symbols <code>!?;|,</code>. Most characters are usable in freetext strings, however, the pipe and comma <code>|</code> <code>,</code> are reserved as separators and <span class="bcp14">MUST NOT</span> be used in freetext strings.<a href="#section-2.2-3" class="pilcrow">¶</a></p>
-<p id="section-2.2-4">Spaces  <span class="bcp14">MUST NOT</span> be used at all. The underscore character <code>_</code> <span class="bcp14">MAY</span> instead be used to indicate a word break in freetext sections if desired. The PCRE regex <code>^([A-Z]|[a-z]|[0-9]|[\!\?\|,;_])+$</code> <span class="bcp14">MAY</span> be used to check whether a GRC string contains valid characters.<a href="#section-2.2-4" class="pilcrow">¶</a></p>
+<p id="section-2.2-3">Usable characters in a GRC string are the letters A through Z, numbers 0 through 9, and the symbols <code>!?;|,</code>. Most
+characters are usable in freetext strings, however, the pipe and comma <code>|</code> <code>,</code> are reserved as separators and
+<span class="bcp14">MUST NOT</span> be used within attributes or freetext.<a href="#section-2.2-3" class="pilcrow">¶</a></p>
+<p id="section-2.2-4">Whitespace <span class="bcp14">MUST NOT</span> be used at all. The underscore character <code>_</code> <span class="bcp14">MAY</span> instead be used to indicate a word break in
+freetext sections if desired. The PCRE regex <code>^([A-Z]|[a-z]|[0-9]|[\!\?\|,;_])+$</code> <span class="bcp14">MAY</span> be used to check whether a GRC
+string contains valid characters.<a href="#section-2.2-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="version-field">
@@ -1402,11 +1400,14 @@ dd > ul:first-child {
         <h3 id="name-version-field">
 <a href="#section-2.3" class="section-number selfRef">2.3. </a><a href="#name-version-field" class="section-name selfRef">Version Field</a>
         </h3>
-<p id="section-2.3-1">This field <span class="bcp14">MUST</span> begin with an all-caps "GRC" followed by a monotonic counter indicating the revision of the standard used. This document is the first revision, and so this field would read <code>GRC1</code><a href="#section-2.3-1" class="pilcrow">¶</a></p>
-<p id="section-2.3-2">In the case of compressed data, the original GRC string, including the number, <span class="bcp14">MUST</span> be compressed with Deflate, and a new GRC string constructed with the version set to <code>Z</code>, indicating that everything after the counter is to be read as base64-encoded Deflate data.<a href="#section-2.3-2" class="pilcrow">¶</a></p>
+<p id="section-2.3-1">This field <span class="bcp14">MUST</span> begin with an all-caps "GRC" followed by a monotonic counter indicating the revision of the standard
+used. This document is the first revision, and so this field would read <code>GRC1</code><a href="#section-2.3-1" class="pilcrow">¶</a></p>
+<p id="section-2.3-2">In the case of compressed data, the original GRC string, including the number, <span class="bcp14">MUST</span> be compressed with Deflate,
+and a new GRC string constructed with the version set to <code>Z</code>, indicating that everything after the counter is to be read
+as base64-encoded Deflate data.<a href="#section-2.3-2" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="hardware-field">
+<div id="hardware">
 <section id="section-2.4">
         <h3 id="name-hardware-field">
 <a href="#section-2.4" class="section-number selfRef">2.4. </a><a href="#name-hardware-field" class="section-name selfRef">Hardware Field</a>
@@ -1420,10 +1421,13 @@ dd > ul:first-child {
 <a href="#section-2.4.1" class="section-number selfRef">2.4.1. </a><a href="#name-brand-manufacturer-b" class="section-name selfRef">Brand/Manufacturer (B)</a>
           </h4>
 <p id="section-2.4.1-1">The Brand attribute is a 4-letter representation of the original manufacturer of the hardware or software.<a href="#section-2.4.1-1" class="pilcrow">¶</a></p>
-<p id="section-2.4.1-2">If the manufacturer is defunct, renamed, or was purchased by another entity, the name being used at the time of release <span class="bcp14">MUST</span> be used.<a href="#section-2.4.1-2" class="pilcrow">¶</a></p>
+<p id="section-2.4.1-2">If the manufacturer is defunct, renamed, or was purchased by another entity, the name being used at the time of release
+<span class="bcp14">MUST</span> be used.<a href="#section-2.4.1-2" class="pilcrow">¶</a></p>
 <p id="section-2.4.1-3">If the company's name is included in the reserved list below, that abbreviation <span class="bcp14">MUST</span> be used.<a href="#section-2.4.1-3" class="pilcrow">¶</a></p>
-<p id="section-2.4.1-4">If hardware/software is known to be released by a subsidiary of a larger company, the code creator <span class="bcp14">MUST</span> use the subsidiary's name (i.e. Tengen would be its own company, not Atari, even though Tengen was an Atari subsidiary).<a href="#section-2.4.1-4" class="pilcrow">¶</a></p>
-<p id="section-2.4.1-5">This does not apply in the case of identically-named regional susidiaries, such as Nintendo of Japan or Nintendo of America, or Rockstar North  In these cases, use the code of the parent company.<a href="#section-2.4.1-5" class="pilcrow">¶</a></p>
+<p id="section-2.4.1-4">If hardware/software is known to be released by a subsidiary of a larger company, the code creator <span class="bcp14">MUST</span> use the
+subsidiary's name (i.e. Tengen would be its own company, not Atari, even though Tengen was an Atari subsidiary).<a href="#section-2.4.1-4" class="pilcrow">¶</a></p>
+<p id="section-2.4.1-5">This does not apply in the case of identically-named regional susidiaries, such as Nintendo of Japan or Nintendo of
+America. In these cases, use the code of the parent company.<a href="#section-2.4.1-5" class="pilcrow">¶</a></p>
 <span id="name-reserved-recognized-company"></span><table class="center" id="table-1">
             <caption>
 <a href="#table-1" class="selfRef">Table 1</a>:
@@ -1480,8 +1484,12 @@ dd > ul:first-child {
               </thead>
               <tbody>
                 <tr>
-                  <td class="text-left" rowspan="1" colspan="1">UNKN</td>
-                  <td class="text-left" rowspan="1" colspan="1">Unknowable</td>
+                  <td class="text-left" rowspan="1" colspan="1">!NONA</td>
+                  <td class="text-left" rowspan="1" colspan="1">No-name (no brand or brand unknowable)</td>
+                </tr>
+                <tr>
+                  <td class="text-left" rowspan="1" colspan="1">!UNKN</td>
+                  <td class="text-left" rowspan="1" colspan="1">Unknown brand (but one probably exists)</td>
                 </tr>
                 <tr>
                   <td class="text-left" rowspan="1" colspan="1">?ABCD</td>
@@ -1489,15 +1497,22 @@ dd > ul:first-child {
                 </tr>
               </tbody>
             </table>
-<p id="section-2.4.1.1-2">The special code <strong>UNKN</strong> indicates that the brand is unknown <em>and</em> unknow<em>able</em>. This could be a "no name" devie with no meaningful brand information available, and it is unlikely that it will ever be known. This is distinct from "unknown but knowable".<a href="#section-2.4.1.1-2" class="pilcrow">¶</a></p>
-<p id="section-2.4.1.1-3">Company codes prefixed with a <code>?</code> are non-standard - i.e. they represent a company name that is not defined in this standard. Tools that create or parse GRCs <span class="bcp14">SHOULD NOT</span> attempt to create a mapping of nonstandard names to full names, as nonstandard names could be duplicated.<a href="#section-2.4.1.1-3" class="pilcrow">¶</a></p>
+<p id="section-2.4.1.1-2">Codes prefixed with a <code>!</code> indicate missing information. <code>!NONA</code> indicates that the brand is unknown <em>and</em> unknow<em>able</em>.
+This could be a "no name" devie with no meaningful brand information available, and it is unlikely that it will ever be
+known. This is distinct from "I don't have the information available", which is the purpose of the code <code>!UNKN</code>.<a href="#section-2.4.1.1-2" class="pilcrow">¶</a></p>
+<p id="section-2.4.1.1-3">Codes prefixed with a <code>?</code> are non-standard - i.e. they represent a company name that is not defined in this standard.
+Tools that create or parse GRCs <span class="bcp14">SHOULD NOT</span> attempt to create a mapping of nonstandard names to full names, as
+nonstandard names can inherently be duplicated and could have multiple, conflicting meanings.<a href="#section-2.4.1.1-3" class="pilcrow">¶</a></p>
 <p id="section-2.4.1.1-4">If a a company is not listed in this standard, the code creator <span class="bcp14">MUST</span> do one of the following:<a href="#section-2.4.1.1-4" class="pilcrow">¶</a></p>
 <ol start="1" type="1" class="normal type-1" id="section-2.4.1.1-5">
 <li id="section-2.4.1.1-5.1">
-                <p id="section-2.4.1.1-5.1.1">If the company is publicly traded, insert a <code>?</code> prefix and follow with the first 4 characters of the company's stock exchange ticker symbol. If the ticker symbol is shorter than 4 characters, continue prefixing <code>?</code>s up to a maximum length of 4.<a href="#section-2.4.1.1-5.1.1" class="pilcrow">¶</a></p>
+                <p id="section-2.4.1.1-5.1.1">If the company is publicly traded, insert a <code>?</code> prefix and follow with the first 4 characters of the company's stock
+exchange ticker symbol. If the ticker symbol is shorter than 4 characters, continue prefixing <code>?</code>s up to a maximum
+length of 4 letters.<a href="#section-2.4.1.1-5.1.1" class="pilcrow">¶</a></p>
 </li>
               <li id="section-2.4.1.1-5.2">
-                <p id="section-2.4.1.1-5.2.1">If the company is private or its status is unknown, insert a <code>?</code> prefix and invent a reasonable prefix based on the company's name, taking care to not duplicate a reserved code. For example, "FooWare Ltd." could be represnted as <code>?FOOW</code><a href="#section-2.4.1.1-5.2.1" class="pilcrow">¶</a></p>
+                <p id="section-2.4.1.1-5.2.1">If the company is private or its status is unknown, insert a <code>?</code> prefix and invent a reasonable prefix based on the
+company's name, taking care to not duplicate a reserved code. For example, "FooWare Ltd." could be represnted as <code>?FOOW</code><a href="#section-2.4.1.1-5.2.1" class="pilcrow">¶</a></p>
 </li>
             </ol>
 </section>
@@ -1518,8 +1533,12 @@ dd > ul:first-child {
               <strong>R</strong> if it is a repro or bootleg.<a href="#section-2.4.2-2.2" class="pilcrow">¶</a>
 </li>
           </ul>
-<p id="section-2.4.2-3">Code creators <span class="bcp14">SHOULD</span> consider the brand/manufacturer when determining whether a device is OEM or Repro. If a piece of hardware passes itself off as Nintendo hardware but is not made by Nintendo, its proper code is REP. Third party consoles do not pass themselves off as OEM hardware, and <span class="bcp14">MUST</span> be given as their own company name with an authenticity of <code>OEM</code>.<a href="#section-2.4.2-3" class="pilcrow">¶</a></p>
-<p id="section-2.4.2-4">This code has more to do with manufacturer than components. A Nintendo DS with sigificant modifications is still a Nintendo-made Nintendo DS at the end of the day.<a href="#section-2.4.2-4" class="pilcrow">¶</a></p>
+<p id="section-2.4.2-3">Code creators should consider the brand/manufacturer when determining whether a device is OEM or Repro. If a piece of
+hardware passes itself off as Nintendo hardware but is not made by Nintendo, its proper code is <strong>R</strong>. Third party
+consoles, even if they run OEM software (ex: the Retron series of systems), still do not pass themselves off as OEM
+hardware, and <span class="bcp14">MUST</span> be given as their own company name with an authenticity of <code>OEM</code>.<a href="#section-2.4.2-3" class="pilcrow">¶</a></p>
+<p id="section-2.4.2-4">This code has more to do with manufacturer than components. A Nintendo DS with sigificant modifications is still a
+Nintendo-made Nintendo DS at the end of the day.<a href="#section-2.4.2-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="family-f">
@@ -1527,9 +1546,12 @@ dd > ul:first-child {
           <h4 id="name-family-f">
 <a href="#section-2.4.3" class="section-number selfRef">2.4.3. </a><a href="#name-family-f" class="section-name selfRef">Family (F)</a>
           </h4>
-<p id="section-2.4.3-1">This attribute represents the general hardware family of the device. It is composed of a 3-character ALL-CAPS alphanumeric string.<a href="#section-2.4.3-1" class="pilcrow">¶</a></p>
-<p id="section-2.4.3-2">The <em>first</em> release of any hardware system in any region defines the family, i.e. the US NES is still part of the Famicom family of systems.<a href="#section-2.4.3-2" class="pilcrow">¶</a></p>
-<p id="section-2.4.3-3">For systems with unnecessarily confusing naming schemes (Xbox 1 vs original Xbox vs Xbox One X vs Xbox), the generation number willb be used (ex XB1=Original xbox, XB2=Xbox 360/Slim, Xb3=Xbox One/Xbox One S/X)<a href="#section-2.4.3-3" class="pilcrow">¶</a></p>
+<p id="section-2.4.3-1">This attribute represents the general hardware family of the device. It is composed of a 3-character ALL-CAPS
+alphanumeric string.<a href="#section-2.4.3-1" class="pilcrow">¶</a></p>
+<p id="section-2.4.3-2">The <em>first</em> release of any hardware system in any region defines the family, i.e. the US NES is part of the Famicom
+family of systems.<a href="#section-2.4.3-2" class="pilcrow">¶</a></p>
+<p id="section-2.4.3-3">For systems with unnecessarily confusing naming schemes (Xbox 1 vs original Xbox vs Xbox One X vs Xbox), the generation
+number will be used (ex XB1=Original xbox, XB2=Xbox 360/Slim, Xb3=Xbox One/Xbox One S/X)<a href="#section-2.4.3-3" class="pilcrow">¶</a></p>
 <p id="section-2.4.3-4">For software, the family indicates the primary system the software is intended to run on.<a href="#section-2.4.3-4" class="pilcrow">¶</a></p>
 <span id="name-reserved-recognized-family-"></span><table class="center" id="table-3">
             <caption>
@@ -1628,7 +1650,8 @@ dd > ul:first-child {
           <h4 id="name-region-r">
 <a href="#section-2.4.4" class="section-number selfRef">2.4.4. </a><a href="#name-region-r" class="section-name selfRef">Region (R)</a>
           </h4>
-<p id="section-2.4.4-1">This attribute represents the original release region of the item. This field <span class="bcp14">MUST</span> a 1 or 2-letter GoodTools country codes. <span>[<a href="#goodtools-country" class="xref">goodtools-country</a>]</span><a href="#section-2.4.4-1" class="pilcrow">¶</a></p>
+<p id="section-2.4.4-1">This attribute represents the original release region of the item. This field <span class="bcp14">MUST</span> a 1 or 2-letter GoodTools
+country codes. <span>[<a href="#goodtools-country" class="xref">goodtools-country</a>]</span><a href="#section-2.4.4-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="type-t">
@@ -1691,7 +1714,8 @@ dd > ul:first-child {
 <a href="#section-2.4.6" class="section-number selfRef">2.4.6. </a><a href="#name-color-c" class="section-name selfRef">Color (C)</a>
           </h4>
 <p id="section-2.4.6-1">This attribute is <span class="bcp14">OPTIONAL</span> and can be ignored.<a href="#section-2.4.6-1" class="pilcrow">¶</a></p>
-<p id="section-2.4.6-2">If included, this field <span class="bcp14">MUST</span> contain the first three letters of the official color as given by the manufacturer. If the manufacturer calls their color "platinum", use PLT, not SLV (silver).<a href="#section-2.4.6-2" class="pilcrow">¶</a></p>
+<p id="section-2.4.6-2">If included, this field <span class="bcp14">MUST</span> contain the first three letters of the official color as given by the manufacturer. If
+the manufacturer calls their color "platinum", use PLT, not SLV (silver).<a href="#section-2.4.6-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="revision-v">
@@ -1699,17 +1723,18 @@ dd > ul:first-child {
           <h4 id="name-revision-v">
 <a href="#section-2.4.7" class="section-number selfRef">2.4.7. </a><a href="#name-revision-v" class="section-name selfRef">ReVision (V)</a>
           </h4>
-<p id="section-2.4.7-1">This attribute consists of 32 characters of free text, containing a model number if one sufficiently differentiates two pieces of hardware, or a simple digit according to the release order of the hardware within the same family.<a href="#section-2.4.7-1" class="pilcrow">¶</a></p>
+<p id="section-2.4.7-1">This attribute consists of 32 characters of free text, containing a model number if one sufficiently differentiates two
+pieces of hardware, or a simple digit according to the release order of the hardware within the same family.<a href="#section-2.4.7-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
 </div>
-<div id="condition-field">
+<div id="condition">
 <section id="section-2.5">
         <h3 id="name-condition-field">
 <a href="#section-2.5" class="section-number selfRef">2.5. </a><a href="#name-condition-field" class="section-name selfRef">Condition Field</a>
         </h3>
-<p id="section-2.5-1">This field defines the item's <em>current</em> physical condition, specifically, wear and known damage.<a href="#section-2.5-1" class="pilcrow">¶</a></p>
+<p id="section-2.5-1">This field defines the item's <em>current</em> physical condition, including its overall status and any known damage.<a href="#section-2.5-1" class="pilcrow">¶</a></p>
 <div id="physical-condition-p">
 <section id="section-2.5.1">
           <h4 id="name-physical-condition-p">
@@ -1757,9 +1782,12 @@ dd > ul:first-child {
           <h4 id="name-currently-known-damage-d">
 <a href="#section-2.5.2" class="section-number selfRef">2.5.2. </a><a href="#name-currently-known-damage-d" class="section-name selfRef">Currently Known Damage (D)</a>
           </h4>
-<p id="section-2.5.2-1">This attribute tracks various kinds of damage or degradation of an item. Damage consists of hardware or software deformities, with each class of damage having its own unique 3-letter code.<a href="#section-2.5.2-1" class="pilcrow">¶</a></p>
-<p id="section-2.5.2-2">If multiple classes of damage apply to the item, they <span class="bcp14">MUST</span> be listed consecutively, with no delimiter. Ex: For a device with a yellowed case with smoke damage and missing fasteners, this would read <code>SHYSMKFST</code>.<a href="#section-2.5.2-2" class="pilcrow">¶</a></p>
-<p id="section-2.5.2-3">If new damage occurs, or if damage is repaired by console service, such as a shell replacement, the known damage fields <span class="bcp14">MUST</span> be updated to reflect the current condition of the item.<a href="#section-2.5.2-3" class="pilcrow">¶</a></p>
+<p id="section-2.5.2-1">This attribute tracks various kinds of damage or degradation of an item. Damage consists of hardware or software
+deformities, with each class of damage having its own unique 3-letter code.<a href="#section-2.5.2-1" class="pilcrow">¶</a></p>
+<p id="section-2.5.2-2">If multiple classes of damage apply to the item, they <span class="bcp14">MUST</span> be listed consecutively, with no delimiter. Ex: For a
+device with a yellowed case with smoke damage and missing fasteners, this would read <code>SHYSMKFST</code>.<a href="#section-2.5.2-2" class="pilcrow">¶</a></p>
+<p id="section-2.5.2-3">If new damage occurs, or if damage is repaired by console service, such as a shell replacement, the known damage fields
+<span class="bcp14">MUST</span> be updated to reflect the <em>current condition</em> of the item.<a href="#section-2.5.2-3" class="pilcrow">¶</a></p>
 <div id="reserved-known-damage-codes">
 <section id="section-2.5.2.1">
             <h5 id="name-reserved-known-damage-codes">
@@ -1914,8 +1942,11 @@ dd > ul:first-child {
           <h4 id="name-modifications-m">
 <a href="#section-2.5.3" class="section-number selfRef">2.5.3. </a><a href="#name-modifications-m" class="section-name selfRef">Modifications (M)</a>
           </h4>
-<p id="section-2.5.3-1">A list of the item's aftermarket modifications, including such things as custom shells, LED modifications, software and hardware modifications.<a href="#section-2.5.3-1" class="pilcrow">¶</a></p>
-<p id="section-2.5.3-2">What constitutes a modification rather than a repair is whether the console appears or behaves differently from a stock console. Replacing a damaged shell with an identical shell is a repair (swap), whereas replacing a shell with a different color of shell is a modification.<a href="#section-2.5.3-2" class="pilcrow">¶</a></p>
+<p id="section-2.5.3-1">A list of the item's aftermarket modifications, including such things as custom shells, LED modifications, software and
+hardware modifications.<a href="#section-2.5.3-1" class="pilcrow">¶</a></p>
+<p id="section-2.5.3-2">What constitutes a modification rather than a repair is whether the console appears or behaves differently from a stock
+console. Replacing a damaged shell with an identical shell is a repair (swap), whereas replacing a shell with a
+different color of shell is a modification.<a href="#section-2.5.3-2" class="pilcrow">¶</a></p>
 <p id="section-2.5.3-3">If there are no modifications present, this field <span class="bcp14">MUST</span> be populated with "STK".<a href="#section-2.5.3-3" class="pilcrow">¶</a></p>
 <div id="reserved-known-modification-codes">
 <section id="section-2.5.3.1">
@@ -1975,8 +2006,13 @@ dd > ul:first-child {
           <h4 id="name-known-repairs-replacements-">
 <a href="#section-2.5.4" class="section-number selfRef">2.5.4. </a><a href="#name-known-repairs-replacements-" class="section-name selfRef">Known Repairs/Replacements (E)</a>
           </h4>
-<p id="section-2.5.4-1">This attribute is a list of non-modification repairs. It includes replacement of OEM parts with repro parts <em>that look and perform identically to their OEM counterparts</em>. For instance, replacing a cracked shell with an identical one, or replacing minor electronic components, or screen repair, etc. Generally, what differentiates an M from an R is whether the system has been customized or substantially changed from its OEM state. If this difference is ambiguous for your use case, you <span class="bcp14">SHOULD</span> default to using the M code instead.<a href="#section-2.5.4-1" class="pilcrow">¶</a></p>
-<p id="section-2.5.4-2">Repairs/replacements of already-modified components <span class="bcp14">MUST</span> be treated as a re-modification and not included in this field.<a href="#section-2.5.4-2" class="pilcrow">¶</a></p>
+<p id="section-2.5.4-1">This attribute is a list of non-modification repairs. It includes replacement of OEM parts with repro parts <em>that look
+and perform identically to their OEM counterparts</em>. For instance, replacing a cracked shell with an identical one, or
+replacing minor electronic components, or screen repair, etc. Generally, what differentiates an M from an R is whether
+the system has been customized or substantially changed from its OEM state. If this difference is ambiguous for your use
+case, you <span class="bcp14">SHOULD</span> default to using the M code instead.<a href="#section-2.5.4-1" class="pilcrow">¶</a></p>
+<p id="section-2.5.4-2">Repairs/replacements of already-modified components <span class="bcp14">MUST</span> be treated as a re-modification and not included in this
+field.<a href="#section-2.5.4-2" class="pilcrow">¶</a></p>
 <p id="section-2.5.4-3">Repair codes <span class="bcp14">MUST</span> be considered permanent and never be removed for any reason unless inaccurate.<a href="#section-2.5.4-3" class="pilcrow">¶</a></p>
 <div id="repaircodes">
 <section id="section-2.5.4.1">
@@ -2044,15 +2080,18 @@ dd > ul:first-child {
 </div>
 </section>
 </div>
-<div id="service-history-field">
+<div id="servicehistory">
 <section id="section-2.6">
         <h3 id="name-service-history-field">
 <a href="#section-2.6" class="section-number selfRef">2.6. </a><a href="#name-service-history-field" class="section-name selfRef">Service History Field</a>
         </h3>
-<p id="section-2.6-1">The service history field represents a list of repair events.  A "repair event" defined as service of a single item or directly related group of items in a subassembly.<a href="#section-2.6-1" class="pilcrow">¶</a></p>
+<p id="section-2.6-1">The service history field represents a list of repair events.  A "repair event" defined as service of a single item or
+directly related group of items in a subassembly.<a href="#section-2.6-1" class="pilcrow">¶</a></p>
 <p id="section-2.6-2">The history list <span class="bcp14">MUST</span> be in chronological order, oldest events first. Each event <span class="bcp14">MUST</span> be comma-separated.<a href="#section-2.6-2" class="pilcrow">¶</a></p>
-<p id="section-2.6-3">If a service history entry is invalidated or duplicated by a later event, such as the same component being replaced twice, the earlier entry <span class="bcp14">SHOULD</span> be removed.<a href="#section-2.6-3" class="pilcrow">¶</a></p>
-<p id="section-2.6-4">Code creators <span class="bcp14">MUST NOT</span> add new service history items that they did not either personally perform or have done on their behalf.<a href="#section-2.6-4" class="pilcrow">¶</a></p>
+<p id="section-2.6-3">If a service history entry is invalidated or duplicated by a later event, such as the same component being replaced
+twice, the earlier entry <span class="bcp14">SHOULD</span> be removed.<a href="#section-2.6-3" class="pilcrow">¶</a></p>
+<p id="section-2.6-4">Code creators <span class="bcp14">MUST NOT</span> add new service history items that they did not either personally perform or have done on
+their behalf.<a href="#section-2.6-4" class="pilcrow">¶</a></p>
 <p id="section-2.6-5">The service history field format is as follows:<a href="#section-2.6-5" class="pilcrow">¶</a></p>
 <p id="section-2.6-6"><code>(Datestamp) (Repair type) (Item repaired) (20 characters free text),</code><a href="#section-2.6-6" class="pilcrow">¶</a></p>
 <div id="note-on-oem-replacements-refurbishments">
@@ -2060,8 +2099,12 @@ dd > ul:first-child {
           <h4 id="name-note-on-oem-replacements-re">
 <a href="#section-2.6.1" class="section-number selfRef">2.6.1. </a><a href="#name-note-on-oem-replacements-re" class="section-name selfRef">Note on OEM Replacements / Refurbishments</a>
           </h4>
-<p id="section-2.6.1-1">Often, when sending consoles in to OEMs, they may repair a system and send it back, <em>or</em> send an entirely new refurbished console. Check the serial numbers in this case. If a new serial number is received, then you have received a new console and <span class="bcp14">MUST</span> start a brand new code. Do not carry any history over. If the hardware you received is not in its factory packaging, you <span class="bcp14">MUST</span> add a <strong>REF</strong> under code D, and note its status as <strong>USD</strong> under code<a href="#section-2.6.1-1" class="pilcrow">¶</a></p>
-<p id="section-2.6.1-2">Refurbished consoles likely have had components repaired, but unless you are able to determine with certainty which components those were, you <span class="bcp14">MUST NOT</span> guess.<a href="#section-2.6.1-2" class="pilcrow">¶</a></p>
+<p id="section-2.6.1-1">Often, when sending consoles in to OEMs, they may repair a system and send it back, <em>or</em> send an entirely new
+refurbished console. Check the serial numbers in this case. If a new serial number is received, then you have received a
+new console and <span class="bcp14">MUST</span> start a brand new code. Do not carry any history over. If the hardware you received is not in
+its factory packaging, you <span class="bcp14">MUST</span> add a <strong>REF</strong> under code D, and note its status as <strong>USD</strong> under code<a href="#section-2.6.1-1" class="pilcrow">¶</a></p>
+<p id="section-2.6.1-2">Refurbished consoles likely have had components repaired, but unless you are able to determine with certainty which
+components those were, you <span class="bcp14">MUST NOT</span> guess.<a href="#section-2.6.1-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="date-of-service">
@@ -2069,8 +2112,10 @@ dd > ul:first-child {
           <h4 id="name-date-of-service">
 <a href="#section-2.6.2" class="section-number selfRef">2.6.2. </a><a href="#name-date-of-service" class="section-name selfRef">Date of Service</a>
           </h4>
-<p id="section-2.6.2-1">Each history entry <span class="bcp14">MUST</span> begin with the ISO8601 date (ex: YYYYMMDD) the action was <em>finished</em>, with no separator. Example: 20200829 for August 29th, 2020.<a href="#section-2.6.2-1" class="pilcrow">¶</a></p>
-<p id="section-2.6.2-2">If the repair date is entirely unknown, but you know a repair was done, you <span class="bcp14">MUST NOT</span> add a history entry for it. Note the nature of the repaired/replaced component under code E (Repairs) instead.<a href="#section-2.6.2-2" class="pilcrow">¶</a></p>
+<p id="section-2.6.2-1">Each history entry <span class="bcp14">MUST</span> begin with the ISO8601 date (ex: YYYYMMDD) the action was <em>finished</em>, with no separator.
+Example: 20200829 for August 29th, 2020.<a href="#section-2.6.2-1" class="pilcrow">¶</a></p>
+<p id="section-2.6.2-2">If the repair date is entirely unknown, but you know a repair was done, you <span class="bcp14">MUST NOT</span> add a history entry for it.
+Note the nature of the repaired/replaced component under code E (Repairs) instead.<a href="#section-2.6.2-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="repair-types">
@@ -2087,7 +2132,8 @@ dd > ul:first-child {
             <li class="normal" id="section-2.6.3-2.3">R: Repair (existing parts condition improved, or significant cleaning)<a href="#section-2.6.3-2.3" class="pilcrow">¶</a>
 </li>
           </ul>
-<p id="section-2.6.3-3">Swaps or repairs that require no tools, such as battery replacements or consumer-accessible cleaning (say, taking a cotton swab to a the laser on a disc system) <span class="bcp14">MUST NOT</span> have a repair entry added.<a href="#section-2.6.3-3" class="pilcrow">¶</a></p>
+<p id="section-2.6.3-3">Swaps or repairs that require no tools, such as battery replacements or consumer-accessible cleaning (say, taking a
+cotton swab to a the laser on a disc system) <span class="bcp14">MUST NOT</span> have a repair entry added.<a href="#section-2.6.3-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="item-repaired">
@@ -2095,7 +2141,7 @@ dd > ul:first-child {
           <h4 id="name-item-repaired">
 <a href="#section-2.6.4" class="section-number selfRef">2.6.4. </a><a href="#name-item-repaired" class="section-name selfRef">Item Repaired</a>
           </h4>
-<p id="section-2.6.4-1">Use a valid reserved code from <a href="#repaircodes" class="xref">Section 2.5.4.1</a><a href="#section-2.6.4-1" class="pilcrow">¶</a></p>
+<p id="section-2.6.4-1">Use a valid reserved code from the <a href="#repaircodes">list of known/reserved repair codes</a><a href="#section-2.6.4-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -2107,41 +2153,118 @@ dd > ul:first-child {
       <h2 id="name-example-code">
 <a href="#section-3" class="section-number selfRef">3. </a><a href="#name-example-code" class="section-name selfRef">Example Code</a>
       </h2>
-<p id="section-3-1">The following is an example GRC code that fits this standard:<a href="#section-3-1" class="pilcrow">¶</a></p>
+<p id="section-3-1">The following is an example of a compliant GRC1 code:<a href="#section-3-1" class="pilcrow">¶</a></p>
 <span id="name-a-gcr1-in-its-regular-forma"></span><figure id="figure-1">
         <div class="artwork art-text alignLeft" id="section-3-2.1">
-<pre>GRC1|BNINT,AO,FNGC,RU,TCON,CPLA,V000|PUSD,DSHCSMKTXTSmoking_home,MCHPLED|20200829MCHPHyperBoot,20200829MLEDCtrlr,20200829SSHLOEMTop,20200829SSHLOEMHsd,20211224RMSCMHyperBoot,20211224SMSCOEMCtrlport3,20211224SDDA3RD|
+<pre>GRC1|BNINT,AOO,FNGC,RU,TCON,CPLA,V000|PUSD,DSHCSMKTXTSmoking_home,MCHPLED,ESHLPRTDDAREPTXTRepro_Shell|20200829MCHPHyperBoot,20200829MLEDCtrlr,20200829SOSHLTop,20200829SOSHLHsd,20211224RMSCMHyperBoot,20211224SOMSCCtrlport3,20211224SRDDA|"
 </pre>
 </div>
 <figcaption><a href="#figure-1" class="selfRef">Figure 1</a>:
 <a href="#name-a-gcr1-in-its-regular-forma" class="selfRef">A GCR1 in its regular format</a>
         </figcaption></figure>
-<p id="section-3-3">By adding newlines and spaces, it is possible to break this code down into a more human-readable format:<a href="#section-3-3" class="pilcrow">¶</a></p>
-<span id="name-a-full-gcr1-with-history-ex"></span><figure id="figure-2">
-        <div class="artwork art-text alignLeft" id="section-3-4.1">
-<pre>GRC1                             // Code generation
-|B NINT,                         // Brand: Nintendo
-A OEM,                           // Authenticity: Verified OEM (Original Equipment Manufacturer)
-F NGC,                           // Console family: GameCube
-R U,                             // Regional variant: North America (United States)
-T CON,                           // Type of hardware: Console
-C PLA,                           // Color: Platinum (Brand's own naming scheme)
-V 000                            // Revision: 0 / DOL-001 in the case of the GameCube
-|P USD,                          // Physical condition: Used
-D SHC SMK TXT Smoking_home       // Damage: Cracks in shell,  Smoke, [Freetext] Smoking home
-|MCHPLED                         // Mod: Modchip and LEDs installed
-|20200829 M CHP HyperBoot,       // On August 29, 2020: Mod installed / Modchip / [Freetext] Hyperboot
-20200829 M LED Ctrlr,            // On August 29, 2020: Mod installed / LED(s) / [Freetext] Controller ports
-20200829 S SHL OEM Top,          // On August 29, 2020: Swapped part / Shell / OEM part / [Freetext] Top shell
-20200829 S SHL OEM Hsd,          // On August 29, 2020: Swapped part / Shell / OEM part / [Freetext] High speed data port cover
-20211224 R MSC M HyperBoot,      // On November 24, 2021: Repaired / Miscellaneous component / [Freetext] Hyperboot modchip
-20211224 S MSC OEM Ctrlport3,    // On November 24, 2021: Swapped part / Miscellaneous component / OEM part / [Freetext] Controller port 3
-20211224 S DDA 3RD|              // On November 24, 2021: Swapped part / Disc Drive assembly / 3rd party component
-</pre>
-</div>
-<figcaption><a href="#figure-2" class="selfRef">Figure 2</a>:
-<a href="#name-a-full-gcr1-with-history-ex" class="selfRef">A full GCR1 with history, expanded for ease of reading (note: not a valid code on its own, as newlines and spaces are not allowed characters)</a>
-        </figcaption></figure>
+<p id="section-3-3">This is how the above code breaks down:<a href="#section-3-3" class="pilcrow">¶</a></p>
+<span id="name-a-full-grc1-with-history-ex"></span><table class="center" id="table-6">
+        <caption>
+<a href="#table-6" class="selfRef">Table 6</a>:
+<a href="#name-a-full-grc1-with-history-ex" class="selfRef">A full GRC1 with history, expanded for ease of reading</a>
+        </caption>
+<thead>
+          <tr>
+            <th class="text-left" rowspan="1" colspan="1">Code Block</th>
+            <th class="text-left" rowspan="1" colspan="1">Meaning</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">GRC1</td>
+            <td class="text-left" rowspan="1" colspan="1">GRC Code generation: 1</td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">&amp;#124;</td>
+            <td class="text-left" rowspan="1" colspan="1">Field separator, hardware section begins</td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">BNINT</td>
+            <td class="text-left" rowspan="1" colspan="1">Brand: Nintendo</td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">AOR</td>
+            <td class="text-left" rowspan="1" colspan="1">Authenticity: OEM, has been opened</td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">FNGC</td>
+            <td class="text-left" rowspan="1" colspan="1">Hardware family: GameCube</td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">RU</td>
+            <td class="text-left" rowspan="1" colspan="1">Regional variant: North America (United States)</td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">TCON</td>
+            <td class="text-left" rowspan="1" colspan="1">Type of hardware: Console</td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">CPLA</td>
+            <td class="text-left" rowspan="1" colspan="1">Color: Platinum (Brand's own naming scheme)</td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">V000</td>
+            <td class="text-left" rowspan="1" colspan="1">Revision: 0 / DOL-001 in the case of the GameCube</td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">&amp;#124;</td>
+            <td class="text-left" rowspan="1" colspan="1">Field separator, physical condition section begins</td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">PUSD</td>
+            <td class="text-left" rowspan="1" colspan="1">Physical condition: Used</td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">DSHCSMKTXTSmoking_home</td>
+            <td class="text-left" rowspan="1" colspan="1">Damage: Cracks in shell, smoke, Freetext: Smoking home</td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">MCHPLED</td>
+            <td class="text-left" rowspan="1" colspan="1">Modifications: Modchip and LEDs installed</td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">ESHLPRTDDAREPTXTRepro_Shell</td>
+            <td class="text-left" rowspan="1" colspan="1">Repairs made: Shell, port(s), disc drive assembly, refurbished parts used, Freetext: Repro Shell</td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">&amp;#124;</td>
+            <td class="text-left" rowspan="1" colspan="1">Field separator, repair history section begins</td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">20200829MCHPHyperBoot</td>
+            <td class="text-left" rowspan="1" colspan="1">August 29, 2020: Mod installed / Modchip / Freetext: Hyperboot</td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">20200829MLEDCtrlr</td>
+            <td class="text-left" rowspan="1" colspan="1">August 29, 2020: Mod installed / LED(s) / Freetext: Controller ports</td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">20200829SOSHLTop</td>
+            <td class="text-left" rowspan="1" colspan="1">August 29, 2020: Swapped part / OEM part / Shell / Freetext: Top shell</td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">20200829SOSHLHsd</td>
+            <td class="text-left" rowspan="1" colspan="1">August 29, 2020: Swapped part / OEM part / Shell / Freetext: High speed data port cover</td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">20211224RMSCHyperBoot_wiring</td>
+            <td class="text-left" rowspan="1" colspan="1">On December 24, 2021: Repaired / Miscellaneous component / Hyperboot wiring</td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">20211224SOPRTCtrlport3</td>
+            <td class="text-left" rowspan="1" colspan="1">On December 24, 2021: Swapped part / OEM part / Port / Controller port 3</td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">20211224SRDDA</td>
+            <td class="text-left" rowspan="1" colspan="1">On December 24, 2021: Swapped part / Third party part / Disc Drive assembly</td>
+          </tr>
+        </tbody>
+      </table>
 </section>
 </div>
 <div id="corner-cases-and-ambiguities">
@@ -2149,69 +2272,71 @@ D SHC SMK TXT Smoking_home       // Damage: Cracks in shell,  Smoke, [Freetext] 
       <h2 id="name-corner-cases-and-ambiguitie">
 <a href="#section-4" class="section-number selfRef">4. </a><a href="#name-corner-cases-and-ambiguitie" class="section-name selfRef">Corner Cases and Ambiguities</a>
       </h2>
-<p id="section-4-1">The organization scheme this standard sets out is suitable for nearly all purposes, yet there are specific niche pieces of hardware that could lead to ambiguity when defining codes. Some of these will be covered here as a sort of FAQ.<a href="#section-4-1" class="pilcrow">¶</a></p>
-<div id="multi-part-peripherals">
-<section id="section-4.1">
-        <h3 id="name-multi-part-peripherals">
-<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-multi-part-peripherals" class="section-name selfRef">Multi-part Peripherals</a>
-        </h3>
-<p id="section-4.1-1">In the case of peripherals that have multiple independent parts (example: The SNES Super Scope itself, and the IR dongle that connects to the console), each part <span class="bcp14">MUST</span> be considered as its own unique peripheral. (I.e. the scope and the dongle would have their own individual codes). Batching components together <span class="bcp14">MUST NOT</span> be done.<a href="#section-4.1-1" class="pilcrow">¶</a></p>
-</section>
-</div>
+<p id="section-4-1">The organization scheme this standard sets out is suitable for nearly all purposes, yet there are specific niche pieces
+of hardware that could lead to ambiguity when defining codes. Some of these will be covered here as a sort of FAQ.<a href="#section-4-1" class="pilcrow">¶</a></p>
+<span class="break"></span><dl class="dlParallel" id="section-4-2">
+        <dt id="section-4-2.1"><strong>Multi-part Peripherals</strong></dt>
+        <dd style="margin-left: 1.5em" id="section-4-2.2">In the case of peripherals that have multiple independent parts (example: The SNES Super Scope itself, and the IR
+dongle that connects to the console), each part <span class="bcp14">MUST</span> be considered as its own unique peripheral. (I.e. the scope and
+the dongle would have their own individual GRCs). Batching components together <span class="bcp14">MUST NOT</span> be done.<a href="#section-4-2.2" class="pilcrow">¶</a>
+</dd>
+      <dd class="break"></dd>
+</dl>
 <div id="type-classification">
-<section id="section-4.2">
+<section id="section-4.1">
         <h3 id="name-type-classification">
-<a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-type-classification" class="section-name selfRef">Type Classification</a>
+<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-type-classification" class="section-name selfRef">Type Classification</a>
         </h3>
-<p id="section-4.2-1">Certain devices may defy the code T classification scheme, or have good arguments for falling under multiple categories. These include the following:<a href="#section-4.2-1" class="pilcrow">¶</a></p>
-<div id="cheat-devices">
-<section id="section-4.2.1">
-          <h4 id="name-cheat-devices">
-<a href="#section-4.2.1" class="section-number selfRef">4.2.1. </a><a href="#name-cheat-devices" class="section-name selfRef">Cheat Devices</a>
-          </h4>
-<p id="section-4.2.1-1">All-in-one devices (that is, the cheat hardware and software are part of a single physical unit, ex: the NES game genie) should be considered <strong>SFT</strong>. In the case of devices that have a separate cheat device as well as software, such as the Playstation or Gamecube Action Replay, these must have their own separate codes. The disc would be <strong>SFT</strong>, and the device <strong>3RD</strong>.<a href="#section-4.2.1-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="cartridge-copiers-backup-devices">
-<section id="section-4.2.2">
-          <h4 id="name-cartridge-copiers-backup-de">
-<a href="#section-4.2.2" class="section-number selfRef">4.2.2. </a><a href="#name-cartridge-copiers-backup-de" class="section-name selfRef">Cartridge Copiers / Backup Devices</a>
-          </h4>
-<p id="section-4.2.2-1">These are all considered <strong>3RD</strong>.<a href="#section-4.2.2-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="multiplayer-adapters">
-<section id="section-4.2.3">
-          <h4 id="name-multiplayer-adapters">
-<a href="#section-4.2.3" class="section-number selfRef">4.2.3. </a><a href="#name-multiplayer-adapters" class="section-name selfRef">Multiplayer Adapters</a>
-          </h4>
-<p id="section-4.2.3-1">These would fit under the <strong>3RD</strong> category, and include devices such as the XBAND for SNES or Genesis.<a href="#section-4.2.3-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="cartridge-peripherals">
-<section id="section-4.2.4">
-          <h4 id="name-cartridge-peripherals">
-<a href="#section-4.2.4" class="section-number selfRef">4.2.4. </a><a href="#name-cartridge-peripherals" class="section-name selfRef">Cartridge Peripherals</a>
-          </h4>
-<p id="section-4.2.4-1">These would generally fit under the category of <strong>AMD</strong> - devices that plug into the cartridge slot and allow you to play additional content in a format that was not possible on the original hardware. This would include downloading from the internet, received over broadcast services, or alternate physical media formats. Examples would include the Broadcast Satellaview or Sega Channel, Mega CD, Famicom Disk System, etc. It would also include retro compatibility addons, such as the Gameboy Player for the GameCube. Note that the software and hardware must have their own codes if they can be separated. The Satetllaview cartridge, memory unit, and satellite adapter are all distinct devices with distinct codes.<a href="#section-4.2.4-1" class="pilcrow">¶</a></p>
-</section>
-</div>
+<p id="section-4.1-1">Certain devices may defy the code T classification scheme, or have good arguments for falling under multiple categories.
+These include the following:<a href="#section-4.1-1" class="pilcrow">¶</a></p>
+<span class="break"></span><dl class="dlParallel" id="section-4.1-2">
+          <dt id="section-4.1-2.1"><strong>Cheat Devices</strong></dt>
+          <dd style="margin-left: 1.5em" id="section-4.1-2.2">All-in-one devices (that is, the cheat hardware and software are part of a single physical unit, ex: the NES Game
+Genie) are considered <strong>SFT</strong>. In the case of devices that have a separate cheat device as well as software, such as the
+Playstation or Gamecube Action Replay, these must have their own separate GRCs. The disc is <strong>SFT</strong>, and the device
+<strong>3RD</strong>.<a href="#section-4.1-2.2" class="pilcrow">¶</a>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-4.1-2.3"><strong>Cartridge Copiers / Backup Devices</strong></dt>
+          <dd style="margin-left: 1.5em" id="section-4.1-2.4">These are all considered <strong>3RD</strong>.<a href="#section-4.1-2.4" class="pilcrow">¶</a>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-4.1-2.5"><strong>Multiplayer Adapters</strong></dt>
+          <dd style="margin-left: 1.5em" id="section-4.1-2.6">These fit under the <strong>3RD</strong> category, and include devices such as the XBAND for SNES or Genesis. <strong>3RD</strong> would
+also apply to multitap-like devices.<a href="#section-4.1-2.6" class="pilcrow">¶</a>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-4.1-2.7"><strong>Cartridge Peripherals</strong></dt>
+          <dd style="margin-left: 1.5em" id="section-4.1-2.8">These would generally fit under the category of <strong>AMD</strong> - devices that plug into the cartridge slot and allow you to
+play additional content in a format that was not possible on the original hardware. This would include downloading from
+the internet, received over broadcast services, or alternate physical media formats. Examples would include the
+Broadcast Satellaview or Sega Channel, Mega CD, Famicom Disk System, etc. It would also include retro compatibility
+addons, such as the Gameboy Player for the GameCube.<a href="#section-4.1-2.8" class="pilcrow">¶</a>
+</dd>
+        <dd class="break"></dd>
+</dl>
+<p id="section-4.1-3">Note that the software and hardware must have their own codes if they can be separated. The Satetllaview cartridge,
+memory unit, and satellite adapter are all distinct devices with distinct GRCs.<a href="#section-4.1-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="conflicting-codes">
-<section id="section-4.3">
+<section id="section-4.2">
         <h3 id="name-conflicting-codes">
-<a href="#section-4.3" class="section-number selfRef">4.3. </a><a href="#name-conflicting-codes" class="section-name selfRef">Conflicting Codes</a>
+<a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-conflicting-codes" class="section-name selfRef">Conflicting Codes</a>
         </h3>
-<p id="section-4.3-1">Generally speaking, the "rules" for a GRC code are:<a href="#section-4.3-1" class="pilcrow">¶</a></p>
-<ol start="1" type="1" class="normal type-1" id="section-4.3-2">
-<li id="section-4.3-2.1">Codes <span class="bcp14">MUST NOT</span> conflict with one another. Any situation which would result in a conflict is either an unforeseen design flaw, or a case where one or multiple codes must be adjusted.<a href="#section-4.3-2.1" class="pilcrow">¶</a>
+<p id="section-4.2-1">Generally speaking, the "rules" for a GRC code are:<a href="#section-4.2-1" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="normal type-1" id="section-4.2-2">
+<li id="section-4.2-2.1">Codes <span class="bcp14">MUST NOT</span> conflict with one another. Any situation which would result in a conflict is either an unforeseen
+design flaw, or a case where one or multiple codes must be adjusted.<a href="#section-4.2-2.1" class="pilcrow">¶</a>
 </li>
-          <li id="section-4.3-2.2">Codes in the <code>hardware</code> field should be considered historic and rarely changed. These should be written according to their validity <em>at the time of manufacture</em>. For instance, a console modified with an aftermarket third-party shell of a different color would still be classified with the color of its origignal manufacture.<a href="#section-4.3-2.2" class="pilcrow">¶</a>
+          <li id="section-4.2-2.2">Codes in the <a href="#hardware">hardware</a> field should be considered historic and rarely changed. These should be written
+according to their validity <em>at the time of manufacture</em>. For instance, a console modified with an aftermarket
+third-party shell of a different color would still be classified with the color of its origignal manufacture.<a href="#section-4.2-2.2" class="pilcrow">¶</a>
 </li>
-          <li id="section-4.3-2.3">Codes in the <code>condition</code> field relate to the <em>present</em> condition of the hardware.<a href="#section-4.3-2.3" class="pilcrow">¶</a>
+          <li id="section-4.2-2.3">Codes in the <a href="#condition">condition</a> field relate to the <em>present</em> condition of the hardware.<a href="#section-4.2-2.3" class="pilcrow">¶</a>
 </li>
-          <li id="section-4.3-2.4">Codes <span class="bcp14">SHOULD</span> be constructed such that all pertinent information about a pice of hardware is present even if the <code>repair history</code> section is blank.<a href="#section-4.3-2.4" class="pilcrow">¶</a>
+          <li id="section-4.2-2.4">Codes <span class="bcp14">SHOULD</span> be constructed such that all pertinent information about a pice of hardware is present even if the
+<a href="#servicehistory">service history</a> section is blank.<a href="#section-4.2-2.4" class="pilcrow">¶</a>
 </li>
         </ol>
 </section>
@@ -2228,15 +2353,17 @@ D SHC SMK TXT Smoking_home       // Damage: Cracks in shell,  Smoke, [Freetext] 
         <h3 id="name-safety-security-considerati">
 <a href="#section-5.1" class="section-number selfRef">5.1. </a><a href="#name-safety-security-considerati" class="section-name selfRef">Safety/Security Considerations</a>
         </h3>
-<p id="section-5.1-1">It should be noted that nothing prevents an unscrupulous seller from misrepresenting their product. A GRC is intended for shorthand to describe a device and its history, not as a mark of safety or trustworthiness.<a href="#section-5.1-1" class="pilcrow">¶</a></p>
+<p id="section-5.1-1">It should be noted that nothing prevents an unscrupulous seller from misrepresenting their product. A GRC is intended
+for shorthand to describe a device and its history, not as a mark of safety or trustworthiness.<a href="#section-5.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="disclaimer">
+<div id="warranty-disclaimer">
 <section id="section-5.2">
-        <h3 id="name-disclaimer">
-<a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-disclaimer" class="section-name selfRef">Disclaimer</a>
+        <h3 id="name-warranty-disclaimer">
+<a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-warranty-disclaimer" class="section-name selfRef">Warranty Disclaimer</a>
         </h3>
-<p id="section-5.2-1">The authors of GRC offer this standard and any related applications or services on a BEST EFFORT basis. It is not warrantied to be accurate, up to date, or fit for any particular purpose.<a href="#section-5.2-1" class="pilcrow">¶</a></p>
+<p id="section-5.2-1">The authors of GRC offer this standard and any related applications or services on a BEST EFFORT basis. It is not
+warrantied to be accurate, up to date, or fit for any particular purpose.<a href="#section-5.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -2244,8 +2371,12 @@ D SHC SMK TXT Smoking_home       // Damage: Cracks in shell,  Smoke, [Freetext] 
         <h3 id="name-copyright">
 <a href="#section-5.3" class="section-number selfRef">5.3. </a><a href="#name-copyright" class="section-name selfRef">Copyright</a>
         </h3>
-<p id="section-5.3-1">Copyright (2020) - Mike Parks &amp; Alexander Parrish.<a href="#section-5.3-1" class="pilcrow">¶</a></p>
-<p id="section-5.3-2">Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.  A copy of the license is included in the file <code>LICENSE.MD</code>.<a href="#section-5.3-2" class="pilcrow">¶</a></p>
+<p id="section-5.3-1">Copyright 2020 - Mike Parks, Alexander Parrish, and contributors<a href="#section-5.3-1" class="pilcrow">¶</a></p>
+<p id="section-5.3-2">Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation
+License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections,
+no Front-Cover Texts, and no Back-Cover Texts.  A copy of the license is included in the file
+<a href="https://raw.githubusercontent.com/Karunamon/grc/master/LICENSE.md">LICENSE.MD</a>, located in the same repository as the
+standard doc.<a href="#section-5.3-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -2261,7 +2392,7 @@ D SHC SMK TXT Smoking_home       // Damage: Cracks in shell,  Smoke, [Freetext] 
 <dd class="break"></dd>
 <dt id="goodtools-country">[goodtools-country]</dt>
     <dd>
-<span class="refAuthor">contributors</span>, <span class="refTitle">"GoodTools Country Codes"</span>, <time datetime="2019" class="refDate">2019</time>, <span>&lt;<a href="https://emulation.gametechwiki.com/index.php?title=GoodTools">https://emulation.gametechwiki.com/index.php?title=GoodTools</a>&gt;</span>. </dd>
+<span class="refAuthor">Contributors, G.</span>, <span class="refTitle">"GoodTools Country Codes"</span>, <time datetime="2019" class="refDate">2019</time>, <span>&lt;<a href="https://emulation.gametechwiki.com/index.php?title=GoodTools">https://emulation.gametechwiki.com/index.php?title=GoodTools</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>
