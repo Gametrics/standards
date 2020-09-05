@@ -69,7 +69,7 @@ A valid GRC string **MUST** follow this format:
 Note that all fields and attributes are **REQUIRED** unless otherwise stated.
 
 ## Length
-A valid GRC string **MUST NOT** exceed 1024 characters *before* encoding/compression. If a given code would be above this limit after adding a repair record, the creator of the code **SHOULD** use their best judgment to remove old or less-important records.
+A valid GRC string **MUST NOT** exceed 1024 characters *before* encoding/compression. If a given code would be above this limit after adding a repair record, the creator of the code **SHOULD** use their best judgment to remove old or less-important records, paying special attention to any attributes in the `damage` fields that may no longer apply as a result of maintenance undertaken.
 
 ## Encoding {#encoding}
 A GRC string **MAY** be compressed for inclusion in tweets, QR codes, etc. 
@@ -135,8 +135,8 @@ If a a company is not listed in this standard, the code creator **MUST** do one 
 ### Authenticity \(A\)
 This attribute represents the authenticity of the device. It **MUST** be one of the following:
 
-* **OEM** if this is original hardware/software.
-* **REP** if it is a repro or bootleg.
+* **O** if this is original hardware/software.
+* **R** if it is a repro or bootleg.
 
 Code creators **SHOULD** consider the brand/manufacturer when determining whether a device is OEM or Repro. If a piece of hardware passes itself off as Nintendo hardware but is not made by Nintendo, its proper code is REP. Third party consoles do not pass themselves off as OEM hardware, and **MUST** be given as their own company name with an authenticity of `OEM`.
 
@@ -192,19 +192,7 @@ SNT       | Software intrinsic component (ex: standalone case or disc for a mult
 AMD       | Auxillary media device (ex: N64 Disk Drive, Famicom disk system, Sufami Turbo, Gamecube GBA player)
 Table: Reserved/recognized type codes
 
-In the case of peripherals that have multiple independent parts (example: Super Scope itself, and the IR dongle that connects to the console), each part **MUST** be considered as its own unique peripheral. (I.e. the scope and the dongle would have their own individual codes). Batching components together **MUST NOT** be done.
 
-#### Resolving type ambiguities
-There are valid arguments for including some components in multiple categories. Since only one type is allowed per GRC, we resolve a number of ambiguous items here.
-
-##### Cheat devices
-All-in-one devices (that is, the cheat hardware and software are part of a single physical unit, ex: the NES game genie) should be considered **SFT**. In the case of devices that have a separate cheat device as well as software, such as the Playstation or Gamecube Action Replay, these must have their own separate codes. The disc would be **SFT**, and the device **3RD**. 
-
-##### Cartridge Copiers / Backup Devices
-These are all considered **3RD**.
-
-##### Cartridge Peripherals
-These would generally fit under the category of **AMD** - devices that plug into the cartridge slot and allow you to play additional content in a format that was not possible on the original hardware. This would include downloading from the internet, received over broadcast services, or alternate physical media formats. Examples would include the Broadcast Satellaview or Sega Channel, Mega CD, Famicom Disk System, etc. It would also include retro compatibility addons, such as the Gameboy Player for the GameCube. Note that the software and hardware must have their own codes if they can be separated. The Satetllaview cartridge, memory unit, and satellite adapter are all distinct devices with distinct codes.
 
 ##### Multiplayer Adapters
 These would fit under the **3RD** category, and include devices such as the XBAND for SNES or Genesis.
@@ -216,7 +204,7 @@ This attribute is **OPTIONAL** and can be ignored.
 If included, this field **MUST** contain the first three letters of the official color as given by the manufacturer. If the manufacturer calls their color "platinum", use PLT, not SLV (silver). 
  
 ### ReVision \(V\)
--TBD-
+This attribute consists of 32 characters of free text, containing a model number if one sufficiently differentiates two pieces of hardware, or a simple digit according to the release order of the hardware within the same family.
 
 
 ## Condition Field
@@ -376,7 +364,7 @@ Use a valid code from the Repairs (E) attribute
 The following is an example GRC code that fits this standard:
 
 ```
-GRC1|BNINT,AOEM,FNGC,RU,TCON,CPLA,V000|PUSD,DSHCSMKTXTSmoking_home|MCHPLED|20200829MCHPHyperBoot,20200829MLEDCtrlr,20200829SSHLOEMTop,20200829SSHLOEMHsd,20211224RMSCMHyperBoot,20211224SMSCOEMCtrlport3,20211224SDDA3RD|
+GRC1|BNINT,AO,FNGC,RU,TCON,CPLA,V000|PUSD,DSHCSMKTXTSmoking_home,MCHPLED|20200829MCHPHyperBoot,20200829MLEDCtrlr,20200829SSHLOEMTop,20200829SSHLOEMHsd,20211224RMSCMHyperBoot,20211224SMSCOEMCtrlport3,20211224SDDA3RD|
 ```
 Figure: A GCR1 in its regular format
 
@@ -403,6 +391,32 @@ D SHC SMK TXT Smoking_home       // Damage: Cracks in shell,  Smoke, [Freetext] 
 20211224 S DDA 3RD|              // On November 24, 2021: Swapped part / Disc Drive assembly / 3rd party component
 ```
 Figure: A full GCR1 with history, expanded for ease of reading (note: not a valid code on its own, as newlines and spaces are not allowed characters)
+
+# Corner Cases and Ambiguities
+The organization scheme this standard sets out is suitable for nearly all purposes, yet there are specific niche pieces of hardware that could lead to ambiguity when defining codes. Some of these will be covered here as a sort of FAQ.
+
+## Multi-part Peripherals
+In the case of peripherals that have multiple independent parts (example: The SNES Super Scope itself, and the IR dongle that connects to the console), each part **MUST** be considered as its own unique peripheral. (I.e. the scope and the dongle would have their own individual codes). Batching components together **MUST NOT** be done.
+
+## Type Classification
+Certain devices may defy the code T classification scheme, or have good arguments for falling under multiple categories. These include the following:
+
+### Cheat Devices
+All-in-one devices (that is, the cheat hardware and software are part of a single physical unit, ex: the NES game genie) should be considered **SFT**. In the case of devices that have a separate cheat device as well as software, such as the Playstation or Gamecube Action Replay, these must have their own separate codes. The disc would be **SFT**, and the device **3RD**. 
+
+### Cartridge Copiers / Backup Devices
+These are all considered **3RD**.
+
+### Cartridge Peripherals
+These would generally fit under the category of **AMD** - devices that plug into the cartridge slot and allow you to play additional content in a format that was not possible on the original hardware. This would include downloading from the internet, received over broadcast services, or alternate physical media formats. Examples would include the Broadcast Satellaview or Sega Channel, Mega CD, Famicom Disk System, etc. It would also include retro compatibility addons, such as the Gameboy Player for the GameCube. Note that the software and hardware must have their own codes if they can be separated. The Satetllaview cartridge, memory unit, and satellite adapter are all distinct devices with distinct codes.
+
+## Conflicting Codes
+Generally speaking, the "rules" for a GRC code are:
+
+1. Codes **MUST NOT** conflict with one another. Any situation which would result in a conflict is either an unforeseen design flaw, or a case where one or multiple codes must be adjusted.
+2. Codes in the `hardware` field should be considered historic and rarely changed. These should be written according to their validity *at the time of manufacture*. For instance, a console modified with an aftermarket third-party shell of a different color would still be classified with the color of its origignal manufacture.
+3. Codes in the `condition` field relate to the *present* condition of the hardware.
+4. Codes **SHOULD** be constructed such that all pertinent information about a pice of hardware is present even if the `repair history` section is blank.
 
 # Legal
 
