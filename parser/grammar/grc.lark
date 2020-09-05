@@ -5,7 +5,7 @@ fieldlist: hwblock _FS condblock _FS repairblock
 
 hwblock: brand _DS auth _DS fam _DS region _DS type _DS color _DS rev
 brand: "B" /[\?\!]?[A-Z0-9]{4}/
-auth: "A" PARTCLASS
+auth: "A" PARTCLASS SEALED
 fam: "F" THREEALPHA
 region: "R" UL ~ 1..2
 type: "T" THREEALPHA
@@ -19,14 +19,15 @@ mod: "M" THREEALPHA+
 rep: "E" THREEALPHA+ ["TXT" freetext]
 
 repairblock: (repairrecord (_FS | _DS)) *
-repairrecord: (REPAIRDATE REPAIRTYPE REPAIRITEM freetext+)
+repairrecord: (REPAIRDATE REPAIRTYPE REPAIRITEM freetext*)
 REPAIRDATE: DIGIT ~ 8..8
 REPAIRTYPE: ("M"
             |"S" PARTCLASS
             |"R")
 REPAIRITEM: THREEALPHA
 
-PARTCLASS: ( "OEM" | "REP" )
+PARTCLASS: ( "O" | "R" )
+SEALED: ( "O" | "S" )
 
 
 compressdata: /[A-Za-z0-9\/=\+]+/

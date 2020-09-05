@@ -417,33 +417,37 @@ Use a valid reserved code from the [list of known/reserved repair codes](#repair
 The following is an example of a compliant GRC1 code:
 
 ```
-GRC1|BNINT,AO,FNGC,RU,TCON,CPLA,V000|PUSD,DSHCSMKTXTSmoking_home,MCHPLED|20200829MCHPHyperBoot,20200829MLEDCtrlr,20200829SSHLOEMTop,20200829SSHLOEMHsd,20211224RMSCMHyperBoot,20211224SMSCOEMCtrlport3,20211224SDDA3RD|
+GRC1|BNINT,AOO,FNGC,RU,TCON,CPLA,V000|PUSD,DSHCSMKTXTSmoking_home,MCHPLED,ESHLPRTDDAREPTXTRepro_Shell|20200829MCHPHyperBoot,20200829MLEDCtrlr,20200829SOSHLTop,20200829SOSHLHsd,20211224RMSCMHyperBoot,20211224SOMSCCtrlport3,20211224SRDDA|"
 ```
 Figure: A GCR1 in its regular format
 
-By adding newlines and spaces, we break this code down into a more human-readable format:
+This is how the above code breaks down:
 
-```
-GRC1                             // Code generation
-|B NINT,                         // Brand: Nintendo
-A OEM,                           // Authenticity: Verified OEM (Original Equipment Manufacturer)
-F NGC,                           // Console family: GameCube
-R U,                             // Regional variant: North America (United States)
-T CON,                           // Type of hardware: Console
-C PLA,                           // Color: Platinum (Brand's own naming scheme)
-V 000                            // Revision: 0 / DOL-001 in the case of the GameCube
-|P USD,                          // Physical condition: Used
-D SHC SMK TXT Smoking_home       // Damage: Cracks in shell,  Smoke, [Freetext] Smoking home
-|MCHPLED                         // Mod: Modchip and LEDs installed
-|20200829 M CHP HyperBoot,       // On August 29, 2020: Mod installed / Modchip / [Freetext] Hyperboot
-20200829 M LED Ctrlr,            // On August 29, 2020: Mod installed / LED(s) / [Freetext] Controller ports
-20200829 S SHL OEM Top,          // On August 29, 2020: Swapped part / Shell / OEM part / [Freetext] Top shell
-20200829 S SHL OEM Hsd,          // On August 29, 2020: Swapped part / Shell / OEM part / [Freetext] High speed data port cover
-20211224 R MSC M HyperBoot,      // On November 24, 2021: Repaired / Miscellaneous component / [Freetext] Hyperboot modchip
-20211224 S MSC OEM Ctrlport3,    // On November 24, 2021: Swapped part / Miscellaneous component / OEM part / [Freetext] Controller port 3
-20211224 S DDA 3RD|              // On November 24, 2021: Swapped part / Disc Drive assembly / 3rd party component
-```
-Figure: A full GCR1 with history, expanded for ease of reading (note: not a valid code on its own, as newlines and spaces are not allowed characters)
+Code Block | Meaning
+-----------|---------
+GRC1 | GRC Code generation: 1
+&#124; | Field separator, hardware section begins
+BNINT |  Brand: Nintendo
+AOR | Authenticity: OEM, has been opened
+FNGC | Hardware family: GameCube
+RU | Regional variant: North America (United States)
+TCON | Type of hardware: Console
+CPLA | Color: Platinum (Brand's own naming scheme)
+V000 | Revision: 0 / DOL-001 in the case of the GameCube
+&#124; | Field separator, physical condition section begins
+PUSD | Physical condition: Used
+DSHCSMKTXTSmoking_home | Damage: Cracks in shell, smoke, Freetext: Smoking home
+MCHPLED | Modifications: Modchip and LEDs installed
+ESHLPRTDDAREPTXTRepro_Shell | Repairs made: Shell, port(s), disc drive assembly, refurbished parts used, Freetext: Repro Shell
+&#124; | Field separator, repair history section begins
+20200829MCHPHyperBoot | August 29, 2020: Mod installed / Modchip / Freetext: Hyperboot
+20200829MLEDCtrlr | August 29, 2020: Mod installed / LED(s) / Freetext: Controller ports
+20200829SOSHLTop | August 29, 2020: Swapped part / OEM part / Shell / Freetext: Top shell
+20200829SOSHLHsd | August 29, 2020: Swapped part / OEM part / Shell / Freetext: High speed data port cover
+20211224RMSCHyperBoot_wiring | On December 24, 2021: Repaired / Miscellaneous component / Hyperboot wiring
+20211224SOPRTCtrlport3 | On December 24, 2021: Swapped part / OEM part / Port / Controller port 3
+20211224SRDDA| On December 24, 2021: Swapped part / Third party part / Disc Drive assembly
+Table: A full GRC1 with history, expanded for ease of reading
 
 # Corner Cases and Ambiguities
 The organization scheme this standard sets out is suitable for nearly all purposes, yet there are specific niche pieces
