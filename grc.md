@@ -192,12 +192,6 @@ SNT       | Software intrinsic component (ex: standalone case or disc for a mult
 AMD       | Auxillary media device (ex: N64 Disk Drive, Famicom disk system, Sufami Turbo, Gamecube GBA player)
 Table: Reserved/recognized type codes
 
-
-
-##### Multiplayer Adapters
-These would fit under the **3RD** category, and include devices such as the XBAND for SNES or Genesis.
-
-
 ### Color \(C\)
 This attribute is **OPTIONAL** and can be ignored.
 
@@ -305,7 +299,7 @@ Repairs/replacements of already-modified components **MUST** be treated as a re-
 
 Repair codes **MUST** be considered permanent and never be removed for any reason unless inaccurate.
 
-#### Reserved/Known Repair Codes
+#### Reserved/Known Repair Codes {#repaircodes}
 * **NR\***: No repairs, choose one of these two:
   * **NRS**: No repairs, all seals still intact
   * **NRO**: No repairs, has been opened (seals broken)
@@ -358,7 +352,7 @@ Denotes the general disposition of the changes made to the hardware. This **MUST
 Swaps or repairs that require no tools, such as battery replacements or consumer-accessible cleaning (say, taking a cotton swab to a the laser on a disc system) **MUST NOT** have a repair entry added.
 
 ### Item Repaired
-Use a valid code from the Repairs (E) attribute
+Use a valid reserved code from (#repaircodes)
 
 # Example Code
 The following is an example GRC code that fits this standard:
@@ -406,6 +400,9 @@ All-in-one devices (that is, the cheat hardware and software are part of a singl
 
 ### Cartridge Copiers / Backup Devices
 These are all considered **3RD**.
+
+### Multiplayer Adapters
+These would fit under the **3RD** category, and include devices such as the XBAND for SNES or Genesis.
 
 ### Cartridge Peripherals
 These would generally fit under the category of **AMD** - devices that plug into the cartridge slot and allow you to play additional content in a format that was not possible on the original hardware. This would include downloading from the internet, received over broadcast services, or alternate physical media formats. Examples would include the Broadcast Satellaview or Sega Channel, Mega CD, Famicom Disk System, etc. It would also include retro compatibility addons, such as the Gameboy Player for the GameCube. Note that the software and hardware must have their own codes if they can be separated. The Satetllaview cartridge, memory unit, and satellite adapter are all distinct devices with distinct codes.
