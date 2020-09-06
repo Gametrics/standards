@@ -5,7 +5,7 @@ fieldlist: hwblock _FS condblock _FS repairblock
 
 hwblock: brand _DS auth _DS fam _DS region _DS type _DS color _DS rev
 brand: "B" /[\?\!]?[A-Z0-9]{4}/
-auth: "A" PARTCLASS SEALED
+auth: "A" PARTCLASS
 fam: "F" THREEALPHA
 region: "R" UL ~ 1..2
 type: "T" THREEALPHA
@@ -27,8 +27,6 @@ REPAIRTYPE: ("M"
 REPAIRITEM: THREEALPHA
 
 PARTCLASS: ( "O" | "R" )
-SEALED: ( "O" | "S" )
-
 
 compressdata: /[A-Za-z0-9\/=\+]+/
 ID: "GRC"

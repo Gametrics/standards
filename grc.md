@@ -161,8 +161,9 @@ company's name, taking care to not duplicate a reserved code. For example, "FooW
 
 
 ### Authenticity \(A\)
-This attribute represents the authenticity of the device. It **MUST** be one of the following:
+This attribute represents the authenticity of the device, i.e if the hardware made by who it claims to be made by.
 
+The first letter **MUST** be:
 * **O** if this is original hardware/software.
 * **R** if it is a repro or bootleg.
 
@@ -417,7 +418,7 @@ Use a valid reserved code from the [list of known/reserved repair codes](#repair
 The following is an example of a compliant GRC1 code:
 
 ```
-GRC1|BNINT,AOO,FNGC,RU,TCON,CPLA,V000|PUSD,DSHCSMKTXTSmoking_home,MCHPLED,ESHLPRTDDAREPTXTRepro_Shell|20200829MCHPHyperBoot,20200829MLEDCtrlr,20200829SOSHLTop,20200829SOSHLHsd,20211224RMSCMHyperBoot,20211224SOMSCCtrlport3,20211224SRDDA|"
+GRC1|BNINT,AO,FNGC,RU,TCON,CPLA,V000|PUSD,DSHCSMKTXTSmoking_home,MCHPLED,ESHLPRTDDAREPTXTRepro_Shell|20200829MCHPHyperBoot,20200829MLEDCtrlr,20200829SOSHLTop,20200829SOSHLHsd,20211224RMSCMHyperBoot,20211224SOMSCCtrlport3,20211224SRDDA|
 ```
 Figure: A GCR1 in its regular format
 
@@ -425,21 +426,21 @@ This is how the above code breaks down:
 
 Code Block | Meaning
 -----------|---------
-GRC1 | GRC Code generation: 1
-&#124; | Field separator, hardware section begins
-BNINT |  Brand: Nintendo
-AOR | Authenticity: OEM, has been opened
+GRC1 | GRC standard version: 1
+ǀ | **Field separator, hardware section begins**
+BNINT | Brand: Nintendo
+AO | Authenticity: OEM (authentic Nintendo hardware)
 FNGC | Hardware family: GameCube
 RU | Regional variant: North America (United States)
 TCON | Type of hardware: Console
 CPLA | Color: Platinum (Brand's own naming scheme)
 V000 | Revision: 0 / DOL-001 in the case of the GameCube
-&#124; | Field separator, physical condition section begins
+ǀ | **Field separator, physical condition section begins**
 PUSD | Physical condition: Used
 DSHCSMKTXTSmoking_home | Damage: Cracks in shell, smoke, Freetext: Smoking home
 MCHPLED | Modifications: Modchip and LEDs installed
 ESHLPRTDDAREPTXTRepro_Shell | Repairs made: Shell, port(s), disc drive assembly, refurbished parts used, Freetext: Repro Shell
-&#124; | Field separator, repair history section begins
+ǀ | **Field separator, repair history section begins**
 20200829MCHPHyperBoot | August 29, 2020: Mod installed / Modchip / Freetext: Hyperboot
 20200829MLEDCtrlr | August 29, 2020: Mod installed / LED(s) / Freetext: Controller ports
 20200829SOSHLTop | August 29, 2020: Swapped part / OEM part / Shell / Freetext: Top shell
