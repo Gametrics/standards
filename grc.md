@@ -135,7 +135,7 @@ This broad-to-narrow design was chosen because it allows for maximum flexibility
 
 ## Version Field
 
-This field **MUST** begin with an all-caps “VGCC” followed by a digit indicating the revision of the standard used:
+This field **MUST** begin with an all-caps "VGCC" followed by a digit indicating the revision of the standard used:
 
 `VGCC(version number)`
 
@@ -176,12 +176,12 @@ Code | Meaning
 !UNKN| Unknown brand (but one probably exists)
 
 
-- `!NONA` indicates that the brand is unknown *and* unknow*able*. This could be a “no name” item with no meaningful brand information available, and it is unlikely that it will ever be known.
+- `!NONA` indicates that the brand is unknown *and* unknow*able*. This could be a "no name" item with no meaningful brand information available, and it is unlikely that it will ever be known.
 - `!UNKN` indicates that there probably is a brand, but that the information is not known to the creator of the code
 
 When creating brand codes, it is **RECOMMENDED** that the following considerations apply:
 
-- If an item is known to be released by a subsidiary of a larger company, use the subsidiary’s name (i.e., Tengen would be its own company, not Atari, even though Tengen was an Atari subsidiary).
+- If an item is known to be released by a subsidiary of a larger company, use the subsidiary’s name (so Tengen would be its own company, not Atari, even though Tengen was an Atari subsidiary).
 - For similarly-named regional subsidiaries, such as Nintendo of Japan or Nintendo of America, use the code of the parent company. Splitting regional subsidiaries into their own brands may represent too much granularity.
 
 ### Authenticity \(A\)
@@ -205,7 +205,7 @@ The authors of the VGCC standard can not hope to objectively determine the line 
 
 This attribute represents the general hardware family of the item. It is composed of a 3-character ALL-CAPS alphanumeric string.
 
-The *first* release of any hardware system in any region defines the family, i.e. the US NES is part of the Famicom family of systems.
+The *first* release of any hardware system in any region defines the family. For example, the US NES is part of the Famicom family of systems.
 
 For software, the family indicates the primary system the software is intended to run on.
 
@@ -267,7 +267,7 @@ This attribute is **OPTIONAL** and may be left empty.
 
 Represents the official color of the device as given by the manufacturer at manufacture time. 
 
-If provided, this attribute **MUST** contain the first three letters of the official color as given by the manufacturer. If the manufacturer calls their color “platinum”, use PLA rather than SIL (silver).
+If provided, this attribute **MUST** contain the first three letters of the official color as given by the manufacturer. If the manufacturer calls their color "platinum", use PLA rather than SIL (silver).
 
 ### Variant/Revision \(V\)
 
@@ -315,7 +315,7 @@ If multiple damage classes apply to the item, they **MUST** be listed consecutiv
 
 If new damage occurs, or if the damage is repaired by servicing, such as a shell replacement, the known damage fields **MUST** be updated to reflect the item's ***current*** condition.
 
-The list below is formatted for ease of reading. Consecutive types of the same class of damage **MUST** be coded consecutively, i.e., for a yellowed and cracked shell, the code is `SHCSHY` rather than  `SHYC`.
+The list below is formatted for ease of reading. Consecutive types of the same class of damage **MUST** be coded consecutively, so for a yellowed and cracked shell, the code is `SHCSHY` rather than  `SHYC`.
 
 The list of acceptable damage codes is as follows:
 
@@ -353,7 +353,7 @@ The list of acceptable damage codes is as follows:
     - **OMD**: Scratches, deep (reading is impacted)
     - **OMC**: Cracks, superficial (in the center ring or not-reading area)
     - **OMZ**: Cracks, deep (disc is likely destroyed)
-    - **OMR**: Visible damage or holes in the data layer due to label damage or “Disc rot”
+    - **OMR**: Visible damage or holes in the data layer due to label damage or "Disc rot"
 - **OS_**: On-board storage (HD/SSD, NVRAM, or permanent battery-backed RAM) issues
     - **OSX**: On-board storage is corrupt or non-functional
     - **OSZ**: On-board storage is missing
@@ -378,7 +378,7 @@ This attribute represents a list of the item’s aftermarket modifications, incl
 
 What constitutes a modification rather than a repair is whether the console appears or behaves differently from a stock console. Replacing a damaged shell with an identical shell is a repair (swap), whereas replacing a shell with a different colored shell is a modification.
 
-If there are no modifications present, this field **MUST** be populated with “STK”.
+If there are no modifications present, this field **MUST** be populated with "STK".
 
 Code | Meaning
 -----|------------
@@ -431,7 +431,7 @@ Generally, what differentiates an `M` (mod) from an `E` (repair) is whether the 
 
 This field is **OPTIONAL** and may be skipped.
 
-The service history field represents a list of repair events. A “repair event” defined as service of a single item or directly related group of items in a sub-assembly.
+The service history field represents a list of repair events. A "repair event" defined as service of a single item or directly related group of items in a sub-assembly.
 
 The service history field format is as follows:
 
@@ -511,7 +511,7 @@ ESHLPRTDDAREPTXTRepro_Shell | Repairs made: Shell, port(s), disc drive assembly,
 
 The organization scheme this standard sets out is suitable for nearly all purposes, yet there are specific niche pieces of hardware that could lead to ambiguity when defining codes. Some of these will be covered here as a sort of FAQ.
 
-**Multi-part Peripherals:** In the case of peripherals that have multiple independent parts (example: The SNES Super Scope itself, and the IR dongle that connects to the console), each part **MUST** be considered as its own unique peripheral. (I.e. the scope and the dongle would have their own individual VGCCs). Batching components together **MUST NOT** be done.
+**Multi-part Peripherals:** In the case of peripherals that have multiple independent parts (example: The SNES Super Scope itself, and the IR dongle that connects to the console), each part **MUST** be considered as its own unique peripheral, so the scope and the dongle would have their own individual VGCCs. Batching components together **MUST NOT** be done.
 
 ## Type Classification
 
@@ -529,7 +529,7 @@ Note that the software and hardware must have their own codes if they can be sep
 
 ## Conflicting Codes & other considerations
 
-Generally speaking, the “rules” for a VGCC are:
+Generally speaking, the "rules" for a VGCC are:
 
 1. Codes **MUST NOT** conflict with one another under any circumstances. Any situation which would result in a conflict a case where one or multiple codes must be adjusted, or an unforeseen design flaw with the VGCC standard.
 2. Codes in the [hardware](#hardware) field are considered intrinsic to the identity of the item being cataloged, and are never changed unless correcting an error. The attributes should be written according to their validity *at the time of manufacture*.
