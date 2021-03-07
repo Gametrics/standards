@@ -28,7 +28,7 @@ surname="Parrish"
 fullname="Alexander Parrish"
 organization="A Force Dynamic"
 [author.address]
-email = “nuvandibe@gmail.com"
+email = "nuvandibe@gmail.com"
 
 %%%
 
