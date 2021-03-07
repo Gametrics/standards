@@ -44,11 +44,11 @@ The VGCC, Video Game Condition Code, is a condensed text string intended to deno
 
 ## Scope
 
-VGCC (Video Game Condition Code) is intended as a standard for encoding and displaying the condition of physical video game hardware, software, and peripherals.
+The VGCC is intended as a standard for encoding and displaying the condition of physical video game hardware, software, and peripherals.
 
 ### Out-of scope items
 
-The following specific types of items are explicitly considered out-of-scope. This standard **MAY** be used for classification of these items, but the specific needs of classifying these items will not be considered by the VGCC working group:
+The following specific types of items are explicitly considered out-of-scope. This standard **MAY** be used for classification of these items, but the specific needs of classifying these items will not be considered by the VGCR working group:
 
 Item type | Reasoning
 -----|----------
@@ -181,7 +181,7 @@ Code | Meaning
 
 When creating brand codes, it is **RECOMMENDED** that the following considerations apply:
 
-- If an item is known to be released by a subsidiary of a larger company, use the subsidiary’s name (so Tengen would be its own company, not Atari, even though Tengen was an Atari subsidiary).
+- If an item is known to be released by a subsidiary of a larger company, use the subsidiary's name (and so Tengen would be its own company, not Atari, even though Tengen was an Atari subsidiary).
 - For similarly-named regional subsidiaries, such as Nintendo of Japan or Nintendo of America, use the code of the parent company. Splitting regional subsidiaries into their own brands may represent too much granularity.
 
 ### Authenticity \(A\)
@@ -199,7 +199,7 @@ Consider the brand/manufacturer when determining whether a device is original or
 
 To avoid "ship of Theseus" situations when determining authenticity, it is **RECOMMENDED** to think in terms of non-replaceable components. For instance, it is quite possible to replace the shell and a number of electronic components on an NES, but it still contains a OEM NES CPU and PPU at the en of the day. If those components are replaced with an FPGA of some kind, and the device still claims to be made by Nintendo, then it is clearly a repro.
 
-The authors of the VGCC standard can not hope to objectively determine the line between "real" and "repro". Code creators are encouraged to consider the expectations of the human readers of their codes and encode information according to the [principle of least astonishment](https://en.wikipedia.org/wiki/Principle_of_least_astonishment).
+The VGCR working group can not hope to objectively determine the line between "real" and "repro". Code creators are encouraged to consider the expectations of the human readers of their codes and encode information according to the [principle of least astonishment](https://en.wikipedia.org/wiki/Principle_of_least_astonishment).
 
 ### Family \(F\)
 
@@ -289,7 +289,7 @@ Contains any other special information the code creator wishes to share. This fi
 
 ## Condition Field
 
-This field defines the item’s *current* physical condition, including its overall status and any known damage.
+This field defines the item's *current* physical condition, including its overall status and any known damage.
 
 The condition field is formatted as:
 
@@ -374,7 +374,7 @@ The list of acceptable damage codes is as follows:
 
 ### Modifications \(M\)
 
-This attribute represents a list of the item’s aftermarket modifications, including custom shells, LED modifications, etc., including those done to the item's software.
+This attribute represents a list of the item's aftermarket modifications, including custom shells, LED modifications, etc., including those done to the item's software.
 
 What constitutes a modification rather than a repair is whether the console appears or behaves differently from a stock console. Replacing a damaged shell with an identical shell is a repair (swap), whereas replacing a shell with a different colored shell is a modification.
 
@@ -542,7 +542,7 @@ Generally speaking, the "rules" for a VGCC are:
 
 ## Safety/Security Considerations
 
-Nothing prevents an unscrupulous seller from misrepresenting their product. A VGCC is intended for shorthand to describe an item and its history, not as a mark of safety or trustworthiness. The authors of the VGCC take no responsibility for its use by third parties or the accuracy of the information encoded.
+Nothing prevents an unscrupulous seller from misrepresenting their product. A VGCC is intended for shorthand to describe an item and its history, not as a mark of safety or trustworthiness. The VGCR working group take no responsibility for its use by third parties or the accuracy of the information encoded.
 
 ## Warranty Disclaimer
 
