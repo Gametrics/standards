@@ -1,32 +1,35 @@
 %%%
-title = “Video Game Condition Code v1”
-abbrev = “VGCCv1”
-docName = “draft-vgccv1-01”
-category = “info”
+title = "Video Game Condition Code v1"
+abbrev = "VGCCv1"
+docName = "draft-vgccv1-01"
+category = "info"
 
-ipr = “none”
-area = “General”
-workgroup = “Video Game Condition Report Workgroup”
+ipr = "none"
+area = "General"
+workgroup = "Video Game Condition Report Workgroup"
 
 [seriesInfo] 
-name = “RFC”
-value = “draft-vgccv1-01”
-stream = “IETF”
-status = “informational”
+name = "RFC"
+value = "draft-vgccv1-01"
+stream = "IETF"
+status = "informational"
 
 [[author]]
-initials=“M.”
-surname=“Parks”
-fullname=“Michael Parks”
-organization=“TKWare Enterprises”
-[author.address] email = “mparks@tkware.info”
+initials="M."
+surname="Parks"
+fullname="Michael Parks"
+organization="TKWare Enterprises"
+[author.address]
+email = "mparks@tkware.info"
 
 [[author]] 
-initials=“A.”
-surname=“Parrish”
-fullname=“Alexander Parrish”
-organization=“A Force Dynamic”
-[author.address] email = “nuvandibe@gmail.com”
+initials="A."
+surname="Parrish"
+fullname="Alexander Parrish"
+organization="A Force Dynamic"
+[author.address]
+email = “nuvandibe@gmail.com"
+
 %%%
 
 .# Abstract
