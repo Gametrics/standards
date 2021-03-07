@@ -29,7 +29,7 @@ jobs:
       - name: Setup environment
         run: |
           echo "GOPATH=$(go env GOPATH)" >> $GITHUB_ENV
-          echo "::add-path::$(go env GOPATH)/bin"
+          echo "$(go env GOPATH)/bin" >> $GITHUB_PATH
       
       - name: Install dependencies
         run: |
