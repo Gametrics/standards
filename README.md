@@ -1,27 +1,27 @@
-# Game Repair Code Project
+# Video Game Condition Code Project
 
 [![License](https://img.shields.io/badge/License-GFDLv1.3-blue)](https://www.gnu.org/licenses/fdl-1.3.en.html) [![Last commit](https://img.shields.io/github/last-commit/karunamon/grc)](https://github.com/Karunamon/grc/commits/master) [![Latest version](https://img.shields.io/badge/Last%20Version-DRAFT-red)](http://gamerepair.codes) [![Discord](https://img.shields.io/discord/709655247357739048?logo=discord)](https://discord.gg/XF6dK2S)
 
-The Game Repair Code (GRC) is a [Geek Code](https://github.com/telavivmakers/geek_code)-like system for efficiently storing and sharing the information about a piece of game hardware or software. It is intended for use by collectors, retailers, enthusiasts, or anyone in between with an interest in video game paraphernalia.
+The Video Game Condition COde (VGCC) is a [Geek Code](https://github.com/telavivmakers/geek_code)-like system for efficiently storing and sharing the information about a piece of game hardware or software. It is intended for use by collectors, retailers, enthusiasts, or anyone in between with an interest in video game paraphernalia.
 
 This repository contains the source Markdown document for the actual standard doc, which is maintained at [https://gamerepair.codes](https://gamerepair.codes).
 
-The GRC is an open standard licensed under the [GNU Free Documentation License](https://www.gnu.org/licenses/fdl-1.3.en.html). To propose changes to the standard, please open a pull request here.
+The VGCC is an open standard licensed under the [GNU Free Documentation License](https://www.gnu.org/licenses/fdl-1.3.en.html). To propose changes to the standard, please open a pull request here.
 
 ## What is it?
 
-A GRC is used to indicate the most pertinent information about a video game device, including its brand, revision, and repair/modification history. An example would be:
+A VGCC is used to indicate the most pertinent information about a video game device, including its brand, revision, and repair/modification history. An example would be:
 
 ```
-GRC1|BNINT,AOEM,FNGC,RU,TCON,CPLA,V001|PUSD,DSHCSMKTXTSmoking_home,MCHPLED,ESHLPRTDSK|20200829MCHPHyperBoot,20200829MLEDCtrlr,20200829SSHLOEMTop,20200829SSHLOEMHsd,20211224RMSCMHyperBoot,20211224SMSCOEMCtrlport3,20211224SDDA3RD|
+VGCC1|BNINT,AO,FNGC,RU,TCON,MNGC,CIND,VDOL-001,SDS315060768,I|PUSD,DSHCSMKTXTSmoking_home,MCHPLED,ESHLPRTDDAREPTXTRepro_Shell|20200829MCHPHyperBoot,20200829MLEDCtrlr,20200829SOSHLTop,20200829SOSHLHsd,20211224RMSCMHyperBoot,20211224SOMSCCtrlport3,20211224SRDDA|
 ```
 
-What does this code tell us? It's for a Nintendo Gamecube, OEM, United States version, DOL-001, in platinum color. It is in used condition, and has had damage to the shell and smoke damage from being in a smoking home. In the past, it has had repairs made to the shell, ports, and disk drive. It has had a HyperBoot modchip and non-stock LEDs installed. The modchip and LEDs were installed on August 29th, 2020. On the same day, the shell and data port cover were replaced with identical OEM parts. Later in 2021, the modchip was repaired, controller port 3 was replaced with an OEM part, and the disc drive assembly was replaced with a third party version.
+What does this code tell us? It's for a Nintendo Gamecube, OEM, United States version, DOL-001, in indigo color. It is in used condition, and has had damage to the shell and smoke damage from being in a smoking home. In the past, it has had repairs made to the shell, ports, and disk drive. It has had a HyperBoot modchip and non-stock LEDs installed. The modchip and LEDs were installed on August 29th, 2020. On the same day, the shell and data port cover were replaced with identical OEM parts. Later in 2021, the modchip was repaired, controller port 3 was replaced with an OEM part, and the disc drive assembly was replaced with a third party version.
 
-All of that information was condensed into bit more than a single line of text - and that is the power of the GRC. This is information that is valuable to have on hand, either as a collector or a retailer.
+All of that information was condensed into bit more than a single line of text; that is the power of the VGCC.
 
 ## But isn't this hard to read?
-The GRC is a computers-first code, meant to be read programatically by applications, but it is incidentally readable by humans. In the real world, we envision the GRC compressed and encoded into a QR code format, something that could be easily scanned and decoded by an application. In fact, such an application is part of this project and is under active development.
+The VGCC is a computers-first code, meant to be read programatically by applications, but it is incidentally readable by humans. In the real world, we envision the VGCC  compressed and encoded into a QR code format, something that could be easily scanned and decoded by an application. In fact, such an application is part of this project and is under active development.
 
 ![Encoded GRC example](https://i.imgur.com/zC7B4mU.png)
 
