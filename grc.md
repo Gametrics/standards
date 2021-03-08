@@ -42,27 +42,13 @@ This document proposes a new encoding method for video game hardware/software id
 
 The VGCC, Video Game Condition Code, is a condensed text string intended to denote the general status, details, and repair history of consumer video game consoles, software, and peripherals. It is intended for use by collectors, curators, retailers, resellers and enthusiasts, for any use case where a standardized way of representing the history and condition of video game paraphernalia would be beneficial.
 
-## Scope
-
-The VGCC is intended as a standard for encoding and displaying the condition of physical video game hardware, software, and peripherals.
-
-### Out-of scope items
-
-The following specific types of items are explicitly considered out-of-scope. This standard **MAY** be used for classification of these items, but the specific needs of classifying these items will not be considered by the VGCR working group:
-
-Item type | Reasoning
------|----------
-Pinball tables | Not considered video games
-Electronically-assisted board games | Not considered video games
-IBM-compatible PCs | Impossible to determine a specific brand or model
-
 ## Status of This Document
 
 VGCC is currently in a developmental, RFC draft phase. It should not be used for any purpose until it has been finalized and tooling has been developed.
 
 ## Terminology
 
-The keywords **MUST**, **MUST NOT**, **REQUIRED**, **SHALL**, **SHALL NOT**, **SHOULD**, **SHOULD NOT**, **RECOMMENDED**, **MAY**, and **OPTIONAL**, when they appear in this document, are to be interpreted as described in the IETF's [@RFC2119].
+The keywords **MUST**, **MUST NOT**, **REQUIRED**, **SHALL**, **SHALL NOT**, **SHOULD**, **SHOULD NOT**, **RECOMMENDED**, **MAY**, and **OPTIONAL**, when they appear in this document, are to be interpreted as described in the IETF's [@RFC2119] when, and only when, they appear in bolded all-caps as shown here.
 
 ## Availability & Updates
 
@@ -70,11 +56,31 @@ The latest version document will always be hosted at https://gamerepair.codes
 
 To propose changes, please submit a pull request at https://github.com/Karunamon/grc
 
-The MASTER branch of the above-named repository is considered to be the most up-to-date version of this standard.
+The latest release tag of the above-named repository is considered to be the most up-to-date version of this standard. The `MASTER` branch represents work in progress.
 
 ## Versioning
 
-The VGCC version field is a monotonic counter. Any backward-incompatible changes, such as changing the format or ordering of a field or attribute, will be reflected by incrementing the counter by one.
+The VGCC version is a monotonic integer. There are no point releases.
+
+The version number will be given:
+
+* In the title of this document
+* In a tag with the prefix `v` in the above-mentioned git repository
+* In the version field in a compliant VGCC
+
+Any backward-incompatible changes, such as changing the format or ordering of a field or attribute, will be reflected by incrementing the counter by one.
+
+## Scope
+
+The VGCC is intended as a standard for encoding and displaying the condition of *only* physical video game hardware, software, and peripherals. 
+
+The following specific types of items are explicitly considered out-of-scope despite their categorical relationship with video games. This standard **MAY** be used for classification of these items, but the specific needs of these items will not be considered by the VGCR working group, either in this standard or any supporting documentation or tooling:
+
+Item type                           | Reasoning
+------------------------------------|---------------------------------------------------
+Pinball tables                      | Not considered video games
+Electronically-assisted board games | Not considered video games
+IBM-compatible PCs or software      | Impossible to determine a specific brand or model
 
 # General Syntax
 
@@ -141,7 +147,7 @@ This field **MUST** begin with an all-caps "VGCC" followed by a digit indicating
 
 ### Compression
 
-For representation in QR codes or in a space-constrained medium, a VGCC **MAY** be compressed. This is accomplished by taking an entire valid code, running it through the Deflate algorithm, and base64 encoding the result. The compressed data is then placed in a new code in the format:
+For representation in QR codes or in a space-constrained medium, a VGCC **MAY** be compressed. This is accomplished by taking an entire valid code, running it through the Deflate algorithm, and base64 encoding the result. The compressed data is then placed in a new code with the version set to `Z`, in the format:
 
 `VGCCZ|(compressed data)`
 
@@ -157,7 +163,7 @@ This field **MUST** be ordered as follows:
 
 The Brand attribute is a four-letter representation of the original manufacturer of the hardware or software.
 
-Owing to the large number of possible brands, the VGCC standard will not attempt to define a list of all brands. Nevertheless, it is **RECOMMENDED** that companies appearing in the following table use the given brand codes:
+Owing to the large number of possible brands, the VGCC standard will not attempt to define a list of all brands. Nevertheless, it is **RECOMMENDED** that companies appearing in the following table use the given brand code:
 
 Code | Company
 -----|--------
@@ -199,7 +205,7 @@ Consider the brand/manufacturer when determining whether a device is original or
 
 To avoid "ship of Theseus" situations when determining authenticity, it is **RECOMMENDED** to think in terms of non-replaceable components. For instance, it is quite possible to replace the shell and a number of electronic components on an NES, but it still contains a OEM NES CPU and PPU at the en of the day. If those components are replaced with an FPGA of some kind, and the device still claims to be made by Nintendo, then it is clearly a repro.
 
-The VGCR working group can not hope to objectively determine the line between "real" and "repro". Code creators are encouraged to consider the expectations of the human readers of their codes and encode information according to the [principle of least astonishment](https://en.wikipedia.org/wiki/Principle_of_least_astonishment).
+The VGCR working group can not hope to objectively determine the line between "real" and "repro". Code creators are encouraged to consider the expectations of the human readers of their codes and encode information according to the principle of least astonishment [@POLA].
 
 ### Family \(F\)
 
@@ -259,7 +265,6 @@ AMD       | Auxillary media device (ex: N64 Disk Drive, Famicom disk system, Suf
 This attribute is **OPTIONAL** and may be left empty. If provided, it is considered free-text.
 
 This attribute represents different releases of a given set of hardware of the same type and family with different features or functionality. For example, the Sega Genesis models 1, 2, or 3, or the PS2 fat or slim.
-
 
 ### Color \(C\)
 
@@ -330,11 +335,12 @@ The list of acceptable damage codes is as follows:
 - **EC_**: Electrical component issues
     - **ECP**: Damage to the board or substrate itself, such as cracks or lifted traces
     - **ECC**: Visible damage to board components, such as blown capacitors or transistors
-    - **ECX**: Known but invisible damage, such as a damaged IC (explain in TXT)
-    - **ECZ**: Electrical components are missing
+    - **ECX**: Known but invisible damage, such as a damaged IC (explain in `TXT`)
+    - **ECZ**: Electrical components are missing (explain in `TXT`)
 - **SMK**: Smoke damage, including fire or nicotine contamination
 - **WAT**: Water/moisture damage, including rust
 - **BLK**: Battery leakage or corrosion
+- **LCP**: Partially or completely nonfunctional PCB edge connector (cartridge slot or similar)
 - **OL_**: Online service issues
     - **OLX**: Limited access to online services (game bans, or restriction to updates only)
     - **OLZ**: No access to online services (hard console ban, updates not allowed)
@@ -343,6 +349,7 @@ The list of acceptable damage codes is as follows:
     - **LMV**: Loose video port
     - **LME**: Loose expansion or memory card port
     - **LMP**: Loose power connector
+    - **LMC**: Loose or damaged PCB edge connector (cartridge slot, etc)
     - **LMS**: Loose switch of any kind (power/mode/etc.)
     - **LMZ**: Outright missing connectors (explain which ones in TXT)
 - **DNS**: Does not save. Battery backup/saving failure
@@ -352,8 +359,11 @@ The list of acceptable damage codes is as follows:
     - **OMS**: Scratches, superficial (reading is not impacted)
     - **OMD**: Scratches, deep (reading is impacted)
     - **OMC**: Cracks, superficial (in the center ring or not-reading area)
-    - **OMZ**: Cracks, deep (disc is likely destroyed)
     - **OMR**: Visible damage or holes in the data layer due to label damage or "Disc rot"
+    - **OMX**: Cracks, deep (disc is likely destroyed)
+- **OD_**: Optical drive issues
+    - **ODX**: Optical drive damaged (intermittent, unreliable, or non-functional)
+    - **ODZ**: Optical drive missing   
 - **OS_**: On-board storage (HD/SSD, NVRAM, or permanent battery-backed RAM) issues
     - **OSX**: On-board storage is corrupt or non-functional
     - **OSZ**: On-board storage is missing
@@ -368,7 +378,7 @@ The list of acceptable damage codes is as follows:
     - **SCX**: Screen is completely dead/nonfunctional
     - **SCZ**: Screen is missing
 - **REF**: Includes refurbished parts (explain in TXT)
-- **XXX**: This item has been destroyed in its entirety.
+- **XXX**: This item has been irreperably destroyed.
 - **TXT**: Free-text follows. **MUST** come last.
 
 
@@ -378,24 +388,24 @@ This attribute represents a list of the item's aftermarket modifications, includ
 
 What constitutes a modification rather than a repair is whether the console appears or behaves differently from a stock console. Replacing a damaged shell with an identical shell is a repair (swap), whereas replacing a shell with a different colored shell is a modification.
 
-If there are no modifications present, this field **MUST** be populated with "STK".
+If there are no known modifications present, this field **MUST** be populated with "STK".
 
 Code | Meaning
 -----|------------
-STK| No known modifications present on this console
-LED| LED modification; lights have been added to part of the item that did not have them before, or existing colors were replaced
-SHL| Shell modification; replacing with a non-stock shell or painting a shell with a custom color
-BKL| Backlight
-RGF| Region-free
-CHP| Modchip
-SFM| Soft-mod / custom firmware
-CNS| Consolization
-VID| Video-output (rgb, hdmi)
-STO| Storage modification
-BAT| Battery modification
-AUD| Audio-output modifications (speakers, headphones)
-PCB| Circuit or PCB-level mods, not including region-free or modchip installation
-ODE| Optical drive emulator
+STK  | No known modifications present on this console
+LED  | LED modification; lights have been added to part of the item that did not have them before, or existing colors were replaced
+SHL  | Shell modification; replacing with a non-stock shell or painting a shell with a custom color
+BKL  | Backlight
+RGF  | Region-free
+CHP  | Modchip
+SFM  | Soft-mod / custom firmware
+CNS  | Consolization
+VID  | Video-output (rgb, hdmi)
+STO  | Storage modification
+BAT  | Battery modification
+AUD  | Audio-output modifications (speakers, headphones)
+PCB  | Circuit or PCB-level mods, not including region-free or modchip installation
+ODE  | Optical drive emulator
 
 ### Known Repairs/Replacements \(E\)
 
@@ -403,14 +413,16 @@ This attribute represents a list of non-modification repairs. It includes replac
 
 For instance, replacing a cracked shell with an identical one, replacing minor electronic components, screen repair, etc.
 
-Generally, what differentiates an `M` (mod) from an `E` (repair) is whether the system has been customized or substantially changed from its OEM state. If this difference is ambiguous for your use case, you **SHOULD** default to using the `M` code instead.
+Generally, what differentiates a `M` (mod) from an `E` (repair) is whether the system has been customized or substantially changed from its OEM state. If this difference is ambiguous for your use case, you **SHOULD** default to using the `M` code instead.
 
 - Repairs/replacements of already-modified components **MUST** be treated as a re-modification and not included in this field.
 - Repair codes **MUST** be considered permanent and never be removed for any reason unless inaccurate.
 
+The list of repair codes is as follows:
+
 * **NR\***: No repairs, choose one of these two:
   * **NRS**: No repairs, all seals still intact
-  * **NRO**: No repairs, has been opened (seals broken)
+  * **NRO**: No repairs, has been opened (seals broken, use if unsure)
 * **SHL**: Shell repair (resurfacing or crack filling) or replacement, including shell components like switches or buttons (excluding cleaning)
 * **LBL**: Label or printing replacement
 * **BKL**: Backlight
@@ -420,12 +432,11 @@ Generally, what differentiates an `M` (mod) from an `E` (repair) is whether the 
 * **PCB**: PCB components
 * **RBT**: Retrobriting
 * **SFT**: Software / file system
-* **SPK**: Speaker / direct sound output (excluding jacks, these **MUST** be classified as **PRT**)
+* **SPK**: Speaker / direct sound output (excluding jacks, these **MUST** be classified as `PRT`)
 * **BAT**: Non-user-accessible batteries
 * **RPT**: Metal replating
-
 * **REP**: Repro (non-OEM) parts were used for any replacements
-* **TXT**: 24 characters of free-text follow; **MUST** come last, only one is permitted under code E.
+* **TXT**: Free-text follows. **MUST** come last
 
 ## Service History Field
 
@@ -433,7 +444,7 @@ This field is **OPTIONAL** and may be skipped.
 
 The service history field represents a list of repair events. A "repair event" defined as service of a single item or directly related group of items in a sub-assembly.
 
-The service history field format is as follows:
+The format for a repair event is as follows:
 
 `(Datestamp)(Repair type)(Item repaired)(Free-text),`
 
@@ -446,7 +457,7 @@ The service history field format is as follows:
 
 When sending consoles into OEMs, they may repair a system and send it back *or* send an entirely new refurbished console. Check the serial numbers in this case. If a new serial number is received, you have received a new console and **MUST** start a brand new VGCC. **Do not carry any history over.** If the hardware you received is not in its factory packaging, you **MUST** add a **REF** under code `D` and note its status as **USD** under code `C`
 
-Refurbished consoles likely have had components repaired, but unless you can determine with absolute certainty which components those were, you **MUST NOT** guess.
+Refurbished consoles likely have had components repaired, even so, code creators **MUST NOT** guess which components are repaired/refurbished.
 
 ### Date of Service
 
@@ -456,13 +467,16 @@ If the repair date is entirely unknown, but you know a repair was made, you **MU
 
 ### Repair Types
 
-Denotes the general disposition of the changes made to the hardware. This **MUST** be one of the 3 following characters:
+Represents the general disposition of the changes made to the item. This **MUST** be one of the codes below:
 
-- `M`: Mod
-- `S`: Swap (broken parts to new parts)
-- `R`: Repair (existing parts condition improved, or significant cleaning)
+Code | Meaning
+-----|---------
+M    | Mod
+SO   | Swapped in an OEM part
+SR   | Swapped in a third-party or reproduction part
+R    | Repair (existing parts condition improved, or significant cleaning that resolves a concrete functional problem)
 
-Swaps or repairs that require no tools, such as battery replacements or consumer-accessible cleaning (say, taking a cotton swab to a the laser on a disc system) **MUST NOT** have a repair entry added.
+Swaps or repairs that require no tools, such as battery replacements or cleaning intended to be done by the end user (for example, taking a cotton swab to a the laser on a disc system) **MUST NOT** have a repair entry added.
 
 ### Item Repaired
 
@@ -476,7 +490,7 @@ The following is an example of a compliant VGCC1 code:
 VGCC1|BNINT,AO,FNGC,RU,TCON,MNGC,CIND,VDOL-001,SDS315060768,I|PUSD,DSHCSMKTXTSmoking_home,MCHPLED,ESHLPRTDDAREPTXTRepro_Shell|20200829MCHPHyperBoot,20200829MLEDCtrlr,20200829SOSHLTop,20200829SOSHLHsd,20211224RMSCMHyperBoot,20211224SOMSCCtrlport3,20211224SRDDA|
 ```
 
-This given code breaks down as follows. Note that the field separator in this table is an underscore "_" rather than a pipe "|" for formatting reasons:
+This given code breaks down as follows. Note that the field separator in this table is an underscore `_` rather than a pipe `|` for formatting reasons:
 
 Code Block | Meaning
 -----------|---------
@@ -515,7 +529,7 @@ The organization scheme this standard sets out is suitable for nearly all purpos
 
 ## Type Classification
 
-Certain items may defy the code T classification scheme, or have good arguments for falling under multiple categories:
+Certain items may defy the code `T` classification scheme, or have good arguments for falling under multiple categories. The VGCR working group **RECOMMENDS** the following:
 
 **Cheat Devices:** All-in-one devices (that is, the cheat hardware and software are part of a single physical unit, ex: the NES Game Genie) are considered **SFT**. In the case of devices that have a separate cheat device as well as software, such as the PlayStation or Gamecube Action Replay, these must have their own separate VGCCs. The disc is **SFT**, and the hardware is **3RD**.
 
@@ -536,7 +550,7 @@ Generally speaking, the "rules" for a VGCC are:
 3. Codes in the [condition](#condition) field relate to the *present* condition of the item and should be updated often.
 4. Codes **SHOULD** be constructed such that all pertinent information about a piece of hardware is present even if the [service history](#servicehistory) field is blank.
 5. Ambiguities **SHOULD** be resolved in a way that is *least favorable to the value of the item*. In other words, if you're not sure if something is a swap or a mod, default to considering it a mod.
-6. VGCCs are intended to classify individual items, not retail packages. 
+6. VGCCs are intended to classify individual items, not retail bundles. For instance, it is common for OEMs to sell different console bundles with different hardware, peripherals, and software. Each item in the bundle would have its own VGCC, not the bundle as a whole.
 
 # Legal
 
@@ -552,8 +566,7 @@ The VGCC working group offers this standard and any related applications or serv
 
 As the VGCC is licensed under the GFDL (see next section), you are free to copy, modify, and share this document under those terms.
 
-We specifically note that any related logos, artwork, and the names "Video Game Condition Code" and "Video Game Condition Report", and the acronyms VGCR and VGCC are owned by the VGCR working group and may not be used without the group's prior written
-consent.
+We specifically note that any related logos, artwork, and the names "Video Game Condition Code" and "Video Game Condition Report", and the acronyms VGCR and VGCC are owned by the VGCR working group and may not be used without the group's prior written consent.
 
 **In brief: feel free to use this project as a base for something else, but you must call it something else and use your own artwork.**
 
@@ -568,7 +581,16 @@ Permission is granted to copy, distribute and/or modify this document under the 
 <reference anchor='goodtools-country' target='https://emulation.gametechwiki.com/index.php?title=GoodTools'>
     <front>
        <title>GoodTools Country Codes</title>
-       <author fullname='GTW Contributors'><organization>Game Tech Wiki</organization></author>
+       <author><organization>Game Tech Wiki</organization></author>
        <date year='2019'/>
     </front>
 </reference>
+
+<reference anchor='pola' target='https://en.wikipedia.org/w/index.php?title=Principle_of_least_astonishment&oldid=1000160881'>
+    <front>
+       <title>Principle of least astonishment</title>
+       <author><organization>Wikipedia</organization></author>
+       <date month='January' year='2021'/>
+    </front>
+</reference>
+
