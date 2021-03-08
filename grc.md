@@ -42,6 +42,10 @@ This document proposes a new encoding method for video game hardware/software id
 
 The VGCC, Video Game Condition Code, is a condensed text string intended to denote the general status, details, and repair history of consumer video game consoles, software, and peripherals. It is intended for use by collectors, curators, retailers, resellers and enthusiasts, for any use case where a standardized way of representing the history and condition of video game paraphernalia would be beneficial.
 
+## The Need for a Standard
+
+For anyone seriously into video games as a hobby, determining what, exactly, you have has historically been a challenge. 
+
 ## Status of This Document
 
 VGCC is currently in a developmental, RFC draft phase. It should not be used for any purpose until it has been finalized and tooling has been developed.
@@ -81,6 +85,7 @@ Item type                           | Reasoning
 Pinball tables                      | Not considered video games
 Electronically-assisted board games | Not considered video games
 IBM-compatible PCs or software      | Impossible to determine a specific brand or model
+Arcade machines                     | Planned for a future version of the standard
 
 # General Syntax
 
@@ -96,11 +101,11 @@ A VGCC string **MUST NOT** exceed 1024 characters *before* compression. If a giv
 
 ## Encoding
 
-Usable characters in a VGCC string are the ASCII letters A through Z in mixed case, numbers 0 through 9, and the symbols `!?;|_,`.  
+Usable characters in a VGCC string are the ASCII letters A through Z in mixed case, numbers 0 through 9, and the symbols `!?;-|_,`.  
 
 The pipe (`|`) and comma (`,`) characters are reserved as field and attribute separators respectively, and **MUST NOT** appear in any other context. "Escaping" these characters is not permitted.
 
-The PCRE regular expression `^([A-Z]|[a-z]|[0-9]|[\!\?\|,;_])+$` **MAY** be used to check whether a VGCC string contains invalid characters.
+The PCRE regular expression `^([A-Z]|[a-z]|[0-9]|[\!\?\|\-,;_])+$` **MAY** be used to check whether a VGCC string contains invalid characters.
 
 ## Free-text attributes
 
@@ -151,9 +156,9 @@ For representation in QR codes or in a space-constrained medium, a VGCC **MAY** 
 
 `VGCCZ|(compressed data)`
 
-## Hardware Field
+## Hardware Identity Field
 
-The hardware field defines, hierarchically, the identity of the item the code is being written for. 
+The hardware identity field defines, hierarchically, the identity of the item the code is being written for. 
 
 This field **MUST** be ordered as follows:
 
@@ -172,7 +177,7 @@ SONY | Sony
 MICR | Microsoft
 SEGA | Sega
 ATAR | Atari
-
+COMM | Commodore
 
 Codes prefixed with a `!` indicate missing information. These special codes **MUST NOT** be used for any other purpose.
 
@@ -220,6 +225,7 @@ Owing to the large number of possible brands, the VGCC standard will not attempt
 Family Code | Description
 ------------|-----------
 FCM         | Famicom / NES
+SFC         | Super Famicom / SNES
 SMD         | Sega MegaDrive / Genesis
 PCE         | PC Engine / TurboGrafx 16
 MCD         | MegaCD / SegaCD
@@ -241,7 +247,8 @@ PC8         | NEC PC-88
 ### Region \(R\)
 
 This attribute represents the original release region of the item. 
-This field **MUST** be a recognized 1 or 2-letter GoodTools country code. [@goodtools-country]
+
+This field **MUST** be a recognized 1 to 3-letter GoodTools country code. [@goodtools-country]
 
 ### Type \(T\)
 
@@ -253,18 +260,19 @@ Type Code | Description
 ----------|------------
 CON       | Console
 DEV       | Devkit console
-SFT       | Game or software (including all-in-one cheat devices like the NES Game Genie)
-1ST       | First-party software-specific peripheral (ex: Super Scope, Multitap)
-3RD       | 3rd-party hardware or software peripheral (ex: Konami Justifier, including non-all-in-one cheat devices such as the Gamecube Action Replay)
-CNT       | Console intrinsic component (ex: power adapter, RF switch, video adapter or cables)
-SNT       | Software intrinsic component (ex: standalone case or disc for a multi-disc game)
-AMD       | Auxillary media device (ex: N64 Disk Drive, Famicom disk system, Sufami Turbo, Gamecube GBA player)
+1PA       | First-party or OEM component (ex: controller, av cables, power adapters)
+3PA       | Third-party component (ex: a Madcatz AV cable or controller)
+SFT       | Game or software media (including integrated cheat devices like the NES Game Genie, or a complete media package)
+SNT       | Software intrinsic component (box or manuals, including separated cheat devices like the Gamecube action replay)
+AMD       | Alternate media device (ex: N64 Disk Drive, Famicom disk system, Sufami Turbo, Gamecube GBA player)
 
 ### Model \(M\)
 
-This attribute is **OPTIONAL** and may be left empty. If provided, it is considered free-text.
+This attribute is considered free-text.
 
 This attribute represents different releases of a given set of hardware of the same type and family with different features or functionality. For example, the Sega Genesis models 1, 2, or 3, or the PS2 fat or slim.
+
+It is **RECOMMENDED** that, if a VGCC is describing a piece of hardware that is the first in its family, that this attribute be set to the same value as the family attribute.
 
 ### Color \(C\)
 
@@ -307,9 +315,9 @@ This attribute represents an overall judgment of the physical condition of the i
 Condition Code | Description
 ---------------|------------
 NEW            | New, still in *unopened* factory packaging.
-MNT            | Mint, opened, but in best concievable physical shape. **No damage or mods**.
+MNT            | Mint, opened, but in best concievable OEM physical condition. **No damage or mods**.
 USD            | Used, but fully functional. May have damage or be modified. Includes the presence of manufacturer refurbished hardware.
-PNF            | Used, partially nonfunctional (system is fit for purpose but certain functions don't work)
+PNF            | Used, partially nonfunctional (system is fit for purpose but certain functions are degraded)
 CNF            | Completely nonfunctional (system is no longer fit for purpose)
 
 ### Currently Known Damage \(D\)
@@ -531,15 +539,17 @@ The organization scheme this standard sets out is suitable for nearly all purpos
 
 Certain items may defy the code `T` classification scheme, or have good arguments for falling under multiple categories. The VGCR working group **RECOMMENDS** the following:
 
-**Cheat Devices:** All-in-one devices (that is, the cheat hardware and software are part of a single physical unit, ex: the NES Game Genie) are considered **SFT**. In the case of devices that have a separate cheat device as well as software, such as the PlayStation or Gamecube Action Replay, these must have their own separate VGCCs. The disc is **SFT**, and the hardware is **3RD**.
+**Cheat Devices:** All-in-one devices (that is, the cheat hardware and software are part of a single physical unit, ex: the NES Game Genie) are considered `SFT`. In the case of devices that have a separate cheat device as well as software, such as the PlayStation or Gamecube Action Replay, these must have their own separate VGCCs. The disc is `SFT`, and the hardware is `SNT` (as the device is intrinsic to the function of the software).
 
-**Cartridge Copiers / Backup Devices:** These are all considered **3RD**.
+**Cartridge Copiers / Backup Devices:** These are all considered `3PA`.
 
-**Multiplayer Adapters:** These fit under the **3RD** category, and include devices such as the XBAND for SNES or Genesis. **3RD** would also apply to Multitap-like devices.
+**Multiplayer Adapters:** These fit under the `3PA` category, and include devices such as the XBAND for SNES or Genesis. Multitap devices made by the console OEM are considered `1PA`.
 
 **Cartridge Peripherals:** These would generally fit under the category of **AMD** - devices that plug into the cartridge slot and allow you to play additional content in a format that was not possible on the original hardware. This would include devices where content is downloaded from the internet, received over broadcast services, or alternate physical media formats. Examples would include the Broadcast Satellaview or Sega Channel, Mega CD, Famicom Disk System, etc. It would also include retro compatibility add-ons, such as the Game Boy Player for the GameCube.
 
 Note that the software and hardware must have their own codes if they can be separated. The Satellaview cartridge, memory unit, and satellite adapter are all distinct devices with distinct VGCCs.
+
+**Software for Alternate Media Devices:** Use the family code of the parent console. "Sonic CD" would have a family code of `SMD`. 
 
 ## Conflicting Codes & other considerations
 
@@ -574,7 +584,7 @@ We specifically note that any related logos, artwork, and the names "Video Game 
 
 Copyright 2021 - Mike Parks, Alexander Parrish, and contributors
 
-Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A copy of the license is included in the file [LICENSE.MD](https://raw.githubusercontent.com/Karunamon/grc/master/LICENSE.md), located in the same repository as the standard doc.
+Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A copy of the license is included in the file [LICENSE.MD](https://raw.githubusercontent.com/Karunamon/grc/master/LICENSE.md), located in the same repository as this standard doc.
 
 {backmatter}
 
