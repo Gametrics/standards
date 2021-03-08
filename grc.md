@@ -44,7 +44,11 @@ The VGCC, Video Game Condition Code, is a condensed text string intended to deno
 
 ## The Need for a Standard
 
-For anyone seriously into video games as a hobby, determining what, exactly, you have has historically been a challenge. 
+Most who have tried curating their own collection of video games understands that doing so has historically been a hassle. Whereas there are clearly-defined, community-accepted guidelines for collecting in other fields, such as coins, comics, and artwork, video games have been notably lacking in this department.
+
+The Video Game Condition Report aims to standardize the way that video game hardware and software is described insofar as the actual status of the collectible, as well as provide a method for encoding concise information into a QR code, NFC tag, or any similar medium for decoding by a portable device such as a phone or scanner.
+
+By creating and releasing this standard we, The VGCR Foundation, hope to help mitigate and misunderstandings where it comes to sales, trading, and describing collectibles.
 
 ## Status of This Document
 
@@ -228,7 +232,6 @@ FCM         | Famicom / NES
 SFC         | Super Famicom / SNES
 SMD         | Sega MegaDrive / Genesis
 PCE         | PC Engine / TurboGrafx 16
-MCD         | MegaCD / SegaCD
 VCS         | Atari VCS (2800)
 PSX         | Playstation
 PS2         | PlayStation 2
