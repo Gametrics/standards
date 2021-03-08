@@ -586,7 +586,7 @@ Permission is granted to copy, distribute and/or modify this document under the 
     </front>
 </reference>
 
-<reference anchor='pola' target='https://en.wikipedia.org/w/index.php?title=Principle_of_least_astonishment&oldid=1000160881'>
+<reference anchor='pola' target='https://en.wikipedia.org/w/index.php?title=Principle_of_least_astonishment'>
     <front>
        <title>Principle of least astonishment</title>
        <author><organization>Wikipedia</organization></author>
