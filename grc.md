@@ -210,11 +210,6 @@ The attribute takes the form of:
 
 Consider the brand/manufacturer when determining whether a device is original or repro. For example, if a piece of hardware passes itself off as Nintendo hardware but is not made by Nintendo, its proper code is **`R`**. Third-party consoles, even if they run OEM software (example: [the RetroN series of consoles](https://en.wikipedia.org/wiki/RetroN)), still do not pass themselves off as OEM hardware, and **MUST** be given as their own company name with an authenticity attribute of `O`
 
-### Ambiguity in authenticity
-
-To avoid "ship of Theseus" situations when determining authenticity, it is **RECOMMENDED** to think in terms of non-replaceable components. For instance, it is quite possible to replace the shell and a number of electronic components on an NES, but it still contains a OEM NES CPU and PPU at the en of the day. If those components are replaced with an FPGA of some kind, and the device still claims to be made by Nintendo, then it is clearly a repro.
-
-The VGCR working group can not hope to objectively determine the line between "real" and "repro". Code creators are encouraged to consider the expectations of the human readers of their codes and encode information according to the principle of least astonishment [@POLA].
 
 ### Family \(F\)
 
@@ -464,12 +459,6 @@ The format for a repair event is as follows:
 - If a service history entry is invalidated or duplicated by a later event, such as the same component being replaced twice, the earlier entry **SHOULD** be removed.
 - Code creators **MUST NOT** add new service history items that they did not either personally perform or have performed on their behalf, unless a specific record of the repair or modification is consulted, such as an invoice.
 
-### Note on refurbishment
-
-When sending consoles into OEMs, they may repair a system and send it back *or* send an entirely new refurbished console. Check the serial numbers in this case. If a new serial number is received, you have received a new console and **MUST** start a brand new VGCC. **Do not carry any history over.** If the hardware you received is not in its factory packaging, you **MUST** add a **REF** under code `D` and note its status as **USD** under code `C`
-
-Refurbished consoles likely have had components repaired, even so, code creators **MUST NOT** guess which components are repaired/refurbished.
-
 ### Date of Service
 
 Each history entry **MUST** begin with the ISO8601 date (in the YYYYMMDD format) when the action was *finished*, with no separator. Example: 20200829 for August 29th, 2020.
@@ -548,11 +537,24 @@ Certain items may defy the code `T` classification scheme, or have good argument
 
 **Multiplayer Adapters:** These fit under the `3PA` category, and include devices such as the XBAND for SNES or Genesis. Multitap devices made by the console OEM are considered `1PA`.
 
-**Cartridge Peripherals:** These would generally fit under the category of **AMD** - devices that plug into the cartridge slot and allow you to play additional content in a format that was not possible on the original hardware. This would include devices where content is downloaded from the internet, received over broadcast services, or alternate physical media formats. Examples would include the Broadcast Satellaview or Sega Channel, Mega CD, Famicom Disk System, etc. It would also include retro compatibility add-ons, such as the Game Boy Player for the GameCube.
+**Cartridge Peripherals:** These would generally fit under the category of `AMD` - devices that plug into the cartridge slot and allow you to play additional content in a format that was not possible on the original hardware. This would include devices where content is downloaded from the internet, received over broadcast services, or alternate physical media formats. Examples would include the Broadcast Satellaview or Sega Channel, Mega CD, Famicom Disk System, etc. It would also include retro compatibility add-ons, such as the Game Boy Player for the GameCube.
 
 Note that the software and hardware must have their own codes if they can be separated. The Satellaview cartridge, memory unit, and satellite adapter are all distinct devices with distinct VGCCs.
 
 **Software for Alternate Media Devices:** Use the family code of the parent console. "Sonic CD" would have a family code of `SMD`. 
+
+## Ambiguity in Authenticity
+
+To avoid "ship of Theseus" situations when determining authenticity, it is **RECOMMENDED** to think in terms of non-replaceable components. For instance, it is quite possible to replace the shell and a number of electronic components on an NES, but it still contains a OEM NES CPU and PPU at the en of the day. If those components are replaced with an FPGA of some kind, and the device still claims to be made by Nintendo, then it is clearly a repro.
+
+The VGCR working group can not hope to objectively determine the line between "real" and "repro". Code creators are encouraged to consider the expectations of the human readers of their codes and encode information according to the principle of least astonishment [@POLA].
+
+## Refurbishment
+
+When sending consoles into OEMs, they may repair a system and send it back *or* send an entirely new refurbished console. Check the serial numbers in this case. If a new serial number is received, you have received a new console and **MUST** start a brand new VGCC. **Do not carry any history over.** If the hardware you received is not in its factory packaging, you **MUST** add a `REF` under code `D` and note its status as `USD` under code `C`
+
+Refurbished consoles likely have had components repaired. Even so, code creators **MUST NOT** guess which components are repaired/refurbished.
+
 
 ## Conflicting Codes & other considerations
 
