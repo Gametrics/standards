@@ -560,8 +560,8 @@ Refurbished consoles likely have had components repaired. Even so, code creators
 
 Generally speaking, the "rules" for a VGCC are:
 
-1. Codes **MUST NOT** conflict with one another under any circumstances. Any situation which would result in a conflict a case where one or multiple codes must be adjusted, or an unforeseen design flaw with the VGCC standard.
-2. Codes in the [hardware](#hardware) field are considered intrinsic to the identity of the item being cataloged, and are never changed unless correcting an error. The attributes should be written according to their validity *at the time of manufacture*.
+1. Codes **MUST NOT** conflict with one another under any circumstances. Any situation which would result in a conflict is a case where one or multiple codes must be adjusted, or is an unforeseen design flaw with the VGCC standard.
+2. Codes in the [hardware identity](#hardware) field are considered intrinsic to the identity of the item being cataloged, and are never changed unless correcting an error. The attributes should be written according to their validity *at the time of manufacture*.
 3. Codes in the [condition](#condition) field relate to the *present* condition of the item and should be updated often.
 4. Codes **SHOULD** be constructed such that all pertinent information about a piece of hardware is present even if the [service history](#servicehistory) field is blank.
 5. Ambiguities **SHOULD** be resolved in a way that is *least favorable to the value of the item*. In other words, if you're not sure if something is a swap or a mod, default to considering it a mod.
