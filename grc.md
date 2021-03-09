@@ -145,7 +145,6 @@ Sony
 
 This broad-to-narrow design was chosen because it allows for maximum flexibility in describing different types of items. 
 
-
 # Field Syntax
 
 ## Version Field
@@ -328,14 +327,16 @@ If new damage occurs, or if the damage is repaired by servicing, such as a shell
 
 The list below is formatted for ease of reading. Consecutive types of the same class of damage **MUST** be coded consecutively, so for a yellowed and cracked shell, the code is `SHCSHY` rather than  `SHYC`.
 
+Additionally, a digit from 1 to 3 representing the severity of the class of damage may **OPTIONALLY** be added to the codes which call out a distinction below. Codes that support a severity have a `#` in their description. Codes without this designation **MUST NOT** have a digit added.
+
 The list of acceptable damage codes is as follows:
 
-- **SH_**: Shell/Case issues
-    - **SHC**: Shell cracks
-    - **SHS**: Shell scratches
-    - **SHY**: Yellowing
-    - **SHF**: Faded wording or print
-    - **SHK**: Missing, damaged labels or stickers
+- **SH_**: Shell/case issues
+    - **SHC#**: Shell cracks 
+    - **SHS#**: Shell scratches (1/2/3)
+    - **SHY#**: Yellowing
+    - **SHF#**: Faded wording or print
+    - **SHK#**: Missing, damaged labels or stickers
     - **SHM**: Missing shell parts, such as a battery or port cover
     - **SHZ**: Shell is missing outright
 - **EC_**: Electrical component issues
@@ -343,44 +344,42 @@ The list of acceptable damage codes is as follows:
     - **ECC**: Visible damage to board components, such as blown capacitors or transistors
     - **ECX**: Known but invisible damage, such as a damaged IC (explain in `TXT`)
     - **ECZ**: Electrical components are missing (explain in `TXT`)
-- **SMK**: Smoke damage, including fire or nicotine contamination
-- **WAT**: Water/moisture damage, including rust
-- **BLK**: Battery leakage or corrosion
-- **LCP**: Partially or completely nonfunctional PCB edge connector (cartridge slot or similar)
+- **SMK#**: Smoke damage, including fire or nicotine contamination
+- **WAT#**: Water/moisture damage, including rust
+- **BLK#**: Battery leakage or corrosion
+- **LCP#**: Partially or completely nonfunctional PCB edge connector (cartridge slot or similar)
 - **OL_**: Online service issues
     - **OLX**: Limited access to online services (game bans, or restriction to updates only)
     - **OLZ**: No access to online services (hard console ban, updates not allowed)
 - **LM_:** Loose, missing, or intermittent connectors
-    - **LMC**: Loose controller port
-    - **LMV**: Loose video port
-    - **LME**: Loose expansion or memory card port
-    - **LMP**: Loose power connector
-    - **LMC**: Loose or damaged PCB edge connector (cartridge slot, etc)
-    - **LMS**: Loose switch of any kind (power/mode/etc.)
+    - **LMC#**: Loose controller port
+    - **LMV#**: Loose video port
+    - **LME#**: Loose expansion or memory card port
+    - **LMP#**: Loose power connector
+    - **LMC#**: Loose or damaged PCB edge connector (cartridge slot, etc)
+    - **LMS#**: Loose switch of any kind (power/mode/etc.)
     - **LMZ**: Outright missing connectors (explain which ones in TXT)
 - **DNS**: Does not save. Battery backup/saving failure
 - **FST**: Missing fasteners (clips, screws, etc)
 - **SFT**: Software failure (functional issues due to missing/corrupt files)
 - **OM_**: Optical media issues
-    - **OMS**: Scratches, superficial (reading is not impacted)
-    - **OMD**: Scratches, deep (reading is impacted)
-    - **OMC**: Cracks, superficial (in the center ring or not-reading area)
+    - **OMS#**: Scratches
+    - **OMC#**: Cracks
     - **OMR**: Visible damage or holes in the data layer due to label damage or "Disc rot"
     - **OMX**: Cracks, deep (disc is likely destroyed)
 - **OD_**: Optical drive issues
-    - **ODX**: Optical drive damaged (intermittent, unreliable, or non-functional)
+    - **ODX#**: Optical drive damaged (intermittent, unreliable, or non-functional)
     - **ODZ**: Optical drive missing   
 - **OS_**: On-board storage (HD/SSD, NVRAM, or permanent battery-backed RAM) issues
     - **OSX**: On-board storage is corrupt or non-functional
     - **OSZ**: On-board storage is missing
 - **SC_**: Screen and digitizer issues
-    - **SCS**: Screen scratches (superficial)
-    - **SCR**: Screen scratches (deep)
-    - **SCC**: Screen cracks (superficial)
-    - **SCA**: Screen cracks (deep, functionality/readability impacted)
-    - **SCU**: Screen colors are obviously incorrect
-    - **SCP**: Dead pixels
-    - **SCD**: Digitizer (touchscreen) issues
+    - **SCS#**: Screen scratches (superficial)
+    - **SCR#**: Screen scratches (deep)
+    - **SCC#**: Screen cracks
+    - **SCU#**: Screen colors are incorrect or shifted
+    - **SCP#**: Dead pixels
+    - **SCD#**: Digitizer (touchscreen) issues
     - **SCX**: Screen is completely dead/nonfunctional
     - **SCZ**: Screen is missing
 - **REF**: Includes refurbished parts (explain in TXT)
