@@ -412,6 +412,7 @@ BAT  | Battery modification
 AUD  | Audio-output modifications (speakers, headphones)
 PCB  | Circuit or PCB-level mods, not including region-free or modchip installation
 ODE  | Optical drive emulator
+INT  | Integration, installing normally external peripherals into a shell (ex: Genesis Neptune mod [@Neptune]) 
 
 ### Known Repairs/Replacements \(E\)
 
@@ -555,7 +556,6 @@ When sending consoles into OEMs, they may repair a system and send it back *or* 
 
 Refurbished consoles likely have had components repaired. Even so, code creators **MUST NOT** guess which components are repaired/refurbished.
 
-
 ## Conflicting Codes & other considerations
 
 Generally speaking, the "rules" for a VGCC are:
@@ -606,6 +606,14 @@ Permission is granted to copy, distribute and/or modify this document under the 
        <title>Principle of least astonishment</title>
        <author><organization>Wikipedia</organization></author>
        <date month='January' year='2021'/>
+    </front>
+</reference>
+
+<reference anchor='Neptune' target='https://hackinformer.com/2019/09/15/review-sega-neptune-mod-from-retrohacks-net/'>
+    <front>
+       <title>Review: Sega Neptune Mod from Retrohacks.net</title>
+       <author name="V1RACY"><organization>Hack Informer</organization></author>
+       <date month='September' day="15" year='2019'/>
     </front>
 </reference>
 
