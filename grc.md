@@ -117,9 +117,9 @@ Certain attributes in a field are designated as free-text. A free-text attribute
 
 Since whitespace is not allowed per the encoding rules, the underscore (`_`) **MAY** be used as a word separator if desired.
 
-## Optional fields
+## Optional attributes
 
-Any field designated as "optional" **MUST** still include its field designator (M for model, C for color, etc).
+Any attribute designated as "optional" **MUST** still include its field designator (M for model, C for color, etc).
 
 # Design Philosophy
 
@@ -243,9 +243,7 @@ PC8         | NEC PC-88
 
 ### Region \(R\)
 
-This attribute represents the original release region of the item. 
-
-This field **MUST** be a recognized 1 to 3-letter GoodTools country code. [@goodtools-country]
+This attribute represents the original release region of the item. It **MUST** be a recognized 1 to 3-letter GoodTools country code. [@goodtools-country]
 
 ### Type \(T\)
 
@@ -327,13 +325,13 @@ If new damage occurs, or if the damage is repaired by servicing, such as a shell
 
 The list below is formatted for ease of reading. Consecutive types of the same class of damage **MUST** be coded consecutively, so for a yellowed and cracked shell, the code is `SHCSHY` rather than  `SHYC`.
 
-Additionally, a digit from 1 to 3 representing the severity of the class of damage may **OPTIONALLY** be added to the codes which call out a distinction below. Codes that support a severity have a `#` in their description. Codes without this designation **MUST NOT** have a digit added.
+Additionally, a digit from 1 to 3 representing the severity of the class of damage (where 1 is minor, and 3 is major) may **OPTIONALLY** be added to the codes below containing a `#` suffix. Codes without this designation **MUST NOT** have a digit added. 
 
 The list of acceptable damage codes is as follows:
 
 - **SH_**: Shell/case issues
-    - **SHC#**: Shell cracks 
-    - **SHS#**: Shell scratches (1/2/3)
+    - **SHC#**: Shell cracks
+    - **SHS#**: Shell scratches
     - **SHY#**: Yellowing
     - **SHF#**: Faded wording or print
     - **SHK#**: Missing, damaged labels or stickers
@@ -426,23 +424,24 @@ Generally, what differentiates a `M` (mod) from an `E` (repair) is whether the s
 
 The list of repair codes is as follows:
 
-* **NR\***: No repairs, choose one of these two:
-  * **NRS**: No repairs, all seals still intact
-  * **NRO**: No repairs, has been opened (seals broken, use if unsure)
-* **SHL**: Shell repair (resurfacing or crack filling) or replacement, including shell components like switches or buttons (excluding cleaning)
-* **LBL**: Label or printing replacement
-* **BKL**: Backlight
-* **SCR**: Screens/displays
-* **DIG**: Digitizer (touchscreen)
-* **PRT**: Ports (controller, data, video, etc.)
-* **PCB**: PCB components
-* **RBT**: Retrobriting
-* **SFT**: Software / file system
-* **SPK**: Speaker / direct sound output (excluding jacks, these **MUST** be classified as `PRT`)
-* **BAT**: Non-user-accessible batteries
-* **RPT**: Metal replating
-* **REP**: Repro (non-OEM) parts were used for any replacements
-* **TXT**: Free-text follows. **MUST** come last
+Code | Description
+------------------
+NRS  | No repairs, all seals still intact
+NRO  | No repairs, has been opened (seals broken, use if unsure)
+SHL  | Shell repair (resurfacing or crack filling) or replacement, including shell components like switches or buttons (excluding cleaning)
+LBL  | Label or printing replacement
+BKL  | Backlight
+SCR  | Screens/displays
+DIG  | Digitizer (touchscreen)
+PRT  | Ports (controller, data, video, etc.)
+PCB  | PCB components
+RBT  | Retrobriting / yellowing reversal
+SFT  | Software / file system
+SPK  | Speaker / direct sound output (excluding jacks, these **MUST** be classified as `PRT`)
+BAT  | Non-user-accessible batteries
+RPT  | Metal replating
+REP  | Repro (non-OEM) parts were used for any replacements
+TXT  | Free-text follows. **MUST** come last
 
 ## Service History Field
 
@@ -456,7 +455,7 @@ The format for a repair event is as follows:
 
 - The history list **MUST** be in chronological order, oldest events first.
 - Each event **MUST** be comma-separated.
-- If a service history entry is invalidated or duplicated by a later event, such as the same component being replaced twice, the earlier entry **SHOULD** be removed.
+- If a service history entry is invalidated or duplicated by a later event, such as the same component being replaced twice, the earlier entry **MUST** be removed.
 - Code creators **MUST NOT** add new service history items that they did not either personally perform or have performed on their behalf, unless a specific record of the repair or modification is consulted, such as an invoice.
 
 ### Date of Service
@@ -501,7 +500,7 @@ AO | Authenticity: OEM (authentic Nintendo hardware)
 FNGC | Hardware family: GameCube
 RU | Regional variant: North America (United States)
 TCON | Type of hardware: Console
-MNGC | Model: GameCube (original release)
+MNGC | Model: GameCube (original release duplicates the family name)
 CIND | Color: Indigo (official name)
 VDOL-001| Variant: DOL-001
 SDS315060768 | Serial number: DS315060768
@@ -537,9 +536,7 @@ Certain items may defy the code `T` classification scheme, or have good argument
 
 **Multiplayer Adapters:** These fit under the `3PA` category, and include devices such as the XBAND for SNES or Genesis. Multitap devices made by the console OEM are considered `1PA`.
 
-**Cartridge Peripherals:** These would generally fit under the category of `AMD` - devices that plug into the cartridge slot and allow you to play additional content in a format that was not possible on the original hardware. This would include devices where content is downloaded from the internet, received over broadcast services, or alternate physical media formats. Examples would include the Broadcast Satellaview or Sega Channel, Mega CD, Famicom Disk System, etc. It would also include retro compatibility add-ons, such as the Game Boy Player for the GameCube.
-
-Note that the software and hardware must have their own codes if they can be separated. The Satellaview cartridge, memory unit, and satellite adapter are all distinct devices with distinct VGCCs.
+**Cartridge Peripherals:** These would generally fit under the category of `AMD` - devices that plug into the cartridge slot and allow you to play additional content in a format that was not possible on the original hardware. This would include devices where content is downloaded from the internet, received over broadcast services, or alternate physical media formats. Examples would include the Broadcast Satellaview or Sega Channel, Mega CD, Famicom Disk System, etc. It would also include retro compatibility add-ons, such as the Game Boy Player for the GameCube. Note that the software and hardware must have their own codes if they can be separated. The Satellaview cartridge, memory unit, and satellite adapter are all distinct devices with distinct VGCCs.
 
 **Software for Alternate Media Devices:** Use the family code of the parent console. "Sonic CD" would have a family code of `SMD`. 
 
@@ -560,11 +557,12 @@ Refurbished consoles likely have had components repaired. Even so, code creators
 Generally speaking, the "rules" for a VGCC are:
 
 1. Codes **MUST NOT** conflict with one another under any circumstances. Any situation which would result in a conflict is a case where one or multiple codes must be adjusted, or is an unforeseen design flaw with the VGCC standard.
-2. Codes in the [hardware identity](#hardware) field are considered intrinsic to the identity of the item being cataloged, and are never changed unless correcting an error. The attributes should be written according to their validity *at the time of manufacture*.
-3. Codes in the [condition](#condition) field relate to the *present* condition of the item and should be updated often.
-4. Codes **SHOULD** be constructed such that all pertinent information about a piece of hardware is present even if the [service history](#servicehistory) field is blank.
-5. Ambiguities **SHOULD** be resolved in a way that is *least favorable to the value of the item*. In other words, if you're not sure if something is a swap or a mod, default to considering it a mod.
-6. VGCCs are intended to classify individual items, not retail bundles. For instance, it is common for OEMs to sell different console bundles with different hardware, peripherals, and software. Each item in the bundle would have its own VGCC, not the bundle as a whole.
+2. Codes **MUST NOT** convey the same information more than once, with the exception of the repair history field which may necessarily duplicate information in the condition or damage fields.
+3. Codes in the [hardware identity](#hardware) field are considered intrinsic to the identity of the item being cataloged, and **MUST NOT** be changed unless correcting an error. The attributes **MUST** be written according to their validity at the time the item was manufactured.
+4. Codes in the [condition](#condition) field relate to the *present* condition of the item and **SHOULD** be updated often.
+5. Codes **SHOULD** be constructed such that all pertinent information about a piece of hardware is present even if the [service history](#servicehistory) field is blank.
+6. Ambiguities **SHOULD** be resolved in a way that is least favorable to the value of the item. In other words, if you're not sure if something is a swap or a mod, default to considering it a mod.
+7. VGCCs are intended to classify individual items, not retail bundles. For instance, it is common for OEMs to sell different console bundles with different hardware, peripherals, and software. Each item in the bundle would have its own VGCC, not the bundle as a whole.
 
 # Legal
 
