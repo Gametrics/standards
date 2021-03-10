@@ -41,7 +41,5 @@ jobs:
       - name: Compile output page
         run: |
           mmark grc.md > grc.xml
-          xml2rfc grc.xml --html
-          mkdir public
-          mv grc.html public/index.html
+          xml2rfc grc.xml
         
