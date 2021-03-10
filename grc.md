@@ -34,7 +34,17 @@ email = "nuvandibe@gmail.com"
 
 .# Abstract
 
-This document defines a new encoding method for video game hardware/software identity and condition, and optionally, repair history.
+This memo defines a new encoding method for video game hardware/software identity and condition, and optionally, repair history.
+
+.# Status of This Memo
+
+This standard is currently in a developmental, RFC draft phase. It should not be used for any non-development purpose until it has been finalized and tooling has been developed.
+
+.# Copyright Notice
+
+Copyright 2021 - Mike Parks, Alexander Parrish, and contributors
+
+Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A copy of the license is included in the file [LICENSE.MD](https://raw.githubusercontent.com/Karunamon/grc/master/LICENSE.md), located in the same repository as this standard doc.
 
 {mainmatter}
 
@@ -46,13 +56,9 @@ The VGCC, Video Game Condition Code, is a condensed text string intended to deno
 
 Most who have tried curating their own collection of video games understands that doing so has historically been a hassle. Whereas there are clearly-defined, community-accepted guidelines for collecting in other fields, such as coins, comics, and artwork, video games have been notably lacking in this department.
 
-The Video Game Condition Report aims to standardize the way that video game hardware and software is described insofar as the actual status of the collectible, as well as provide a method for encoding concise information into a QR code, NFC tag, or any similar medium for decoding by a portable device such as a phone or scanner.
+The Video Game Condition Report aims to standardize the way that video game hardware and software is described insofar as the actual status of the collectible, as well as provide a method for encoding concise information (the VGCC) into a QR code, NFC tag, or any similar medium for decoding by a portable device such as a phone or scanner.
 
-By creating and releasing this standard we, The VGCR Foundation, hope to help mitigate and misunderstandings where it comes to sales, trading, and describing collectibles.
-
-## Status of This Document
-
-VGCC is currently in a developmental, RFC draft phase. It should not be used for any purpose until it has been finalized and tooling has been developed.
+By creating and releasing this standard we, the VGCR Foundation, hope to help mitigate any misunderstandings where it comes to sales, trading, and describing of collectibles.
 
 ## Terminology
 
@@ -568,17 +574,12 @@ Generally speaking, the "rules" for a VGCC are:
 
 ## Safety/Security Considerations
 
-Nothing prevents an unscrupulous seller from misrepresenting their product. A VGCC is intended for shorthand to describe an item and its history, not as a mark of safety or trustworthiness. The VGCR working group take no responsibility for its use by third parties or the accuracy of the information encoded.
+Nothing prevents an unscrupulous seller from misrepresenting their product. A VGCC is intended for shorthand to describe an item and its history, not as a mark of safety or trustworthiness. The VGCR working group take no responsibility for its use by third parties or the accuracy of the information those parties encode.
 
 ## Warranty Disclaimer
 
 The VGCC working group offers this standard and any related applications or services on a BEST EFFORT basis. It is not warrantied to be accurate, up to date, or fit for any particular purpose.
 
-## Copyright
-
-Copyright 2021 - Mike Parks, Alexander Parrish, and contributors
-
-Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A copy of the license is included in the file [LICENSE.MD](https://raw.githubusercontent.com/Karunamon/grc/master/LICENSE.md), located in the same repository as this standard doc.
 
 {backmatter}
 
