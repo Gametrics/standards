@@ -34,7 +34,7 @@ email = "nuvandibe@gmail.com"
 
 .# Abstract
 
-This document proposes a new encoding method for video game hardware/software identity and condition, and optionally, repair history.
+This document defines a new encoding method for video game hardware/software identity and condition, and optionally, repair history.
 
 {mainmatter}
 
