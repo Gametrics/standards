@@ -2,7 +2,7 @@
 
 [![License](https://img.shields.io/badge/License-GFDLv1.3-blue)](https://www.gnu.org/licenses/fdl-1.3.en.html) [![Last commit](https://img.shields.io/github/last-commit/karunamon/grc)](https://github.com/Karunamon/grc/commits/master) [![Latest version](https://img.shields.io/badge/Last%20Version-DRAFT-red)](http://gamerepair.codes) [![Discord](https://img.shields.io/discord/709655247357739048?logo=discord)](https://discord.gg/XF6dK2S)
 
-The Video Game Condition COde (VGCC) is a [Geek Code](https://github.com/telavivmakers/geek_code)-like system for efficiently storing and sharing the information about a piece of game hardware or software. It is intended for use by collectors, retailers, enthusiasts, or anyone in between with an interest in video game paraphernalia.
+The Video Game Condition Code (VGCC) is a [Geek Code](https://github.com/telavivmakers/geek_code)-like system for efficiently storing and sharing the information about a piece of game hardware or software. It is intended for use by collectors, retailers, enthusiasts, or anyone in between with an interest in video game paraphernalia.
 
 This repository contains the source Markdown document for the actual standard doc, which is maintained at [https://gamerepair.codes](https://gamerepair.codes).
 
@@ -21,6 +21,7 @@ What does this code tell us? It's for a Nintendo Gamecube, OEM, United States ve
 All of that information was condensed into bit more than a single line of text; that is the power of the VGCC.
 
 ## But isn't this hard to read?
+
 The VGCC is a computers-first code, meant to be read programatically by applications, but it is incidentally readable by humans. In the real world, we envision the VGCC  compressed and encoded into a QR code format, something that could be easily scanned and decoded by an application. In fact, such an application is part of this project and is under active development.
 
 ![Encoded GRC example](https://i.imgur.com/zC7B4mU.png)
@@ -28,4 +29,5 @@ The VGCC is a computers-first code, meant to be read programatically by applicat
 Imagine this on a curator's shelf, or an eBay or Craigslist posting. Lots of information, very small space. That is the goal.
 
 ## How do I make one?
+
 There will be an application, web and mobile both, to assist with this process in the future. For now, [read through the v1 RFC](http://gamerepair.codes) and simply construct each field as prompted. The spec answers many questions and considers many edge cases - but in the event that it doesn't, and you find something that's been overlooked, please consider [letting us know on Discord](https://discord.gg/XF6dK2S) or opening a pull request here.
