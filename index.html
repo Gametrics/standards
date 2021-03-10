@@ -8,7 +8,7 @@
 <meta content="Michael Parks" name="author">
 <meta content="Alexander Parrish" name="author">
 <meta content="
-       This document proposes a new encoding method for video game hardware/software identity and condition, and optionally, repair history. 
+       This document defines a new encoding method for video game hardware/software identity and condition, and optionally, repair history. 
     " name="description">
 <meta content="xml2rfc 3.5.0" name="generator">
 <meta content="draft-vgccv1-01" name="ietf.draft">
@@ -1197,7 +1197,7 @@ dt+dd:empty::before{
 <h1 id="title">Video Game Condition Code v1</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">This document proposes a new encoding method for video game hardware/software identity and condition, and optionally, repair history.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+<p id="section-abstract-1">This document defines a new encoding method for video game hardware/software identity and condition, and optionally, repair history.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <div id="toc">
 <section id="section-toc.1">
@@ -1209,19 +1209,22 @@ dt+dd:empty::before{
             <p id="section-toc.1-1.1.1"><a href="#section-1" class="xref">1</a>.  <a href="#name-introduction" class="xref">Introduction</a><a href="#section-toc.1-1.1.1" class="pilcrow">¶</a></p>
 <ul class="ulEmpty toc compact">
 <li class="ulEmpty toc compact" id="section-toc.1-1.1.2.1">
-                <p id="section-toc.1-1.1.2.1.1" class="keepWithNext"><a href="#section-1.1" class="xref">1.1</a>.  <a href="#name-status-of-this-document" class="xref">Status of This Document</a><a href="#section-toc.1-1.1.2.1.1" class="pilcrow">¶</a></p>
+                <p id="section-toc.1-1.1.2.1.1" class="keepWithNext"><a href="#section-1.1" class="xref">1.1</a>.  <a href="#name-the-need-for-a-standard" class="xref">The Need for a Standard</a><a href="#section-toc.1-1.1.2.1.1" class="pilcrow">¶</a></p>
 </li>
               <li class="ulEmpty toc compact" id="section-toc.1-1.1.2.2">
-                <p id="section-toc.1-1.1.2.2.1" class="keepWithNext"><a href="#section-1.2" class="xref">1.2</a>.  <a href="#name-terminology" class="xref">Terminology</a><a href="#section-toc.1-1.1.2.2.1" class="pilcrow">¶</a></p>
+                <p id="section-toc.1-1.1.2.2.1" class="keepWithNext"><a href="#section-1.2" class="xref">1.2</a>.  <a href="#name-status-of-this-document" class="xref">Status of This Document</a><a href="#section-toc.1-1.1.2.2.1" class="pilcrow">¶</a></p>
 </li>
               <li class="ulEmpty toc compact" id="section-toc.1-1.1.2.3">
-                <p id="section-toc.1-1.1.2.3.1" class="keepWithNext"><a href="#section-1.3" class="xref">1.3</a>.  <a href="#name-availability-updates" class="xref">Availability &amp; Updates</a><a href="#section-toc.1-1.1.2.3.1" class="pilcrow">¶</a></p>
+                <p id="section-toc.1-1.1.2.3.1" class="keepWithNext"><a href="#section-1.3" class="xref">1.3</a>.  <a href="#name-terminology" class="xref">Terminology</a><a href="#section-toc.1-1.1.2.3.1" class="pilcrow">¶</a></p>
 </li>
               <li class="ulEmpty toc compact" id="section-toc.1-1.1.2.4">
-                <p id="section-toc.1-1.1.2.4.1"><a href="#section-1.4" class="xref">1.4</a>.  <a href="#name-versioning" class="xref">Versioning</a><a href="#section-toc.1-1.1.2.4.1" class="pilcrow">¶</a></p>
+                <p id="section-toc.1-1.1.2.4.1"><a href="#section-1.4" class="xref">1.4</a>.  <a href="#name-availability-updates" class="xref">Availability &amp; Updates</a><a href="#section-toc.1-1.1.2.4.1" class="pilcrow">¶</a></p>
 </li>
               <li class="ulEmpty toc compact" id="section-toc.1-1.1.2.5">
-                <p id="section-toc.1-1.1.2.5.1"><a href="#section-1.5" class="xref">1.5</a>.  <a href="#name-scope" class="xref">Scope</a><a href="#section-toc.1-1.1.2.5.1" class="pilcrow">¶</a></p>
+                <p id="section-toc.1-1.1.2.5.1"><a href="#section-1.5" class="xref">1.5</a>.  <a href="#name-versioning" class="xref">Versioning</a><a href="#section-toc.1-1.1.2.5.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="ulEmpty toc compact" id="section-toc.1-1.1.2.6">
+                <p id="section-toc.1-1.1.2.6.1"><a href="#section-1.6" class="xref">1.6</a>.  <a href="#name-scope" class="xref">Scope</a><a href="#section-toc.1-1.1.2.6.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
@@ -1238,7 +1241,7 @@ dt+dd:empty::before{
                 <p id="section-toc.1-1.2.2.3.1"><a href="#section-2.3" class="xref">2.3</a>.  <a href="#name-free-text-attributes" class="xref">Free-text attributes</a><a href="#section-toc.1-1.2.2.3.1" class="pilcrow">¶</a></p>
 </li>
               <li class="ulEmpty toc compact" id="section-toc.1-1.2.2.4">
-                <p id="section-toc.1-1.2.2.4.1"><a href="#section-2.4" class="xref">2.4</a>.  <a href="#name-optional-fields" class="xref">Optional fields</a><a href="#section-toc.1-1.2.2.4.1" class="pilcrow">¶</a></p>
+                <p id="section-toc.1-1.2.2.4.1"><a href="#section-2.4" class="xref">2.4</a>.  <a href="#name-optional-attributes" class="xref">Optional attributes</a><a href="#section-toc.1-1.2.2.4.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
@@ -1257,7 +1260,7 @@ dt+dd:empty::before{
                 </ul>
 </li>
               <li class="ulEmpty toc compact" id="section-toc.1-1.4.2.2">
-                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="xref">4.2</a>.  <a href="#name-hardware-field" class="xref">Hardware Field</a><a href="#section-toc.1-1.4.2.2.1" class="pilcrow">¶</a></p>
+                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="xref">4.2</a>.  <a href="#name-hardware-identity-field" class="xref">Hardware Identity Field</a><a href="#section-toc.1-1.4.2.2.1" class="pilcrow">¶</a></p>
 <ul class="ulEmpty toc compact">
 <li class="ulEmpty toc compact" id="section-toc.1-1.4.2.2.2.1">
                     <p id="section-toc.1-1.4.2.2.2.1.1"><a href="#section-4.2.1" class="xref">4.2.1</a>.  <a href="#name-brand-manufacturer-b" class="xref">Brand/Manufacturer (B)</a><a href="#section-toc.1-1.4.2.2.2.1.1" class="pilcrow">¶</a></p>
@@ -1266,31 +1269,28 @@ dt+dd:empty::before{
                     <p id="section-toc.1-1.4.2.2.2.2.1"><a href="#section-4.2.2" class="xref">4.2.2</a>.  <a href="#name-authenticity-a" class="xref">Authenticity (A)</a><a href="#section-toc.1-1.4.2.2.2.2.1" class="pilcrow">¶</a></p>
 </li>
                   <li class="ulEmpty toc compact" id="section-toc.1-1.4.2.2.2.3">
-                    <p id="section-toc.1-1.4.2.2.2.3.1"><a href="#section-4.2.3" class="xref">4.2.3</a>.  <a href="#name-ambiguity-in-authenticity" class="xref">Ambiguity in authenticity</a><a href="#section-toc.1-1.4.2.2.2.3.1" class="pilcrow">¶</a></p>
+                    <p id="section-toc.1-1.4.2.2.2.3.1"><a href="#section-4.2.3" class="xref">4.2.3</a>.  <a href="#name-family-f" class="xref">Family (F)</a><a href="#section-toc.1-1.4.2.2.2.3.1" class="pilcrow">¶</a></p>
 </li>
                   <li class="ulEmpty toc compact" id="section-toc.1-1.4.2.2.2.4">
-                    <p id="section-toc.1-1.4.2.2.2.4.1"><a href="#section-4.2.4" class="xref">4.2.4</a>.  <a href="#name-family-f" class="xref">Family (F)</a><a href="#section-toc.1-1.4.2.2.2.4.1" class="pilcrow">¶</a></p>
+                    <p id="section-toc.1-1.4.2.2.2.4.1"><a href="#section-4.2.4" class="xref">4.2.4</a>.  <a href="#name-region-r" class="xref">Region (R)</a><a href="#section-toc.1-1.4.2.2.2.4.1" class="pilcrow">¶</a></p>
 </li>
                   <li class="ulEmpty toc compact" id="section-toc.1-1.4.2.2.2.5">
-                    <p id="section-toc.1-1.4.2.2.2.5.1"><a href="#section-4.2.5" class="xref">4.2.5</a>.  <a href="#name-region-r" class="xref">Region (R)</a><a href="#section-toc.1-1.4.2.2.2.5.1" class="pilcrow">¶</a></p>
+                    <p id="section-toc.1-1.4.2.2.2.5.1"><a href="#section-4.2.5" class="xref">4.2.5</a>.  <a href="#name-type-t" class="xref">Type (T)</a><a href="#section-toc.1-1.4.2.2.2.5.1" class="pilcrow">¶</a></p>
 </li>
                   <li class="ulEmpty toc compact" id="section-toc.1-1.4.2.2.2.6">
-                    <p id="section-toc.1-1.4.2.2.2.6.1"><a href="#section-4.2.6" class="xref">4.2.6</a>.  <a href="#name-type-t" class="xref">Type (T)</a><a href="#section-toc.1-1.4.2.2.2.6.1" class="pilcrow">¶</a></p>
+                    <p id="section-toc.1-1.4.2.2.2.6.1"><a href="#section-4.2.6" class="xref">4.2.6</a>.  <a href="#name-model-m" class="xref">Model (M)</a><a href="#section-toc.1-1.4.2.2.2.6.1" class="pilcrow">¶</a></p>
 </li>
                   <li class="ulEmpty toc compact" id="section-toc.1-1.4.2.2.2.7">
-                    <p id="section-toc.1-1.4.2.2.2.7.1"><a href="#section-4.2.7" class="xref">4.2.7</a>.  <a href="#name-model-m" class="xref">Model (M)</a><a href="#section-toc.1-1.4.2.2.2.7.1" class="pilcrow">¶</a></p>
+                    <p id="section-toc.1-1.4.2.2.2.7.1"><a href="#section-4.2.7" class="xref">4.2.7</a>.  <a href="#name-color-c" class="xref">Color (C)</a><a href="#section-toc.1-1.4.2.2.2.7.1" class="pilcrow">¶</a></p>
 </li>
                   <li class="ulEmpty toc compact" id="section-toc.1-1.4.2.2.2.8">
-                    <p id="section-toc.1-1.4.2.2.2.8.1"><a href="#section-4.2.8" class="xref">4.2.8</a>.  <a href="#name-color-c" class="xref">Color (C)</a><a href="#section-toc.1-1.4.2.2.2.8.1" class="pilcrow">¶</a></p>
+                    <p id="section-toc.1-1.4.2.2.2.8.1"><a href="#section-4.2.8" class="xref">4.2.8</a>.  <a href="#name-variant-revision-v" class="xref">Variant/Revision (V)</a><a href="#section-toc.1-1.4.2.2.2.8.1" class="pilcrow">¶</a></p>
 </li>
                   <li class="ulEmpty toc compact" id="section-toc.1-1.4.2.2.2.9">
-                    <p id="section-toc.1-1.4.2.2.2.9.1"><a href="#section-4.2.9" class="xref">4.2.9</a>.  <a href="#name-variant-revision-v" class="xref">Variant/Revision (V)</a><a href="#section-toc.1-1.4.2.2.2.9.1" class="pilcrow">¶</a></p>
+                    <p id="section-toc.1-1.4.2.2.2.9.1"><a href="#section-4.2.9" class="xref">4.2.9</a>.  <a href="#name-serial-number-s" class="xref">Serial number (S)</a><a href="#section-toc.1-1.4.2.2.2.9.1" class="pilcrow">¶</a></p>
 </li>
                   <li class="ulEmpty toc compact" id="section-toc.1-1.4.2.2.2.10">
-                    <p id="section-toc.1-1.4.2.2.2.10.1"><a href="#section-4.2.10" class="xref">4.2.10</a>. <a href="#name-serial-number-s" class="xref">Serial number (S)</a><a href="#section-toc.1-1.4.2.2.2.10.1" class="pilcrow">¶</a></p>
-</li>
-                  <li class="ulEmpty toc compact" id="section-toc.1-1.4.2.2.2.11">
-                    <p id="section-toc.1-1.4.2.2.2.11.1"><a href="#section-4.2.11" class="xref">4.2.11</a>. <a href="#name-information-i" class="xref">Information (I)</a><a href="#section-toc.1-1.4.2.2.2.11.1" class="pilcrow">¶</a></p>
+                    <p id="section-toc.1-1.4.2.2.2.10.1"><a href="#section-4.2.10" class="xref">4.2.10</a>. <a href="#name-information-i" class="xref">Information (I)</a><a href="#section-toc.1-1.4.2.2.2.10.1" class="pilcrow">¶</a></p>
 </li>
                 </ul>
 </li>
@@ -1312,19 +1312,19 @@ dt+dd:empty::before{
                 </ul>
 </li>
               <li class="ulEmpty toc compact" id="section-toc.1-1.4.2.4">
-                <p id="section-toc.1-1.4.2.4.1"><a href="#section-4.4" class="xref">4.4</a>.  <a href="#name-service-history-field" class="xref">Service History Field</a><a href="#section-toc.1-1.4.2.4.1" class="pilcrow">¶</a></p>
+                <p id="section-toc.1-1.4.2.4.1"><a href="#section-4.4" class="xref">4.4</a>.  <a href="#name-code-description" class="xref">Code | Description</a><a href="#section-toc.1-1.4.2.4.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="ulEmpty toc compact" id="section-toc.1-1.4.2.5">
+                <p id="section-toc.1-1.4.2.5.1"><a href="#section-4.5" class="xref">4.5</a>.  <a href="#name-service-history-field" class="xref">Service History Field</a><a href="#section-toc.1-1.4.2.5.1" class="pilcrow">¶</a></p>
 <ul class="ulEmpty toc compact">
-<li class="ulEmpty toc compact" id="section-toc.1-1.4.2.4.2.1">
-                    <p id="section-toc.1-1.4.2.4.2.1.1"><a href="#section-4.4.1" class="xref">4.4.1</a>.  <a href="#name-note-on-refurbishment" class="xref">Note on refurbishment</a><a href="#section-toc.1-1.4.2.4.2.1.1" class="pilcrow">¶</a></p>
+<li class="ulEmpty toc compact" id="section-toc.1-1.4.2.5.2.1">
+                    <p id="section-toc.1-1.4.2.5.2.1.1"><a href="#section-4.5.1" class="xref">4.5.1</a>.  <a href="#name-date-of-service" class="xref">Date of Service</a><a href="#section-toc.1-1.4.2.5.2.1.1" class="pilcrow">¶</a></p>
 </li>
-                  <li class="ulEmpty toc compact" id="section-toc.1-1.4.2.4.2.2">
-                    <p id="section-toc.1-1.4.2.4.2.2.1"><a href="#section-4.4.2" class="xref">4.4.2</a>.  <a href="#name-date-of-service" class="xref">Date of Service</a><a href="#section-toc.1-1.4.2.4.2.2.1" class="pilcrow">¶</a></p>
+                  <li class="ulEmpty toc compact" id="section-toc.1-1.4.2.5.2.2">
+                    <p id="section-toc.1-1.4.2.5.2.2.1"><a href="#section-4.5.2" class="xref">4.5.2</a>.  <a href="#name-repair-types" class="xref">Repair Types</a><a href="#section-toc.1-1.4.2.5.2.2.1" class="pilcrow">¶</a></p>
 </li>
-                  <li class="ulEmpty toc compact" id="section-toc.1-1.4.2.4.2.3">
-                    <p id="section-toc.1-1.4.2.4.2.3.1"><a href="#section-4.4.3" class="xref">4.4.3</a>.  <a href="#name-repair-types" class="xref">Repair Types</a><a href="#section-toc.1-1.4.2.4.2.3.1" class="pilcrow">¶</a></p>
-</li>
-                  <li class="ulEmpty toc compact" id="section-toc.1-1.4.2.4.2.4">
-                    <p id="section-toc.1-1.4.2.4.2.4.1"><a href="#section-4.4.4" class="xref">4.4.4</a>.  <a href="#name-item-repaired" class="xref">Item Repaired</a><a href="#section-toc.1-1.4.2.4.2.4.1" class="pilcrow">¶</a></p>
+                  <li class="ulEmpty toc compact" id="section-toc.1-1.4.2.5.2.3">
+                    <p id="section-toc.1-1.4.2.5.2.3.1"><a href="#section-4.5.3" class="xref">4.5.3</a>.  <a href="#name-item-repaired" class="xref">Item Repaired</a><a href="#section-toc.1-1.4.2.5.2.3.1" class="pilcrow">¶</a></p>
 </li>
                 </ul>
 </li>
@@ -1340,7 +1340,13 @@ dt+dd:empty::before{
                 <p id="section-toc.1-1.6.2.1.1"><a href="#section-6.1" class="xref">6.1</a>.  <a href="#name-type-classification" class="xref">Type Classification</a><a href="#section-toc.1-1.6.2.1.1" class="pilcrow">¶</a></p>
 </li>
               <li class="ulEmpty toc compact" id="section-toc.1-1.6.2.2">
-                <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="xref">6.2</a>.  <a href="#name-conflicting-codes-other-con" class="xref">Conflicting Codes &amp; other considerations</a><a href="#section-toc.1-1.6.2.2.1" class="pilcrow">¶</a></p>
+                <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="xref">6.2</a>.  <a href="#name-ambiguity-in-authenticity" class="xref">Ambiguity in Authenticity</a><a href="#section-toc.1-1.6.2.2.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="ulEmpty toc compact" id="section-toc.1-1.6.2.3">
+                <p id="section-toc.1-1.6.2.3.1"><a href="#section-6.3" class="xref">6.3</a>.  <a href="#name-refurbishment" class="xref">Refurbishment</a><a href="#section-toc.1-1.6.2.3.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="ulEmpty toc compact" id="section-toc.1-1.6.2.4">
+                <p id="section-toc.1-1.6.2.4.1"><a href="#section-6.4" class="xref">6.4</a>.  <a href="#name-conflicting-codes-other-con" class="xref">Conflicting Codes &amp; other considerations</a><a href="#section-toc.1-1.6.2.4.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
@@ -1354,10 +1360,7 @@ dt+dd:empty::before{
                 <p id="section-toc.1-1.7.2.2.1"><a href="#section-7.2" class="xref">7.2</a>.  <a href="#name-warranty-disclaimer" class="xref">Warranty Disclaimer</a><a href="#section-toc.1-1.7.2.2.1" class="pilcrow">¶</a></p>
 </li>
               <li class="ulEmpty toc compact" id="section-toc.1-1.7.2.3">
-                <p id="section-toc.1-1.7.2.3.1"><a href="#section-7.3" class="xref">7.3</a>.  <a href="#name-forks" class="xref">Forks</a><a href="#section-toc.1-1.7.2.3.1" class="pilcrow">¶</a></p>
-</li>
-              <li class="ulEmpty toc compact" id="section-toc.1-1.7.2.4">
-                <p id="section-toc.1-1.7.2.4.1"><a href="#section-7.4" class="xref">7.4</a>.  <a href="#name-copyright" class="xref">Copyright</a><a href="#section-toc.1-1.7.2.4.1" class="pilcrow">¶</a></p>
+                <p id="section-toc.1-1.7.2.3.1"><a href="#section-7.3" class="xref">7.3</a>.  <a href="#name-copyright" class="xref">Copyright</a><a href="#section-toc.1-1.7.2.3.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
@@ -1377,57 +1380,67 @@ dt+dd:empty::before{
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
 <p id="section-1-1">The VGCC, Video Game Condition Code, is a condensed text string intended to denote the general status, details, and repair history of consumer video game consoles, software, and peripherals. It is intended for use by collectors, curators, retailers, resellers and enthusiasts, for any use case where a standardized way of representing the history and condition of video game paraphernalia would be beneficial.<a href="#section-1-1" class="pilcrow">¶</a></p>
-<div id="status-of-this-document">
+<div id="the-need-for-a-standard">
 <section id="section-1.1">
-        <h3 id="name-status-of-this-document">
-<a href="#section-1.1" class="section-number selfRef">1.1. </a><a href="#name-status-of-this-document" class="section-name selfRef">Status of This Document</a>
+        <h3 id="name-the-need-for-a-standard">
+<a href="#section-1.1" class="section-number selfRef">1.1. </a><a href="#name-the-need-for-a-standard" class="section-name selfRef">The Need for a Standard</a>
         </h3>
-<p id="section-1.1-1">VGCC is currently in a developmental, RFC draft phase. It should not be used for any purpose until it has been finalized and tooling has been developed.<a href="#section-1.1-1" class="pilcrow">¶</a></p>
+<p id="section-1.1-1">Most who have tried curating their own collection of video games understands that doing so has historically been a hassle. Whereas there are clearly-defined, community-accepted guidelines for collecting in other fields, such as coins, comics, and artwork, video games have been notably lacking in this department.<a href="#section-1.1-1" class="pilcrow">¶</a></p>
+<p id="section-1.1-2">The Video Game Condition Report aims to standardize the way that video game hardware and software is described insofar as the actual status of the collectible, as well as provide a method for encoding concise information into a QR code, NFC tag, or any similar medium for decoding by a portable device such as a phone or scanner.<a href="#section-1.1-2" class="pilcrow">¶</a></p>
+<p id="section-1.1-3">By creating and releasing this standard we, The VGCR Foundation, hope to help mitigate and misunderstandings where it comes to sales, trading, and describing collectibles.<a href="#section-1.1-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="status-of-this-document">
+<section id="section-1.2">
+        <h3 id="name-status-of-this-document">
+<a href="#section-1.2" class="section-number selfRef">1.2. </a><a href="#name-status-of-this-document" class="section-name selfRef">Status of This Document</a>
+        </h3>
+<p id="section-1.2-1">VGCC is currently in a developmental, RFC draft phase. It should not be used for any purpose until it has been finalized and tooling has been developed.<a href="#section-1.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="terminology">
-<section id="section-1.2">
+<section id="section-1.3">
         <h3 id="name-terminology">
-<a href="#section-1.2" class="section-number selfRef">1.2. </a><a href="#name-terminology" class="section-name selfRef">Terminology</a>
+<a href="#section-1.3" class="section-number selfRef">1.3. </a><a href="#name-terminology" class="section-name selfRef">Terminology</a>
         </h3>
-<p id="section-1.2-1">The keywords <span class="bcp14">MUST</span>, <span class="bcp14">MUST NOT</span>, <span class="bcp14">REQUIRED</span>, <span class="bcp14">SHALL</span>, <span class="bcp14">SHALL NOT</span>, <span class="bcp14">SHOULD</span>, <span class="bcp14">SHOULD NOT</span>, <span class="bcp14">RECOMMENDED</span>, <span class="bcp14">MAY</span>, and <span class="bcp14">OPTIONAL</span>, when they appear in this document, are to be interpreted as described in the IETF's <span>[<a href="#RFC2119" class="xref">RFC2119</a>]</span> when, and only when, they appear in bolded all-caps as shown here.<a href="#section-1.2-1" class="pilcrow">¶</a></p>
+<p id="section-1.3-1">The keywords <span class="bcp14">MUST</span>, <span class="bcp14">MUST NOT</span>, <span class="bcp14">REQUIRED</span>, <span class="bcp14">SHALL</span>, <span class="bcp14">SHALL NOT</span>, <span class="bcp14">SHOULD</span>, <span class="bcp14">SHOULD NOT</span>, <span class="bcp14">RECOMMENDED</span>, <span class="bcp14">MAY</span>, and <span class="bcp14">OPTIONAL</span>, when they appear in this document, are to be interpreted as described in the IETF's <span>[<a href="#RFC2119" class="xref">RFC2119</a>]</span> when, and only when, they appear in bolded all-caps as shown here.<a href="#section-1.3-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="availability-updates">
-<section id="section-1.3">
+<section id="section-1.4">
         <h3 id="name-availability-updates">
-<a href="#section-1.3" class="section-number selfRef">1.3. </a><a href="#name-availability-updates" class="section-name selfRef">Availability &amp; Updates</a>
+<a href="#section-1.4" class="section-number selfRef">1.4. </a><a href="#name-availability-updates" class="section-name selfRef">Availability &amp; Updates</a>
         </h3>
-<p id="section-1.3-1">The latest version document will always be hosted at <a href="https://gamerepair.codes">https://gamerepair.codes</a><a href="#section-1.3-1" class="pilcrow">¶</a></p>
-<p id="section-1.3-2">To propose changes, please submit a pull request at <a href="https://github.com/Karunamon/grc">https://github.com/Karunamon/grc</a><a href="#section-1.3-2" class="pilcrow">¶</a></p>
-<p id="section-1.3-3">The latest release tag of the above-named repository is considered to be the most up-to-date version of this standard. The <code>MASTER</code> branch represents work in progress.<a href="#section-1.3-3" class="pilcrow">¶</a></p>
+<p id="section-1.4-1">The latest version document will always be hosted at <a href="https://gamerepair.codes">https://gamerepair.codes</a><a href="#section-1.4-1" class="pilcrow">¶</a></p>
+<p id="section-1.4-2">To propose changes, please submit a pull request at <a href="https://github.com/Karunamon/grc">https://github.com/Karunamon/grc</a><a href="#section-1.4-2" class="pilcrow">¶</a></p>
+<p id="section-1.4-3">The latest release tag of the above-named repository is considered to be the most up-to-date version of this standard. The <code>MASTER</code> branch represents work in progress.<a href="#section-1.4-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="versioning">
-<section id="section-1.4">
+<section id="section-1.5">
         <h3 id="name-versioning">
-<a href="#section-1.4" class="section-number selfRef">1.4. </a><a href="#name-versioning" class="section-name selfRef">Versioning</a>
+<a href="#section-1.5" class="section-number selfRef">1.5. </a><a href="#name-versioning" class="section-name selfRef">Versioning</a>
         </h3>
-<p id="section-1.4-1">The VGCC version is a monotonic integer. There are no point releases.<a href="#section-1.4-1" class="pilcrow">¶</a></p>
-<p id="section-1.4-2">The version number will be given:<a href="#section-1.4-2" class="pilcrow">¶</a></p>
+<p id="section-1.5-1">The VGCC version is a monotonic integer. There are no point releases.<a href="#section-1.5-1" class="pilcrow">¶</a></p>
+<p id="section-1.5-2">The version number will be given:<a href="#section-1.5-2" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-1.4-3.1">In the title of this document<a href="#section-1.4-3.1" class="pilcrow">¶</a>
+<li class="normal" id="section-1.5-3.1">In the title of this document<a href="#section-1.5-3.1" class="pilcrow">¶</a>
 </li>
-          <li class="normal" id="section-1.4-3.2">In a tag with the prefix <code>v</code> in the above-mentioned git repository<a href="#section-1.4-3.2" class="pilcrow">¶</a>
+          <li class="normal" id="section-1.5-3.2">In a tag with the prefix <code>v</code> in the above-mentioned git repository<a href="#section-1.5-3.2" class="pilcrow">¶</a>
 </li>
-          <li class="normal" id="section-1.4-3.3">In the version field in a compliant VGCC<a href="#section-1.4-3.3" class="pilcrow">¶</a>
+          <li class="normal" id="section-1.5-3.3">In the version field in a compliant VGCC<a href="#section-1.5-3.3" class="pilcrow">¶</a>
 </li>
         </ul>
-<p id="section-1.4-4">Any backward-incompatible changes, such as changing the format or ordering of a field or attribute, will be reflected by incrementing the counter by one.<a href="#section-1.4-4" class="pilcrow">¶</a></p>
+<p id="section-1.5-4">Any backward-incompatible changes, such as changing the format or ordering of a field or attribute, will be reflected by incrementing the counter by one.<a href="#section-1.5-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="scope">
-<section id="section-1.5">
+<section id="section-1.6">
         <h3 id="name-scope">
-<a href="#section-1.5" class="section-number selfRef">1.5. </a><a href="#name-scope" class="section-name selfRef">Scope</a>
+<a href="#section-1.6" class="section-number selfRef">1.6. </a><a href="#name-scope" class="section-name selfRef">Scope</a>
         </h3>
-<p id="section-1.5-1">The VGCC is intended as a standard for encoding and displaying the condition of <em>only</em> physical video game hardware, software, and peripherals.<a href="#section-1.5-1" class="pilcrow">¶</a></p>
-<p id="section-1.5-2">The following specific types of items are explicitly considered out-of-scope despite their categorical relationship with video games. This standard <span class="bcp14">MAY</span> be used for classification of these items, but the specific needs of these items will not be considered by the VGCR working group, either in this standard or any supporting documentation or tooling:<a href="#section-1.5-2" class="pilcrow">¶</a></p>
+<p id="section-1.6-1">The VGCC is intended as a standard for encoding and displaying the condition of <em>only</em> physical video game hardware, software, and peripherals.<a href="#section-1.6-1" class="pilcrow">¶</a></p>
+<p id="section-1.6-2">The following specific types of items are explicitly considered out-of-scope despite their categorical relationship with video games. This standard <span class="bcp14">MAY</span> be used for classification of these items, but the specific needs of these items will not be considered by the VGCR working group, either in this standard or any supporting documentation or tooling:<a href="#section-1.6-2" class="pilcrow">¶</a></p>
 <table class="center" id="table-1">
           <caption><a href="#table-1" class="selfRef">Table 1</a></caption>
 <thead>
@@ -1448,6 +1461,10 @@ dt+dd:empty::before{
             <tr>
               <td class="text-left" rowspan="1" colspan="1">IBM-compatible PCs or software</td>
               <td class="text-left" rowspan="1" colspan="1">Impossible to determine a specific brand or model</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">Arcade machines</td>
+              <td class="text-left" rowspan="1" colspan="1">Planned for a future version of the standard</td>
             </tr>
           </tbody>
         </table>
@@ -1476,9 +1493,9 @@ dt+dd:empty::before{
         <h3 id="name-encoding">
 <a href="#section-2.2" class="section-number selfRef">2.2. </a><a href="#name-encoding" class="section-name selfRef">Encoding</a>
         </h3>
-<p id="section-2.2-1">Usable characters in a VGCC string are the ASCII letters A through Z in mixed case, numbers 0 through 9, and the symbols <code>!?;|_,</code>.<a href="#section-2.2-1" class="pilcrow">¶</a></p>
+<p id="section-2.2-1">Usable characters in a VGCC string are the ASCII letters A through Z in mixed case, numbers 0 through 9, and the symbols <code>!?;-|_,</code>.<a href="#section-2.2-1" class="pilcrow">¶</a></p>
 <p id="section-2.2-2">The pipe (<code>|</code>) and comma (<code>,</code>) characters are reserved as field and attribute separators respectively, and <span class="bcp14">MUST NOT</span> appear in any other context. "Escaping" these characters is not permitted.<a href="#section-2.2-2" class="pilcrow">¶</a></p>
-<p id="section-2.2-3">The PCRE regular expression <code>^([A-Z]|[a-z]|[0-9]|[\!\?\|,;_])+$</code> <span class="bcp14">MAY</span> be used to check whether a VGCC string contains invalid characters.<a href="#section-2.2-3" class="pilcrow">¶</a></p>
+<p id="section-2.2-3">The PCRE regular expression <code>^([A-Z]|[a-z]|[0-9]|[\!\?\|\-,;_])+$</code> <span class="bcp14">MAY</span> be used to check whether a VGCC string contains invalid characters.<a href="#section-2.2-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="free-text-attributes">
@@ -1490,12 +1507,12 @@ dt+dd:empty::before{
 <p id="section-2.3-2">Since whitespace is not allowed per the encoding rules, the underscore (<code>_</code>) <span class="bcp14">MAY</span> be used as a word separator if desired.<a href="#section-2.3-2" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="optional-fields">
+<div id="optional-attributes">
 <section id="section-2.4">
-        <h3 id="name-optional-fields">
-<a href="#section-2.4" class="section-number selfRef">2.4. </a><a href="#name-optional-fields" class="section-name selfRef">Optional fields</a>
+        <h3 id="name-optional-attributes">
+<a href="#section-2.4" class="section-number selfRef">2.4. </a><a href="#name-optional-attributes" class="section-name selfRef">Optional attributes</a>
         </h3>
-<p id="section-2.4-1">Any field designated as "optional" <span class="bcp14">MUST</span> still include its field designator (M for model, C for color, etc).<a href="#section-2.4-1" class="pilcrow">¶</a></p>
+<p id="section-2.4-1">Any attribute designated as "optional" <span class="bcp14">MUST</span> still include its field designator (M for model, C for color, etc).<a href="#section-2.4-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1547,12 +1564,12 @@ dt+dd:empty::before{
 </div>
 </section>
 </div>
-<div id="hardware-field">
+<div id="hardware-identity-field">
 <section id="section-4.2">
-        <h3 id="name-hardware-field">
-<a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-hardware-field" class="section-name selfRef">Hardware Field</a>
+        <h3 id="name-hardware-identity-field">
+<a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-hardware-identity-field" class="section-name selfRef">Hardware Identity Field</a>
         </h3>
-<p id="section-4.2-1">The hardware field defines, hierarchically, the identity of the item the code is being written for.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
+<p id="section-4.2-1">The hardware identity field defines, hierarchically, the identity of the item the code is being written for.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
 <p id="section-4.2-2">This field <span class="bcp14">MUST</span> be ordered as follows:<a href="#section-4.2-2" class="pilcrow">¶</a></p>
 <p id="section-4.2-3"><code>B(brand),A(authenticity),F(family),R(region),T(type),M(model),C(color),V(variant),S(serial),I(information)</code><a href="#section-4.2-3" class="pilcrow">¶</a></p>
 <div id="brand-manufacturer-b">
@@ -1590,6 +1607,10 @@ dt+dd:empty::before{
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">ATAR</td>
                 <td class="text-left" rowspan="1" colspan="1">Atari</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">COMM</td>
+                <td class="text-left" rowspan="1" colspan="1">Commodore</td>
               </tr>
             </tbody>
           </table>
@@ -1648,24 +1669,15 @@ dt+dd:empty::before{
 <p id="section-4.2.2-4">Consider the brand/manufacturer when determining whether a device is original or repro. For example, if a piece of hardware passes itself off as Nintendo hardware but is not made by Nintendo, its proper code is <strong><code>R</code></strong>. Third-party consoles, even if they run OEM software (example: <a href="https://en.wikipedia.org/wiki/RetroN">the RetroN series of consoles</a>), still do not pass themselves off as OEM hardware, and <span class="bcp14">MUST</span> be given as their own company name with an authenticity attribute of <code>O</code><a href="#section-4.2.2-4" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="ambiguity-in-authenticity">
-<section id="section-4.2.3">
-          <h4 id="name-ambiguity-in-authenticity">
-<a href="#section-4.2.3" class="section-number selfRef">4.2.3. </a><a href="#name-ambiguity-in-authenticity" class="section-name selfRef">Ambiguity in authenticity</a>
-          </h4>
-<p id="section-4.2.3-1">To avoid "ship of Theseus" situations when determining authenticity, it is <span class="bcp14">RECOMMENDED</span> to think in terms of non-replaceable components. For instance, it is quite possible to replace the shell and a number of electronic components on an NES, but it still contains a OEM NES CPU and PPU at the en of the day. If those components are replaced with an FPGA of some kind, and the device still claims to be made by Nintendo, then it is clearly a repro.<a href="#section-4.2.3-1" class="pilcrow">¶</a></p>
-<p id="section-4.2.3-2">The VGCR working group can not hope to objectively determine the line between "real" and "repro". Code creators are encouraged to consider the expectations of the human readers of their codes and encode information according to the principle of least astonishment <span>[<a href="#POLA" class="xref">POLA</a>]</span>.<a href="#section-4.2.3-2" class="pilcrow">¶</a></p>
-</section>
-</div>
 <div id="family-f">
-<section id="section-4.2.4">
+<section id="section-4.2.3">
           <h4 id="name-family-f">
-<a href="#section-4.2.4" class="section-number selfRef">4.2.4. </a><a href="#name-family-f" class="section-name selfRef">Family (F)</a>
+<a href="#section-4.2.3" class="section-number selfRef">4.2.3. </a><a href="#name-family-f" class="section-name selfRef">Family (F)</a>
           </h4>
-<p id="section-4.2.4-1">This attribute represents the general hardware family of the item. It is composed of a 3-character ALL-CAPS alphanumeric string.<a href="#section-4.2.4-1" class="pilcrow">¶</a></p>
-<p id="section-4.2.4-2">The <em>first</em> release of any hardware system in any region defines the family. For example, the US NES is part of the Famicom family of systems.<a href="#section-4.2.4-2" class="pilcrow">¶</a></p>
-<p id="section-4.2.4-3">For software, the family indicates the primary system the software is intended to run on.<a href="#section-4.2.4-3" class="pilcrow">¶</a></p>
-<p id="section-4.2.4-4">Owing to the large number of possible brands, the VGCC standard will not attempt to define all possible families. Nevertheless, it is <span class="bcp14">RECOMMENDED</span> that hardware appearing in the following table use the given family code:<a href="#section-4.2.4-4" class="pilcrow">¶</a></p>
+<p id="section-4.2.3-1">This attribute represents the general hardware family of the item. It is composed of a 3-character ALL-CAPS alphanumeric string.<a href="#section-4.2.3-1" class="pilcrow">¶</a></p>
+<p id="section-4.2.3-2">The <em>first</em> release of any hardware system in any region defines the family. For example, the US NES is part of the Famicom family of systems.<a href="#section-4.2.3-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.3-3">For software, the family indicates the primary system the software is intended to run on.<a href="#section-4.2.3-3" class="pilcrow">¶</a></p>
+<p id="section-4.2.3-4">Owing to the large number of possible brands, the VGCC standard will not attempt to define all possible families. Nevertheless, it is <span class="bcp14">RECOMMENDED</span> that hardware appearing in the following table use the given family code:<a href="#section-4.2.3-4" class="pilcrow">¶</a></p>
 <table class="center" id="table-4">
             <caption><a href="#table-4" class="selfRef">Table 4</a></caption>
 <thead>
@@ -1680,16 +1692,16 @@ dt+dd:empty::before{
                 <td class="text-left" rowspan="1" colspan="1">Famicom / NES</td>
               </tr>
               <tr>
+                <td class="text-left" rowspan="1" colspan="1">SFC</td>
+                <td class="text-left" rowspan="1" colspan="1">Super Famicom / SNES</td>
+              </tr>
+              <tr>
                 <td class="text-left" rowspan="1" colspan="1">SMD</td>
                 <td class="text-left" rowspan="1" colspan="1">Sega MegaDrive / Genesis</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">PCE</td>
                 <td class="text-left" rowspan="1" colspan="1">PC Engine / TurboGrafx 16</td>
-              </tr>
-              <tr>
-                <td class="text-left" rowspan="1" colspan="1">MCD</td>
-                <td class="text-left" rowspan="1" colspan="1">MegaCD / SegaCD</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">VCS</td>
@@ -1752,21 +1764,20 @@ dt+dd:empty::before{
 </section>
 </div>
 <div id="region-r">
-<section id="section-4.2.5">
+<section id="section-4.2.4">
           <h4 id="name-region-r">
-<a href="#section-4.2.5" class="section-number selfRef">4.2.5. </a><a href="#name-region-r" class="section-name selfRef">Region (R)</a>
+<a href="#section-4.2.4" class="section-number selfRef">4.2.4. </a><a href="#name-region-r" class="section-name selfRef">Region (R)</a>
           </h4>
-<p id="section-4.2.5-1">This attribute represents the original release region of the item.
-This field <span class="bcp14">MUST</span> be a recognized 1 or 2-letter GoodTools country code. <span>[<a href="#goodtools-country" class="xref">goodtools-country</a>]</span><a href="#section-4.2.5-1" class="pilcrow">¶</a></p>
+<p id="section-4.2.4-1">This attribute represents the original release region of the item. It <span class="bcp14">MUST</span> be a recognized 1 to 3-letter GoodTools country code. <span>[<a href="#goodtools-country" class="xref">goodtools-country</a>]</span><a href="#section-4.2.4-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="type-t">
-<section id="section-4.2.6">
+<section id="section-4.2.5">
           <h4 id="name-type-t">
-<a href="#section-4.2.6" class="section-number selfRef">4.2.6. </a><a href="#name-type-t" class="section-name selfRef">Type (T)</a>
+<a href="#section-4.2.5" class="section-number selfRef">4.2.5. </a><a href="#name-type-t" class="section-name selfRef">Type (T)</a>
           </h4>
-<p id="section-4.2.6-1">This attribute represents the general type of the item ("This is a: ____").<a href="#section-4.2.6-1" class="pilcrow">¶</a></p>
-<p id="section-4.2.6-2">All items <span class="bcp14">MUST</span> fall into one of these recognized categories:<a href="#section-4.2.6-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.5-1">This attribute represents the general type of the item ("This is a: ____").<a href="#section-4.2.5-1" class="pilcrow">¶</a></p>
+<p id="section-4.2.5-2">All items <span class="bcp14">MUST</span> fall into one of these recognized categories:<a href="#section-4.2.5-2" class="pilcrow">¶</a></p>
 <table class="center" id="table-5">
             <caption><a href="#table-5" class="selfRef">Table 5</a></caption>
 <thead>
@@ -1785,77 +1796,74 @@ This field <span class="bcp14">MUST</span> be a recognized 1 or 2-letter GoodToo
                 <td class="text-left" rowspan="1" colspan="1">Devkit console</td>
               </tr>
               <tr>
+                <td class="text-left" rowspan="1" colspan="1">1PA</td>
+                <td class="text-left" rowspan="1" colspan="1">First-party or OEM component (ex: controller, av cables, power adapters)</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">3PA</td>
+                <td class="text-left" rowspan="1" colspan="1">Third-party component (ex: a Madcatz AV cable or controller)</td>
+              </tr>
+              <tr>
                 <td class="text-left" rowspan="1" colspan="1">SFT</td>
-                <td class="text-left" rowspan="1" colspan="1">Game or software (including all-in-one cheat devices like the NES Game Genie)</td>
-              </tr>
-              <tr>
-                <td class="text-left" rowspan="1" colspan="1">1ST</td>
-                <td class="text-left" rowspan="1" colspan="1">First-party software-specific peripheral (ex: Super Scope, Multitap)</td>
-              </tr>
-              <tr>
-                <td class="text-left" rowspan="1" colspan="1">3RD</td>
-                <td class="text-left" rowspan="1" colspan="1">3rd-party hardware or software peripheral (ex: Konami Justifier, including non-all-in-one cheat devices such as the Gamecube Action Replay)</td>
-              </tr>
-              <tr>
-                <td class="text-left" rowspan="1" colspan="1">CNT</td>
-                <td class="text-left" rowspan="1" colspan="1">Console intrinsic component (ex: power adapter, RF switch, video adapter or cables)</td>
+                <td class="text-left" rowspan="1" colspan="1">Game or software media (including integrated cheat devices like the NES Game Genie, or a complete media package)</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">SNT</td>
-                <td class="text-left" rowspan="1" colspan="1">Software intrinsic component (ex: standalone case or disc for a multi-disc game)</td>
+                <td class="text-left" rowspan="1" colspan="1">Software intrinsic component (box or manuals, including separated cheat devices like the Gamecube action replay)</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">AMD</td>
-                <td class="text-left" rowspan="1" colspan="1">Auxillary media device (ex: N64 Disk Drive, Famicom disk system, Sufami Turbo, Gamecube GBA player)</td>
+                <td class="text-left" rowspan="1" colspan="1">Alternate media device (ex: N64 Disk Drive, Famicom disk system, Sufami Turbo, Gamecube GBA player)</td>
               </tr>
             </tbody>
           </table>
 </section>
 </div>
 <div id="model-m">
-<section id="section-4.2.7">
+<section id="section-4.2.6">
           <h4 id="name-model-m">
-<a href="#section-4.2.7" class="section-number selfRef">4.2.7. </a><a href="#name-model-m" class="section-name selfRef">Model (M)</a>
+<a href="#section-4.2.6" class="section-number selfRef">4.2.6. </a><a href="#name-model-m" class="section-name selfRef">Model (M)</a>
           </h4>
-<p id="section-4.2.7-1">This attribute is <span class="bcp14">OPTIONAL</span> and may be left empty. If provided, it is considered free-text.<a href="#section-4.2.7-1" class="pilcrow">¶</a></p>
-<p id="section-4.2.7-2">This attribute represents different releases of a given set of hardware of the same type and family with different features or functionality. For example, the Sega Genesis models 1, 2, or 3, or the PS2 fat or slim.<a href="#section-4.2.7-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.6-1">This attribute is considered free-text.<a href="#section-4.2.6-1" class="pilcrow">¶</a></p>
+<p id="section-4.2.6-2">This attribute represents different releases of a given set of hardware of the same type and family with different features or functionality. For example, the Sega Genesis models 1, 2, or 3, or the PS2 fat or slim.<a href="#section-4.2.6-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.6-3">It is <span class="bcp14">RECOMMENDED</span> that, if a VGCC is describing a piece of hardware that is the first in its family, that this attribute be set to the same value as the family attribute.<a href="#section-4.2.6-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="color-c">
-<section id="section-4.2.8">
+<section id="section-4.2.7">
           <h4 id="name-color-c">
-<a href="#section-4.2.8" class="section-number selfRef">4.2.8. </a><a href="#name-color-c" class="section-name selfRef">Color (C)</a>
+<a href="#section-4.2.7" class="section-number selfRef">4.2.7. </a><a href="#name-color-c" class="section-name selfRef">Color (C)</a>
           </h4>
-<p id="section-4.2.8-1">This attribute is <span class="bcp14">OPTIONAL</span> and may be left empty.<a href="#section-4.2.8-1" class="pilcrow">¶</a></p>
-<p id="section-4.2.8-2">Represents the official color of the device as given by the manufacturer at manufacture time.<a href="#section-4.2.8-2" class="pilcrow">¶</a></p>
-<p id="section-4.2.8-3">If provided, this attribute <span class="bcp14">MUST</span> contain the first three letters of the official color as given by the manufacturer. If the manufacturer calls their color "platinum", use PLA rather than SIL (silver).<a href="#section-4.2.8-3" class="pilcrow">¶</a></p>
+<p id="section-4.2.7-1">This attribute is <span class="bcp14">OPTIONAL</span> and may be left empty.<a href="#section-4.2.7-1" class="pilcrow">¶</a></p>
+<p id="section-4.2.7-2">Represents the official color of the device as given by the manufacturer at manufacture time.<a href="#section-4.2.7-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.7-3">If provided, this attribute <span class="bcp14">MUST</span> contain the first three letters of the official color as given by the manufacturer. If the manufacturer calls their color "platinum", use PLA rather than SIL (silver).<a href="#section-4.2.7-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="variant-revision-v">
-<section id="section-4.2.9">
+<section id="section-4.2.8">
           <h4 id="name-variant-revision-v">
-<a href="#section-4.2.9" class="section-number selfRef">4.2.9. </a><a href="#name-variant-revision-v" class="section-name selfRef">Variant/Revision (V)</a>
+<a href="#section-4.2.8" class="section-number selfRef">4.2.8. </a><a href="#name-variant-revision-v" class="section-name selfRef">Variant/Revision (V)</a>
           </h4>
-<p id="section-4.2.9-1">This attribute is <span class="bcp14">OPTIONAL</span> and may be left empty. If provided, it is considered free-text.<a href="#section-4.2.9-1" class="pilcrow">¶</a></p>
-<p id="section-4.2.9-2">Represents a distinct hardware variant of a given model. For example, the "standard" Sega Dreamcast has the VA0, VA1, and VA2 variants<a href="#section-4.2.9-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.8-1">This attribute is <span class="bcp14">OPTIONAL</span> and may be left empty. If provided, it is considered free-text.<a href="#section-4.2.8-1" class="pilcrow">¶</a></p>
+<p id="section-4.2.8-2">Represents a distinct hardware variant of a given model. For example, the "standard" Sega Dreamcast has the VA0, VA1, and VA2 variants<a href="#section-4.2.8-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="serial-number-s">
-<section id="section-4.2.10">
+<section id="section-4.2.9">
           <h4 id="name-serial-number-s">
-<a href="#section-4.2.10" class="section-number selfRef">4.2.10. </a><a href="#name-serial-number-s" class="section-name selfRef">Serial number (S)</a>
+<a href="#section-4.2.9" class="section-number selfRef">4.2.9. </a><a href="#name-serial-number-s" class="section-name selfRef">Serial number (S)</a>
           </h4>
-<p id="section-4.2.10-1">This attribute is <span class="bcp14">OPTIONAL</span> and may be left empty. If provided, it is considered free-text.<a href="#section-4.2.10-1" class="pilcrow">¶</a></p>
-<p id="section-4.2.10-2">Represents the full manufacturer serial number (<em>not</em> model number) of the device. If the serial number is unknown or non-existent, this field <span class="bcp14">MUST</span> be left blank.<a href="#section-4.2.10-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.9-1">This attribute is <span class="bcp14">OPTIONAL</span> and may be left empty. If provided, it is considered free-text.<a href="#section-4.2.9-1" class="pilcrow">¶</a></p>
+<p id="section-4.2.9-2">Represents the full manufacturer serial number (<em>not</em> model number) of the device. If the serial number is unknown or non-existent, this field <span class="bcp14">MUST</span> be left blank.<a href="#section-4.2.9-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="information-i">
-<section id="section-4.2.11">
+<section id="section-4.2.10">
           <h4 id="name-information-i">
-<a href="#section-4.2.11" class="section-number selfRef">4.2.11. </a><a href="#name-information-i" class="section-name selfRef">Information (I)</a>
+<a href="#section-4.2.10" class="section-number selfRef">4.2.10. </a><a href="#name-information-i" class="section-name selfRef">Information (I)</a>
           </h4>
-<p id="section-4.2.11-1">This attribute is <span class="bcp14">OPTIONAL</span> and may be left empty. If provided, it is considered free-text.<a href="#section-4.2.11-1" class="pilcrow">¶</a></p>
-<p id="section-4.2.11-2">Contains any other special information the code creator wishes to share. This field <span class="bcp14">SHOULD</span> be used sparingly and only when the information provided is not duplicated by any other field and is significantly important to the identity of the item being cataloged.<a href="#section-4.2.11-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.10-1">This attribute is <span class="bcp14">OPTIONAL</span> and may be left empty. If provided, it is considered free-text.<a href="#section-4.2.10-1" class="pilcrow">¶</a></p>
+<p id="section-4.2.10-2">Contains any other special information the code creator wishes to share. This field <span class="bcp14">SHOULD</span> be used sparingly and only when the information provided is not duplicated by any other field and is significantly important to the identity of the item being cataloged.<a href="#section-4.2.10-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1889,7 +1897,7 @@ This field <span class="bcp14">MUST</span> be a recognized 1 or 2-letter GoodToo
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">MNT</td>
-                <td class="text-left" rowspan="1" colspan="1">Mint, opened, but in best concievable physical shape. <strong>No damage or mods</strong>.</td>
+                <td class="text-left" rowspan="1" colspan="1">Mint, opened, but in best concievable OEM physical condition. <strong>No damage or mods</strong>.</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">USD</td>
@@ -1897,7 +1905,7 @@ This field <span class="bcp14">MUST</span> be a recognized 1 or 2-letter GoodToo
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">PNF</td>
-                <td class="text-left" rowspan="1" colspan="1">Used, partially nonfunctional (system is fit for purpose but certain functions don't work)</td>
+                <td class="text-left" rowspan="1" colspan="1">Used, partially nonfunctional (system is fit for purpose but certain functions are degraded)</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">CNF</td>
@@ -1916,191 +1924,186 @@ This field <span class="bcp14">MUST</span> be a recognized 1 or 2-letter GoodToo
 <p id="section-4.3.2-2">If multiple damage classes apply to the item, they <span class="bcp14">MUST</span> be listed consecutively, with no delimiter. For example, an item with a yellowed case, smoke damage, and missing fasteners would have a damage attribute of <code>SHYSMKFST</code>.<a href="#section-4.3.2-2" class="pilcrow">¶</a></p>
 <p id="section-4.3.2-3">If new damage occurs, or if the damage is repaired by servicing, such as a shell replacement, the known damage fields <span class="bcp14">MUST</span> be updated to reflect the item's <strong><em>current</em></strong> condition.<a href="#section-4.3.2-3" class="pilcrow">¶</a></p>
 <p id="section-4.3.2-4">The list below is formatted for ease of reading. Consecutive types of the same class of damage <span class="bcp14">MUST</span> be coded consecutively, so for a yellowed and cracked shell, the code is <code>SHCSHY</code> rather than  <code>SHYC</code>.<a href="#section-4.3.2-4" class="pilcrow">¶</a></p>
-<p id="section-4.3.2-5">The list of acceptable damage codes is as follows:<a href="#section-4.3.2-5" class="pilcrow">¶</a></p>
+<p id="section-4.3.2-5">Additionally, a digit from 1 to 3 representing the severity of the class of damage (where 1 is minor, and 3 is major) may <strong>OPTIONALLY</strong> be added to the codes below containing a <code>#</code> suffix. Codes without this designation <span class="bcp14">MUST NOT</span> have a digit added.<a href="#section-4.3.2-5" class="pilcrow">¶</a></p>
+<p id="section-4.3.2-6">The list of acceptable damage codes is as follows:<a href="#section-4.3.2-6" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-4.3.2-6.1">
-              <p id="section-4.3.2-6.1.1"><strong>SH_</strong>: Shell/Case issues<a href="#section-4.3.2-6.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-4.3.2-7.1">
+              <p id="section-4.3.2-7.1.1"><strong>SH_</strong>: Shell/case issues<a href="#section-4.3.2-7.1.1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-4.3.2-6.1.2.1">
-                  <strong>SHC</strong>: Shell cracks<a href="#section-4.3.2-6.1.2.1" class="pilcrow">¶</a>
+<li class="normal" id="section-4.3.2-7.1.2.1">
+                  <strong>SHC#</strong>: Shell cracks<a href="#section-4.3.2-7.1.2.1" class="pilcrow">¶</a>
 </li>
-                <li class="normal" id="section-4.3.2-6.1.2.2">
-                  <strong>SHS</strong>: Shell scratches<a href="#section-4.3.2-6.1.2.2" class="pilcrow">¶</a>
+                <li class="normal" id="section-4.3.2-7.1.2.2">
+                  <strong>SHS#</strong>: Shell scratches<a href="#section-4.3.2-7.1.2.2" class="pilcrow">¶</a>
 </li>
-                <li class="normal" id="section-4.3.2-6.1.2.3">
-                  <strong>SHY</strong>: Yellowing<a href="#section-4.3.2-6.1.2.3" class="pilcrow">¶</a>
+                <li class="normal" id="section-4.3.2-7.1.2.3">
+                  <strong>SHY#</strong>: Yellowing<a href="#section-4.3.2-7.1.2.3" class="pilcrow">¶</a>
 </li>
-                <li class="normal" id="section-4.3.2-6.1.2.4">
-                  <strong>SHF</strong>: Faded wording or print<a href="#section-4.3.2-6.1.2.4" class="pilcrow">¶</a>
+                <li class="normal" id="section-4.3.2-7.1.2.4">
+                  <strong>SHF#</strong>: Faded wording or print<a href="#section-4.3.2-7.1.2.4" class="pilcrow">¶</a>
 </li>
-                <li class="normal" id="section-4.3.2-6.1.2.5">
-                  <strong>SHK</strong>: Missing, damaged labels or stickers<a href="#section-4.3.2-6.1.2.5" class="pilcrow">¶</a>
+                <li class="normal" id="section-4.3.2-7.1.2.5">
+                  <strong>SHK#</strong>: Missing, damaged labels or stickers<a href="#section-4.3.2-7.1.2.5" class="pilcrow">¶</a>
 </li>
-                <li class="normal" id="section-4.3.2-6.1.2.6">
-                  <strong>SHM</strong>: Missing shell parts, such as a battery or port cover<a href="#section-4.3.2-6.1.2.6" class="pilcrow">¶</a>
+                <li class="normal" id="section-4.3.2-7.1.2.6">
+                  <strong>SHM</strong>: Missing shell parts, such as a battery or port cover<a href="#section-4.3.2-7.1.2.6" class="pilcrow">¶</a>
 </li>
-                <li class="normal" id="section-4.3.2-6.1.2.7">
-                  <strong>SHZ</strong>: Shell is missing outright<a href="#section-4.3.2-6.1.2.7" class="pilcrow">¶</a>
+                <li class="normal" id="section-4.3.2-7.1.2.7">
+                  <strong>SHZ</strong>: Shell is missing outright<a href="#section-4.3.2-7.1.2.7" class="pilcrow">¶</a>
 </li>
               </ul>
 </li>
-            <li class="normal" id="section-4.3.2-6.2">
-              <p id="section-4.3.2-6.2.1"><strong>EC_</strong>: Electrical component issues<a href="#section-4.3.2-6.2.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-4.3.2-7.2">
+              <p id="section-4.3.2-7.2.1"><strong>EC_</strong>: Electrical component issues<a href="#section-4.3.2-7.2.1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-4.3.2-6.2.2.1">
-                  <strong>ECP</strong>: Damage to the board or substrate itself, such as cracks or lifted traces<a href="#section-4.3.2-6.2.2.1" class="pilcrow">¶</a>
+<li class="normal" id="section-4.3.2-7.2.2.1">
+                  <strong>ECP</strong>: Damage to the board or substrate itself, such as cracks or lifted traces<a href="#section-4.3.2-7.2.2.1" class="pilcrow">¶</a>
 </li>
-                <li class="normal" id="section-4.3.2-6.2.2.2">
-                  <strong>ECC</strong>: Visible damage to board components, such as blown capacitors or transistors<a href="#section-4.3.2-6.2.2.2" class="pilcrow">¶</a>
+                <li class="normal" id="section-4.3.2-7.2.2.2">
+                  <strong>ECC</strong>: Visible damage to board components, such as blown capacitors or transistors<a href="#section-4.3.2-7.2.2.2" class="pilcrow">¶</a>
 </li>
-                <li class="normal" id="section-4.3.2-6.2.2.3">
-                  <strong>ECX</strong>: Known but invisible damage, such as a damaged IC (explain in <code>TXT</code>)<a href="#section-4.3.2-6.2.2.3" class="pilcrow">¶</a>
+                <li class="normal" id="section-4.3.2-7.2.2.3">
+                  <strong>ECX</strong>: Known but invisible damage, such as a damaged IC (explain in <code>TXT</code>)<a href="#section-4.3.2-7.2.2.3" class="pilcrow">¶</a>
 </li>
-                <li class="normal" id="section-4.3.2-6.2.2.4">
-                  <strong>ECZ</strong>: Electrical components are missing (explain in <code>TXT</code>)<a href="#section-4.3.2-6.2.2.4" class="pilcrow">¶</a>
+                <li class="normal" id="section-4.3.2-7.2.2.4">
+                  <strong>ECZ</strong>: Electrical components are missing (explain in <code>TXT</code>)<a href="#section-4.3.2-7.2.2.4" class="pilcrow">¶</a>
 </li>
               </ul>
 </li>
-            <li class="normal" id="section-4.3.2-6.3">
-              <strong>SMK</strong>: Smoke damage, including fire or nicotine contamination<a href="#section-4.3.2-6.3" class="pilcrow">¶</a>
+            <li class="normal" id="section-4.3.2-7.3">
+              <strong>SMK#</strong>: Smoke damage, including fire or nicotine contamination<a href="#section-4.3.2-7.3" class="pilcrow">¶</a>
 </li>
-            <li class="normal" id="section-4.3.2-6.4">
-              <strong>WAT</strong>: Water/moisture damage, including rust<a href="#section-4.3.2-6.4" class="pilcrow">¶</a>
+            <li class="normal" id="section-4.3.2-7.4">
+              <strong>WAT#</strong>: Water/moisture damage, including rust<a href="#section-4.3.2-7.4" class="pilcrow">¶</a>
 </li>
-            <li class="normal" id="section-4.3.2-6.5">
-              <strong>BLK</strong>: Battery leakage or corrosion<a href="#section-4.3.2-6.5" class="pilcrow">¶</a>
+            <li class="normal" id="section-4.3.2-7.5">
+              <strong>BLK#</strong>: Battery leakage or corrosion<a href="#section-4.3.2-7.5" class="pilcrow">¶</a>
 </li>
-            <li class="normal" id="section-4.3.2-6.6">
-              <strong>LCP</strong>: Partially or completely nonfunctional PCB edge connector (cartridge slot or similar)<a href="#section-4.3.2-6.6" class="pilcrow">¶</a>
+            <li class="normal" id="section-4.3.2-7.6">
+              <strong>LCP#</strong>: Partially or completely nonfunctional PCB edge connector (cartridge slot or similar)<a href="#section-4.3.2-7.6" class="pilcrow">¶</a>
 </li>
-            <li class="normal" id="section-4.3.2-6.7">
-              <p id="section-4.3.2-6.7.1"><strong>OL_</strong>: Online service issues<a href="#section-4.3.2-6.7.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-4.3.2-7.7">
+              <p id="section-4.3.2-7.7.1"><strong>OL_</strong>: Online service issues<a href="#section-4.3.2-7.7.1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-4.3.2-6.7.2.1">
-                  <strong>OLX</strong>: Limited access to online services (game bans, or restriction to updates only)<a href="#section-4.3.2-6.7.2.1" class="pilcrow">¶</a>
+<li class="normal" id="section-4.3.2-7.7.2.1">
+                  <strong>OLX</strong>: Limited access to online services (game bans, or restriction to updates only)<a href="#section-4.3.2-7.7.2.1" class="pilcrow">¶</a>
 </li>
-                <li class="normal" id="section-4.3.2-6.7.2.2">
-                  <strong>OLZ</strong>: No access to online services (hard console ban, updates not allowed)<a href="#section-4.3.2-6.7.2.2" class="pilcrow">¶</a>
+                <li class="normal" id="section-4.3.2-7.7.2.2">
+                  <strong>OLZ</strong>: No access to online services (hard console ban, updates not allowed)<a href="#section-4.3.2-7.7.2.2" class="pilcrow">¶</a>
 </li>
               </ul>
 </li>
-            <li class="normal" id="section-4.3.2-6.8">
-              <p id="section-4.3.2-6.8.1"><strong>LM_:</strong> Loose, missing, or intermittent connectors<a href="#section-4.3.2-6.8.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-4.3.2-7.8">
+              <p id="section-4.3.2-7.8.1"><strong>LM_:</strong> Loose, missing, or intermittent connectors<a href="#section-4.3.2-7.8.1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-4.3.2-6.8.2.1">
-                  <strong>LMC</strong>: Loose controller port<a href="#section-4.3.2-6.8.2.1" class="pilcrow">¶</a>
+<li class="normal" id="section-4.3.2-7.8.2.1">
+                  <strong>LMC#</strong>: Loose controller port<a href="#section-4.3.2-7.8.2.1" class="pilcrow">¶</a>
 </li>
-                <li class="normal" id="section-4.3.2-6.8.2.2">
-                  <strong>LMV</strong>: Loose video port<a href="#section-4.3.2-6.8.2.2" class="pilcrow">¶</a>
+                <li class="normal" id="section-4.3.2-7.8.2.2">
+                  <strong>LMV#</strong>: Loose video port<a href="#section-4.3.2-7.8.2.2" class="pilcrow">¶</a>
 </li>
-                <li class="normal" id="section-4.3.2-6.8.2.3">
-                  <strong>LME</strong>: Loose expansion or memory card port<a href="#section-4.3.2-6.8.2.3" class="pilcrow">¶</a>
+                <li class="normal" id="section-4.3.2-7.8.2.3">
+                  <strong>LME#</strong>: Loose expansion or memory card port<a href="#section-4.3.2-7.8.2.3" class="pilcrow">¶</a>
 </li>
-                <li class="normal" id="section-4.3.2-6.8.2.4">
-                  <strong>LMP</strong>: Loose power connector<a href="#section-4.3.2-6.8.2.4" class="pilcrow">¶</a>
+                <li class="normal" id="section-4.3.2-7.8.2.4">
+                  <strong>LMP#</strong>: Loose power connector<a href="#section-4.3.2-7.8.2.4" class="pilcrow">¶</a>
 </li>
-                <li class="normal" id="section-4.3.2-6.8.2.5">
-                  <strong>LMC</strong>: Loose or damaged PCB edge connector (cartridge slot, etc)<a href="#section-4.3.2-6.8.2.5" class="pilcrow">¶</a>
+                <li class="normal" id="section-4.3.2-7.8.2.5">
+                  <strong>LMC#</strong>: Loose or damaged PCB edge connector (cartridge slot, etc)<a href="#section-4.3.2-7.8.2.5" class="pilcrow">¶</a>
 </li>
-                <li class="normal" id="section-4.3.2-6.8.2.6">
-                  <strong>LMS</strong>: Loose switch of any kind (power/mode/etc.)<a href="#section-4.3.2-6.8.2.6" class="pilcrow">¶</a>
+                <li class="normal" id="section-4.3.2-7.8.2.6">
+                  <strong>LMS#</strong>: Loose switch of any kind (power/mode/etc.)<a href="#section-4.3.2-7.8.2.6" class="pilcrow">¶</a>
 </li>
-                <li class="normal" id="section-4.3.2-6.8.2.7">
-                  <strong>LMZ</strong>: Outright missing connectors (explain which ones in TXT)<a href="#section-4.3.2-6.8.2.7" class="pilcrow">¶</a>
+                <li class="normal" id="section-4.3.2-7.8.2.7">
+                  <strong>LMZ</strong>: Outright missing connectors (explain which ones in TXT)<a href="#section-4.3.2-7.8.2.7" class="pilcrow">¶</a>
 </li>
               </ul>
 </li>
-            <li class="normal" id="section-4.3.2-6.9">
-              <strong>DNS</strong>: Does not save. Battery backup/saving failure<a href="#section-4.3.2-6.9" class="pilcrow">¶</a>
+            <li class="normal" id="section-4.3.2-7.9">
+              <strong>DNS</strong>: Does not save. Battery backup/saving failure<a href="#section-4.3.2-7.9" class="pilcrow">¶</a>
 </li>
-            <li class="normal" id="section-4.3.2-6.10">
-              <strong>FST</strong>: Missing fasteners (clips, screws, etc)<a href="#section-4.3.2-6.10" class="pilcrow">¶</a>
+            <li class="normal" id="section-4.3.2-7.10">
+              <strong>FST</strong>: Missing fasteners (clips, screws, etc)<a href="#section-4.3.2-7.10" class="pilcrow">¶</a>
 </li>
-            <li class="normal" id="section-4.3.2-6.11">
-              <strong>SFT</strong>: Software failure (functional issues due to missing/corrupt files)<a href="#section-4.3.2-6.11" class="pilcrow">¶</a>
+            <li class="normal" id="section-4.3.2-7.11">
+              <strong>SFT</strong>: Software failure (functional issues due to missing/corrupt files)<a href="#section-4.3.2-7.11" class="pilcrow">¶</a>
 </li>
-            <li class="normal" id="section-4.3.2-6.12">
-              <p id="section-4.3.2-6.12.1"><strong>OM_</strong>: Optical media issues<a href="#section-4.3.2-6.12.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-4.3.2-7.12">
+              <p id="section-4.3.2-7.12.1"><strong>OM_</strong>: Optical media issues<a href="#section-4.3.2-7.12.1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-4.3.2-6.12.2.1">
-                  <strong>OMS</strong>: Scratches, superficial (reading is not impacted)<a href="#section-4.3.2-6.12.2.1" class="pilcrow">¶</a>
+<li class="normal" id="section-4.3.2-7.12.2.1">
+                  <strong>OMS#</strong>: Scratches<a href="#section-4.3.2-7.12.2.1" class="pilcrow">¶</a>
 </li>
-                <li class="normal" id="section-4.3.2-6.12.2.2">
-                  <strong>OMD</strong>: Scratches, deep (reading is impacted)<a href="#section-4.3.2-6.12.2.2" class="pilcrow">¶</a>
+                <li class="normal" id="section-4.3.2-7.12.2.2">
+                  <strong>OMC#</strong>: Cracks<a href="#section-4.3.2-7.12.2.2" class="pilcrow">¶</a>
 </li>
-                <li class="normal" id="section-4.3.2-6.12.2.3">
-                  <strong>OMC</strong>: Cracks, superficial (in the center ring or not-reading area)<a href="#section-4.3.2-6.12.2.3" class="pilcrow">¶</a>
+                <li class="normal" id="section-4.3.2-7.12.2.3">
+                  <strong>OMR</strong>: Visible damage or holes in the data layer due to label damage or "Disc rot"<a href="#section-4.3.2-7.12.2.3" class="pilcrow">¶</a>
 </li>
-                <li class="normal" id="section-4.3.2-6.12.2.4">
-                  <strong>OMR</strong>: Visible damage or holes in the data layer due to label damage or "Disc rot"<a href="#section-4.3.2-6.12.2.4" class="pilcrow">¶</a>
-</li>
-                <li class="normal" id="section-4.3.2-6.12.2.5">
-                  <strong>OMX</strong>: Cracks, deep (disc is likely destroyed)<a href="#section-4.3.2-6.12.2.5" class="pilcrow">¶</a>
+                <li class="normal" id="section-4.3.2-7.12.2.4">
+                  <strong>OMX</strong>: Cracks, deep (disc is likely destroyed)<a href="#section-4.3.2-7.12.2.4" class="pilcrow">¶</a>
 </li>
               </ul>
 </li>
-            <li class="normal" id="section-4.3.2-6.13">
-              <p id="section-4.3.2-6.13.1"><strong>OD_</strong>: Optical drive issues<a href="#section-4.3.2-6.13.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-4.3.2-7.13">
+              <p id="section-4.3.2-7.13.1"><strong>OD_</strong>: Optical drive issues<a href="#section-4.3.2-7.13.1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-4.3.2-6.13.2.1">
-                  <strong>ODX</strong>: Optical drive damaged (intermittent, unreliable, or non-functional)<a href="#section-4.3.2-6.13.2.1" class="pilcrow">¶</a>
+<li class="normal" id="section-4.3.2-7.13.2.1">
+                  <strong>ODX#</strong>: Optical drive damaged (intermittent, unreliable, or non-functional)<a href="#section-4.3.2-7.13.2.1" class="pilcrow">¶</a>
 </li>
-                <li class="normal" id="section-4.3.2-6.13.2.2">
-                  <strong>ODZ</strong>: Optical drive missing<br><a href="#section-4.3.2-6.13.2.2" class="pilcrow">¶</a>
+                <li class="normal" id="section-4.3.2-7.13.2.2">
+                  <strong>ODZ</strong>: Optical drive missing<br><a href="#section-4.3.2-7.13.2.2" class="pilcrow">¶</a>
 </li>
               </ul>
 </li>
-            <li class="normal" id="section-4.3.2-6.14">
-              <p id="section-4.3.2-6.14.1"><strong>OS_</strong>: On-board storage (HD/SSD, NVRAM, or permanent battery-backed RAM) issues<a href="#section-4.3.2-6.14.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-4.3.2-7.14">
+              <p id="section-4.3.2-7.14.1"><strong>OS_</strong>: On-board storage (HD/SSD, NVRAM, or permanent battery-backed RAM) issues<a href="#section-4.3.2-7.14.1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-4.3.2-6.14.2.1">
-                  <strong>OSX</strong>: On-board storage is corrupt or non-functional<a href="#section-4.3.2-6.14.2.1" class="pilcrow">¶</a>
+<li class="normal" id="section-4.3.2-7.14.2.1">
+                  <strong>OSX</strong>: On-board storage is corrupt or non-functional<a href="#section-4.3.2-7.14.2.1" class="pilcrow">¶</a>
 </li>
-                <li class="normal" id="section-4.3.2-6.14.2.2">
-                  <strong>OSZ</strong>: On-board storage is missing<a href="#section-4.3.2-6.14.2.2" class="pilcrow">¶</a>
+                <li class="normal" id="section-4.3.2-7.14.2.2">
+                  <strong>OSZ</strong>: On-board storage is missing<a href="#section-4.3.2-7.14.2.2" class="pilcrow">¶</a>
 </li>
               </ul>
 </li>
-            <li class="normal" id="section-4.3.2-6.15">
-              <p id="section-4.3.2-6.15.1"><strong>SC_</strong>: Screen and digitizer issues<a href="#section-4.3.2-6.15.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-4.3.2-7.15">
+              <p id="section-4.3.2-7.15.1"><strong>SC_</strong>: Screen and digitizer issues<a href="#section-4.3.2-7.15.1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-4.3.2-6.15.2.1">
-                  <strong>SCS</strong>: Screen scratches (superficial)<a href="#section-4.3.2-6.15.2.1" class="pilcrow">¶</a>
+<li class="normal" id="section-4.3.2-7.15.2.1">
+                  <strong>SCS#</strong>: Screen scratches (superficial)<a href="#section-4.3.2-7.15.2.1" class="pilcrow">¶</a>
 </li>
-                <li class="normal" id="section-4.3.2-6.15.2.2">
-                  <strong>SCR</strong>: Screen scratches (deep)<a href="#section-4.3.2-6.15.2.2" class="pilcrow">¶</a>
+                <li class="normal" id="section-4.3.2-7.15.2.2">
+                  <strong>SCR#</strong>: Screen scratches (deep)<a href="#section-4.3.2-7.15.2.2" class="pilcrow">¶</a>
 </li>
-                <li class="normal" id="section-4.3.2-6.15.2.3">
-                  <strong>SCC</strong>: Screen cracks (superficial)<a href="#section-4.3.2-6.15.2.3" class="pilcrow">¶</a>
+                <li class="normal" id="section-4.3.2-7.15.2.3">
+                  <strong>SCC#</strong>: Screen cracks<a href="#section-4.3.2-7.15.2.3" class="pilcrow">¶</a>
 </li>
-                <li class="normal" id="section-4.3.2-6.15.2.4">
-                  <strong>SCA</strong>: Screen cracks (deep, functionality/readability impacted)<a href="#section-4.3.2-6.15.2.4" class="pilcrow">¶</a>
+                <li class="normal" id="section-4.3.2-7.15.2.4">
+                  <strong>SCU#</strong>: Screen colors are incorrect or shifted<a href="#section-4.3.2-7.15.2.4" class="pilcrow">¶</a>
 </li>
-                <li class="normal" id="section-4.3.2-6.15.2.5">
-                  <strong>SCU</strong>: Screen colors are obviously incorrect<a href="#section-4.3.2-6.15.2.5" class="pilcrow">¶</a>
+                <li class="normal" id="section-4.3.2-7.15.2.5">
+                  <strong>SCP#</strong>: Dead pixels<a href="#section-4.3.2-7.15.2.5" class="pilcrow">¶</a>
 </li>
-                <li class="normal" id="section-4.3.2-6.15.2.6">
-                  <strong>SCP</strong>: Dead pixels<a href="#section-4.3.2-6.15.2.6" class="pilcrow">¶</a>
+                <li class="normal" id="section-4.3.2-7.15.2.6">
+                  <strong>SCD#</strong>: Digitizer (touchscreen) issues<a href="#section-4.3.2-7.15.2.6" class="pilcrow">¶</a>
 </li>
-                <li class="normal" id="section-4.3.2-6.15.2.7">
-                  <strong>SCD</strong>: Digitizer (touchscreen) issues<a href="#section-4.3.2-6.15.2.7" class="pilcrow">¶</a>
+                <li class="normal" id="section-4.3.2-7.15.2.7">
+                  <strong>SCX</strong>: Screen is completely dead/nonfunctional<a href="#section-4.3.2-7.15.2.7" class="pilcrow">¶</a>
 </li>
-                <li class="normal" id="section-4.3.2-6.15.2.8">
-                  <strong>SCX</strong>: Screen is completely dead/nonfunctional<a href="#section-4.3.2-6.15.2.8" class="pilcrow">¶</a>
-</li>
-                <li class="normal" id="section-4.3.2-6.15.2.9">
-                  <strong>SCZ</strong>: Screen is missing<a href="#section-4.3.2-6.15.2.9" class="pilcrow">¶</a>
+                <li class="normal" id="section-4.3.2-7.15.2.8">
+                  <strong>SCZ</strong>: Screen is missing<a href="#section-4.3.2-7.15.2.8" class="pilcrow">¶</a>
 </li>
               </ul>
 </li>
-            <li class="normal" id="section-4.3.2-6.16">
-              <strong>REF</strong>: Includes refurbished parts (explain in TXT)<a href="#section-4.3.2-6.16" class="pilcrow">¶</a>
+            <li class="normal" id="section-4.3.2-7.16">
+              <strong>REF</strong>: Includes refurbished parts (explain in TXT)<a href="#section-4.3.2-7.16" class="pilcrow">¶</a>
 </li>
-            <li class="normal" id="section-4.3.2-6.17">
-              <strong>XXX</strong>: This item has been irreperably destroyed.<a href="#section-4.3.2-6.17" class="pilcrow">¶</a>
+            <li class="normal" id="section-4.3.2-7.17">
+              <strong>XXX</strong>: This item has been irreperably destroyed.<a href="#section-4.3.2-7.17" class="pilcrow">¶</a>
 </li>
-            <li class="normal" id="section-4.3.2-6.18">
-              <strong>TXT</strong>: Free-text follows. <span class="bcp14">MUST</span> come last.<a href="#section-4.3.2-6.18" class="pilcrow">¶</a>
+            <li class="normal" id="section-4.3.2-7.18">
+              <strong>TXT</strong>: Free-text follows. <span class="bcp14">MUST</span> come last.<a href="#section-4.3.2-7.18" class="pilcrow">¶</a>
 </li>
           </ul>
 </section>
@@ -2178,6 +2181,10 @@ This field <span class="bcp14">MUST</span> be a recognized 1 or 2-letter GoodToo
                 <td class="text-left" rowspan="1" colspan="1">ODE</td>
                 <td class="text-left" rowspan="1" colspan="1">Optical drive emulator</td>
               </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">INT</td>
+                <td class="text-left" rowspan="1" colspan="1">Integration, installing normally external peripherals into a shell (ex: Genesis Neptune mod <span>[<a href="#Neptune" class="xref">Neptune</a>]</span>)</td>
+              </tr>
             </tbody>
           </table>
 </section>
@@ -2197,108 +2204,67 @@ This field <span class="bcp14">MUST</span> be a recognized 1 or 2-letter GoodToo
 </li>
           </ul>
 <p id="section-4.3.4-5">The list of repair codes is as follows:<a href="#section-4.3.4-5" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-4.3.4-6.1">
-              <p id="section-4.3.4-6.1.1"><strong>NR*</strong>: No repairs, choose one of these two:<a href="#section-4.3.4-6.1.1" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-4.3.4-6.1.2.1">
-                  <strong>NRS</strong>: No repairs, all seals still intact<a href="#section-4.3.4-6.1.2.1" class="pilcrow">¶</a>
-</li>
-                <li class="normal" id="section-4.3.4-6.1.2.2">
-                  <strong>NRO</strong>: No repairs, has been opened (seals broken, use if unsure)<a href="#section-4.3.4-6.1.2.2" class="pilcrow">¶</a>
-</li>
-              </ul>
-</li>
-            <li class="normal" id="section-4.3.4-6.2">
-              <strong>SHL</strong>: Shell repair (resurfacing or crack filling) or replacement, including shell components like switches or buttons (excluding cleaning)<a href="#section-4.3.4-6.2" class="pilcrow">¶</a>
-</li>
-            <li class="normal" id="section-4.3.4-6.3">
-              <strong>LBL</strong>: Label or printing replacement<a href="#section-4.3.4-6.3" class="pilcrow">¶</a>
-</li>
-            <li class="normal" id="section-4.3.4-6.4">
-              <strong>BKL</strong>: Backlight<a href="#section-4.3.4-6.4" class="pilcrow">¶</a>
-</li>
-            <li class="normal" id="section-4.3.4-6.5">
-              <strong>SCR</strong>: Screens/displays<a href="#section-4.3.4-6.5" class="pilcrow">¶</a>
-</li>
-            <li class="normal" id="section-4.3.4-6.6">
-              <strong>DIG</strong>: Digitizer (touchscreen)<a href="#section-4.3.4-6.6" class="pilcrow">¶</a>
-</li>
-            <li class="normal" id="section-4.3.4-6.7">
-              <strong>PRT</strong>: Ports (controller, data, video, etc.)<a href="#section-4.3.4-6.7" class="pilcrow">¶</a>
-</li>
-            <li class="normal" id="section-4.3.4-6.8">
-              <strong>PCB</strong>: PCB components<a href="#section-4.3.4-6.8" class="pilcrow">¶</a>
-</li>
-            <li class="normal" id="section-4.3.4-6.9">
-              <strong>RBT</strong>: Retrobriting<a href="#section-4.3.4-6.9" class="pilcrow">¶</a>
-</li>
-            <li class="normal" id="section-4.3.4-6.10">
-              <strong>SFT</strong>: Software / file system<a href="#section-4.3.4-6.10" class="pilcrow">¶</a>
-</li>
-            <li class="normal" id="section-4.3.4-6.11">
-              <strong>SPK</strong>: Speaker / direct sound output (excluding jacks, these <span class="bcp14">MUST</span> be classified as <code>PRT</code>)<a href="#section-4.3.4-6.11" class="pilcrow">¶</a>
-</li>
-            <li class="normal" id="section-4.3.4-6.12">
-              <strong>BAT</strong>: Non-user-accessible batteries<a href="#section-4.3.4-6.12" class="pilcrow">¶</a>
-</li>
-            <li class="normal" id="section-4.3.4-6.13">
-              <strong>RPT</strong>: Metal replating<a href="#section-4.3.4-6.13" class="pilcrow">¶</a>
-</li>
-            <li class="normal" id="section-4.3.4-6.14">
-              <strong>REP</strong>: Repro (non-OEM) parts were used for any replacements<a href="#section-4.3.4-6.14" class="pilcrow">¶</a>
-</li>
-            <li class="normal" id="section-4.3.4-6.15">
-              <strong>TXT</strong>: Free-text follows. <span class="bcp14">MUST</span> come last<a href="#section-4.3.4-6.15" class="pilcrow">¶</a>
-</li>
-          </ul>
 </section>
 </div>
+</section>
+</div>
+<div id="code-description">
+<section id="section-4.4">
+        <h3 id="name-code-description">
+<a href="#section-4.4" class="section-number selfRef">4.4. </a><a href="#name-code-description" class="section-name selfRef">Code | Description</a>
+        </h3>
+<p id="section-4.4-1">NRS  | No repairs, all seals still intact
+NRO  | No repairs, has been opened (seals broken, use if unsure)
+SHL  | Shell repair (resurfacing or crack filling) or replacement, including shell components like switches or buttons (excluding cleaning)
+LBL  | Label or printing replacement
+BKL  | Backlight
+SCR  | Screens/displays
+DIG  | Digitizer (touchscreen)
+PRT  | Ports (controller, data, video, etc.)
+PCB  | PCB components
+RBT  | Retrobriting / yellowing reversal
+SFT  | Software / file system
+SPK  | Speaker / direct sound output (excluding jacks, these <span class="bcp14">MUST</span> be classified as <code>PRT</code>)
+BAT  | Non-user-accessible batteries
+RPT  | Metal replating
+REP  | Repro (non-OEM) parts were used for any replacements
+TXT  | Free-text follows. <span class="bcp14">MUST</span> come last<a href="#section-4.4-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="service-history-field">
-<section id="section-4.4">
+<section id="section-4.5">
         <h3 id="name-service-history-field">
-<a href="#section-4.4" class="section-number selfRef">4.4. </a><a href="#name-service-history-field" class="section-name selfRef">Service History Field</a>
+<a href="#section-4.5" class="section-number selfRef">4.5. </a><a href="#name-service-history-field" class="section-name selfRef">Service History Field</a>
         </h3>
-<p id="section-4.4-1">This field is <span class="bcp14">OPTIONAL</span> and may be skipped.<a href="#section-4.4-1" class="pilcrow">¶</a></p>
-<p id="section-4.4-2">The service history field represents a list of repair events. A "repair event" defined as service of a single item or directly related group of items in a sub-assembly.<a href="#section-4.4-2" class="pilcrow">¶</a></p>
-<p id="section-4.4-3">The format for a repair event is as follows:<a href="#section-4.4-3" class="pilcrow">¶</a></p>
-<p id="section-4.4-4"><code>(Datestamp)(Repair type)(Item repaired)(Free-text),</code><a href="#section-4.4-4" class="pilcrow">¶</a></p>
+<p id="section-4.5-1">This field is <span class="bcp14">OPTIONAL</span> and may be skipped.<a href="#section-4.5-1" class="pilcrow">¶</a></p>
+<p id="section-4.5-2">The service history field represents a list of repair events. A "repair event" defined as service of a single item or directly related group of items in a sub-assembly.<a href="#section-4.5-2" class="pilcrow">¶</a></p>
+<p id="section-4.5-3">The format for a repair event is as follows:<a href="#section-4.5-3" class="pilcrow">¶</a></p>
+<p id="section-4.5-4"><code>(Datestamp)(Repair type)(Item repaired)(Free-text),</code><a href="#section-4.5-4" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-4.4-5.1">The history list <span class="bcp14">MUST</span> be in chronological order, oldest events first.<a href="#section-4.4-5.1" class="pilcrow">¶</a>
+<li class="normal" id="section-4.5-5.1">The history list <span class="bcp14">MUST</span> be in chronological order, oldest events first.<a href="#section-4.5-5.1" class="pilcrow">¶</a>
 </li>
-          <li class="normal" id="section-4.4-5.2">Each event <span class="bcp14">MUST</span> be comma-separated.<a href="#section-4.4-5.2" class="pilcrow">¶</a>
+          <li class="normal" id="section-4.5-5.2">Each event <span class="bcp14">MUST</span> be comma-separated.<a href="#section-4.5-5.2" class="pilcrow">¶</a>
 </li>
-          <li class="normal" id="section-4.4-5.3">If a service history entry is invalidated or duplicated by a later event, such as the same component being replaced twice, the earlier entry <span class="bcp14">SHOULD</span> be removed.<a href="#section-4.4-5.3" class="pilcrow">¶</a>
+          <li class="normal" id="section-4.5-5.3">If a service history entry is invalidated or duplicated by a later event, such as the same component being replaced twice, the earlier entry <span class="bcp14">MUST</span> be removed.<a href="#section-4.5-5.3" class="pilcrow">¶</a>
 </li>
-          <li class="normal" id="section-4.4-5.4">Code creators <span class="bcp14">MUST NOT</span> add new service history items that they did not either personally perform or have performed on their behalf, unless a specific record of the repair or modification is consulted, such as an invoice.<a href="#section-4.4-5.4" class="pilcrow">¶</a>
+          <li class="normal" id="section-4.5-5.4">Code creators <span class="bcp14">MUST NOT</span> add new service history items that they did not either personally perform or have performed on their behalf, unless a specific record of the repair or modification is consulted, such as an invoice.<a href="#section-4.5-5.4" class="pilcrow">¶</a>
 </li>
         </ul>
-<div id="note-on-refurbishment">
-<section id="section-4.4.1">
-          <h4 id="name-note-on-refurbishment">
-<a href="#section-4.4.1" class="section-number selfRef">4.4.1. </a><a href="#name-note-on-refurbishment" class="section-name selfRef">Note on refurbishment</a>
-          </h4>
-<p id="section-4.4.1-1">When sending consoles into OEMs, they may repair a system and send it back <em>or</em> send an entirely new refurbished console. Check the serial numbers in this case. If a new serial number is received, you have received a new console and <span class="bcp14">MUST</span> start a brand new VGCC. <strong>Do not carry any history over.</strong> If the hardware you received is not in its factory packaging, you <span class="bcp14">MUST</span> add a <strong>REF</strong> under code <code>D</code> and note its status as <strong>USD</strong> under code <code>C</code><a href="#section-4.4.1-1" class="pilcrow">¶</a></p>
-<p id="section-4.4.1-2">Refurbished consoles likely have had components repaired, even so, code creators <span class="bcp14">MUST NOT</span> guess which components are repaired/refurbished.<a href="#section-4.4.1-2" class="pilcrow">¶</a></p>
-</section>
-</div>
 <div id="date-of-service">
-<section id="section-4.4.2">
+<section id="section-4.5.1">
           <h4 id="name-date-of-service">
-<a href="#section-4.4.2" class="section-number selfRef">4.4.2. </a><a href="#name-date-of-service" class="section-name selfRef">Date of Service</a>
+<a href="#section-4.5.1" class="section-number selfRef">4.5.1. </a><a href="#name-date-of-service" class="section-name selfRef">Date of Service</a>
           </h4>
-<p id="section-4.4.2-1">Each history entry <span class="bcp14">MUST</span> begin with the ISO8601 date (in the YYYYMMDD format) when the action was <em>finished</em>, with no separator. Example: 20200829 for August 29th, 2020.<a href="#section-4.4.2-1" class="pilcrow">¶</a></p>
-<p id="section-4.4.2-2">If the repair date is entirely unknown, but you know a repair was made, you <span class="bcp14">MUST NOT</span> add a history entry for it. Note the nature of the repaired/replaced component under code <code>E</code> (Repairs) instead.<a href="#section-4.4.2-2" class="pilcrow">¶</a></p>
+<p id="section-4.5.1-1">Each history entry <span class="bcp14">MUST</span> begin with the ISO8601 date (in the YYYYMMDD format) when the action was <em>finished</em>, with no separator. Example: 20200829 for August 29th, 2020.<a href="#section-4.5.1-1" class="pilcrow">¶</a></p>
+<p id="section-4.5.1-2">If the repair date is entirely unknown, but you know a repair was made, you <span class="bcp14">MUST NOT</span> add a history entry for it. Note the nature of the repaired/replaced component under code <code>E</code> (Repairs) instead.<a href="#section-4.5.1-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="repair-types">
-<section id="section-4.4.3">
+<section id="section-4.5.2">
           <h4 id="name-repair-types">
-<a href="#section-4.4.3" class="section-number selfRef">4.4.3. </a><a href="#name-repair-types" class="section-name selfRef">Repair Types</a>
+<a href="#section-4.5.2" class="section-number selfRef">4.5.2. </a><a href="#name-repair-types" class="section-name selfRef">Repair Types</a>
           </h4>
-<p id="section-4.4.3-1">Represents the general disposition of the changes made to the item. This <span class="bcp14">MUST</span> be one of the codes below:<a href="#section-4.4.3-1" class="pilcrow">¶</a></p>
+<p id="section-4.5.2-1">Represents the general disposition of the changes made to the item. This <span class="bcp14">MUST</span> be one of the codes below:<a href="#section-4.5.2-1" class="pilcrow">¶</a></p>
 <table class="center" id="table-8">
             <caption><a href="#table-8" class="selfRef">Table 8</a></caption>
 <thead>
@@ -2326,15 +2292,15 @@ This field <span class="bcp14">MUST</span> be a recognized 1 or 2-letter GoodToo
               </tr>
             </tbody>
           </table>
-<p id="section-4.4.3-3">Swaps or repairs that require no tools, such as battery replacements or cleaning intended to be done by the end user (for example, taking a cotton swab to a the laser on a disc system) <span class="bcp14">MUST NOT</span> have a repair entry added.<a href="#section-4.4.3-3" class="pilcrow">¶</a></p>
+<p id="section-4.5.2-3">Swaps or repairs that require no tools, such as battery replacements or cleaning intended to be done by the end user (for example, taking a cotton swab to a the laser on a disc system) <span class="bcp14">MUST NOT</span> have a repair entry added.<a href="#section-4.5.2-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="item-repaired">
-<section id="section-4.4.4">
+<section id="section-4.5.3">
           <h4 id="name-item-repaired">
-<a href="#section-4.4.4" class="section-number selfRef">4.4.4. </a><a href="#name-item-repaired" class="section-name selfRef">Item Repaired</a>
+<a href="#section-4.5.3" class="section-number selfRef">4.5.3. </a><a href="#name-item-repaired" class="section-name selfRef">Item Repaired</a>
           </h4>
-<p id="section-4.4.4-1">Use a valid code from the <a href="#repaircodes">list of repair codes</a><a href="#section-4.4.4-1" class="pilcrow">¶</a></p>
+<p id="section-4.5.3-1">Use a valid code from the <a href="#repaircodes">list of repair codes</a><a href="#section-4.5.3-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -2393,7 +2359,7 @@ This field <span class="bcp14">MUST</span> be a recognized 1 or 2-letter GoodToo
           </tr>
           <tr>
             <td class="text-left" rowspan="1" colspan="1">MNGC</td>
-            <td class="text-left" rowspan="1" colspan="1">Model: GameCube (original release)</td>
+            <td class="text-left" rowspan="1" colspan="1">Model: GameCube (original release duplicates the family name)</td>
           </tr>
           <tr>
             <td class="text-left" rowspan="1" colspan="1">CIND</td>
@@ -2484,31 +2450,51 @@ This field <span class="bcp14">MUST</span> be a recognized 1 or 2-letter GoodToo
 <a href="#section-6.1" class="section-number selfRef">6.1. </a><a href="#name-type-classification" class="section-name selfRef">Type Classification</a>
         </h3>
 <p id="section-6.1-1">Certain items may defy the code <code>T</code> classification scheme, or have good arguments for falling under multiple categories. The VGCR working group <strong>RECOMMENDS</strong> the following:<a href="#section-6.1-1" class="pilcrow">¶</a></p>
-<p id="section-6.1-2"><strong>Cheat Devices:</strong> All-in-one devices (that is, the cheat hardware and software are part of a single physical unit, ex: the NES Game Genie) are considered <strong>SFT</strong>. In the case of devices that have a separate cheat device as well as software, such as the PlayStation or Gamecube Action Replay, these must have their own separate VGCCs. The disc is <strong>SFT</strong>, and the hardware is <strong>3RD</strong>.<a href="#section-6.1-2" class="pilcrow">¶</a></p>
-<p id="section-6.1-3"><strong>Cartridge Copiers / Backup Devices:</strong> These are all considered <strong>3RD</strong>.<a href="#section-6.1-3" class="pilcrow">¶</a></p>
-<p id="section-6.1-4"><strong>Multiplayer Adapters:</strong> These fit under the <strong>3RD</strong> category, and include devices such as the XBAND for SNES or Genesis. <strong>3RD</strong> would also apply to Multitap-like devices.<a href="#section-6.1-4" class="pilcrow">¶</a></p>
-<p id="section-6.1-5"><strong>Cartridge Peripherals:</strong> These would generally fit under the category of <strong>AMD</strong> - devices that plug into the cartridge slot and allow you to play additional content in a format that was not possible on the original hardware. This would include devices where content is downloaded from the internet, received over broadcast services, or alternate physical media formats. Examples would include the Broadcast Satellaview or Sega Channel, Mega CD, Famicom Disk System, etc. It would also include retro compatibility add-ons, such as the Game Boy Player for the GameCube.<a href="#section-6.1-5" class="pilcrow">¶</a></p>
-<p id="section-6.1-6">Note that the software and hardware must have their own codes if they can be separated. The Satellaview cartridge, memory unit, and satellite adapter are all distinct devices with distinct VGCCs.<a href="#section-6.1-6" class="pilcrow">¶</a></p>
+<p id="section-6.1-2"><strong>Cheat Devices:</strong> All-in-one devices (that is, the cheat hardware and software are part of a single physical unit, ex: the NES Game Genie) are considered <code>SFT</code>. In the case of devices that have a separate cheat device as well as software, such as the PlayStation or Gamecube Action Replay, these must have their own separate VGCCs. The disc is <code>SFT</code>, and the hardware is <code>SNT</code> (as the device is intrinsic to the function of the software).<a href="#section-6.1-2" class="pilcrow">¶</a></p>
+<p id="section-6.1-3"><strong>Cartridge Copiers / Backup Devices:</strong> These are all considered <code>3PA</code>.<a href="#section-6.1-3" class="pilcrow">¶</a></p>
+<p id="section-6.1-4"><strong>Multiplayer Adapters:</strong> These fit under the <code>3PA</code> category, and include devices such as the XBAND for SNES or Genesis. Multitap devices made by the console OEM are considered <code>1PA</code>.<a href="#section-6.1-4" class="pilcrow">¶</a></p>
+<p id="section-6.1-5"><strong>Cartridge Peripherals:</strong> These would generally fit under the category of <code>AMD</code> - devices that plug into the cartridge slot and allow you to play additional content in a format that was not possible on the original hardware. This would include devices where content is downloaded from the internet, received over broadcast services, or alternate physical media formats. Examples would include the Broadcast Satellaview or Sega Channel, Mega CD, Famicom Disk System, etc. It would also include retro compatibility add-ons, such as the Game Boy Player for the GameCube. Note that the software and hardware must have their own codes if they can be separated. The Satellaview cartridge, memory unit, and satellite adapter are all distinct devices with distinct VGCCs.<a href="#section-6.1-5" class="pilcrow">¶</a></p>
+<p id="section-6.1-6"><strong>Software for Alternate Media Devices:</strong> Use the family code of the parent console. "Sonic CD" would have a family code of <code>SMD</code>.<a href="#section-6.1-6" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="ambiguity-in-authenticity">
+<section id="section-6.2">
+        <h3 id="name-ambiguity-in-authenticity">
+<a href="#section-6.2" class="section-number selfRef">6.2. </a><a href="#name-ambiguity-in-authenticity" class="section-name selfRef">Ambiguity in Authenticity</a>
+        </h3>
+<p id="section-6.2-1">To avoid "ship of Theseus" situations when determining authenticity, it is <span class="bcp14">RECOMMENDED</span> to think in terms of non-replaceable components. For instance, it is quite possible to replace the shell and a number of electronic components on an NES, but it still contains a OEM NES CPU and PPU at the en of the day. If those components are replaced with an FPGA of some kind, and the device still claims to be made by Nintendo, then it is clearly a repro.<a href="#section-6.2-1" class="pilcrow">¶</a></p>
+<p id="section-6.2-2">The VGCR working group can not hope to objectively determine the line between "real" and "repro". Code creators are encouraged to consider the expectations of the human readers of their codes and encode information according to the principle of least astonishment <span>[<a href="#POLA" class="xref">POLA</a>]</span>.<a href="#section-6.2-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="refurbishment">
+<section id="section-6.3">
+        <h3 id="name-refurbishment">
+<a href="#section-6.3" class="section-number selfRef">6.3. </a><a href="#name-refurbishment" class="section-name selfRef">Refurbishment</a>
+        </h3>
+<p id="section-6.3-1">When sending consoles into OEMs, they may repair a system and send it back <em>or</em> send an entirely new refurbished console. Check the serial numbers in this case. If a new serial number is received, you have received a new console and <span class="bcp14">MUST</span> start a brand new VGCC. <strong>Do not carry any history over.</strong> If the hardware you received is not in its factory packaging, you <span class="bcp14">MUST</span> add a <code>REF</code> under code <code>D</code> and note its status as <code>USD</code> under code <code>C</code><a href="#section-6.3-1" class="pilcrow">¶</a></p>
+<p id="section-6.3-2">Refurbished consoles likely have had components repaired. Even so, code creators <span class="bcp14">MUST NOT</span> guess which components are repaired/refurbished.<a href="#section-6.3-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="conflicting-codes-other-considerations">
-<section id="section-6.2">
+<section id="section-6.4">
         <h3 id="name-conflicting-codes-other-con">
-<a href="#section-6.2" class="section-number selfRef">6.2. </a><a href="#name-conflicting-codes-other-con" class="section-name selfRef">Conflicting Codes &amp; other considerations</a>
+<a href="#section-6.4" class="section-number selfRef">6.4. </a><a href="#name-conflicting-codes-other-con" class="section-name selfRef">Conflicting Codes &amp; other considerations</a>
         </h3>
-<p id="section-6.2-1">Generally speaking, the "rules" for a VGCC are:<a href="#section-6.2-1" class="pilcrow">¶</a></p>
-<ol start="1" type="1" class="normal type-1" id="section-6.2-2">
-<li id="section-6.2-2.1">Codes <span class="bcp14">MUST NOT</span> conflict with one another under any circumstances. Any situation which would result in a conflict a case where one or multiple codes must be adjusted, or an unforeseen design flaw with the VGCC standard.<a href="#section-6.2-2.1" class="pilcrow">¶</a>
+<p id="section-6.4-1">Generally speaking, the "rules" for a VGCC are:<a href="#section-6.4-1" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="normal type-1" id="section-6.4-2">
+<li id="section-6.4-2.1">Codes <span class="bcp14">MUST NOT</span> conflict with one another under any circumstances. Any situation which would result in a conflict is a case where one or multiple codes must be adjusted, or is an unforeseen design flaw with the VGCC standard.<a href="#section-6.4-2.1" class="pilcrow">¶</a>
 </li>
-          <li id="section-6.2-2.2">Codes in the <a href="#hardware">hardware</a> field are considered intrinsic to the identity of the item being cataloged, and are never changed unless correcting an error. The attributes should be written according to their validity <em>at the time of manufacture</em>.<a href="#section-6.2-2.2" class="pilcrow">¶</a>
+          <li id="section-6.4-2.2">Codes <span class="bcp14">MUST NOT</span> convey the same information more than once, with the exception of the repair history field which may necessarily duplicate information in the condition or damage fields.<a href="#section-6.4-2.2" class="pilcrow">¶</a>
 </li>
-          <li id="section-6.2-2.3">Codes in the <a href="#condition">condition</a> field relate to the <em>present</em> condition of the item and should be updated often.<a href="#section-6.2-2.3" class="pilcrow">¶</a>
+          <li id="section-6.4-2.3">Codes in the <a href="#hardware">hardware identity</a> field are considered intrinsic to the identity of the item being cataloged, and <span class="bcp14">MUST NOT</span> be changed unless correcting an error. The attributes <span class="bcp14">MUST</span> be written according to their validity at the time the item was manufactured.<a href="#section-6.4-2.3" class="pilcrow">¶</a>
 </li>
-          <li id="section-6.2-2.4">Codes <span class="bcp14">SHOULD</span> be constructed such that all pertinent information about a piece of hardware is present even if the <a href="#servicehistory">service history</a> field is blank.<a href="#section-6.2-2.4" class="pilcrow">¶</a>
+          <li id="section-6.4-2.4">Codes in the <a href="#condition">condition</a> field relate to the <em>present</em> condition of the item and <span class="bcp14">SHOULD</span> be updated often.<a href="#section-6.4-2.4" class="pilcrow">¶</a>
 </li>
-          <li id="section-6.2-2.5">Ambiguities <span class="bcp14">SHOULD</span> be resolved in a way that is <em>least favorable to the value of the item</em>. In other words, if you're not sure if something is a swap or a mod, default to considering it a mod.<a href="#section-6.2-2.5" class="pilcrow">¶</a>
+          <li id="section-6.4-2.5">Codes <span class="bcp14">SHOULD</span> be constructed such that all pertinent information about a piece of hardware is present even if the <a href="#servicehistory">service history</a> field is blank.<a href="#section-6.4-2.5" class="pilcrow">¶</a>
 </li>
-          <li id="section-6.2-2.6">VGCCs are intended to classify individual items, not retail bundles. For instance, it is common for OEMs to sell different console bundles with different hardware, peripherals, and software. Each item in the bundle would have its own VGCC, not the bundle as a whole.<a href="#section-6.2-2.6" class="pilcrow">¶</a>
+          <li id="section-6.4-2.6">Ambiguities <span class="bcp14">SHOULD</span> be resolved in a way that is least favorable to the value of the item. In other words, if you're not sure if something is a swap or a mod, default to considering it a mod.<a href="#section-6.4-2.6" class="pilcrow">¶</a>
+</li>
+          <li id="section-6.4-2.7">VGCCs are intended to classify individual items, not retail bundles. For instance, it is common for OEMs to sell different console bundles with different hardware, peripherals, and software. Each item in the bundle would have its own VGCC, not the bundle as a whole.<a href="#section-6.4-2.7" class="pilcrow">¶</a>
 </li>
         </ol>
 </section>
@@ -2536,23 +2522,13 @@ This field <span class="bcp14">MUST</span> be a recognized 1 or 2-letter GoodToo
 <p id="section-7.2-1">The VGCC working group offers this standard and any related applications or services on a BEST EFFORT basis. It is not warrantied to be accurate, up to date, or fit for any particular purpose.<a href="#section-7.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="forks">
-<section id="section-7.3">
-        <h3 id="name-forks">
-<a href="#section-7.3" class="section-number selfRef">7.3. </a><a href="#name-forks" class="section-name selfRef">Forks</a>
-        </h3>
-<p id="section-7.3-1">As the VGCC is licensed under the GFDL (see next section), you are free to copy, modify, and share this document under those terms.<a href="#section-7.3-1" class="pilcrow">¶</a></p>
-<p id="section-7.3-2">We specifically note that any related logos, artwork, and the names "Video Game Condition Code" and "Video Game Condition Report", and the acronyms VGCR and VGCC are owned by the VGCR working group and may not be used without the group's prior written consent.<a href="#section-7.3-2" class="pilcrow">¶</a></p>
-<p id="section-7.3-3"><strong>In brief: feel free to use this project as a base for something else, but you must call it something else and use your own artwork.</strong><a href="#section-7.3-3" class="pilcrow">¶</a></p>
-</section>
-</div>
 <div id="copyright">
-<section id="section-7.4">
+<section id="section-7.3">
         <h3 id="name-copyright">
-<a href="#section-7.4" class="section-number selfRef">7.4. </a><a href="#name-copyright" class="section-name selfRef">Copyright</a>
+<a href="#section-7.3" class="section-number selfRef">7.3. </a><a href="#name-copyright" class="section-name selfRef">Copyright</a>
         </h3>
-<p id="section-7.4-1">Copyright 2021 - Mike Parks, Alexander Parrish, and contributors<a href="#section-7.4-1" class="pilcrow">¶</a></p>
-<p id="section-7.4-2">Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A copy of the license is included in the file <a href="https://raw.githubusercontent.com/Karunamon/grc/master/LICENSE.md">LICENSE.MD</a>, located in the same repository as the standard doc.<a href="#section-7.4-2" class="pilcrow">¶</a></p>
+<p id="section-7.3-1">Copyright 2021 - Mike Parks, Alexander Parrish, and contributors<a href="#section-7.3-1" class="pilcrow">¶</a></p>
+<p id="section-7.3-2">Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A copy of the license is included in the file <a href="https://raw.githubusercontent.com/Karunamon/grc/master/LICENSE.md">LICENSE.MD</a>, located in the same repository as this standard doc.<a href="#section-7.3-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -2562,6 +2538,10 @@ This field <span class="bcp14">MUST</span> be a recognized 1 or 2-letter GoodToo
 <a href="#section-8" class="section-number selfRef">8. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
       </h2>
 <dl class="references">
+<dt id="Neptune">[Neptune]</dt>
+      <dd>
+<span class="refAuthor">Hack Informer</span>, <span class="refTitle">"Review: Sega Neptune Mod from Retrohacks.net"</span>, <time datetime="2019-09-15" class="refDate">15 September 2019</time>, <span>&lt;<a href="https://hackinformer.com/2019/09/15/review-sega-neptune-mod-from-retrohacks-net/">https://hackinformer.com/2019/09/15/review-sega-neptune-mod-from-retrohacks-net/</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="POLA">[POLA]</dt>
       <dd>
 <span class="refAuthor">Wikipedia</span>, <span class="refTitle">"Principle of least astonishment"</span>, <time datetime="2021-01" class="refDate">January 2021</time>, <span>&lt;<a href="https://en.wikipedia.org/w/index.php?title=Principle_of_least_astonishment">https://en.wikipedia.org/w/index.php?title=Principle_of_least_astonishment</a>&gt;</span>. </dd>
