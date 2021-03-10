@@ -1,14 +1,17 @@
-name: Deploy
+name: Build/deploy
 
 on:
+  pull_request:
+    branches:  master
+    paths:
+      - 'grc.md'
   push:
-    branches:
-      - 'master'
+    branches: master
     paths:
       - 'grc.md'
 
 jobs:
-  deploy:
+  validate_and_compile:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
@@ -27,6 +30,7 @@ jobs:
           python-version: '3.8.4'
       
       - name: Setup environment
+        # Due to GH security, this path setting has to be done in a separate step.
         run: |
           echo "GOPATH=$(go env GOPATH)" >> $GITHUB_ENV
           echo "$(go env GOPATH)/bin" >> $GITHUB_PATH
@@ -40,15 +44,44 @@ jobs:
       - name: Compile output page
         run: |
           mmark grc.md > grc.xml
-          xml2rfc grc.xml --html
+          xml2rfc --text grc.xml
+          xml2rfc --html grc.xml
+
+      - name: Archive build artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: compiled-docs
+          path: |
+            grc.txt
+            grc.html
+            grc.xml
+          retention-days: 30
+
+  publish:
+    if: github.ref == 'refs/heads/master'
+    runs-on: ubuntu-18.04
+    steps:
+      
+      - name: Retrieve artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: compiled-docs
+
+      - name: Setup publish folder
+        run: |
           mkdir public
           mv grc.html public/index.html
-          
+          mv grc.txt  public/grc.txt
 
-      - name: Deploy
+      - name: Deploy public webpage
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
           cname: gamerepair.codes
+
+
+
+    
+
         
