@@ -574,14 +574,6 @@ Nothing prevents an unscrupulous seller from misrepresenting their product. A VG
 
 The VGCC working group offers this standard and any related applications or services on a BEST EFFORT basis. It is not warrantied to be accurate, up to date, or fit for any particular purpose.
 
-## Forks
-
-As the VGCC is licensed under the GFDL (see next section), you are free to copy, modify, and share this document under those terms.
-
-We specifically note that any related logos, artwork, and the names "Video Game Condition Code" and "Video Game Condition Report", and the acronyms VGCR and VGCC are owned by the VGCR working group and may not be used without the group's prior written consent.
-
-**In brief: feel free to use this project as a base for something else, but you must call it something else and use your own artwork.**
-
 ## Copyright
 
 Copyright 2021 - Mike Parks, Alexander Parrish, and contributors
