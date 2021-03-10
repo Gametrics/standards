@@ -425,7 +425,7 @@ Generally, what differentiates a `M` (mod) from an `E` (repair) is whether the s
 The list of repair codes is as follows:
 
 Code | Description
-------------------
+-----|------------
 NRS  | No repairs, all seals still intact
 NRO  | No repairs, has been opened (seals broken, use if unsure)
 SHL  | Shell repair (resurfacing or crack filling) or replacement, including shell components like switches or buttons (excluding cleaning)
