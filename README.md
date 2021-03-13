@@ -13,16 +13,16 @@ The VGCC is an open standard licensed under the [GNU Free Documentation License]
 A VGCC is used to indicate the most pertinent information about a video game device, including its brand, revision, and repair/modification history. An example would be:
 
 ```
-VGCC1|BNINT,AO,FNGC,RU,TCON,MNGC,CIND,VDOL-001,SDS315060768,I|PUSD,DSHCSMKTXTSmoking_home,MCHPLED,ESHLPRTDDAREPTXTRepro_Shell|20200829MCHPHyperBoot,20200829MLEDCtrlr,20200829SOSHLTop,20200829SOSHLHsd,20211224RMSCMHyperBoot,20211224SOMSCCtrlport3,20211224SRDDA|
+VGCC1|BNINT,AO,FNGC,RU,TCON,MNGC,CIND,VDOL-001,SDS315060768,I|PUSD,DSHCSMKTXTSmoking_home,MCHPLED,ESHLPRTDDA,U|20200829MCHPHyperBoot,20200829MLEDCtrlr,20200829OSHLTop,20200829OSHLHsd_cover,20211224RCHPHyperBoot_wiring,20211224OPRTtrlport3,20211224TDDA|
 ```
 
-What does this code tell us? It's for a Nintendo Gamecube, OEM, United States version, DOL-001, in indigo color. It is in used condition, and has had damage to the shell and smoke damage from being in a smoking home. In the past, it has had repairs made to the shell, ports, and disk drive. It has had a HyperBoot modchip and non-stock LEDs installed. The modchip and LEDs were installed on August 29th, 2020. On the same day, the shell and data port cover were replaced with identical OEM parts. Later in 2021, the modchip was repaired, controller port 3 was replaced with an OEM part, and the disc drive assembly was replaced with a third party version.
+What does this code tell us? It's for an OEM Nintendo Gamecube console, United States version, DOL-001, in indigo color. It is in used condition, and has had damage to the shell and smoke damage from being in a smoking home. Its serial number is DS315060768. In the past, it has had repairs made to the shell, ports, and disk drive. It has a HyperBoot modchip and non-stock LEDs installed. The modchip and LEDs were installed on August 29th, 2020. On the same day, the shell and data port cover were replaced with identical OEM parts. Later in 2021, the modchip was repaired, controller port 3 was replaced with an OEM part, and the disc drive assembly was replaced with a third party version.
 
 All of that information was condensed into bit more than a single line of text; that is the power of the VGCC.
 
 ## But isn't this hard to read?
 
-The VGCC is a computers-first code, meant to be read programatically by applications, but it is incidentally readable by humans. In the real world, we envision the VGCC  compressed and encoded into a QR code format, something that could be easily scanned and decoded by an application. In fact, such an application is part of this project and is under active development.
+The VGCC is a computers-first code, meant to be read programatically by applications, but it is incidentally readable by humans. In the real world, we envision the VGCC compressed and encoded into a QR code, something that could be easily scanned and decoded by an application. In fact, such an application is part of this project and is under active development.
 
 ![Encoded GRC example](https://i.imgur.com/zC7B4mU.png)
 

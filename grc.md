@@ -427,7 +427,7 @@ Code  | Meaning
 `AUD` | Audio-output modifications (speakers, headphones)
 `PCB` | Circuit or PCB-level mods, not including region-free or modchip installation
 `ODE` | Optical drive emulator
-`INT` | Integration, installing normally external peripherals into a shell (ex: Genesis Neptune mod [@Neptune]) 
+`INT` | Integration, installing normally external peripherals into a shell (ex: Genesis [@Neptune] mod) 
 
 ### Known Repairs/Replacements \(E\)
 
@@ -501,17 +501,17 @@ Swaps or repairs that require no tools, such as battery replacements or cleaning
 
 ### Item Repaired
 
-Use a valid code from the (#repaircodes)
+Use a valid code from (#repaircodes)
 
 # Example Code
 
 The following is an example of a compliant VGCC1 code:
 
 ```
-VGCC1|BNINT,AO,FNGC,RU,TCON,MNGC,CIND,VDOL-001,SDS315060768,I|PUSD,DSHCSMKTXTSmoking_home,MCHPLED,ESHLPRTDDA,USHL|20200829MCHPHyperBoot,20200829MLEDCtrlr,20200829SOSHLTop,20200829SOSHLHsd,20211224RMSCMHyperBoot,20211224SOMSCCtrlport3,20211224SRDDA|
+VGCC1|BNINT,AO,FNGC,RU,TCON,MNGC,CIND,VDOL-001,SDS315060768,I|PUSD,DSHCSMKTXTSmoking_home,MCHPLED,ESHLPRTDDA,USHL|20200829MCHPHyperBoot,20200829MLEDCtrlr,20200829OSHLTop,20200829OSHLHsd_cover,20211224RCHPHyperBoot_wiring,20211224OPRTtrlport3,20211224TDDA|
 ```
 
-This given code breaks down as follows. Note that the field separator in this table is an underscore `_` rather than a pipe `|` for formatting reasons:
+This given code breaks down as follows. Note that the field separator in this table is an underscore (`_`) rather than a pipe (`|`) for formatting reasons:
 
 Code Block | Meaning
 -----------|---------
@@ -536,11 +536,11 @@ USHL| Refurbisehed parts used: Shell
  _ | **Field separator, repair history section begins**
 20200829MCHPHyperBoot | August 29, 2020: Mod installed / Modchip / Free-text: Hyperboot
 20200829MLEDCtrlr | August 29, 2020: Mod installed / LED(s) / Free-text: Controller ports
-20200829SOSHLTop | August 29, 2020: Swapped part / OEM part / Shell / Free-text: Top shell
-20200829SOSHLHsd | August 29, 2020: Swapped part / OEM part / Shell / Free-text: High speed data port cover
-20211224RMSCHyperBoot_wiring | December 24, 2021: Repaired / Miscellaneous component / Hyperboot wiring
-20211224SOPRTCtrlport3 | December 24, 2021: Swapped part / OEM part / Port / Controller port 3
-20211224SRDDA | December 24, 2021: Swapped part / Third party part / Disc Drive assembly
+20200829OSHLTop | August 29, 2020: Swapped part / OEM part / Shell / Free-text: Top shell
+20200829SSHLHsd_cover | August 29, 2020: Swapped part / OEM part / Shell / Free-text: High speed data port cover
+20211224RCHPHyperBoot_wiring | December 24, 2021: Repaired / Modchip / Hyperboot wiring
+20211224OPRTCtrlport3 | December 24, 2021: Swapped part / OEM part / Port / Controller port 3
+20211224TDDA | December 24, 2021: Swapped part / Third party part / Disc Drive assembly
 
 
 # Corner Cases and Ambiguities
