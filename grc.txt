@@ -994,7 +994,7 @@ Parks & Parrish               Informational                    [Page 17]
            +------+--------------------------------------------+
            | INT  | Integration, installing normally external  |
            |      | peripherals into a shell (ex: Genesis      |
-           |      | Neptune mod [Neptune])                     |
+           |      | [Neptune] mod)                             |
            +------+--------------------------------------------+
 
                                   Table 9
@@ -1200,17 +1200,17 @@ Parks & Parrish               Informational                    [Page 21]
 
 4.4.3.  Item Repaired
 
-   Use a valid code from the Table 10
+   Use a valid code from Table 10
 
 5.  Example Code
 
    The following is an example of a compliant VGCC1 code:
 
-VGCC1|BNINT,AO,FNGC,RU,TCON,MNGC,CIND,VDOL-001,SDS315060768,I|PUSD,DSHCSMKTXTSmoking_home,MCHPLED,ESHLPRTDDA,USHL|20200829MCHPHyperBoot,20200829MLEDCtrlr,20200829SOSHLTop,20200829SOSHLHsd,20211224RMSCMHyperBoot,20211224SOMSCCtrlport3,20211224SRDDA|
+VGCC1|BNINT,AO,FNGC,RU,TCON,MNGC,CIND,VDOL-001,SDS315060768,I|PUSD,DSHCSMKTXTSmoking_home,MCHPLED,ESHLPRTDDA,USHL|20200829MCHPHyperBoot,20200829MLEDCtrlr,20200829OSHLTop,20200829OSHLHsd_cover,20211224RCHPHyperBoot_wiring,20211224OPRTtrlport3,20211224TDDA|
 
    This given code breaks down as follows.  Note that the field
-   separator in this table is an underscore "_" rather than a pipe "|"
-   for formatting reasons:
+   separator in this table is an underscore ("_") rather than a pipe
+   ("|") for formatting reasons:
 
    +==============================+===================================+
    | Code Block                   | Meaning                           |
@@ -1277,11 +1277,11 @@ Parks & Parrish               Informational                    [Page 22]
    |                              | LED(s) / Free-text: Controller    |
    |                              | ports                             |
    +------------------------------+-----------------------------------+
-   | 20200829SOSHLTop             | August 29, 2020: Swapped part /   |
+   | 20200829OSHLTop              | August 29, 2020: Swapped part /   |
    |                              | OEM part / Shell / Free-text: Top |
    |                              | shell                             |
    +------------------------------+-----------------------------------+
-   | 20200829SOSHLHsd             | August 29, 2020: Swapped part /   |
+   | 20200829SSHLHsd_cover        | August 29, 2020: Swapped part /   |
 
 
 
@@ -1293,15 +1293,14 @@ Parks & Parrish               Informational                    [Page 23]
    |                              | OEM part / Shell / Free-text:     |
    |                              | High speed data port cover        |
    +------------------------------+-----------------------------------+
-   | 20211224RMSCHyperBoot_wiring | December 24, 2021: Repaired /     |
-   |                              | Miscellaneous component /         |
-   |                              | Hyperboot wiring                  |
+   | 20211224RCHPHyperBoot_wiring | December 24, 2021: Repaired /     |
+   |                              | Modchip / Hyperboot wiring        |
    +------------------------------+-----------------------------------+
-   | 20211224SOPRTCtrlport3       | December 24, 2021: Swapped part / |
+   | 20211224OPRTCtrlport3        | December 24, 2021: Swapped part / |
    |                              | OEM part / Port / Controller port |
    |                              | 3                                 |
    +------------------------------+-----------------------------------+
-   | 20211224SRDDA                | December 24, 2021: Swapped part / |
+   | 20211224TDDA                 | December 24, 2021: Swapped part / |
    |                              | Third party part / Disc Drive     |
    |                              | assembly                          |
    +------------------------------+-----------------------------------+
@@ -1337,6 +1336,7 @@ Parks & Parrish               Informational                    [Page 23]
    function of the software).
 
    *Cartridge Copiers / Backup Devices:* These are all considered "3PA".
+
 
 
 
