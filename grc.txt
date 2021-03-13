@@ -6,7 +6,7 @@ Video Game Condition Report Workgroup                           M. Parks
                                                       TKWare Enterprises
                                                               A. Parrish
                                                          A Force Dynamic
-                                                           10 March 2021
+                                                           13 March 2021
 
 
                       Video Game Condition Code v1
@@ -14,42 +14,42 @@ Video Game Condition Report Workgroup                           M. Parks
 
 Abstract
 
-   This document defines a new encoding method for video game hardware/
+   This memo defines a new encoding method for video game hardware/
    software identity and condition, and optionally, repair history.
+
+Status of This Memo
+
+   This standard is currently in a developmental, RFC draft phase.  It
+   should not be used for any non-development purpose until it has been
+   finalized and tooling has been developed.
+
+Copyright Notice
+
+   Copyright 2021 - Mike Parks, Alexander Parrish, and contributors
+
+   Permission is granted to copy, distribute and/or modify this document
+   under the terms of the GNU Free Documentation License, Version 1.3 or
+   any later version published by the Free Software Foundation; with no
+   Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.  A
+   copy of the license is included in the file LICENSE.MD
+   (https://raw.githubusercontent.com/Karunamon/grc/master/LICENSE.md),
+   located in the same repository as this standard doc.
 
 Table of Contents
 
    1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   2
-     1.1.  The Need for a Standard . . . . . . . . . . . . . . . . .   2
-     1.2.  Status of This Document . . . . . . . . . . . . . . . . .   3
-     1.3.  Terminology . . . . . . . . . . . . . . . . . . . . . . .   3
-     1.4.  Availability & Updates  . . . . . . . . . . . . . . . . .   3
-     1.5.  Versioning  . . . . . . . . . . . . . . . . . . . . . . .   3
-     1.6.  Scope . . . . . . . . . . . . . . . . . . . . . . . . . .   3
+     1.1.  The Need for a Standard . . . . . . . . . . . . . . . . .   3
+     1.2.  Terminology . . . . . . . . . . . . . . . . . . . . . . .   3
+     1.3.  Availability & Updates  . . . . . . . . . . . . . . . . .   3
+     1.4.  Versioning  . . . . . . . . . . . . . . . . . . . . . . .   3
+     1.5.  Scope . . . . . . . . . . . . . . . . . . . . . . . . . .   4
    2.  General Syntax  . . . . . . . . . . . . . . . . . . . . . . .   4
-     2.1.  Length  . . . . . . . . . . . . . . . . . . . . . . . . .   4
-     2.2.  Encoding  . . . . . . . . . . . . . . . . . . . . . . . .   4
+     2.1.  Length  . . . . . . . . . . . . . . . . . . . . . . . . .   5
+     2.2.  Encoding  . . . . . . . . . . . . . . . . . . . . . . . .   5
      2.3.  Free-text attributes  . . . . . . . . . . . . . . . . . .   5
      2.4.  Optional attributes . . . . . . . . . . . . . . . . . . .   5
    3.  Design Philosophy . . . . . . . . . . . . . . . . . . . . . .   5
    4.  Field Syntax  . . . . . . . . . . . . . . . . . . . . . . . .   6
-     4.1.  Version Field . . . . . . . . . . . . . . . . . . . . . .   6
-       4.1.1.  Compression . . . . . . . . . . . . . . . . . . . . .   6
-     4.2.  Hardware Identity Field . . . . . . . . . . . . . . . . .   6
-       4.2.1.  Brand/Manufacturer (B)  . . . . . . . . . . . . . . .   6
-       4.2.2.  Authenticity (A)  . . . . . . . . . . . . . . . . . .   8
-       4.2.3.  Family (F)  . . . . . . . . . . . . . . . . . . . . .   8
-       4.2.4.  Region (R)  . . . . . . . . . . . . . . . . . . . . .   9
-       4.2.5.  Type (T)  . . . . . . . . . . . . . . . . . . . . . .  10
-       4.2.6.  Model (M) . . . . . . . . . . . . . . . . . . . . . .  10
-       4.2.7.  Color (C) . . . . . . . . . . . . . . . . . . . . . .  11
-       4.2.8.  Variant/Revision (V)  . . . . . . . . . . . . . . . .  11
-       4.2.9.  Serial number (S) . . . . . . . . . . . . . . . . . .  11
-       4.2.10. Information (I) . . . . . . . . . . . . . . . . . . .  11
-     4.3.  Condition Field . . . . . . . . . . . . . . . . . . . . .  11
-       4.3.1.  Physical Condition (P)  . . . . . . . . . . . . . . .  12
-       4.3.2.  Currently Known Damage (D)  . . . . . . . . . . . . .  12
-       4.3.3.  Modifications (M) . . . . . . . . . . . . . . . . . .  15
 
 
 
@@ -58,23 +58,40 @@ Parks & Parrish               Informational                     [Page 1]
                                  VGCCv1                       March 2021
 
 
-       4.3.4.  Known Repairs/Replacements (E)  . . . . . . . . . . .  17
-     4.4.  Service History Field . . . . . . . . . . . . . . . . . .  18
-       4.4.1.  Date of Service . . . . . . . . . . . . . . . . . . .  19
-       4.4.2.  Repair Types  . . . . . . . . . . . . . . . . . . . .  19
-       4.4.3.  Item Repaired . . . . . . . . . . . . . . . . . . . .  20
-   5.  Example Code  . . . . . . . . . . . . . . . . . . . . . . . .  20
-   6.  Corner Cases and Ambiguities  . . . . . . . . . . . . . . . .  22
-     6.1.  Type Classification . . . . . . . . . . . . . . . . . . .  22
-     6.2.  Ambiguity in Authenticity . . . . . . . . . . . . . . . .  23
-     6.3.  Refurbishment . . . . . . . . . . . . . . . . . . . . . .  24
-     6.4.  Conflicting Codes & other considerations  . . . . . . . .  24
-   7.  Legal . . . . . . . . . . . . . . . . . . . . . . . . . . . .  25
-     7.1.  Safety/Security Considerations  . . . . . . . . . . . . .  25
-     7.2.  Warranty Disclaimer . . . . . . . . . . . . . . . . . . .  25
-     7.3.  Copyright . . . . . . . . . . . . . . . . . . . . . . . .  25
-   8.  Informative References  . . . . . . . . . . . . . . . . . . .  25
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  26
+     4.1.  Version Field . . . . . . . . . . . . . . . . . . . . . .   6
+       4.1.1.  Compression . . . . . . . . . . . . . . . . . . . . .   6
+     4.2.  Hardware Identity Field . . . . . . . . . . . . . . . . .   6
+       4.2.1.  Brand/Manufacturer (B)  . . . . . . . . . . . . . . .   7
+       4.2.2.  Authenticity (A)  . . . . . . . . . . . . . . . . . .   8
+       4.2.3.  Family (F)  . . . . . . . . . . . . . . . . . . . . .   8
+       4.2.4.  Region (R)  . . . . . . . . . . . . . . . . . . . . .  10
+       4.2.5.  Type (T)  . . . . . . . . . . . . . . . . . . . . . .  10
+       4.2.6.  Model (M) . . . . . . . . . . . . . . . . . . . . . .  10
+       4.2.7.  Color (C) . . . . . . . . . . . . . . . . . . . . . .  11
+       4.2.8.  Variant/Revision (V)  . . . . . . . . . . . . . . . .  11
+       4.2.9.  Serial number (S) . . . . . . . . . . . . . . . . . .  11
+       4.2.10. Information (I) . . . . . . . . . . . . . . . . . . .  11
+     4.3.  Condition Field . . . . . . . . . . . . . . . . . . . . .  12
+       4.3.1.  Physical Condition (P)  . . . . . . . . . . . . . . .  12
+       4.3.2.  Currently Known Damage (D)  . . . . . . . . . . . . .  12
+       4.3.3.  Modifications (M) . . . . . . . . . . . . . . . . . .  16
+       4.3.4.  Known Repairs/Replacements (E)  . . . . . . . . . . .  19
+       4.3.5.  Refurbished / Non-OEM Parts (U) . . . . . . . . . . .  21
+     4.4.  Service History Field . . . . . . . . . . . . . . . . . .  21
+       4.4.1.  Date of Service . . . . . . . . . . . . . . . . . . .  21
+       4.4.2.  Repair Types  . . . . . . . . . . . . . . . . . . . .  21
+       4.4.3.  Item Repaired . . . . . . . . . . . . . . . . . . . .  22
+   5.  Example Code  . . . . . . . . . . . . . . . . . . . . . . . .  22
+   6.  Corner Cases and Ambiguities  . . . . . . . . . . . . . . . .  24
+     6.1.  Type Classification . . . . . . . . . . . . . . . . . . .  24
+     6.2.  Ambiguity in Authenticity . . . . . . . . . . . . . . . .  25
+     6.3.  Refurbishment . . . . . . . . . . . . . . . . . . . . . .  25
+     6.4.  Conflicting Codes & other considerations  . . . . . . . .  26
+   7.  Legal . . . . . . . . . . . . . . . . . . . . . . . . . . . .  26
+     7.1.  Safety/Security Considerations  . . . . . . . . . . . . .  26
+     7.2.  Warranty Disclaimer . . . . . . . . . . . . . . . . . . .  27
+   8.  Informative References  . . . . . . . . . . . . . . . . . . .  27
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  27
 
 1.  Introduction
 
@@ -85,6 +102,17 @@ Parks & Parrish               Informational                     [Page 1]
    enthusiasts, for any use case where a standardized way of
    representing the history and condition of video game paraphernalia
    would be beneficial.
+
+
+
+
+
+
+
+Parks & Parrish               Informational                     [Page 2]
+
+                                 VGCCv1                       March 2021
+
 
 1.1.  The Need for a Standard
 
@@ -97,37 +125,22 @@ Parks & Parrish               Informational                     [Page 1]
    The Video Game Condition Report aims to standardize the way that
    video game hardware and software is described insofar as the actual
    status of the collectible, as well as provide a method for encoding
-   concise information into a QR code, NFC tag, or any similar medium
-   for decoding by a portable device such as a phone or scanner.
+   concise information (the VGCC) into a QR code, NFC tag, or any
+   similar medium for decoding by a portable device such as a phone or
+   scanner.
 
-   By creating and releasing this standard we, The VGCR Foundation, hope
-   to help mitigate and misunderstandings where it comes to sales,
-   trading, and describing collectibles.
+   By creating and releasing this standard we, the VGCR Foundation, hope
+   to help mitigate any misunderstandings where it comes to sales,
+   trading, and describing of collectibles.
 
-
-
-
-
-
-Parks & Parrish               Informational                     [Page 2]
-
-                                 VGCCv1                       March 2021
-
-
-1.2.  Status of This Document
-
-   VGCC is currently in a developmental, RFC draft phase.  It should not
-   be used for any purpose until it has been finalized and tooling has
-   been developed.
-
-1.3.  Terminology
+1.2.  Terminology
 
    The keywords MUST, MUST NOT, REQUIRED, SHALL, SHALL NOT, SHOULD,
    SHOULD NOT, RECOMMENDED, MAY, and OPTIONAL, when they appear in this
    document, are to be interpreted as described in the IETF's [RFC2119]
    when, and only when, they appear in bolded all-caps as shown here.
 
-1.4.  Availability & Updates
+1.3.  Availability & Updates
 
    The latest version document will always be hosted at
    https://gamerepair.codes (https://gamerepair.codes)
@@ -139,7 +152,7 @@ Parks & Parrish               Informational                     [Page 2]
    be the most up-to-date version of this standard.  The "MASTER" branch
    represents work in progress.
 
-1.5.  Versioning
+1.4.  Versioning
 
    The VGCC version is a monotonic integer.  There are no point
    releases.
@@ -150,25 +163,24 @@ Parks & Parrish               Informational                     [Page 2]
 
    *  In a tag with the prefix "v" in the above-mentioned git repository
 
-   *  In the version field in a compliant VGCC
-
-   Any backward-incompatible changes, such as changing the format or
-   ordering of a field or attribute, will be reflected by incrementing
-   the counter by one.
-
-1.6.  Scope
-
-   The VGCC is intended as a standard for encoding and displaying the
-   condition of _only_ physical video game hardware, software, and
-   peripherals.
-
-
 
 
 Parks & Parrish               Informational                     [Page 3]
 
                                  VGCCv1                       March 2021
 
+
+   *  In the version field in a compliant VGCC
+
+   Any backward-incompatible changes, such as changing the format or
+   ordering of a field or attribute, will be reflected by incrementing
+   the counter by one.
+
+1.5.  Scope
+
+   The VGCC is intended as a standard for encoding and displaying the
+   condition of _only_ physical video game hardware, software, and
+   peripherals.
 
    The following specific types of items are explicitly considered out-
    of-scope despite their categorical relationship with video games.
@@ -198,26 +210,14 @@ Parks & Parrish               Informational                     [Page 3]
    A valid VGCC string MUST follow this format:
 
    "VGCC Version Field|Hardware Identity Field|Condition Field|Repair
-   history field|"
+   History Field|"
 
-   All fields and attributes are REQUIRED unless otherwise stated.
+   A "field" is a broad delineation of related information that may
+   contain one or more attributes.
 
-2.1.  Length
-
-   A VGCC string MUST NOT exceed 1024 characters _before_ compression.
-   If a given code would be above this limit after adding a repair
-   record, the creator of the code *Must* use their best judgment to
-   remove old or less-important records, paying special attention to any
-   attributes in the "Condition" field that may no longer apply as a
-   result of maintenance undertaken.
-
-2.2.  Encoding
-
-   Usable characters in a VGCC string are the ASCII letters A through Z
-   in mixed case, numbers 0 through 9, and the symbols "!?;-|_,".
-
-
-
+   An "attribute" is a section of information within a field that
+   concretely describes some facet of information about a physical item,
+   prefixed by a fixed number of one or more ASCII letters or numbers.
 
 
 
@@ -225,6 +225,24 @@ Parks & Parrish               Informational                     [Page 4]
 
                                  VGCCv1                       March 2021
 
+
+   All fields and attributes are REQUIRED unless otherwise stated.
+
+   Field prefixes are case-sensitive.
+
+2.1.  Length
+
+   To ease encoding, a VGCC string MUST NOT exceed 1024 characters
+   _before_ compression.  If a given code would be above this limit
+   after adding a repair record, the creator of the code MUST use their
+   best judgment to remove old or less-important records, paying special
+   attention to any attributes in the "Condition" field that may no
+   longer apply as a result of maintenance undertaken.
+
+2.2.  Encoding
+
+   Usable characters in a VGCC string are the ASCII letters A through Z
+   in mixed case, numbers 0 through 9, and the symbols "!?;-|_,".
 
    The pipe ("|") and comma (",") characters are reserved as field and
    attribute separators respectively, and MUST NOT appear in any other
@@ -236,25 +254,33 @@ Parks & Parrish               Informational                     [Page 4]
 
 2.3.  Free-text attributes
 
-   Certain attributes in a field are designated as free-text.  A free-
-   text attribute contains 32 characters or less of alphanumeric
-   characters subject to the encoding rules above.  This text SHOULD be
-   understood by tools that create or parse codes as arbitrary and
-   conforming to no standard save for the description here.
+   Certain attributes are designated as free-text.  A free-text
+   attribute contains 32 characters or less of alphanumeric characters
+   subject to the encoding rules above.  This text SHOULD be understood
+   by tools that create or parse codes as arbitrary and conforming to no
+   standard save for the description here.
 
    Since whitespace is not allowed per the encoding rules, the
    underscore ("_") MAY be used as a word separator if desired.
 
 2.4.  Optional attributes
 
-   Any attribute designated as "optional" MUST still include its field
-   designator (M for model, C for color, etc).
+   Any attribute designated as "optional" MUST still include its
+   attribute prefix (M for model, C for color, etc).
 
 3.  Design Philosophy
 
    The syntax of a VGCC hardware identity field is laid out in a
    hierarchical structure, starting broadly and then narrowing down to
    the identity of an individual item.
+
+
+
+
+Parks & Parrish               Informational                     [Page 5]
+
+                                 VGCCv1                       March 2021
+
 
    Consider the example of a launch day US Playstation 2.  The hardware
    field could look like:
@@ -272,15 +298,7 @@ Parks & Parrish               Informational                     [Page 4]
                Black
                  SCPH-90001
                    U3565655
-
-
-
-
-
-Parks & Parrish               Informational                     [Page 5]
-
-                                 VGCCv1                       March 2021
-
+                     No added information
 
    This broad-to-narrow design was chosen because it allows for maximum
    flexibility in describing different types of items.
@@ -311,6 +329,15 @@ Parks & Parrish               Informational                     [Page 5]
 
    This field MUST be ordered as follows:
 
+
+
+
+
+Parks & Parrish               Informational                     [Page 6]
+
+                                 VGCCv1                       March 2021
+
+
    "B(brand),A(authenticity),F(family),R(region),T(type),M(model),C(colo
    r),V(variant),S(serial),I(information)"
 
@@ -323,20 +350,6 @@ Parks & Parrish               Informational                     [Page 5]
    not attempt to define a list of all brands.  Nevertheless, it is
    RECOMMENDED that companies appearing in the following table use the
    given brand code:
-
-
-
-
-
-
-
-
-
-
-Parks & Parrish               Informational                     [Page 6]
-
-                                 VGCCv1                       March 2021
-
 
                            +======+===========+
                            | Code | Company   |
@@ -374,6 +387,13 @@ Parks & Parrish               Informational                     [Page 6]
       information available, and it is unlikely that it will ever be
       known.
 
+
+
+Parks & Parrish               Informational                     [Page 7]
+
+                                 VGCCv1                       March 2021
+
+
    *  "!UNKN" indicates that there probably is a brand, but that the
       information is not known to the creator of the code
 
@@ -383,16 +403,6 @@ Parks & Parrish               Informational                     [Page 6]
    *  If an item is known to be released by a subsidiary of a larger
       company, use the subsidiary's name (and so Tengen would be its own
       company, not Atari, even though Tengen was an Atari subsidiary).
-
-
-
-
-
-
-Parks & Parrish               Informational                     [Page 7]
-
-                                 VGCCv1                       March 2021
-
 
    *  For similarly-named regional subsidiaries, such as Nintendo of
       Japan or Nintendo of America, use the code of the parent company.
@@ -431,16 +441,6 @@ Parks & Parrish               Informational                     [Page 7]
    For software, the family indicates the primary system the software is
    intended to run on.
 
-   Owing to the large number of possible brands, the VGCC standard will
-   not attempt to define all possible families.  Nevertheless, it is
-   RECOMMENDED that hardware appearing in the following table use the
-   given family code:
-
-
-
-
-
-
 
 
 
@@ -449,6 +449,11 @@ Parks & Parrish               Informational                     [Page 8]
 
                                  VGCCv1                       March 2021
 
+
+   Owing to the large number of possible brands, the VGCC standard will
+   not attempt to define all possible families.  Nevertheless, it is
+   RECOMMENDED that hardware appearing in the following table use the
+   given family code:
 
        +=============+============================================+
        | Family Code | Description                                |
@@ -492,11 +497,6 @@ Parks & Parrish               Informational                     [Page 8]
 
                                  Table 4
 
-4.2.4.  Region (R)
-
-   This attribute represents the original release region of the item.
-   It MUST be a recognized 1 to 3-letter GoodTools country code.
-   [goodtools-country]
 
 
 
@@ -505,6 +505,12 @@ Parks & Parrish               Informational                     [Page 9]
 
                                  VGCCv1                       March 2021
 
+
+4.2.4.  Region (R)
+
+   This attribute represents the original release region of the item.
+   It MUST be a recognized 1 to 3-letter GoodTools country code.
+   [goodtools-country]
 
 4.2.5.  Type (T)
 
@@ -546,6 +552,16 @@ Parks & Parrish               Informational                     [Page 9]
 
    This attribute is considered free-text.
 
+
+
+
+
+
+Parks & Parrish               Informational                    [Page 10]
+
+                                 VGCCv1                       March 2021
+
+
    This attribute represents different releases of a given set of
    hardware of the same type and family with different features or
    functionality.  For example, the Sega Genesis models 1, 2, or 3, or
@@ -554,13 +570,6 @@ Parks & Parrish               Informational                     [Page 9]
    It is RECOMMENDED that, if a VGCC is describing a piece of hardware
    that is the first in its family, that this attribute be set to the
    same value as the family attribute.
-
-
-
-Parks & Parrish               Informational                    [Page 10]
-
-                                 VGCCv1                       March 2021
-
 
 4.2.7.  Color (C)
 
@@ -601,6 +610,14 @@ Parks & Parrish               Informational                    [Page 10]
    information provided is not duplicated by any other field and is
    significantly important to the identity of the item being cataloged.
 
+
+
+
+Parks & Parrish               Informational                    [Page 11]
+
+                                 VGCCv1                       March 2021
+
+
 4.3.  Condition Field
 
    This field defines the item's _current_ physical condition, including
@@ -610,13 +627,6 @@ Parks & Parrish               Informational                    [Page 10]
 
    "P(condition code),D(damage codes),M(modification codes),E(repair
    codes)"
-
-
-
-Parks & Parrish               Informational                    [Page 11]
-
-                                 VGCCv1                       March 2021
-
 
 4.3.1.  Physical Condition (P)
 
@@ -654,8 +664,15 @@ Parks & Parrish               Informational                    [Page 11]
 
    If multiple damage classes apply to the item, they MUST be listed
    consecutively, with no delimiter.  For example, an item with a
-   yellowed case, smoke damage, and missing fasteners would have a
-   damage attribute of "SHYSMKFST".
+   yellowed case, smoke damage, and missing clips would have a damage
+   attribute of "SHYSMKFST".
+
+
+
+Parks & Parrish               Informational                    [Page 12]
+
+                                 VGCCv1                       March 2021
+
 
    If new damage occurs, or if the damage is repaired by servicing, such
    as a shell replacement, the known damage fields MUST be updated to
@@ -665,63 +682,46 @@ Parks & Parrish               Informational                    [Page 11]
    of the same class of damage MUST be coded consecutively, so for a
    yellowed and cracked shell, the code is "SHCSHY" rather than "SHYC".
 
+   A minor convention used in damage codes is that a code ending in
+   "___X" indicates destruction or unknown damage to the component,
+   where "___Z" indicates the component is outright missing.
 
+   Here we describe two sets of damage codes, quantifiable and non-
+   quantifiable.
 
+   A quantifiable code is one where a severity of damage MUST be
+   assigned, represented in the code as a digit from 1 to 3, where 1 is
+   trivial and 3 is severe.  For example, a scratched or fogged display
+   could have a severity of "1" if the scratches are in a small area of
+   the screen and don't effect readability, or a "3" if the scratches
+   are ubiqitous and make the screen unusable.  This severity entails a
+   judgment call on the part of code creators, so decodiing tools SHOULD
+   NOT attempt to read more meaning into 1, 2, and 3 beyond
+   "superficial, moderate, and severe".
 
+   For formatting purposes, quantifiable codes are displayed here with a
+   "#".  In real codes, this will be a number.
 
-Parks & Parrish               Informational                    [Page 12]
-
-                                 VGCCv1                       March 2021
-
-
-   Additionally, a digit from 1 to 3 representing the severity of the
-   class of damage (where 1 is minor, and 3 is major) may *OPTIONALLY*
-   be added to the codes below containing a "#" suffix.  Codes without
-   this designation MUST NOT have a digit added.
-
-   The list of acceptable damage codes is as follows:
-
-   *  *SH_*: Shell/case issues
-
-      -  *SHC#*: Shell cracks
-
-      -  *SHS#*: Shell scratches
-
-      -  *SHY#*: Yellowing
-
-      -  *SHF#*: Faded wording or print
-
-      -  *SHK#*: Missing, damaged labels or stickers
-
-      -  *SHM*: Missing shell parts, such as a battery or port cover
-
-      -  *SHZ*: Shell is missing outright
-
-   *  *EC_*: Electrical component issues
-
-      -  *ECP*: Damage to the board or substrate itself, such as cracks
-         or lifted traces
-
-      -  *ECC*: Visible damage to board components, such as blown
-         capacitors or transistors
-
-      -  *ECX*: Known but invisible damage, such as a damaged IC
-         (explain in "TXT")
-
-      -  *ECZ*: Electrical components are missing (explain in "TXT")
-
-   *  *SMK#*: Smoke damage, including fire or nicotine contamination
-
-   *  *WAT#*: Water/moisture damage, including rust
-
-   *  *BLK#*: Battery leakage or corrosion
-
-   *  *LCP#*: Partially or completely nonfunctional PCB edge connector
-      (cartridge slot or similar)
-
-   *  *OL_*: Online service issues
-
-
+           +======+============================================+
+           | Code | Description                                |
+           +======+============================================+
+           | BLK# | Battery leakage or corrosion               |
+           +------+--------------------------------------------+
+           | ECC# | Visible damage to board components, such   |
+           |      | as blown capacitors or transistors         |
+           +------+--------------------------------------------+
+           | ECP# | Damage to the board or substrate itself,   |
+           |      | such as cracks or lifted traces            |
+           +------+--------------------------------------------+
+           | ECX# | Known but invisible damage, such as a      |
+           |      | damaged IC (explain in "TXT")              |
+           +------+--------------------------------------------+
+           | HID# | Intermittent or non-functional gameplay    |
+           |      | controls                                   |
+           +------+--------------------------------------------+
+           | LCP# | Partially or completely nonfunctional PCB  |
+           |      | edge connector (cartridge slot or similar) |
+           +------+--------------------------------------------+
 
 
 
@@ -730,54 +730,54 @@ Parks & Parrish               Informational                    [Page 13]
                                  VGCCv1                       March 2021
 
 
-      -  *OLX*: Limited access to online services (game bans, or
-         restriction to updates only)
-
-      -  *OLZ*: No access to online services (hard console ban, updates
-         not allowed)
-
-   *  *LM_:* Loose, missing, or intermittent connectors
-
-      -  *LMC#*: Loose controller port
-
-      -  *LMV#*: Loose video port
-
-      -  *LME#*: Loose expansion or memory card port
-
-      -  *LMP#*: Loose power connector
-
-      -  *LMC#*: Loose or damaged PCB edge connector (cartridge slot,
-         etc)
-
-      -  *LMS#*: Loose switch of any kind (power/mode/etc.)
-
-      -  *LMZ*: Outright missing connectors (explain which ones in TXT)
-
-   *  *DNS*: Does not save.  Battery backup/saving failure
-
-   *  *FST*: Missing fasteners (clips, screws, etc)
-
-   *  *SFT*: Software failure (functional issues due to missing/corrupt
-      files)
-
-   *  *OM_*: Optical media issues
-
-      -  *OMS#*: Scratches
-
-      -  *OMC#*: Cracks
-
-      -  *OMR*: Visible damage or holes in the data layer due to label
-         damage or "Disc rot"
-
-      -  *OMX*: Cracks, deep (disc is likely destroyed)
-
-   *  *OD_*: Optical drive issues
-
-      -  *ODX#*: Optical drive damaged (intermittent, unreliable, or
-         non-functional)
-
-      -  *ODZ*: Optical drive missing
-
+           | LMC# | Loose controller port                      |
+           +------+--------------------------------------------+
+           | LMC# | Loose or damaged PCB edge connector        |
+           |      | (cartridge slot, etc)                      |
+           +------+--------------------------------------------+
+           | LME# | Loose expansion or memory card port        |
+           +------+--------------------------------------------+
+           | LMP# | Loose power connector                      |
+           +------+--------------------------------------------+
+           | LMS# | Loose switch of any kind (power/mode/etc.) |
+           +------+--------------------------------------------+
+           | LMV# | Loose video port                           |
+           +------+--------------------------------------------+
+           | ODX# | Optical drive damaged (intermittent,       |
+           |      | unreliable, or non-functional)             |
+           +------+--------------------------------------------+
+           | OMC# | Disc cracked (center ring or in an area    |
+           |      | that doesn't render the disc unreadable)   |
+           +------+--------------------------------------------+
+           | OMR# | Visible damage or holes in the data layer  |
+           |      | due to label damage or "Disc rot"          |
+           +------+--------------------------------------------+
+           | OMS# | Dis scratched                              |
+           +------+--------------------------------------------+
+           | OSX# | On-board storage is corrupt or non-        |
+           |      | functional                                 |
+           +------+--------------------------------------------+
+           | SCC# | Screen cracks                              |
+           +------+--------------------------------------------+
+           | SCD# | Digitizer (touchscreen) issues             |
+           +------+--------------------------------------------+
+           | SCP# | Dead pixels                                |
+           +------+--------------------------------------------+
+           | SCR# | Screen scratches (deep)                    |
+           +------+--------------------------------------------+
+           | SCS# | Screen scratches (superficial or "fogged") |
+           +------+--------------------------------------------+
+           | SCU# | Screen colors are incorrect or shifted     |
+           +------+--------------------------------------------+
+           | SFT# | Software failure (functional issues due to |
+           |      | missing/corrupt files)                     |
+           +------+--------------------------------------------+
+           | SHC# | Shell cracks                               |
+           +------+--------------------------------------------+
+           | SHF# | Faded wording or print                     |
+           +------+--------------------------------------------+
+           | SHK# | Missing or damaged labels or stickers      |
+           +------+--------------------------------------------+
 
 
 
@@ -786,42 +786,117 @@ Parks & Parrish               Informational                    [Page 14]
                                  VGCCv1                       March 2021
 
 
-   *  *OS_*: On-board storage (HD/SSD, NVRAM, or permanent battery-
-      backed RAM) issues
+           | SHS# | Shell scratches                            |
+           +------+--------------------------------------------+
+           | SHY# | Shell yellowing                            |
+           +------+--------------------------------------------+
+           | SMK# | Smoke damage, including fire or nicotine   |
+           |      | contamination                              |
+           +------+--------------------------------------------+
+           | WAT# | Water/moisture/other liquid damage,        |
+           |      | including rust                             |
+           +------+--------------------------------------------+
 
-      -  *OSX*: On-board storage is corrupt or non-functional
+                     Table 7: Quantifiable Damage Codes
 
-      -  *OSZ*: On-board storage is missing
+   A non-quantifiable damage code is one that describes a binary state.
+   For example, "SHZ" describes a device missing its entire shell, but a
+   missing shell cannot be more or less severe; it is either missing or
+   it is not.  For "__Z" codes that describe a missing item, a code
+   creator SHOULD precisely define the missing item in a "TXT" if the
+   code does not; for example, if connectors are missing, explain which
+   ones.
 
-   *  *SC_*: Screen and digitizer issues
 
-      -  *SCS#*: Screen scratches (superficial)
 
-      -  *SCR#*: Screen scratches (deep)
 
-      -  *SCC#*: Screen cracks
 
-      -  *SCU#*: Screen colors are incorrect or shifted
 
-      -  *SCP#*: Dead pixels
 
-      -  *SCD#*: Digitizer (touchscreen) issues
 
-      -  *SCX*: Screen is completely dead/nonfunctional
 
-      -  *SCZ*: Screen is missing
 
-   *  *REF*: Includes refurbished parts (explain in TXT)
 
-   *  *XXX*: This item has been irreperably destroyed.
 
-   *  *TXT*: Free-text follows.  MUST come last.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Parks & Parrish               Informational                    [Page 15]
+
+                                 VGCCv1                       March 2021
+
+
+          +======+==============================================+
+          | Code | Description                                  |
+          +======+==============================================+
+          | BUG  | Evidence of insect infestation               |
+          +------+----------------------------------------------+
+          | DNS  | Does not save, battery backup/saving failure |
+          +------+----------------------------------------------+
+          | ECZ  | Electrical components are missing            |
+          +------+----------------------------------------------+
+          | FST  | Missing fasteners (clips, screws, etc)       |
+          +------+----------------------------------------------+
+          | LMZ  | Outright missing connectors                  |
+          +------+----------------------------------------------+
+          | ODZ  | Optical drive missing                        |
+          +------+----------------------------------------------+
+          | OLX  | Limited access to online services (game      |
+          |      | bans, or restriction to updates only)        |
+          +------+----------------------------------------------+
+          | OLZ  | No access to online services (hard console   |
+          |      | ban, updates not allowed)                    |
+          +------+----------------------------------------------+
+          | OMX  | Disc cracked, deeply or in data area (disc   |
+          |      | is likely destroyed)                         |
+          +------+----------------------------------------------+
+          | OSZ  | On-board storage is missing                  |
+          +------+----------------------------------------------+
+          | SCX  | Screen is completely dead/nonfunctional      |
+          +------+----------------------------------------------+
+          | SCZ  | Screen is missing                            |
+          +------+----------------------------------------------+
+          | SHX  | Missing shell parts, such as a battery or    |
+          |      | port cover                                   |
+          +------+----------------------------------------------+
+          | SHZ  | Shell is missing outright                    |
+          +------+----------------------------------------------+
+          | XXX  | This item has been irreperably destroyed.    |
+          +------+----------------------------------------------+
+          | TXT  | Free-text follows.  MUST come last.          |
+          +------+----------------------------------------------+
+
+                   Table 8: Non-quantifiable Damage Codes
 
 4.3.3.  Modifications (M)
 
    This attribute represents a list of the item's aftermarket
    modifications, including custom shells, LED modifications, etc.,
    including those done to the item's software.
+
+
+
+
+Parks & Parrish               Informational                    [Page 16]
+
+                                 VGCCv1                       March 2021
+
 
    What constitutes a modification rather than a repair is whether the
    console appears or behaves differently from a stock console.
@@ -837,7 +912,44 @@ Parks & Parrish               Informational                    [Page 14]
 
 
 
-Parks & Parrish               Informational                    [Page 15]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Parks & Parrish               Informational                    [Page 17]
 
                                  VGCCv1                       March 2021
 
@@ -885,7 +997,7 @@ Parks & Parrish               Informational                    [Page 15]
            |      | Neptune mod [Neptune])                     |
            +------+--------------------------------------------+
 
-                                  Table 7
+                                  Table 9
 
 
 
@@ -893,7 +1005,7 @@ Parks & Parrish               Informational                    [Page 15]
 
 
 
-Parks & Parrish               Informational                    [Page 16]
+Parks & Parrish               Informational                    [Page 18]
 
                                  VGCCv1                       March 2021
 
@@ -902,10 +1014,9 @@ Parks & Parrish               Informational                    [Page 16]
 
    This attribute represents a list of non-modification repairs.  It
    includes replacing OEM parts with reproduction parts that look and
-   perform identically to their OEM counterparts.
-
-   For instance, replacing a cracked shell with an identical one,
-   replacing minor electronic components, screen repair, etc.
+   perform identically to their OEM counterparts.  This would include
+   replacing a cracked shell with an identical one, replacing minor
+   electronic components, screen repair, etc.
 
    Generally, what differentiates a "M" (mod) from an "E" (repair) is
    whether the system has been customized or substantially changed from
@@ -949,66 +1060,77 @@ Parks & Parrish               Informational                    [Page 16]
 
 
 
-Parks & Parrish               Informational                    [Page 17]
+
+Parks & Parrish               Informational                    [Page 19]
 
                                  VGCCv1                       March 2021
 
 
-         +======+===============================================+
-         | Code | Description                                   |
-         +======+===============================================+
-         | NRS  | No repairs, all seals still intact            |
-         +------+-----------------------------------------------+
-         | NRO  | No repairs, has been opened (seals broken,    |
-         |      | use if unsure)                                |
-         +------+-----------------------------------------------+
-         | SHL  | Shell repair (resurfacing or crack filling)   |
-         |      | or replacement, including shell components    |
-         |      | like switches or buttons (excluding cleaning) |
-         +------+-----------------------------------------------+
-         | LBL  | Label or printing replacement                 |
-         +------+-----------------------------------------------+
-         | BKL  | Backlight                                     |
-         +------+-----------------------------------------------+
-         | SCR  | Screens/displays                              |
-         +------+-----------------------------------------------+
-         | DIG  | Digitizer (touchscreen)                       |
-         +------+-----------------------------------------------+
-         | PRT  | Ports (controller, data, video, etc.)         |
-         +------+-----------------------------------------------+
-         | PCB  | PCB components                                |
-         +------+-----------------------------------------------+
-         | RBT  | Retrobriting / yellowing reversal             |
-         +------+-----------------------------------------------+
-         | SFT  | Software / file system                        |
-         +------+-----------------------------------------------+
-         | SPK  | Speaker / direct sound output (excluding      |
-         |      | jacks, these MUST be classified as "PRT")     |
-         +------+-----------------------------------------------+
-         | BAT  | Non-user-accessible batteries                 |
-         +------+-----------------------------------------------+
-         | RPT  | Metal replating                               |
-         +------+-----------------------------------------------+
-         | REP  | Repro (non-OEM) parts were used for any       |
-         |      | replacements                                  |
-         +------+-----------------------------------------------+
-         | TXT  | Free-text follows.  MUST come last            |
-         +------+-----------------------------------------------+
+      +======+=====================================================+
+      | Code | Description                                         |
+      +======+=====================================================+
+      | BAT  | Non-user-accessible batteries                       |
+      +------+-----------------------------------------------------+
+      | BKL  | Backlight                                           |
+      +------+-----------------------------------------------------+
+      | DDA  | Disc drive assembly (including laser recalibration  |
+      |      | or rail lubrication)                                |
+      +------+-----------------------------------------------------+
+      | DIG  | Digitizer (touchscreen)                             |
+      +------+-----------------------------------------------------+
+      | HID  | Game controls (dpads, buttons, sticks - use "SHL"   |
+      |      | for system controls like power, volume, brightness) |
+      +------+-----------------------------------------------------+
+      | LBL  | Label or printing replacement                       |
+      +------+-----------------------------------------------------+
+      | NRO  | No repairs, has been opened (seals broken, if       |
+      |      | unsure, use this code)                              |
+      +------+-----------------------------------------------------+
+      | NRS  | No repairs, all seals still intact                  |
+      +------+-----------------------------------------------------+
+      | PCB  | PCB components                                      |
+      +------+-----------------------------------------------------+
+      | PRT  | Ports (controller, data, video, sound etc.)         |
+      +------+-----------------------------------------------------+
+      | RBT  | Retrobriting / yellowing reversal                   |
+      +------+-----------------------------------------------------+
+      | RPT  | Metal replating                                     |
+      +------+-----------------------------------------------------+
+      | SCR  | Screens/displays                                    |
+      +------+-----------------------------------------------------+
+      | SFT  | Software / file system                              |
+      +------+-----------------------------------------------------+
+      | SHL  | Shell repair (resurfacing or crack filling) or      |
+      |      | replacement, including shell components like        |
+      |      | switches or buttons (excluding cleaning)            |
+      +------+-----------------------------------------------------+
+      | SPK  | Speaker / direct sound output (use "PRT" for audio  |
+      |      | output jacks)                                       |
+      +------+-----------------------------------------------------+
+      | TXT  | Free-text follows.  MUST come last                  |
+      +------+-----------------------------------------------------+
 
-                                 Table 8
+                      Table 10: List of Repair Codes
+
+
+
+
+
+
+Parks & Parrish               Informational                    [Page 20]
+
+                                 VGCCv1                       March 2021
+
+
+4.3.5.  Refurbished / Non-OEM Parts (U)
+
+   This attribute represents a list of components of an item which are
+   non-stock.  It MUST be a consecutive list of items as defined in
+   Table 10
 
 4.4.  Service History Field
 
    This field is OPTIONAL and may be skipped.
-
-
-
-
-
-Parks & Parrish               Informational                    [Page 18]
-
-                                 VGCCv1                       March 2021
-
 
    The service history field represents a list of repair events.  A
    "repair event" defined as service of a single item or directly
@@ -1030,7 +1152,7 @@ Parks & Parrish               Informational                    [Page 18]
    *  Code creators MUST NOT add new service history items that they did
       not either personally perform or have performed on their behalf,
       unless a specific record of the repair or modification is
-      consulted, such as an invoice.
+      available, such as an invoice.
 
 4.4.1.  Date of Service
 
@@ -1051,17 +1173,7 @@ Parks & Parrish               Informational                    [Page 18]
 
 
 
-
-
-
-
-
-
-
-
-
-
-Parks & Parrish               Informational                    [Page 19]
+Parks & Parrish               Informational                    [Page 21]
 
                                  VGCCv1                       March 2021
 
@@ -1071,15 +1183,15 @@ Parks & Parrish               Informational                    [Page 19]
    +======+===========================================================+
    | M    | Mod                                                       |
    +------+-----------------------------------------------------------+
-   | SO   | Swapped in an OEM part                                    |
+   | O    | Swapped in an OEM part                                    |
    +------+-----------------------------------------------------------+
-   | SR   | Swapped in a third-party or reproduction part             |
+   | T    | Swapped in a third-party or reproduction part             |
    +------+-----------------------------------------------------------+
    | R    | Repair (existing parts condition improved, or significant |
    |      | cleaning that resolves a concrete functional problem)     |
    +------+-----------------------------------------------------------+
 
-                                 Table 9
+                                 Table 11
 
    Swaps or repairs that require no tools, such as battery replacements
    or cleaning intended to be done by the end user (for example, taking
@@ -1088,117 +1200,113 @@ Parks & Parrish               Informational                    [Page 19]
 
 4.4.3.  Item Repaired
 
-   Use a valid code from the list of repair codes (#repaircodes)
+   Use a valid code from the Table 10
 
 5.  Example Code
 
    The following is an example of a compliant VGCC1 code:
 
-VGCC1|BNINT,AO,FNGC,RU,TCON,MNGC,CIND,VDOL-001,SDS315060768,I|PUSD,DSHCSMKTXTSmoking_home,MCHPLED,ESHLPRTDDAREPTXTRepro_Shell|20200829MCHPHyperBoot,20200829MLEDCtrlr,20200829SOSHLTop,20200829SOSHLHsd,20211224RMSCMHyperBoot,20211224SOMSCCtrlport3,20211224SRDDA|
+VGCC1|BNINT,AO,FNGC,RU,TCON,MNGC,CIND,VDOL-001,SDS315060768,I|PUSD,DSHCSMKTXTSmoking_home,MCHPLED,ESHLPRTDDA,USHL|20200829MCHPHyperBoot,20200829MLEDCtrlr,20200829SOSHLTop,20200829SOSHLHsd,20211224RMSCMHyperBoot,20211224SOMSCCtrlport3,20211224SRDDA|
 
    This given code breaks down as follows.  Note that the field
    separator in this table is an underscore "_" rather than a pipe "|"
    for formatting reasons:
 
-   +==============================+====================================+
-   | Code Block                   | Meaning                            |
-   +==============================+====================================+
-   | VGCC1                        | VGCC standard version: 1           |
-   +------------------------------+------------------------------------+
-   | _                            | *Field separator, hardware         |
-   |                              | section begins*                    |
-   +------------------------------+------------------------------------+
-   | BNINT                        | Brand: Nintendo                    |
-   +------------------------------+------------------------------------+
-   | AO                           | Authenticity: OEM (authentic       |
-   |                              | Nintendo hardware)                 |
-   +------------------------------+------------------------------------+
-   | FNGC                         | Hardware family: GameCube          |
+   +==============================+===================================+
+   | Code Block                   | Meaning                           |
+   +==============================+===================================+
+   | VGCC1                        | VGCC standard version: 1          |
+   +------------------------------+-----------------------------------+
+   | _                            | *Field separator, hardware        |
+   |                              | section begins*                   |
+   +------------------------------+-----------------------------------+
+   | BNINT                        | Brand: Nintendo                   |
+   +------------------------------+-----------------------------------+
+   | AO                           | Authenticity: OEM (authentic      |
+   |                              | Nintendo hardware)                |
+   +------------------------------+-----------------------------------+
+   | FNGC                         | Hardware family: GameCube         |
 
 
 
-Parks & Parrish               Informational                    [Page 20]
+Parks & Parrish               Informational                    [Page 22]
 
                                  VGCCv1                       March 2021
 
 
-   +------------------------------+------------------------------------+
-   | RU                           | Regional variant: North            |
-   |                              | America (United States)            |
-   +------------------------------+------------------------------------+
-   | TCON                         | Type of hardware: Console          |
-   +------------------------------+------------------------------------+
-   | MNGC                         | Model: GameCube (original          |
-   |                              | release duplicates the family      |
-   |                              | name)                              |
-   +------------------------------+------------------------------------+
-   | CIND                         | Color: Indigo (official name)      |
-   +------------------------------+------------------------------------+
-   | VDOL-001                     | Variant: DOL-001                   |
-   +------------------------------+------------------------------------+
-   | SDS315060768                 | Serial number: DS315060768         |
-   +------------------------------+------------------------------------+
-   | I                            | Information field blank            |
-   +------------------------------+------------------------------------+
-   | _                            | *Field separator, physical         |
-   |                              | condition section begins*          |
-   +------------------------------+------------------------------------+
-   | PUSD                         | Physical condition: Used           |
-   +------------------------------+------------------------------------+
-   | DSHCSMKTXTSmoking_home       | Damage: Cracks in shell,           |
-   |                              | smoke.  Free-text: Smoking         |
-   |                              | home                               |
-   +------------------------------+------------------------------------+
-   | MCHPLED                      | Modifications: Modchip and         |
-   |                              | LEDs installed                     |
-   +------------------------------+------------------------------------+
-   | ESHLPRTDDAREPTXTRepro_Shell  | Repairs made: Shell, port(s),      |
-   |                              | disc drive assembly,               |
-   |                              | refurbished parts used.            |
-   |                              | Free-text: Repro Shell             |
-   +------------------------------+------------------------------------+
-   | _                            | *Field separator, repair           |
-   |                              | history section begins*            |
-   +------------------------------+------------------------------------+
-   | 20200829MCHPHyperBoot        | August 29, 2020: Mod               |
-   |                              | installed / Modchip / Free-        |
-   |                              | text: Hyperboot                    |
-   +------------------------------+------------------------------------+
-   | 20200829MLEDCtrlr            | August 29, 2020: Mod               |
-   |                              | installed / LED(s) / Free-         |
-   |                              | text: Controller ports             |
-   +------------------------------+------------------------------------+
-   | 20200829SOSHLTop             | August 29, 2020: Swapped part      |
-   |                              | / OEM part / Shell / Free-         |
+   +------------------------------+-----------------------------------+
+   | RU                           | Regional variant: North America   |
+   |                              | (United States)                   |
+   +------------------------------+-----------------------------------+
+   | TCON                         | Type of hardware: Console         |
+   +------------------------------+-----------------------------------+
+   | MNGC                         | Model: GameCube (original release |
+   |                              | duplicates the family name)       |
+   +------------------------------+-----------------------------------+
+   | CIND                         | Color: Indigo (official name)     |
+   +------------------------------+-----------------------------------+
+   | VDOL-001                     | Variant: DOL-001                  |
+   +------------------------------+-----------------------------------+
+   | SDS315060768                 | Serial number: DS315060768        |
+   +------------------------------+-----------------------------------+
+   | I                            | Information field blank           |
+   +------------------------------+-----------------------------------+
+   | _                            | *Field separator, physical        |
+   |                              | condition section begins*         |
+   +------------------------------+-----------------------------------+
+   | PUSD                         | Physical condition: Used          |
+   +------------------------------+-----------------------------------+
+   | DSHCSMKTXTSmoking_home       | Damage: Cracks in shell, smoke.   |
+   |                              | Free-text: Smoking home           |
+   +------------------------------+-----------------------------------+
+   | MCHPLED                      | Modifications: Modchip and LEDs   |
+   |                              | installed                         |
+   +------------------------------+-----------------------------------+
+   | ESHLPRTDDA                   | Repairs made: Shell, port(s),     |
+   |                              | disc drive assembly               |
+   +------------------------------+-----------------------------------+
+   | USHL                         | Refurbisehed parts used: Shell    |
+   +------------------------------+-----------------------------------+
+   | _                            | *Field separator, repair history  |
+   |                              | section begins*                   |
+   +------------------------------+-----------------------------------+
+   | 20200829MCHPHyperBoot        | August 29, 2020: Mod installed /  |
+   |                              | Modchip / Free-text: Hyperboot    |
+   +------------------------------+-----------------------------------+
+   | 20200829MLEDCtrlr            | August 29, 2020: Mod installed /  |
+   |                              | LED(s) / Free-text: Controller    |
+   |                              | ports                             |
+   +------------------------------+-----------------------------------+
+   | 20200829SOSHLTop             | August 29, 2020: Swapped part /   |
+   |                              | OEM part / Shell / Free-text: Top |
+   |                              | shell                             |
+   +------------------------------+-----------------------------------+
+   | 20200829SOSHLHsd             | August 29, 2020: Swapped part /   |
 
 
 
-Parks & Parrish               Informational                    [Page 21]
+Parks & Parrish               Informational                    [Page 23]
 
                                  VGCCv1                       March 2021
 
 
-   |                              | text: Top shell                    |
-   +------------------------------+------------------------------------+
-   | 20200829SOSHLHsd             | August 29, 2020: Swapped part      |
-   |                              | / OEM part / Shell / Free-         |
-   |                              | text: High speed data port         |
-   |                              | cover                              |
-   +------------------------------+------------------------------------+
-   | 20211224RMSCHyperBoot_wiring | December 24, 2021: Repaired /      |
-   |                              | Miscellaneous component /          |
-   |                              | Hyperboot wiring                   |
-   +------------------------------+------------------------------------+
-   | 20211224SOPRTCtrlport3       | December 24, 2021: Swapped         |
-   |                              | part / OEM part / Port /           |
-   |                              | Controller port 3                  |
-   +------------------------------+------------------------------------+
-   | 20211224SRDDA                | December 24, 2021: Swapped         |
-   |                              | part / Third party part /          |
-   |                              | Disc Drive assembly                |
-   +------------------------------+------------------------------------+
+   |                              | OEM part / Shell / Free-text:     |
+   |                              | High speed data port cover        |
+   +------------------------------+-----------------------------------+
+   | 20211224RMSCHyperBoot_wiring | December 24, 2021: Repaired /     |
+   |                              | Miscellaneous component /         |
+   |                              | Hyperboot wiring                  |
+   +------------------------------+-----------------------------------+
+   | 20211224SOPRTCtrlport3       | December 24, 2021: Swapped part / |
+   |                              | OEM part / Port / Controller port |
+   |                              | 3                                 |
+   +------------------------------+-----------------------------------+
+   | 20211224SRDDA                | December 24, 2021: Swapped part / |
+   |                              | Third party part / Disc Drive     |
+   |                              | assembly                          |
+   +------------------------------+-----------------------------------+
 
-                                  Table 10
+                                 Table 12
 
 6.  Corner Cases and Ambiguities
 
@@ -1220,20 +1328,6 @@ Parks & Parrish               Informational                    [Page 21]
    good arguments for falling under multiple categories.  The VGCR
    working group *RECOMMENDS* the following:
 
-
-
-
-
-
-
-
-
-
-Parks & Parrish               Informational                    [Page 22]
-
-                                 VGCCv1                       March 2021
-
-
    *Cheat Devices:* All-in-one devices (that is, the cheat hardware and
    software are part of a single physical unit, ex: the NES Game Genie)
    are considered "SFT".  In the case of devices that have a separate
@@ -1243,6 +1337,14 @@ Parks & Parrish               Informational                    [Page 22]
    function of the software).
 
    *Cartridge Copiers / Backup Devices:* These are all considered "3PA".
+
+
+
+
+Parks & Parrish               Informational                    [Page 24]
+
+                                 VGCCv1                       March 2021
+
 
    *Multiplayer Adapters:* These fit under the "3PA" category, and
    include devices such as the XBAND for SNES or Genesis.  Multitap
@@ -1279,17 +1381,6 @@ Parks & Parrish               Informational                    [Page 22]
    the expectations of the human readers of their codes and encode
    information according to the principle of least astonishment [POLA].
 
-
-
-
-
-
-
-Parks & Parrish               Informational                    [Page 23]
-
-                                 VGCCv1                       March 2021
-
-
 6.3.  Refurbishment
 
    When sending consoles into OEMs, they may repair a system and send it
@@ -1303,6 +1394,13 @@ Parks & Parrish               Informational                    [Page 23]
    Refurbished consoles likely have had components repaired.  Even so,
    code creators MUST NOT guess which components are repaired/
    refurbished.
+
+
+
+Parks & Parrish               Informational                    [Page 25]
+
+                                 VGCCv1                       March 2021
+
 
 6.4.  Conflicting Codes & other considerations
 
@@ -1334,18 +1432,6 @@ Parks & Parrish               Informational                    [Page 23]
        to the value of the item.  In other words, if you're not sure if
        something is a swap or a mod, default to considering it a mod.
 
-
-
-
-
-
-
-
-Parks & Parrish               Informational                    [Page 24]
-
-                                 VGCCv1                       March 2021
-
-
    7.  VGCCs are intended to classify individual items, not retail
        bundles.  For instance, it is common for OEMs to sell different
        console bundles with different hardware, peripherals, and
@@ -1360,7 +1446,17 @@ Parks & Parrish               Informational                    [Page 24]
    product.  A VGCC is intended for shorthand to describe an item and
    its history, not as a mark of safety or trustworthiness.  The VGCR
    working group take no responsibility for its use by third parties or
-   the accuracy of the information encoded.
+   the accuracy of the information those parties encode.
+
+
+
+
+
+
+Parks & Parrish               Informational                    [Page 26]
+
+                                 VGCCv1                       March 2021
+
 
 7.2.  Warranty Disclaimer
 
@@ -1368,18 +1464,6 @@ Parks & Parrish               Informational                    [Page 24]
    applications or services on a BEST EFFORT basis.  It is not
    warrantied to be accurate, up to date, or fit for any particular
    purpose.
-
-7.3.  Copyright
-
-   Copyright 2021 - Mike Parks, Alexander Parrish, and contributors
-
-   Permission is granted to copy, distribute and/or modify this document
-   under the terms of the GNU Free Documentation License, Version 1.3 or
-   any later version published by the Free Software Foundation; with no
-   Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.  A
-   copy of the license is included in the file LICENSE.MD
-   (https://raw.githubusercontent.com/Karunamon/grc/master/LICENSE.md),
-   located in the same repository as this standard doc.
 
 8.  Informative References
 
@@ -1391,16 +1475,6 @@ Parks & Parrish               Informational                    [Page 24]
    [POLA]     Wikipedia, "Principle of least astonishment", January
               2021, <https://en.wikipedia.org/w/
               index.php?title=Principle_of_least_astonishment>.
-
-
-
-
-
-
-Parks & Parrish               Informational                    [Page 25]
-
-                                 VGCCv1                       March 2021
-
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -1435,22 +1509,4 @@ Authors' Addresses
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Parks & Parrish               Informational                    [Page 26]
+Parks & Parrish               Informational                    [Page 27]
