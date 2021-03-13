@@ -101,13 +101,19 @@ Arcade machines                     | Planned for a future version of the standa
 
 A valid VGCC string **MUST** follow this format:
 
-`VGCC Version Field|Hardware Identity Field|Condition Field|Repair history field|`
+`VGCC Version Field|Hardware Identity Field|Condition Field|Repair History Field|`
+
+A "field" is a broad delineation of related information that may contain one or more attributes.
+
+An "attribute" is a section of information within a field that concretely describes some facet of information about a physical item, prefixed by a fixed number of one or more ASCII letters or numbers.
 
 All fields and attributes are **REQUIRED** unless otherwise stated.
 
+Field prefixes are case-sensitive.
+
 ## Length
 
-A VGCC string **MUST NOT** exceed 1024 characters *before* compression. If a given code would be above this limit after adding a repair record, the creator of the code **Must** use their best judgment to remove old or less-important records, paying special attention to any attributes in the `Condition` field that may no longer apply as a result of maintenance undertaken.
+To ease encoding, a VGCC string **MUST NOT** exceed 1024 characters *before* compression. If a given code would be above this limit after adding a repair record, the creator of the code **MUST** use their best judgment to remove old or less-important records, paying special attention to any attributes in the `Condition` field that may no longer apply as a result of maintenance undertaken.
 
 ## Encoding
 
@@ -119,13 +125,13 @@ The PCRE regular expression `^([A-Z]|[a-z]|[0-9]|[\!\?\|\-,;_])+$` **MAY** be us
 
 ## Free-text attributes
 
-Certain attributes in a field are designated as free-text. A free-text attribute contains 32 characters or less of alphanumeric characters subject to the encoding rules above. This text **SHOULD** be understood by tools that create or parse codes as arbitrary and conforming to no standard save for the description here.
+Certain attributes are designated as free-text. A free-text attribute contains 32 characters or less of alphanumeric characters subject to the encoding rules above. This text **SHOULD** be understood by tools that create or parse codes as arbitrary and conforming to no standard save for the description here.
 
 Since whitespace is not allowed per the encoding rules, the underscore (`_`) **MAY** be used as a word separator if desired.
 
 ## Optional attributes
 
-Any attribute designated as "optional" **MUST** still include its field designator (M for model, C for color, etc).
+Any attribute designated as "optional" **MUST** still include its attribute prefix (M for model, C for color, etc).
 
 # Design Philosophy
 
@@ -147,6 +153,7 @@ Sony
             Black
               SCPH-90001
                 U3565655
+                  No added information
 ```
 
 This broad-to-narrow design was chosen because it allows for maximum flexibility in describing different types of items. 
@@ -321,77 +328,82 @@ USD            | Used, but fully functional. May have damage or be modified. Inc
 PNF            | Used, partially nonfunctional (system is fit for purpose but certain functions are degraded)
 CNF            | Completely nonfunctional (system is no longer fit for purpose)
 
-### Currently Known Damage \(D\)
+### Currently Known Damage \(D\) {#damagecodes}
 
 This attribute tracks various kinds of damage or degradation of an item. Damage consists of hardware or software deficiencies, with each class of damage having its own unique 3-letter code.
 
-If multiple damage classes apply to the item, they **MUST** be listed consecutively, with no delimiter. For example, an item with a yellowed case, smoke damage, and missing fasteners would have a damage attribute of `SHYSMKFST`.
+If multiple damage classes apply to the item, they **MUST** be listed consecutively, with no delimiter. For example, an item with a yellowed case, smoke damage, and missing clips would have a damage attribute of `SHYSMKFST`.
 
 If new damage occurs, or if the damage is repaired by servicing, such as a shell replacement, the known damage fields **MUST** be updated to reflect the item's ***current*** condition.
 
-The list below is formatted for ease of reading. Consecutive types of the same class of damage **MUST** be coded consecutively, so for a yellowed and cracked shell, the code is `SHCSHY` rather than  `SHYC`.
+The list below is formatted for ease of reading. Consecutive types of the same class of damage **MUST** be coded consecutively, so for a yellowed and cracked shell, the code is `SHCSHY` rather than `SHYC`.
 
-Additionally, a digit from 1 to 3 representing the severity of the class of damage (where 1 is minor, and 3 is major) may **OPTIONALLY** be added to the codes below containing a `#` suffix. Codes without this designation **MUST NOT** have a digit added. 
+A minor convention used in damage codes is that a code ending in `___X` indicates destruction or unknown damage to the component, where `___Z` indicates the component is outright missing.
 
-The list of acceptable damage codes is as follows:
+Here we describe two sets of damage codes, quantifiable and non-quantifiable. 
 
-- **SH_**: Shell/case issues
-    - **SHC#**: Shell cracks
-    - **SHS#**: Shell scratches
-    - **SHY#**: Yellowing
-    - **SHF#**: Faded wording or print
-    - **SHK#**: Missing, damaged labels or stickers
-    - **SHM**: Missing shell parts, such as a battery or port cover
-    - **SHZ**: Shell is missing outright
-- **EC_**: Electrical component issues
-    - **ECP**: Damage to the board or substrate itself, such as cracks or lifted traces
-    - **ECC**: Visible damage to board components, such as blown capacitors or transistors
-    - **ECX**: Known but invisible damage, such as a damaged IC (explain in `TXT`)
-    - **ECZ**: Electrical components are missing (explain in `TXT`)
-- **SMK#**: Smoke damage, including fire or nicotine contamination
-- **WAT#**: Water/moisture damage, including rust
-- **BLK#**: Battery leakage or corrosion
-- **LCP#**: Partially or completely nonfunctional PCB edge connector (cartridge slot or similar)
-- **OL_**: Online service issues
-    - **OLX**: Limited access to online services (game bans, or restriction to updates only)
-    - **OLZ**: No access to online services (hard console ban, updates not allowed)
-- **LM_:** Loose, missing, or intermittent connectors
-    - **LMC#**: Loose controller port
-    - **LMV#**: Loose video port
-    - **LME#**: Loose expansion or memory card port
-    - **LMP#**: Loose power connector
-    - **LMC#**: Loose or damaged PCB edge connector (cartridge slot, etc)
-    - **LMS#**: Loose switch of any kind (power/mode/etc.)
-    - **LMZ**: Outright missing connectors (explain which ones in TXT)
-- **DNS**: Does not save. Battery backup/saving failure
-- **FST**: Missing fasteners (clips, screws, etc)
-- **SFT**: Software failure (functional issues due to missing/corrupt files)
-- **OM_**: Optical media issues
-    - **OMS#**: Scratches
-    - **OMC#**: Cracks
-    - **OMR**: Visible damage or holes in the data layer due to label damage or "Disc rot"
-    - **OMX**: Cracks, deep (disc is likely destroyed)
-- **OD_**: Optical drive issues
-    - **ODX#**: Optical drive damaged (intermittent, unreliable, or non-functional)
-    - **ODZ**: Optical drive missing   
-- **OS_**: On-board storage (HD/SSD, NVRAM, or permanent battery-backed RAM) issues
-    - **OSX**: On-board storage is corrupt or non-functional
-    - **OSZ**: On-board storage is missing
-- **SC_**: Screen and digitizer issues
-    - **SCS#**: Screen scratches (superficial)
-    - **SCR#**: Screen scratches (deep)
-    - **SCC#**: Screen cracks
-    - **SCU#**: Screen colors are incorrect or shifted
-    - **SCP#**: Dead pixels
-    - **SCD#**: Digitizer (touchscreen) issues
-    - **SCX**: Screen is completely dead/nonfunctional
-    - **SCZ**: Screen is missing
-- **REF**: Includes refurbished parts (explain in TXT)
-- **XXX**: This item has been irreperably destroyed.
-- **TXT**: Free-text follows. **MUST** come last.
+A quantifiable code is one where a severity of damage **MUST** be assigned, represented in the code as a digit from 1 to 3, where 1 is trivial and 3 is severe. For example, a scratched or fogged display could have a severity of "1" if the scratches are in a small area of the screen and don't effect readability, or a "3" if the scratches are ubiqitous and make the screen unusable. This severity entails a judgment call on the part of code creators, so decodiing tools **SHOULD NOT** attempt to read more meaning into 1, 2, and 3 beyond "superficial, moderate, and severe".
 
+For formatting purposes, quantifiable codes are displayed here with a `#`. In real codes, this will be a number.
 
-### Modifications \(M\)
+Code  | Description
+------| -----------
+`BLK#`| Battery leakage or corrosion
+`ECC#`| Visible damage to board components, such as blown capacitors or transistors
+`ECP#`| Damage to the board or substrate itself, such as cracks or lifted traces
+`ECX#`| Known but invisible damage, such as a damaged IC (explain in `TXT`)
+`HID#`| Intermittent or non-functional gameplay controls
+`LCP#`| Partially or completely nonfunctional PCB edge connector (cartridge slot or similar)
+`LMC#`| Loose controller port
+`LMC#`| Loose or damaged PCB edge connector (cartridge slot, etc)
+`LME#`| Loose expansion or memory card port
+`LMP#`| Loose power connector
+`LMS#`| Loose switch of any kind (power/mode/etc.)
+`LMV#`| Loose video port
+`ODX#`| Optical drive damaged (intermittent, unreliable, or non-functional)
+`OMC#`| Disc cracked (center ring or in an area that doesn't render the disc unreadable)
+`OMR#`| Visible damage or holes in the data layer due to label damage or "Disc rot"
+`OMS#`| Dis scratched
+`OSX#`| On-board storage is corrupt or non-functional
+`SCC#`| Screen cracks
+`SCD#`| Digitizer (touchscreen) issues
+`SCP#`| Dead pixels
+`SCR#`| Screen scratches (deep)
+`SCS#`| Screen scratches (superficial or "fogged")
+`SCU#`| Screen colors are incorrect or shifted
+`SFT#`| Software failure (functional issues due to missing/corrupt files)
+`SHC#`| Shell cracks
+`SHF#`| Faded wording or print
+`SHK#`| Missing or damaged labels or stickers
+`SHS#`| Shell scratches
+`SHY#`| Shell yellowing
+`SMK#`| Smoke damage, including fire or nicotine contamination
+`WAT#`| Water/moisture/other liquid damage, including rust
+Table: Quantifiable Damage Codes {#qdamage}
+
+A non-quantifiable damage code is one that describes a binary state. For example, `SHZ` describes a device missing its entire shell, but a missing shell cannot be more or less severe; it is either missing or it is not. For `__Z` codes that describe a missing item, a code creator **SHOULD** precisely define the missing item in a `TXT` if the code does not; for example, if connectors are missing, explain which ones.
+
+Code | Description
+-----| -----------
+`BUG`| Evidence of insect infestation
+`DNS`| Does not save, battery backup/saving failure
+`ECZ`| Electrical components are missing
+`FST`| Missing fasteners (clips, screws, etc)
+`LMZ`| Outright missing connectors
+`ODZ`| Optical drive missing
+`OLX`| Limited access to online services (game bans, or restriction to updates only)
+`OLZ`| No access to online services (hard console ban, updates not allowed)
+`OMX`| Disc cracked, deeply or in data area (disc is likely destroyed)
+`OSZ`| On-board storage is missing
+`SCX`| Screen is completely dead/nonfunctional
+`SCZ`| Screen is missing
+`SHX`| Missing shell parts, such as a battery or port cover
+`SHZ`| Shell is missing outright
+`XXX`| This item has been irreperably destroyed.
+`TXT`| Free-text follows. **MUST** come last.
+Table: Non-quantifiable Damage Codes {#nonqdamage}
+
+### Modifications \(M\) {#modcodes}
 
 This attribute represents a list of the item's aftermarket modifications, including custom shells, LED modifications, etc., including those done to the item's software.
 
@@ -399,29 +411,27 @@ What constitutes a modification rather than a repair is whether the console appe
 
 If there are no known modifications present, this field **MUST** be populated with "STK".
 
-Code | Meaning
------|------------
-STK  | No known modifications present on this console
-LED  | LED modification; lights have been added to part of the item that did not have them before, or existing colors were replaced
-SHL  | Shell modification; replacing with a non-stock shell or painting a shell with a custom color
-BKL  | Backlight
-RGF  | Region-free
-CHP  | Modchip
-SFM  | Soft-mod / custom firmware
-CNS  | Consolization
-VID  | Video-output (rgb, hdmi)
-STO  | Storage modification
-BAT  | Battery modification
-AUD  | Audio-output modifications (speakers, headphones)
-PCB  | Circuit or PCB-level mods, not including region-free or modchip installation
-ODE  | Optical drive emulator
-INT  | Integration, installing normally external peripherals into a shell (ex: Genesis Neptune mod [@Neptune]) 
+Code  | Meaning
+------|------------
+`STK` | No known modifications present on this console
+`LED` | LED modification; lights have been added to part of the item that did not have them before, or existing colors were replaced
+`SHL` | Shell modification; replacing with a non-stock shell or painting a shell with a custom color
+`BKL` | Backlight
+`RGF` | Region-free
+`CHP` | Modchip
+`SFM` | Soft-mod / custom firmware
+`CNS` | Consolization
+`VID` | Video-output (rgb, hdmi)
+`STO` | Storage modification
+`BAT` | Battery modification
+`AUD` | Audio-output modifications (speakers, headphones)
+`PCB` | Circuit or PCB-level mods, not including region-free or modchip installation
+`ODE` | Optical drive emulator
+`INT` | Integration, installing normally external peripherals into a shell (ex: Genesis Neptune mod [@Neptune]) 
 
 ### Known Repairs/Replacements \(E\)
 
-This attribute represents a list of non-modification repairs. It includes replacing OEM parts with reproduction parts that look and perform identically to their OEM counterparts.
-
-For instance, replacing a cracked shell with an identical one, replacing minor electronic components, screen repair, etc.
+This attribute represents a list of non-modification repairs. It includes replacing OEM parts with reproduction parts that look and perform identically to their OEM counterparts. This would include replacing a cracked shell with an identical one, replacing minor electronic components, screen repair, etc.
 
 Generally, what differentiates a `M` (mod) from an `E` (repair) is whether the system has been customized or substantially changed from its OEM state. If this difference is ambiguous for your use case, you **SHOULD** default to using the `M` code instead.
 
@@ -432,22 +442,28 @@ The list of repair codes is as follows:
 
 Code | Description
 -----|------------
-NRS  | No repairs, all seals still intact
-NRO  | No repairs, has been opened (seals broken, use if unsure)
-SHL  | Shell repair (resurfacing or crack filling) or replacement, including shell components like switches or buttons (excluding cleaning)
-LBL  | Label or printing replacement
-BKL  | Backlight
-SCR  | Screens/displays
-DIG  | Digitizer (touchscreen)
-PRT  | Ports (controller, data, video, etc.)
-PCB  | PCB components
-RBT  | Retrobriting / yellowing reversal
-SFT  | Software / file system
-SPK  | Speaker / direct sound output (excluding jacks, these **MUST** be classified as `PRT`)
-BAT  | Non-user-accessible batteries
-RPT  | Metal replating
-REP  | Repro (non-OEM) parts were used for any replacements
-TXT  | Free-text follows. **MUST** come last
+`BAT`| Non-user-accessible batteries
+`BKL`| Backlight
+`DDA`| Disc drive assembly (including laser recalibration or rail lubrication)
+`DIG`| Digitizer (touchscreen)
+`HID`| Game controls (dpads, buttons, sticks - use `SHL` for system controls like power, volume, brightness)
+`LBL`| Label or printing replacement
+`NRO`| No repairs, has been opened (seals broken, if unsure, use this code)
+`NRS`| No repairs, all seals still intact
+`PCB`| PCB components
+`PRT`| Ports (controller, data, video, sound etc.)
+`RBT`| Retrobriting / yellowing reversal
+`RPT`| Metal replating
+`SCR`| Screens/displays
+`SFT`| Software / file system
+`SHL`| Shell repair (resurfacing or crack filling) or replacement, including shell components like switches or buttons (excluding cleaning)
+`SPK`| Speaker / direct sound output (use `PRT` for audio output jacks)
+`TXT`| Free-text follows. **MUST** come last
+Table: List of Repair Codes {#repaircodes}
+
+### Refurbished / Non-OEM Parts \(U\)
+
+This attribute represents a list of components of an item which are non-stock. It **MUST** be a consecutive list of items as defined in (#repaircodes)
 
 ## Service History Field
 
@@ -462,7 +478,7 @@ The format for a repair event is as follows:
 - The history list **MUST** be in chronological order, oldest events first.
 - Each event **MUST** be comma-separated.
 - If a service history entry is invalidated or duplicated by a later event, such as the same component being replaced twice, the earlier entry **MUST** be removed.
-- Code creators **MUST NOT** add new service history items that they did not either personally perform or have performed on their behalf, unless a specific record of the repair or modification is consulted, such as an invoice.
+- Code creators **MUST NOT** add new service history items that they did not either personally perform or have performed on their behalf, unless a specific record of the repair or modification is available, such as an invoice.
 
 ### Date of Service
 
@@ -477,22 +493,22 @@ Represents the general disposition of the changes made to the item. This **MUST*
 Code | Meaning
 -----|---------
 M    | Mod
-SO   | Swapped in an OEM part
-SR   | Swapped in a third-party or reproduction part
+O    | Swapped in an OEM part
+T    | Swapped in a third-party or reproduction part
 R    | Repair (existing parts condition improved, or significant cleaning that resolves a concrete functional problem)
 
 Swaps or repairs that require no tools, such as battery replacements or cleaning intended to be done by the end user (for example, taking a cotton swab to a the laser on a disc system) **MUST NOT** have a repair entry added.
 
 ### Item Repaired
 
-Use a valid code from the [list of repair codes](#repaircodes)
+Use a valid code from the (#repaircodes)
 
 # Example Code
 
 The following is an example of a compliant VGCC1 code:
 
 ```
-VGCC1|BNINT,AO,FNGC,RU,TCON,MNGC,CIND,VDOL-001,SDS315060768,I|PUSD,DSHCSMKTXTSmoking_home,MCHPLED,ESHLPRTDDAREPTXTRepro_Shell|20200829MCHPHyperBoot,20200829MLEDCtrlr,20200829SOSHLTop,20200829SOSHLHsd,20211224RMSCMHyperBoot,20211224SOMSCCtrlport3,20211224SRDDA|
+VGCC1|BNINT,AO,FNGC,RU,TCON,MNGC,CIND,VDOL-001,SDS315060768,I|PUSD,DSHCSMKTXTSmoking_home,MCHPLED,ESHLPRTDDA,USHL|20200829MCHPHyperBoot,20200829MLEDCtrlr,20200829SOSHLTop,20200829SOSHLHsd,20211224RMSCMHyperBoot,20211224SOMSCCtrlport3,20211224SRDDA|
 ```
 
 This given code breaks down as follows. Note that the field separator in this table is an underscore `_` rather than a pipe `|` for formatting reasons:
@@ -515,7 +531,8 @@ _ | **Field separator, physical condition section begins**
 PUSD | Physical condition: Used
 DSHCSMKTXTSmoking_home | Damage: Cracks in shell, smoke. Free-text: Smoking home
 MCHPLED | Modifications: Modchip and LEDs installed
-ESHLPRTDDAREPTXTRepro_Shell | Repairs made: Shell, port(s), disc drive assembly, refurbished parts used. Free-text: Repro Shell
+ESHLPRTDDA | Repairs made: Shell, port(s), disc drive assembly
+USHL| Refurbisehed parts used: Shell
  _ | **Field separator, repair history section begins**
 20200829MCHPHyperBoot | August 29, 2020: Mod installed / Modchip / Free-text: Hyperboot
 20200829MLEDCtrlr | August 29, 2020: Mod installed / LED(s) / Free-text: Controller ports
