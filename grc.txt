@@ -6,7 +6,7 @@ Video Game Condition Report Workgroup                           M. Parks
                                                       TKWare Enterprises
                                                               A. Parrish
                                                          A Force Dynamic
-                                                           13 March 2021
+                                                       30 September 2021
 
 
                       Video Game Condition Code v1
@@ -55,7 +55,7 @@ Table of Contents
 
 Parks & Parrish               Informational                     [Page 1]
 
-                                 VGCCv1                       March 2021
+                                 VGCCv1                   September 2021
 
 
      4.1.  Version Field . . . . . . . . . . . . . . . . . . . . . .   6
@@ -111,7 +111,7 @@ Parks & Parrish               Informational                     [Page 1]
 
 Parks & Parrish               Informational                     [Page 2]
 
-                                 VGCCv1                       March 2021
+                                 VGCCv1                   September 2021
 
 
 1.1.  The Need for a Standard
@@ -149,7 +149,7 @@ Parks & Parrish               Informational                     [Page 2]
    https://github.com/Karunamon/grc (https://github.com/Karunamon/grc)
 
    The latest release tag of the above-named repository is considered to
-   be the most up-to-date version of this standard.  The "MASTER" branch
+   be the most up-to-date version of this standard.  The MASTER branch
    represents work in progress.
 
 1.4.  Versioning
@@ -161,13 +161,13 @@ Parks & Parrish               Informational                     [Page 2]
 
    *  In the title of this document
 
-   *  In a tag with the prefix "v" in the above-mentioned git repository
+   *  In a tag with the prefix v in the above-mentioned git repository
 
 
 
 Parks & Parrish               Informational                     [Page 3]
 
-                                 VGCCv1                       March 2021
+                                 VGCCv1                   September 2021
 
 
    *  In the version field in a compliant VGCC
@@ -209,8 +209,8 @@ Parks & Parrish               Informational                     [Page 3]
 
    A valid VGCC string MUST follow this format:
 
-   "VGCC Version Field|Hardware Identity Field|Condition Field|Repair
-   History Field|"
+   VGCC Version Field|Hardware Identity Field|Condition Field|Repair
+   History Field|
 
    A "field" is a broad delineation of related information that may
    contain one or more attributes.
@@ -223,7 +223,7 @@ Parks & Parrish               Informational                     [Page 3]
 
 Parks & Parrish               Informational                     [Page 4]
 
-                                 VGCCv1                       March 2021
+                                 VGCCv1                   September 2021
 
 
    All fields and attributes are REQUIRED unless otherwise stated.
@@ -236,21 +236,20 @@ Parks & Parrish               Informational                     [Page 4]
    _before_ compression.  If a given code would be above this limit
    after adding a repair record, the creator of the code MUST use their
    best judgment to remove old or less-important records, paying special
-   attention to any attributes in the "Condition" field that may no
-   longer apply as a result of maintenance undertaken.
+   attention to any attributes in the Condition field that may no longer
+   apply as a result of maintenance undertaken.
 
 2.2.  Encoding
 
    Usable characters in a VGCC string are the ASCII letters A through Z
-   in mixed case, numbers 0 through 9, and the symbols "!?;-|_,".
+   in mixed case, numbers 0 through 9, and the symbols !?;-|_,.
 
-   The pipe ("|") and comma (",") characters are reserved as field and
+   The pipe (|) and comma (,) characters are reserved as field and
    attribute separators respectively, and MUST NOT appear in any other
    context.  "Escaping" these characters is not permitted.
 
-   The PCRE regular expression "^([A-Z]|[a-z]|[0-9]|[\!\?\|\-,;_])+$"
-   MAY be used to check whether a VGCC string contains invalid
-   characters.
+   The PCRE regular expression ^([A-Z]|[a-z]|[0-9]|[\!\?\|\-,;_])+$ MAY
+   be used to check whether a VGCC string contains invalid characters.
 
 2.3.  Free-text attributes
 
@@ -261,7 +260,7 @@ Parks & Parrish               Informational                     [Page 4]
    standard save for the description here.
 
    Since whitespace is not allowed per the encoding rules, the
-   underscore ("_") MAY be used as a word separator if desired.
+   underscore (_) MAY be used as a word separator if desired.
 
 2.4.  Optional attributes
 
@@ -277,15 +276,16 @@ Parks & Parrish               Informational                     [Page 4]
 
 
 
+
 Parks & Parrish               Informational                     [Page 5]
 
-                                 VGCCv1                       March 2021
+                                 VGCCv1                   September 2021
 
 
    Consider the example of a launch day US Playstation 2.  The hardware
    field could look like:
 
-   "|BSONY,AO,FPS2,RU,TCON,MPS2,CBLK,VSCPH-90001,SU3565655,I|"
+   |BSONY,AO,FPS2,RU,TCON,MPS2,CBLK,VSCPH-90001,SU3565655,I|
 
    Hierarchically, this breaks down as
 
@@ -310,7 +310,7 @@ Parks & Parrish               Informational                     [Page 5]
    This field MUST begin with an all-caps "VGCC" followed by a digit
    indicating the revision of the standard used:
 
-   "VGCC(version number)"
+   VGCC(version number)
 
 4.1.1.  Compression
 
@@ -318,9 +318,9 @@ Parks & Parrish               Informational                     [Page 5]
    VGCC MAY be compressed.  This is accomplished by taking an entire
    valid code, running it through the Deflate algorithm, and base64
    encoding the result.  The compressed data is then placed in a new
-   code with the version set to "Z", in the format:
+   code with the version set to Z, in the format:
 
-   "VGCCZ|(compressed data)"
+   VGCCZ|(compressed data)
 
 4.2.  Hardware Identity Field
 
@@ -335,11 +335,11 @@ Parks & Parrish               Informational                     [Page 5]
 
 Parks & Parrish               Informational                     [Page 6]
 
-                                 VGCCv1                       March 2021
+                                 VGCCv1                   September 2021
 
 
-   "B(brand),A(authenticity),F(family),R(region),T(type),M(model),C(colo
-   r),V(variant),S(serial),I(information)"
+   B(brand),A(authenticity),F(family),R(region),T(type),M(model),C(color
+   ),V(variant),S(serial),I(information)
 
 4.2.1.  Brand/Manufacturer (B)
 
@@ -369,8 +369,8 @@ Parks & Parrish               Informational                     [Page 6]
 
                                  Table 2
 
-   Codes prefixed with a "!" indicate missing information.  These
-   special codes MUST NOT be used for any other purpose.
+   Codes prefixed with a ! indicate missing information.  These special
+   codes MUST NOT be used for any other purpose.
 
             +=======+=========================================+
             | Code  | Meaning                                 |
@@ -382,19 +382,19 @@ Parks & Parrish               Informational                     [Page 6]
 
                                   Table 3
 
-   *  "!NONA" indicates that the brand is unknown _and_ unknow_able_.
-      This could be a "no name" item with no meaningful brand
-      information available, and it is unlikely that it will ever be
-      known.
+   *  !NONA indicates that the brand is unknown _and_ unknow_able_. This
+      could be a "no name" item with no meaningful brand information
+      available, and it is unlikely that it will ever be known.
+
 
 
 
 Parks & Parrish               Informational                     [Page 7]
 
-                                 VGCCv1                       March 2021
+                                 VGCCv1                   September 2021
 
 
-   *  "!UNKN" indicates that there probably is a brand, but that the
+   *  !UNKN indicates that there probably is a brand, but that the
       information is not known to the creator of the code
 
    When creating brand codes, it is RECOMMENDED that the following
@@ -416,18 +416,18 @@ Parks & Parrish               Informational                     [Page 7]
 
    The attribute takes the form of:
 
-   *  *"O"* if this is original or OEM hardware/software.
+   *  *O* if this is original or OEM hardware/software.
 
-   *  *"R"* if it is a repro or bootleg.
+   *  *R* if it is a repro or bootleg.
 
    Consider the brand/manufacturer when determining whether a device is
    original or repro.  For example, if a piece of hardware passes itself
    off as Nintendo hardware but is not made by Nintendo, its proper code
-   is *"R"*. Third-party consoles, even if they run OEM software
-   (example: the RetroN series of consoles
-   (https://en.wikipedia.org/wiki/RetroN)), still do not pass themselves
-   off as OEM hardware, and MUST be given as their own company name with
-   an authenticity attribute of "O"
+   is *R*. Third-party consoles, even if they run OEM software (example:
+   the RetroN series of consoles (https://en.wikipedia.org/wiki/
+   RetroN)), still do not pass themselves off as OEM hardware, and MUST
+   be given as their own company name with an authenticity attribute of
+   O
 
 4.2.3.  Family (F)
 
@@ -447,7 +447,7 @@ Parks & Parrish               Informational                     [Page 7]
 
 Parks & Parrish               Informational                     [Page 8]
 
-                                 VGCCv1                       March 2021
+                                 VGCCv1                   September 2021
 
 
    Owing to the large number of possible brands, the VGCC standard will
@@ -503,7 +503,7 @@ Parks & Parrish               Informational                     [Page 8]
 
 Parks & Parrish               Informational                     [Page 9]
 
-                                 VGCCv1                       March 2021
+                                 VGCCv1                   September 2021
 
 
 4.2.4.  Region (R)
@@ -559,7 +559,7 @@ Parks & Parrish               Informational                     [Page 9]
 
 Parks & Parrish               Informational                    [Page 10]
 
-                                 VGCCv1                       March 2021
+                                 VGCCv1                   September 2021
 
 
    This attribute represents different releases of a given set of
@@ -615,7 +615,7 @@ Parks & Parrish               Informational                    [Page 10]
 
 Parks & Parrish               Informational                    [Page 11]
 
-                                 VGCCv1                       March 2021
+                                 VGCCv1                   September 2021
 
 
 4.3.  Condition Field
@@ -625,8 +625,8 @@ Parks & Parrish               Informational                    [Page 11]
 
    The condition field is formatted as:
 
-   "P(condition code),D(damage codes),M(modification codes),E(repair
-   codes)"
+   P(condition code),D(damage codes),M(modification codes),E(repair
+   codes)
 
 4.3.1.  Physical Condition (P)
 
@@ -665,13 +665,13 @@ Parks & Parrish               Informational                    [Page 11]
    If multiple damage classes apply to the item, they MUST be listed
    consecutively, with no delimiter.  For example, an item with a
    yellowed case, smoke damage, and missing clips would have a damage
-   attribute of "SHYSMKFST".
+   attribute of SHYSMKFST.
 
 
 
 Parks & Parrish               Informational                    [Page 12]
 
-                                 VGCCv1                       March 2021
+                                 VGCCv1                   September 2021
 
 
    If new damage occurs, or if the damage is repaired by servicing, such
@@ -680,11 +680,11 @@ Parks & Parrish               Informational                    [Page 12]
 
    The list below is formatted for ease of reading.  Consecutive types
    of the same class of damage MUST be coded consecutively, so for a
-   yellowed and cracked shell, the code is "SHCSHY" rather than "SHYC".
+   yellowed and cracked shell, the code is SHCSHY rather than SHYC.
 
-   A minor convention used in damage codes is that a code ending in
-   "___X" indicates destruction or unknown damage to the component,
-   where "___Z" indicates the component is outright missing.
+   A minor convention used in damage codes is that a code ending in ___X
+   indicates destruction or unknown damage to the component, where ___Z
+   indicates the component is outright missing.
 
    Here we describe two sets of damage codes, quantifiable and non-
    quantifiable.
@@ -700,7 +700,7 @@ Parks & Parrish               Informational                    [Page 12]
    "superficial, moderate, and severe".
 
    For formatting purposes, quantifiable codes are displayed here with a
-   "#".  In real codes, this will be a number.
+   #. In real codes, this will be a number.
 
            +======+============================================+
            | Code | Description                                |
@@ -714,7 +714,7 @@ Parks & Parrish               Informational                    [Page 12]
            |      | such as cracks or lifted traces            |
            +------+--------------------------------------------+
            | ECX# | Known but invisible damage, such as a      |
-           |      | damaged IC (explain in "TXT")              |
+           |      | damaged IC (explain in TXT)                |
            +------+--------------------------------------------+
            | HID# | Intermittent or non-functional gameplay    |
            |      | controls                                   |
@@ -727,7 +727,7 @@ Parks & Parrish               Informational                    [Page 12]
 
 Parks & Parrish               Informational                    [Page 13]
 
-                                 VGCCv1                       March 2021
+                                 VGCCv1                   September 2021
 
 
            | LMC# | Loose controller port                      |
@@ -783,7 +783,7 @@ Parks & Parrish               Informational                    [Page 13]
 
 Parks & Parrish               Informational                    [Page 14]
 
-                                 VGCCv1                       March 2021
+                                 VGCCv1                   September 2021
 
 
            | SHS# | Shell scratches                            |
@@ -800,12 +800,12 @@ Parks & Parrish               Informational                    [Page 14]
                      Table 7: Quantifiable Damage Codes
 
    A non-quantifiable damage code is one that describes a binary state.
-   For example, "SHZ" describes a device missing its entire shell, but a
+   For example, SHZ describes a device missing its entire shell, but a
    missing shell cannot be more or less severe; it is either missing or
-   it is not.  For "__Z" codes that describe a missing item, a code
-   creator SHOULD precisely define the missing item in a "TXT" if the
-   code does not; for example, if connectors are missing, explain which
-   ones.
+   it is not.  For __Z codes that describe a missing item, a code
+   creator SHOULD precisely define the missing item in a TXT if the code
+   does not; for example, if connectors are missing, explain which ones.
+
 
 
 
@@ -839,7 +839,7 @@ Parks & Parrish               Informational                    [Page 14]
 
 Parks & Parrish               Informational                    [Page 15]
 
-                                 VGCCv1                       March 2021
+                                 VGCCv1                   September 2021
 
 
           +======+==============================================+
@@ -895,7 +895,7 @@ Parks & Parrish               Informational                    [Page 15]
 
 Parks & Parrish               Informational                    [Page 16]
 
-                                 VGCCv1                       March 2021
+                                 VGCCv1                   September 2021
 
 
    What constitutes a modification rather than a repair is whether the
@@ -951,7 +951,7 @@ Parks & Parrish               Informational                    [Page 16]
 
 Parks & Parrish               Informational                    [Page 17]
 
-                                 VGCCv1                       March 2021
+                                 VGCCv1                   September 2021
 
 
            +======+============================================+
@@ -1007,7 +1007,7 @@ Parks & Parrish               Informational                    [Page 17]
 
 Parks & Parrish               Informational                    [Page 18]
 
-                                 VGCCv1                       March 2021
+                                 VGCCv1                   September 2021
 
 
 4.3.4.  Known Repairs/Replacements (E)
@@ -1018,10 +1018,10 @@ Parks & Parrish               Informational                    [Page 18]
    replacing a cracked shell with an identical one, replacing minor
    electronic components, screen repair, etc.
 
-   Generally, what differentiates a "M" (mod) from an "E" (repair) is
+   Generally, what differentiates a M (mod) from an E (repair) is
    whether the system has been customized or substantially changed from
    its OEM state.  If this difference is ambiguous for your use case,
-   you SHOULD default to using the "M" code instead.
+   you SHOULD default to using the M code instead.
 
    *  Repairs/replacements of already-modified components MUST be
       treated as a re-modification and not included in this field.
@@ -1063,7 +1063,7 @@ Parks & Parrish               Informational                    [Page 18]
 
 Parks & Parrish               Informational                    [Page 19]
 
-                                 VGCCv1                       March 2021
+                                 VGCCv1                   September 2021
 
 
       +======+=====================================================+
@@ -1078,8 +1078,8 @@ Parks & Parrish               Informational                    [Page 19]
       +------+-----------------------------------------------------+
       | DIG  | Digitizer (touchscreen)                             |
       +------+-----------------------------------------------------+
-      | HID  | Game controls (dpads, buttons, sticks - use "SHL"   |
-      |      | for system controls like power, volume, brightness) |
+      | HID  | Game controls (dpads, buttons, sticks - use SHL for |
+      |      | system controls like power, volume, brightness)     |
       +------+-----------------------------------------------------+
       | LBL  | Label or printing replacement                       |
       +------+-----------------------------------------------------+
@@ -1104,7 +1104,7 @@ Parks & Parrish               Informational                    [Page 19]
       |      | replacement, including shell components like        |
       |      | switches or buttons (excluding cleaning)            |
       +------+-----------------------------------------------------+
-      | SPK  | Speaker / direct sound output (use "PRT" for audio  |
+      | SPK  | Speaker / direct sound output (use PRT for audio    |
       |      | output jacks)                                       |
       +------+-----------------------------------------------------+
       | TXT  | Free-text follows.  MUST come last                  |
@@ -1119,7 +1119,7 @@ Parks & Parrish               Informational                    [Page 19]
 
 Parks & Parrish               Informational                    [Page 20]
 
-                                 VGCCv1                       March 2021
+                                 VGCCv1                   September 2021
 
 
 4.3.5.  Refurbished / Non-OEM Parts (U)
@@ -1138,7 +1138,7 @@ Parks & Parrish               Informational                    [Page 20]
 
    The format for a repair event is as follows:
 
-   "(Datestamp)(Repair type)(Item repaired)(Free-text),"
+   (Datestamp)(Repair type)(Item repaired)(Free-text),
 
    *  The history list MUST be in chronological order, oldest events
       first.
@@ -1162,7 +1162,7 @@ Parks & Parrish               Informational                    [Page 20]
 
    If the repair date is entirely unknown, but you know a repair was
    made, you MUST NOT add a history entry for it.  Note the nature of
-   the repaired/replaced component under code "E" (Repairs) instead.
+   the repaired/replaced component under code E (Repairs) instead.
 
 4.4.2.  Repair Types
 
@@ -1175,7 +1175,7 @@ Parks & Parrish               Informational                    [Page 20]
 
 Parks & Parrish               Informational                    [Page 21]
 
-                                 VGCCv1                       March 2021
+                                 VGCCv1                   September 2021
 
 
    +======+===========================================================+
@@ -1209,8 +1209,8 @@ Parks & Parrish               Informational                    [Page 21]
 VGCC1|BNINT,AO,FNGC,RU,TCON,MNGC,CIND,VDOL-001,SDS315060768,I|PUSD,DSHCSMKTXTSmoking_home,MCHPLED,ESHLPRTDDA,USHL|20200829MCHPHyperBoot,20200829MLEDCtrlr,20200829OSHLTop,20200829OSHLHsd_cover,20211224RCHPHyperBoot_wiring,20211224OPRTtrlport3,20211224TDDA|
 
    This given code breaks down as follows.  Note that the field
-   separator in this table is an underscore ("_") rather than a pipe
-   ("|") for formatting reasons:
+   separator in this table is an underscore (_) rather than a pipe (|)
+   for formatting reasons:
 
    +==============================+===================================+
    | Code Block                   | Meaning                           |
@@ -1231,7 +1231,7 @@ VGCC1|BNINT,AO,FNGC,RU,TCON,MNGC,CIND,VDOL-001,SDS315060768,I|PUSD,DSHCSMKTXTSmo
 
 Parks & Parrish               Informational                    [Page 22]
 
-                                 VGCCv1                       March 2021
+                                 VGCCv1                   September 2021
 
 
    +------------------------------+-----------------------------------+
@@ -1287,7 +1287,7 @@ Parks & Parrish               Informational                    [Page 22]
 
 Parks & Parrish               Informational                    [Page 23]
 
-                                 VGCCv1                       March 2021
+                                 VGCCv1                   September 2021
 
 
    |                              | OEM part / Shell / Free-text:     |
@@ -1323,19 +1323,19 @@ Parks & Parrish               Informational                    [Page 23]
 
 6.1.  Type Classification
 
-   Certain items may defy the code "T" classification scheme, or have
-   good arguments for falling under multiple categories.  The VGCR
-   working group *RECOMMENDS* the following:
+   Certain items may defy the code T classification scheme, or have good
+   arguments for falling under multiple categories.  The VGCR working
+   group *RECOMMENDS* the following:
 
    *Cheat Devices:* All-in-one devices (that is, the cheat hardware and
    software are part of a single physical unit, ex: the NES Game Genie)
-   are considered "SFT".  In the case of devices that have a separate
+   are considered SFT.  In the case of devices that have a separate
    cheat device as well as software, such as the PlayStation or Gamecube
    Action Replay, these must have their own separate VGCCs.  The disc is
-   "SFT", and the hardware is "SNT" (as the device is intrinsic to the
+   SFT, and the hardware is SNT (as the device is intrinsic to the
    function of the software).
 
-   *Cartridge Copiers / Backup Devices:* These are all considered "3PA".
+   *Cartridge Copiers / Backup Devices:* These are all considered 3PA.
 
 
 
@@ -1343,15 +1343,15 @@ Parks & Parrish               Informational                    [Page 23]
 
 Parks & Parrish               Informational                    [Page 24]
 
-                                 VGCCv1                       March 2021
+                                 VGCCv1                   September 2021
 
 
-   *Multiplayer Adapters:* These fit under the "3PA" category, and
-   include devices such as the XBAND for SNES or Genesis.  Multitap
-   devices made by the console OEM are considered "1PA".
+   *Multiplayer Adapters:* These fit under the 3PA category, and include
+   devices such as the XBAND for SNES or Genesis.  Multitap devices made
+   by the console OEM are considered 1PA.
 
    *Cartridge Peripherals:* These would generally fit under the category
-   of "AMD" - devices that plug into the cartridge slot and allow you to
+   of AMD - devices that plug into the cartridge slot and allow you to
    play additional content in a format that was not possible on the
    original hardware.  This would include devices where content is
    downloaded from the internet, received over broadcast services, or
@@ -1364,7 +1364,7 @@ Parks & Parrish               Informational                    [Page 24]
    distinct devices with distinct VGCCs.
 
    *Software for Alternate Media Devices:* Use the family code of the
-   parent console.  "Sonic CD" would have a family code of "SMD".
+   parent console.  "Sonic CD" would have a family code of SMD.
 
 6.2.  Ambiguity in Authenticity
 
@@ -1388,8 +1388,8 @@ Parks & Parrish               Informational                    [Page 24]
    numbers in this case.  If a new serial number is received, you have
    received a new console and MUST start a brand new VGCC. *Do not carry
    any history over.* If the hardware you received is not in its factory
-   packaging, you MUST add a "REF" under code "D" and note its status as
-   "USD" under code "C"
+   packaging, you MUST add a REF under code D and note its status as USD
+   under code C
 
    Refurbished consoles likely have had components repaired.  Even so,
    code creators MUST NOT guess which components are repaired/
@@ -1399,7 +1399,7 @@ Parks & Parrish               Informational                    [Page 24]
 
 Parks & Parrish               Informational                    [Page 25]
 
-                                 VGCCv1                       March 2021
+                                 VGCCv1                   September 2021
 
 
 6.4.  Conflicting Codes & other considerations
@@ -1455,7 +1455,7 @@ Parks & Parrish               Informational                    [Page 25]
 
 Parks & Parrish               Informational                    [Page 26]
 
-                                 VGCCv1                       March 2021
+                                 VGCCv1                   September 2021
 
 
 7.2.  Warranty Disclaimer

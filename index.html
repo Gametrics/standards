@@ -10,27 +10,27 @@
 <meta content="
        This memo defines a new encoding method for video game hardware/software identity and condition, and optionally, repair history. 
     " name="description">
-<meta content="xml2rfc 3.5.0" name="generator">
+<meta content="xml2rfc 3.10.0" name="generator">
 <meta content="draft-vgccv1-01" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.5.0
-    Python 3.8.4
+  xml2rfc 3.10.0
+    Python 3.8.12
     appdirs 1.4.4
-    ConfigArgParse 1.3
-    google-i18n-address 2.4.0
+    ConfigArgParse 1.5.2
+    google-i18n-address 2.5.0
     html5lib 1.1
     intervaltree 3.1.0
     Jinja2 2.11.3
     kitchen 1.2.6
-    lxml 4.6.2
+    lxml 4.6.3
     pycountry 20.7.3
-    pyflakes 2.2.0
+    pyflakes 2.3.1
     PyYAML 5.4.1
-    requests 2.25.1
-    setuptools 47.1.0
-    six 1.15.0
+    requests 2.26.0
+    setuptools 57.5.0
+    six 1.16.0
 -->
-<link href="grc.xml" rel="alternate" type="application/rfc+xml">
+<link href="xml/grc.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
 <style type="text/css">/*
 
@@ -197,6 +197,9 @@ ul.empty, .ulEmpty {
 }
 ul.empty li, .ulEmpty li {
   margin-top: 0.5em;
+}
+ul.ulBare, li.ulBare {
+  margin-left: 0em !important;
 }
 ul.compact, .ulCompact,
 ol.compact, .olCompact {
@@ -380,6 +383,12 @@ hr {
 #identifiers dd {
   float: left;
   margin-bottom: 0;
+}
+/* Fix PDF info block run off issue */
+@media print {
+  #identifiers dd {
+    float: none;
+  }
 }
 #identifiers .authors .author {
   display: inline-block;
@@ -1075,7 +1084,7 @@ tr:nth-child(2n+1) > td {
 }
 /* Change the approach to avoiding breaks inside artwork etc. */
 figure, pre, table, .artwork, .sourcecode  {
-  break-before: avoid-page;
+  break-before: auto;
   break-after: auto;
 }
 /* Avoid breaks between <dt> and <dd> */
@@ -1158,6 +1167,14 @@ dd > ul:first-child {
 dt+dd:empty::before{
   content: "\00a0";
 }
+/* Make paragraph spacing inside <li> smaller than in body text, to fit better within the list */
+li > p {
+  margin-bottom: 0.5em
+}
+/* Don't let p margin spill out from inside list items */
+li > p:last-of-type {
+  margin-bottom: 0;
+}
 </style>
 <link href="rfc-local.css" rel="stylesheet" type="text/css">
 <script type="application/javascript">async function addMetadata(){try{const e=document.styleSheets[0].cssRules;for(let t=0;t<e.length;t++)if(/#identifiers/.exec(e[t].selectorText)){const a=e[t].cssText.replace("#identifiers","#external-updates");document.styleSheets[0].insertRule(a,document.styleSheets[0].cssRules.length)}}catch(e){console.log(e)}const e=document.getElementById("external-metadata");if(e)try{var t,a="",o=function(e){const t=document.getElementsByTagName("meta");for(let a=0;a<t.length;a++)if(t[a].getAttribute("name")===e)return t[a].getAttribute("content");return""}("rfc.number");if(o){t="https://www.rfc-editor.org/rfc/rfc"+o+".json";try{const e=await fetch(t);a=await e.json()}catch(e){t=document.URL.indexOf("html")>=0?document.URL.replace(/html$/,"json"):document.URL+".json";const o=await fetch(t);a=await o.json()}}if(!a)return;e.style.display="block";const s="",d="https://datatracker.ietf.org/doc",n="https://datatracker.ietf.org/ipr/search",c="https://www.rfc-editor.org/info",l=a.doc_id.toLowerCase(),i=a.doc_id.slice(0,3).toLowerCase(),f=a.doc_id.slice(3).replace(/^0+/,""),u={status:"Status",obsoletes:"Obsoletes",obsoleted_by:"Obsoleted By",updates:"Updates",updated_by:"Updated By",see_also:"See Also",errata_url:"Errata"};let h="<dl style='overflow:hidden' id='external-updates'>";["status","obsoletes","obsoleted_by","updates","updated_by","see_also","errata_url"].forEach(e=>{if("status"==e){a[e]=a[e].toLowerCase();var t=a[e].split(" "),o=t.length,w="",p=1;for(let e=0;e<o;e++)p<o?w=w+r(t[e])+" ":w+=r(t[e]),p++;a[e]=w}else if("obsoletes"==e||"obsoleted_by"==e||"updates"==e||"updated_by"==e){var g,m="",b=1;g=a[e].length;for(let t=0;t<g;t++)a[e][t]&&(a[e][t]=String(a[e][t]).toLowerCase(),m=b<g?m+"<a href='"+s+"/rfc/".concat(a[e][t])+"'>"+a[e][t].slice(3)+"</a>, ":m+"<a href='"+s+"/rfc/".concat(a[e][t])+"'>"+a[e][t].slice(3)+"</a>",b++);a[e]=m}else if("see_also"==e){var y,L="",C=1;y=a[e].length;for(let t=0;t<y;t++)if(a[e][t]){a[e][t]=String(a[e][t]);var _=a[e][t].slice(0,3),v=a[e][t].slice(3).replace(/^0+/,"");L=C<y?"RFC"!=_?L+"<a href='"+s+"/info/"+_.toLowerCase().concat(v.toLowerCase())+"'>"+_+" "+v+"</a>, ":L+"<a href='"+s+"/info/"+_.toLowerCase().concat(v.toLowerCase())+"'>"+v+"</a>, ":"RFC"!=_?L+"<a href='"+s+"/info/"+_.toLowerCase().concat(v.toLowerCase())+"'>"+_+" "+v+"</a>":L+"<a href='"+s+"/info/"+_.toLowerCase().concat(v.toLowerCase())+"'>"+v+"</a>",C++}a[e]=L}else if("errata_url"==e){var R="";R=a[e]?R+"<a href='"+a[e]+"'>Errata exist</a> | <a href='"+d+"/"+l+"'>Datatracker</a>| <a href='"+n+"/?"+i+"="+f+"&submit="+i+"'>IPR</a> | <a href='"+c+"/"+l+"'>Info page</a>":"<a href='"+d+"/"+l+"'>Datatracker</a> | <a href='"+n+"/?"+i+"="+f+"&submit="+i+"'>IPR</a> | <a href='"+c+"/"+l+"'>Info page</a>",a[e]=R}""!=a[e]?"Errata"==u[e]?h+=`<dt>More info:</dt><dd>${a[e]}</dd>`:h+=`<dt>${u[e]}:</dt><dd>${a[e]}</dd>`:"Errata"==u[e]&&(h+=`<dt>More info:</dt><dd>${a[e]}</dd>`)}),h+="</dl>",e.innerHTML=h}catch(e){console.log(e)}else console.log("Could not locate metadata <div> element");function r(e){return e.charAt(0).toUpperCase()+e.slice(1)}}window.removeEventListener("load",addMetadata),window.addEventListener("load",addMetadata);</script>
@@ -1168,7 +1185,7 @@ dt+dd:empty::before{
 <thead><tr>
 <td class="left"></td>
 <td class="center">VGCCv1</td>
-<td class="right">March 2021</td>
+<td class="right">September 2021</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Parks &amp; Parrish</td>
@@ -1217,165 +1234,165 @@ dt+dd:empty::before{
         <a href="#" onclick="scroll(0,0)" class="toplink">▲</a><h2 id="name-table-of-contents">
 <a href="#name-table-of-contents" class="section-name selfRef">Table of Contents</a>
         </h2>
-<nav class="toc"><ul class="compact toc ulEmpty">
-<li class="compact toc ulEmpty" id="section-toc.1-1.1">
-            <p id="section-toc.1-1.1.1"><a href="#section-1" class="xref">1</a>.  <a href="#name-introduction" class="xref">Introduction</a><a href="#section-toc.1-1.1.1" class="pilcrow">¶</a></p>
-<ul class="compact toc ulEmpty">
-<li class="compact toc ulEmpty" id="section-toc.1-1.1.2.1">
-                <p id="section-toc.1-1.1.2.1.1" class="keepWithNext"><a href="#section-1.1" class="xref">1.1</a>.  <a href="#name-the-need-for-a-standard" class="xref">The Need for a Standard</a><a href="#section-toc.1-1.1.2.1.1" class="pilcrow">¶</a></p>
+<nav class="toc"><ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1">
+            <p id="section-toc.1-1.1.1"><a href="#section-1" class="xref">1</a>.  <a href="#name-introduction" class="xref">Introduction</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.1">
+                <p id="section-toc.1-1.1.2.1.1" class="keepWithNext"><a href="#section-1.1" class="xref">1.1</a>.  <a href="#name-the-need-for-a-standard" class="xref">The Need for a Standard</a></p>
 </li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.1.2.2">
-                <p id="section-toc.1-1.1.2.2.1" class="keepWithNext"><a href="#section-1.2" class="xref">1.2</a>.  <a href="#name-terminology" class="xref">Terminology</a><a href="#section-toc.1-1.1.2.2.1" class="pilcrow">¶</a></p>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.2">
+                <p id="section-toc.1-1.1.2.2.1" class="keepWithNext"><a href="#section-1.2" class="xref">1.2</a>.  <a href="#name-terminology" class="xref">Terminology</a></p>
 </li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.1.2.3">
-                <p id="section-toc.1-1.1.2.3.1" class="keepWithNext"><a href="#section-1.3" class="xref">1.3</a>.  <a href="#name-availability-updates" class="xref">Availability &amp; Updates</a><a href="#section-toc.1-1.1.2.3.1" class="pilcrow">¶</a></p>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.3">
+                <p id="section-toc.1-1.1.2.3.1" class="keepWithNext"><a href="#section-1.3" class="xref">1.3</a>.  <a href="#name-availability-updates" class="xref">Availability &amp; Updates</a></p>
 </li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.1.2.4">
-                <p id="section-toc.1-1.1.2.4.1"><a href="#section-1.4" class="xref">1.4</a>.  <a href="#name-versioning" class="xref">Versioning</a><a href="#section-toc.1-1.1.2.4.1" class="pilcrow">¶</a></p>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.4">
+                <p id="section-toc.1-1.1.2.4.1"><a href="#section-1.4" class="xref">1.4</a>.  <a href="#name-versioning" class="xref">Versioning</a></p>
 </li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.1.2.5">
-                <p id="section-toc.1-1.1.2.5.1"><a href="#section-1.5" class="xref">1.5</a>.  <a href="#name-scope" class="xref">Scope</a><a href="#section-toc.1-1.1.2.5.1" class="pilcrow">¶</a></p>
-</li>
-            </ul>
-</li>
-          <li class="compact toc ulEmpty" id="section-toc.1-1.2">
-            <p id="section-toc.1-1.2.1"><a href="#section-2" class="xref">2</a>.  <a href="#name-general-syntax" class="xref">General Syntax</a><a href="#section-toc.1-1.2.1" class="pilcrow">¶</a></p>
-<ul class="compact toc ulEmpty">
-<li class="compact toc ulEmpty" id="section-toc.1-1.2.2.1">
-                <p id="section-toc.1-1.2.2.1.1"><a href="#section-2.1" class="xref">2.1</a>.  <a href="#name-length" class="xref">Length</a><a href="#section-toc.1-1.2.2.1.1" class="pilcrow">¶</a></p>
-</li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.2.2.2">
-                <p id="section-toc.1-1.2.2.2.1"><a href="#section-2.2" class="xref">2.2</a>.  <a href="#name-encoding" class="xref">Encoding</a><a href="#section-toc.1-1.2.2.2.1" class="pilcrow">¶</a></p>
-</li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.2.2.3">
-                <p id="section-toc.1-1.2.2.3.1"><a href="#section-2.3" class="xref">2.3</a>.  <a href="#name-free-text-attributes" class="xref">Free-text attributes</a><a href="#section-toc.1-1.2.2.3.1" class="pilcrow">¶</a></p>
-</li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.2.2.4">
-                <p id="section-toc.1-1.2.2.4.1"><a href="#section-2.4" class="xref">2.4</a>.  <a href="#name-optional-attributes" class="xref">Optional attributes</a><a href="#section-toc.1-1.2.2.4.1" class="pilcrow">¶</a></p>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.5">
+                <p id="section-toc.1-1.1.2.5.1"><a href="#section-1.5" class="xref">1.5</a>.  <a href="#name-scope" class="xref">Scope</a></p>
 </li>
             </ul>
 </li>
-          <li class="compact toc ulEmpty" id="section-toc.1-1.3">
-            <p id="section-toc.1-1.3.1"><a href="#section-3" class="xref">3</a>.  <a href="#name-design-philosophy" class="xref">Design Philosophy</a><a href="#section-toc.1-1.3.1" class="pilcrow">¶</a></p>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2">
+            <p id="section-toc.1-1.2.1"><a href="#section-2" class="xref">2</a>.  <a href="#name-general-syntax" class="xref">General Syntax</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.1">
+                <p id="section-toc.1-1.2.2.1.1"><a href="#section-2.1" class="xref">2.1</a>.  <a href="#name-length" class="xref">Length</a></p>
 </li>
-          <li class="compact toc ulEmpty" id="section-toc.1-1.4">
-            <p id="section-toc.1-1.4.1"><a href="#section-4" class="xref">4</a>.  <a href="#name-field-syntax" class="xref">Field Syntax</a><a href="#section-toc.1-1.4.1" class="pilcrow">¶</a></p>
-<ul class="compact toc ulEmpty">
-<li class="compact toc ulEmpty" id="section-toc.1-1.4.2.1">
-                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="xref">4.1</a>.  <a href="#name-version-field" class="xref">Version Field</a><a href="#section-toc.1-1.4.2.1.1" class="pilcrow">¶</a></p>
-<ul class="compact toc ulEmpty">
-<li class="compact toc ulEmpty" id="section-toc.1-1.4.2.1.2.1">
-                    <p id="section-toc.1-1.4.2.1.2.1.1"><a href="#section-4.1.1" class="xref">4.1.1</a>.  <a href="#name-compression" class="xref">Compression</a><a href="#section-toc.1-1.4.2.1.2.1.1" class="pilcrow">¶</a></p>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.2">
+                <p id="section-toc.1-1.2.2.2.1"><a href="#section-2.2" class="xref">2.2</a>.  <a href="#name-encoding" class="xref">Encoding</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.3">
+                <p id="section-toc.1-1.2.2.3.1"><a href="#section-2.3" class="xref">2.3</a>.  <a href="#name-free-text-attributes" class="xref">Free-text attributes</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.4">
+                <p id="section-toc.1-1.2.2.4.1"><a href="#section-2.4" class="xref">2.4</a>.  <a href="#name-optional-attributes" class="xref">Optional attributes</a></p>
+</li>
+            </ul>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
+            <p id="section-toc.1-1.3.1"><a href="#section-3" class="xref">3</a>.  <a href="#name-design-philosophy" class="xref">Design Philosophy</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="xref">4</a>.  <a href="#name-field-syntax" class="xref">Field Syntax</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1">
+                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="xref">4.1</a>.  <a href="#name-version-field" class="xref">Version Field</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.1">
+                    <p id="section-toc.1-1.4.2.1.2.1.1"><a href="#section-4.1.1" class="xref">4.1.1</a>.  <a href="#name-compression" class="xref">Compression</a></p>
 </li>
                 </ul>
 </li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.4.2.2">
-                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="xref">4.2</a>.  <a href="#name-hardware-identity-field" class="xref">Hardware Identity Field</a><a href="#section-toc.1-1.4.2.2.1" class="pilcrow">¶</a></p>
-<ul class="compact toc ulEmpty">
-<li class="compact toc ulEmpty" id="section-toc.1-1.4.2.2.2.1">
-                    <p id="section-toc.1-1.4.2.2.2.1.1"><a href="#section-4.2.1" class="xref">4.2.1</a>.  <a href="#name-brand-manufacturer-b" class="xref">Brand/Manufacturer (B)</a><a href="#section-toc.1-1.4.2.2.2.1.1" class="pilcrow">¶</a></p>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2">
+                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="xref">4.2</a>.  <a href="#name-hardware-identity-field" class="xref">Hardware Identity Field</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.1">
+                    <p id="section-toc.1-1.4.2.2.2.1.1"><a href="#section-4.2.1" class="xref">4.2.1</a>.  <a href="#name-brand-manufacturer-b" class="xref">Brand/Manufacturer (B)</a></p>
 </li>
-                  <li class="compact toc ulEmpty" id="section-toc.1-1.4.2.2.2.2">
-                    <p id="section-toc.1-1.4.2.2.2.2.1"><a href="#section-4.2.2" class="xref">4.2.2</a>.  <a href="#name-authenticity-a" class="xref">Authenticity (A)</a><a href="#section-toc.1-1.4.2.2.2.2.1" class="pilcrow">¶</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.2">
+                    <p id="section-toc.1-1.4.2.2.2.2.1"><a href="#section-4.2.2" class="xref">4.2.2</a>.  <a href="#name-authenticity-a" class="xref">Authenticity (A)</a></p>
 </li>
-                  <li class="compact toc ulEmpty" id="section-toc.1-1.4.2.2.2.3">
-                    <p id="section-toc.1-1.4.2.2.2.3.1"><a href="#section-4.2.3" class="xref">4.2.3</a>.  <a href="#name-family-f" class="xref">Family (F)</a><a href="#section-toc.1-1.4.2.2.2.3.1" class="pilcrow">¶</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.3">
+                    <p id="section-toc.1-1.4.2.2.2.3.1"><a href="#section-4.2.3" class="xref">4.2.3</a>.  <a href="#name-family-f" class="xref">Family (F)</a></p>
 </li>
-                  <li class="compact toc ulEmpty" id="section-toc.1-1.4.2.2.2.4">
-                    <p id="section-toc.1-1.4.2.2.2.4.1"><a href="#section-4.2.4" class="xref">4.2.4</a>.  <a href="#name-region-r" class="xref">Region (R)</a><a href="#section-toc.1-1.4.2.2.2.4.1" class="pilcrow">¶</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.4">
+                    <p id="section-toc.1-1.4.2.2.2.4.1"><a href="#section-4.2.4" class="xref">4.2.4</a>.  <a href="#name-region-r" class="xref">Region (R)</a></p>
 </li>
-                  <li class="compact toc ulEmpty" id="section-toc.1-1.4.2.2.2.5">
-                    <p id="section-toc.1-1.4.2.2.2.5.1"><a href="#section-4.2.5" class="xref">4.2.5</a>.  <a href="#name-type-t" class="xref">Type (T)</a><a href="#section-toc.1-1.4.2.2.2.5.1" class="pilcrow">¶</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.5">
+                    <p id="section-toc.1-1.4.2.2.2.5.1"><a href="#section-4.2.5" class="xref">4.2.5</a>.  <a href="#name-type-t" class="xref">Type (T)</a></p>
 </li>
-                  <li class="compact toc ulEmpty" id="section-toc.1-1.4.2.2.2.6">
-                    <p id="section-toc.1-1.4.2.2.2.6.1"><a href="#section-4.2.6" class="xref">4.2.6</a>.  <a href="#name-model-m" class="xref">Model (M)</a><a href="#section-toc.1-1.4.2.2.2.6.1" class="pilcrow">¶</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.6">
+                    <p id="section-toc.1-1.4.2.2.2.6.1"><a href="#section-4.2.6" class="xref">4.2.6</a>.  <a href="#name-model-m" class="xref">Model (M)</a></p>
 </li>
-                  <li class="compact toc ulEmpty" id="section-toc.1-1.4.2.2.2.7">
-                    <p id="section-toc.1-1.4.2.2.2.7.1"><a href="#section-4.2.7" class="xref">4.2.7</a>.  <a href="#name-color-c" class="xref">Color (C)</a><a href="#section-toc.1-1.4.2.2.2.7.1" class="pilcrow">¶</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.7">
+                    <p id="section-toc.1-1.4.2.2.2.7.1"><a href="#section-4.2.7" class="xref">4.2.7</a>.  <a href="#name-color-c" class="xref">Color (C)</a></p>
 </li>
-                  <li class="compact toc ulEmpty" id="section-toc.1-1.4.2.2.2.8">
-                    <p id="section-toc.1-1.4.2.2.2.8.1"><a href="#section-4.2.8" class="xref">4.2.8</a>.  <a href="#name-variant-revision-v" class="xref">Variant/Revision (V)</a><a href="#section-toc.1-1.4.2.2.2.8.1" class="pilcrow">¶</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.8">
+                    <p id="section-toc.1-1.4.2.2.2.8.1"><a href="#section-4.2.8" class="xref">4.2.8</a>.  <a href="#name-variant-revision-v" class="xref">Variant/Revision (V)</a></p>
 </li>
-                  <li class="compact toc ulEmpty" id="section-toc.1-1.4.2.2.2.9">
-                    <p id="section-toc.1-1.4.2.2.2.9.1"><a href="#section-4.2.9" class="xref">4.2.9</a>.  <a href="#name-serial-number-s" class="xref">Serial number (S)</a><a href="#section-toc.1-1.4.2.2.2.9.1" class="pilcrow">¶</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.9">
+                    <p id="section-toc.1-1.4.2.2.2.9.1"><a href="#section-4.2.9" class="xref">4.2.9</a>.  <a href="#name-serial-number-s" class="xref">Serial number (S)</a></p>
 </li>
-                  <li class="compact toc ulEmpty" id="section-toc.1-1.4.2.2.2.10">
-                    <p id="section-toc.1-1.4.2.2.2.10.1"><a href="#section-4.2.10" class="xref">4.2.10</a>. <a href="#name-information-i" class="xref">Information (I)</a><a href="#section-toc.1-1.4.2.2.2.10.1" class="pilcrow">¶</a></p>
-</li>
-                </ul>
-</li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.4.2.3">
-                <p id="section-toc.1-1.4.2.3.1"><a href="#section-4.3" class="xref">4.3</a>.  <a href="#name-condition-field" class="xref">Condition Field</a><a href="#section-toc.1-1.4.2.3.1" class="pilcrow">¶</a></p>
-<ul class="compact toc ulEmpty">
-<li class="compact toc ulEmpty" id="section-toc.1-1.4.2.3.2.1">
-                    <p id="section-toc.1-1.4.2.3.2.1.1"><a href="#section-4.3.1" class="xref">4.3.1</a>.  <a href="#name-physical-condition-p" class="xref">Physical Condition (P)</a><a href="#section-toc.1-1.4.2.3.2.1.1" class="pilcrow">¶</a></p>
-</li>
-                  <li class="compact toc ulEmpty" id="section-toc.1-1.4.2.3.2.2">
-                    <p id="section-toc.1-1.4.2.3.2.2.1"><a href="#section-4.3.2" class="xref">4.3.2</a>.  <a href="#name-currently-known-damage-d" class="xref">Currently Known Damage (D)</a><a href="#section-toc.1-1.4.2.3.2.2.1" class="pilcrow">¶</a></p>
-</li>
-                  <li class="compact toc ulEmpty" id="section-toc.1-1.4.2.3.2.3">
-                    <p id="section-toc.1-1.4.2.3.2.3.1"><a href="#section-4.3.3" class="xref">4.3.3</a>.  <a href="#name-modifications-m" class="xref">Modifications (M)</a><a href="#section-toc.1-1.4.2.3.2.3.1" class="pilcrow">¶</a></p>
-</li>
-                  <li class="compact toc ulEmpty" id="section-toc.1-1.4.2.3.2.4">
-                    <p id="section-toc.1-1.4.2.3.2.4.1"><a href="#section-4.3.4" class="xref">4.3.4</a>.  <a href="#name-known-repairs-replacements-" class="xref">Known Repairs/Replacements (E)</a><a href="#section-toc.1-1.4.2.3.2.4.1" class="pilcrow">¶</a></p>
-</li>
-                  <li class="compact toc ulEmpty" id="section-toc.1-1.4.2.3.2.5">
-                    <p id="section-toc.1-1.4.2.3.2.5.1"><a href="#section-4.3.5" class="xref">4.3.5</a>.  <a href="#name-refurbished-non-oem-parts-u" class="xref">Refurbished / Non-OEM Parts (U)</a><a href="#section-toc.1-1.4.2.3.2.5.1" class="pilcrow">¶</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.10">
+                    <p id="section-toc.1-1.4.2.2.2.10.1"><a href="#section-4.2.10" class="xref">4.2.10</a>. <a href="#name-information-i" class="xref">Information (I)</a></p>
 </li>
                 </ul>
 </li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.4.2.4">
-                <p id="section-toc.1-1.4.2.4.1"><a href="#section-4.4" class="xref">4.4</a>.  <a href="#name-service-history-field" class="xref">Service History Field</a><a href="#section-toc.1-1.4.2.4.1" class="pilcrow">¶</a></p>
-<ul class="compact toc ulEmpty">
-<li class="compact toc ulEmpty" id="section-toc.1-1.4.2.4.2.1">
-                    <p id="section-toc.1-1.4.2.4.2.1.1"><a href="#section-4.4.1" class="xref">4.4.1</a>.  <a href="#name-date-of-service" class="xref">Date of Service</a><a href="#section-toc.1-1.4.2.4.2.1.1" class="pilcrow">¶</a></p>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.3">
+                <p id="section-toc.1-1.4.2.3.1"><a href="#section-4.3" class="xref">4.3</a>.  <a href="#name-condition-field" class="xref">Condition Field</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.3.2.1">
+                    <p id="section-toc.1-1.4.2.3.2.1.1"><a href="#section-4.3.1" class="xref">4.3.1</a>.  <a href="#name-physical-condition-p" class="xref">Physical Condition (P)</a></p>
 </li>
-                  <li class="compact toc ulEmpty" id="section-toc.1-1.4.2.4.2.2">
-                    <p id="section-toc.1-1.4.2.4.2.2.1"><a href="#section-4.4.2" class="xref">4.4.2</a>.  <a href="#name-repair-types" class="xref">Repair Types</a><a href="#section-toc.1-1.4.2.4.2.2.1" class="pilcrow">¶</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.3.2.2">
+                    <p id="section-toc.1-1.4.2.3.2.2.1"><a href="#section-4.3.2" class="xref">4.3.2</a>.  <a href="#name-currently-known-damage-d" class="xref">Currently Known Damage (D)</a></p>
 </li>
-                  <li class="compact toc ulEmpty" id="section-toc.1-1.4.2.4.2.3">
-                    <p id="section-toc.1-1.4.2.4.2.3.1"><a href="#section-4.4.3" class="xref">4.4.3</a>.  <a href="#name-item-repaired" class="xref">Item Repaired</a><a href="#section-toc.1-1.4.2.4.2.3.1" class="pilcrow">¶</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.3.2.3">
+                    <p id="section-toc.1-1.4.2.3.2.3.1"><a href="#section-4.3.3" class="xref">4.3.3</a>.  <a href="#name-modifications-m" class="xref">Modifications (M)</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.3.2.4">
+                    <p id="section-toc.1-1.4.2.3.2.4.1"><a href="#section-4.3.4" class="xref">4.3.4</a>.  <a href="#name-known-repairs-replacements-" class="xref">Known Repairs/Replacements (E)</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.3.2.5">
+                    <p id="section-toc.1-1.4.2.3.2.5.1"><a href="#section-4.3.5" class="xref">4.3.5</a>.  <a href="#name-refurbished-non-oem-parts-u" class="xref">Refurbished / Non-OEM Parts (U)</a></p>
+</li>
+                </ul>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.4">
+                <p id="section-toc.1-1.4.2.4.1"><a href="#section-4.4" class="xref">4.4</a>.  <a href="#name-service-history-field" class="xref">Service History Field</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.4.2.1">
+                    <p id="section-toc.1-1.4.2.4.2.1.1"><a href="#section-4.4.1" class="xref">4.4.1</a>.  <a href="#name-date-of-service" class="xref">Date of Service</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.4.2.2">
+                    <p id="section-toc.1-1.4.2.4.2.2.1"><a href="#section-4.4.2" class="xref">4.4.2</a>.  <a href="#name-repair-types" class="xref">Repair Types</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.4.2.3">
+                    <p id="section-toc.1-1.4.2.4.2.3.1"><a href="#section-4.4.3" class="xref">4.4.3</a>.  <a href="#name-item-repaired" class="xref">Item Repaired</a></p>
 </li>
                 </ul>
 </li>
             </ul>
 </li>
-          <li class="compact toc ulEmpty" id="section-toc.1-1.5">
-            <p id="section-toc.1-1.5.1"><a href="#section-5" class="xref">5</a>.  <a href="#name-example-code" class="xref">Example Code</a><a href="#section-toc.1-1.5.1" class="pilcrow">¶</a></p>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
+            <p id="section-toc.1-1.5.1"><a href="#section-5" class="xref">5</a>.  <a href="#name-example-code" class="xref">Example Code</a></p>
 </li>
-          <li class="compact toc ulEmpty" id="section-toc.1-1.6">
-            <p id="section-toc.1-1.6.1"><a href="#section-6" class="xref">6</a>.  <a href="#name-corner-cases-and-ambiguitie" class="xref">Corner Cases and Ambiguities</a><a href="#section-toc.1-1.6.1" class="pilcrow">¶</a></p>
-<ul class="compact toc ulEmpty">
-<li class="compact toc ulEmpty" id="section-toc.1-1.6.2.1">
-                <p id="section-toc.1-1.6.2.1.1"><a href="#section-6.1" class="xref">6.1</a>.  <a href="#name-type-classification" class="xref">Type Classification</a><a href="#section-toc.1-1.6.2.1.1" class="pilcrow">¶</a></p>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
+            <p id="section-toc.1-1.6.1"><a href="#section-6" class="xref">6</a>.  <a href="#name-corner-cases-and-ambiguitie" class="xref">Corner Cases and Ambiguities</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.1">
+                <p id="section-toc.1-1.6.2.1.1"><a href="#section-6.1" class="xref">6.1</a>.  <a href="#name-type-classification" class="xref">Type Classification</a></p>
 </li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.6.2.2">
-                <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="xref">6.2</a>.  <a href="#name-ambiguity-in-authenticity" class="xref">Ambiguity in Authenticity</a><a href="#section-toc.1-1.6.2.2.1" class="pilcrow">¶</a></p>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.2">
+                <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="xref">6.2</a>.  <a href="#name-ambiguity-in-authenticity" class="xref">Ambiguity in Authenticity</a></p>
 </li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.6.2.3">
-                <p id="section-toc.1-1.6.2.3.1"><a href="#section-6.3" class="xref">6.3</a>.  <a href="#name-refurbishment" class="xref">Refurbishment</a><a href="#section-toc.1-1.6.2.3.1" class="pilcrow">¶</a></p>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.3">
+                <p id="section-toc.1-1.6.2.3.1"><a href="#section-6.3" class="xref">6.3</a>.  <a href="#name-refurbishment" class="xref">Refurbishment</a></p>
 </li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.6.2.4">
-                <p id="section-toc.1-1.6.2.4.1"><a href="#section-6.4" class="xref">6.4</a>.  <a href="#name-conflicting-codes-other-con" class="xref">Conflicting Codes &amp; other considerations</a><a href="#section-toc.1-1.6.2.4.1" class="pilcrow">¶</a></p>
-</li>
-            </ul>
-</li>
-          <li class="compact toc ulEmpty" id="section-toc.1-1.7">
-            <p id="section-toc.1-1.7.1"><a href="#section-7" class="xref">7</a>.  <a href="#name-legal" class="xref">Legal</a><a href="#section-toc.1-1.7.1" class="pilcrow">¶</a></p>
-<ul class="compact toc ulEmpty">
-<li class="compact toc ulEmpty" id="section-toc.1-1.7.2.1">
-                <p id="section-toc.1-1.7.2.1.1"><a href="#section-7.1" class="xref">7.1</a>.  <a href="#name-safety-security-considerati" class="xref">Safety/Security Considerations</a><a href="#section-toc.1-1.7.2.1.1" class="pilcrow">¶</a></p>
-</li>
-              <li class="compact toc ulEmpty" id="section-toc.1-1.7.2.2">
-                <p id="section-toc.1-1.7.2.2.1"><a href="#section-7.2" class="xref">7.2</a>.  <a href="#name-warranty-disclaimer" class="xref">Warranty Disclaimer</a><a href="#section-toc.1-1.7.2.2.1" class="pilcrow">¶</a></p>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.4">
+                <p id="section-toc.1-1.6.2.4.1"><a href="#section-6.4" class="xref">6.4</a>.  <a href="#name-conflicting-codes-other-con" class="xref">Conflicting Codes &amp; other considerations</a></p>
 </li>
             </ul>
 </li>
-          <li class="compact toc ulEmpty" id="section-toc.1-1.8">
-            <p id="section-toc.1-1.8.1"><a href="#section-8" class="xref">8</a>.  <a href="#name-informative-references" class="xref">Informative References</a><a href="#section-toc.1-1.8.1" class="pilcrow">¶</a></p>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
+            <p id="section-toc.1-1.7.1"><a href="#section-7" class="xref">7</a>.  <a href="#name-legal" class="xref">Legal</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.1">
+                <p id="section-toc.1-1.7.2.1.1"><a href="#section-7.1" class="xref">7.1</a>.  <a href="#name-safety-security-considerati" class="xref">Safety/Security Considerations</a></p>
 </li>
-          <li class="compact toc ulEmpty" id="section-toc.1-1.9">
-            <p id="section-toc.1-1.9.1"><a href="#section-appendix.a" class="xref"></a><a href="#name-authors-addresses" class="xref">Authors' Addresses</a><a href="#section-toc.1-1.9.1" class="pilcrow">¶</a></p>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.2">
+                <p id="section-toc.1-1.7.2.2.1"><a href="#section-7.2" class="xref">7.2</a>.  <a href="#name-warranty-disclaimer" class="xref">Warranty Disclaimer</a></p>
+</li>
+            </ul>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
+            <p id="section-toc.1-1.8.1"><a href="#section-8" class="xref">8</a>.  <a href="#name-informative-references" class="xref">Informative References</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9">
+            <p id="section-toc.1-1.9.1"><a href="#appendix-A" class="xref"></a><a href="#name-authors-addresses" class="xref">Authors' Addresses</a></p>
 </li>
         </ul>
 </nav>
@@ -1528,7 +1545,7 @@ dt+dd:empty::before{
 <p id="section-3-2">Consider the example of a launch day US Playstation 2. The hardware field could look like:<a href="#section-3-2" class="pilcrow">¶</a></p>
 <p id="section-3-3"><code>|BSONY,AO,FPS2,RU,TCON,MPS2,CBLK,VSCPH-90001,SU3565655,I|</code><a href="#section-3-3" class="pilcrow">¶</a></p>
 <p id="section-3-4">Hierarchically, this breaks down as<a href="#section-3-4" class="pilcrow">¶</a></p>
-<div class="artwork art-text alignLeft" id="section-3-5">
+<div class="alignLeft art-text artwork" id="section-3-5">
 <pre>Sony
   Original OEM
     Playstation 2
@@ -2585,7 +2602,7 @@ dt+dd:empty::before{
 <a href="#section-5" class="section-number selfRef">5. </a><a href="#name-example-code" class="section-name selfRef">Example Code</a>
       </h2>
 <p id="section-5-1">The following is an example of a compliant VGCC1 code:<a href="#section-5-1" class="pilcrow">¶</a></p>
-<div class="artwork art-text alignLeft" id="section-5-2">
+<div class="alignLeft art-text artwork" id="section-5-2">
 <pre>VGCC1|BNINT,AO,FNGC,RU,TCON,MNGC,CIND,VDOL-001,SDS315060768,I|PUSD,DSHCSMKTXTSmoking_home,MCHPLED,ESHLPRTDDA,USHL|20200829MCHPHyperBoot,20200829MLEDCtrlr,20200829OSHLTop,20200829OSHLHsd_cover,20211224RCHPHyperBoot_wiring,20211224OPRTtrlport3,20211224TDDA|
 </pre><a href="#section-5-2" class="pilcrow">¶</a>
 </div>
@@ -2807,11 +2824,11 @@ dt+dd:empty::before{
 <dl class="references">
 <dt id="Neptune">[Neptune]</dt>
       <dd>
-<span class="refAuthor">Hack Informer</span>, <span class="refTitle">"Review: Sega Neptune Mod from Retrohacks.net"</span>, <time datetime="2019-09-15" class="refDate">15 September 2019</time>, <span>&lt;<a href="https://hackinformer.com/2019/09/15/review-sega-neptune-mod-from-retrohacks-net/">https://hackinformer.com/2019/09/15/review-sega-neptune-mod-from-retrohacks-net/</a>&gt;</span>. </dd>
+<span class="refAuthor">Hack Informer</span>, <span class="refTitle">"Review: Sega Neptune Mod from Retrohacks.net"</span>, <span class="refContent"></span>, <time datetime="2019-09-15" class="refDate">15 September 2019</time>, <span>&lt;<a href="https://hackinformer.com/2019/09/15/review-sega-neptune-mod-from-retrohacks-net/">https://hackinformer.com/2019/09/15/review-sega-neptune-mod-from-retrohacks-net/</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="POLA">[POLA]</dt>
       <dd>
-<span class="refAuthor">Wikipedia</span>, <span class="refTitle">"Principle of least astonishment"</span>, <time datetime="2021-01" class="refDate">January 2021</time>, <span>&lt;<a href="https://en.wikipedia.org/w/index.php?title=Principle_of_least_astonishment">https://en.wikipedia.org/w/index.php?title=Principle_of_least_astonishment</a>&gt;</span>. </dd>
+<span class="refAuthor">Wikipedia</span>, <span class="refTitle">"Principle of least astonishment"</span>, <span class="refContent"></span>, <time datetime="2021-01" class="refDate">January 2021</time>, <span>&lt;<a href="https://en.wikipedia.org/w/index.php?title=Principle_of_least_astonishment">https://en.wikipedia.org/w/index.php?title=Principle_of_least_astonishment</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC2119">[RFC2119]</dt>
       <dd>
@@ -2819,12 +2836,12 @@ dt+dd:empty::before{
 <dd class="break"></dd>
 <dt id="goodtools-country">[goodtools-country]</dt>
     <dd>
-<span class="refAuthor">Game Tech Wiki</span>, <span class="refTitle">"GoodTools Country Codes"</span>, <time datetime="2019" class="refDate">2019</time>, <span>&lt;<a href="https://emulation.gametechwiki.com/index.php?title=GoodTools">https://emulation.gametechwiki.com/index.php?title=GoodTools</a>&gt;</span>. </dd>
+<span class="refAuthor">Game Tech Wiki</span>, <span class="refTitle">"GoodTools Country Codes"</span>, <span class="refContent"></span>, <time datetime="2019" class="refDate">2019</time>, <span>&lt;<a href="https://emulation.gametechwiki.com/index.php?title=GoodTools">https://emulation.gametechwiki.com/index.php?title=GoodTools</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>
 <div id="authors-addresses">
-<section id="section-appendix.a">
+<section id="appendix-A">
       <h2 id="name-authors-addresses">
 <a href="#name-authors-addresses" class="section-name selfRef">Authors' Addresses</a>
       </h2>
@@ -2856,3 +2873,4 @@ toc.querySelector("nav").addEventListener("click", e => {
 </script>
 </body>
 </html>
+
