@@ -6,7 +6,7 @@ Video Game Condition Report Workgroup                           M. Parks
                                                       TKWare Enterprises
                                                               A. Parrish
                                                          A Force Dynamic
-                                                       30 September 2021
+                                                          2 October 2021
 
 
                       Video Game Condition Code v1
@@ -55,7 +55,7 @@ Table of Contents
 
 Parks & Parrish               Informational                     [Page 1]
 
-                                 VGCCv1                   September 2021
+                                 VGCCv1                     October 2021
 
 
      4.1.  Version Field . . . . . . . . . . . . . . . . . . . . . .   6
@@ -111,7 +111,7 @@ Parks & Parrish               Informational                     [Page 1]
 
 Parks & Parrish               Informational                     [Page 2]
 
-                                 VGCCv1                   September 2021
+                                 VGCCv1                     October 2021
 
 
 1.1.  The Need for a Standard
@@ -167,7 +167,7 @@ Parks & Parrish               Informational                     [Page 2]
 
 Parks & Parrish               Informational                     [Page 3]
 
-                                 VGCCv1                   September 2021
+                                 VGCCv1                     October 2021
 
 
    *  In the version field in a compliant VGCC
@@ -223,7 +223,7 @@ Parks & Parrish               Informational                     [Page 3]
 
 Parks & Parrish               Informational                     [Page 4]
 
-                                 VGCCv1                   September 2021
+                                 VGCCv1                     October 2021
 
 
    All fields and attributes are REQUIRED unless otherwise stated.
@@ -279,7 +279,7 @@ Parks & Parrish               Informational                     [Page 4]
 
 Parks & Parrish               Informational                     [Page 5]
 
-                                 VGCCv1                   September 2021
+                                 VGCCv1                     October 2021
 
 
    Consider the example of a launch day US Playstation 2.  The hardware
@@ -335,7 +335,7 @@ Parks & Parrish               Informational                     [Page 5]
 
 Parks & Parrish               Informational                     [Page 6]
 
-                                 VGCCv1                   September 2021
+                                 VGCCv1                     October 2021
 
 
    B(brand),A(authenticity),F(family),R(region),T(type),M(model),C(color
@@ -391,7 +391,7 @@ Parks & Parrish               Informational                     [Page 6]
 
 Parks & Parrish               Informational                     [Page 7]
 
-                                 VGCCv1                   September 2021
+                                 VGCCv1                     October 2021
 
 
    *  !UNKN indicates that there probably is a brand, but that the
@@ -447,7 +447,7 @@ Parks & Parrish               Informational                     [Page 7]
 
 Parks & Parrish               Informational                     [Page 8]
 
-                                 VGCCv1                   September 2021
+                                 VGCCv1                     October 2021
 
 
    Owing to the large number of possible brands, the VGCC standard will
@@ -503,7 +503,7 @@ Parks & Parrish               Informational                     [Page 8]
 
 Parks & Parrish               Informational                     [Page 9]
 
-                                 VGCCv1                   September 2021
+                                 VGCCv1                     October 2021
 
 
 4.2.4.  Region (R)
@@ -559,7 +559,7 @@ Parks & Parrish               Informational                     [Page 9]
 
 Parks & Parrish               Informational                    [Page 10]
 
-                                 VGCCv1                   September 2021
+                                 VGCCv1                     October 2021
 
 
    This attribute represents different releases of a given set of
@@ -615,7 +615,7 @@ Parks & Parrish               Informational                    [Page 10]
 
 Parks & Parrish               Informational                    [Page 11]
 
-                                 VGCCv1                   September 2021
+                                 VGCCv1                     October 2021
 
 
 4.3.  Condition Field
@@ -671,7 +671,7 @@ Parks & Parrish               Informational                    [Page 11]
 
 Parks & Parrish               Informational                    [Page 12]
 
-                                 VGCCv1                   September 2021
+                                 VGCCv1                     October 2021
 
 
    If new damage occurs, or if the damage is repaired by servicing, such
@@ -727,7 +727,7 @@ Parks & Parrish               Informational                    [Page 12]
 
 Parks & Parrish               Informational                    [Page 13]
 
-                                 VGCCv1                   September 2021
+                                 VGCCv1                     October 2021
 
 
            | LMC# | Loose controller port                      |
@@ -783,7 +783,7 @@ Parks & Parrish               Informational                    [Page 13]
 
 Parks & Parrish               Informational                    [Page 14]
 
-                                 VGCCv1                   September 2021
+                                 VGCCv1                     October 2021
 
 
            | SHS# | Shell scratches                            |
@@ -839,7 +839,7 @@ Parks & Parrish               Informational                    [Page 14]
 
 Parks & Parrish               Informational                    [Page 15]
 
-                                 VGCCv1                   September 2021
+                                 VGCCv1                     October 2021
 
 
           +======+==============================================+
@@ -895,7 +895,7 @@ Parks & Parrish               Informational                    [Page 15]
 
 Parks & Parrish               Informational                    [Page 16]
 
-                                 VGCCv1                   September 2021
+                                 VGCCv1                     October 2021
 
 
    What constitutes a modification rather than a repair is whether the
@@ -951,7 +951,7 @@ Parks & Parrish               Informational                    [Page 16]
 
 Parks & Parrish               Informational                    [Page 17]
 
-                                 VGCCv1                   September 2021
+                                 VGCCv1                     October 2021
 
 
            +======+============================================+
@@ -1007,7 +1007,7 @@ Parks & Parrish               Informational                    [Page 17]
 
 Parks & Parrish               Informational                    [Page 18]
 
-                                 VGCCv1                   September 2021
+                                 VGCCv1                     October 2021
 
 
 4.3.4.  Known Repairs/Replacements (E)
@@ -1063,7 +1063,7 @@ Parks & Parrish               Informational                    [Page 18]
 
 Parks & Parrish               Informational                    [Page 19]
 
-                                 VGCCv1                   September 2021
+                                 VGCCv1                     October 2021
 
 
       +======+=====================================================+
@@ -1119,7 +1119,7 @@ Parks & Parrish               Informational                    [Page 19]
 
 Parks & Parrish               Informational                    [Page 20]
 
-                                 VGCCv1                   September 2021
+                                 VGCCv1                     October 2021
 
 
 4.3.5.  Refurbished / Non-OEM Parts (U)
@@ -1175,7 +1175,7 @@ Parks & Parrish               Informational                    [Page 20]
 
 Parks & Parrish               Informational                    [Page 21]
 
-                                 VGCCv1                   September 2021
+                                 VGCCv1                     October 2021
 
 
    +======+===========================================================+
@@ -1231,7 +1231,7 @@ VGCC1|BNINT,AO,FNGC,RU,TCON,MNGC,CIND,VDOL-001,SDS315060768,I|PUSD,DSHCSMKTXTSmo
 
 Parks & Parrish               Informational                    [Page 22]
 
-                                 VGCCv1                   September 2021
+                                 VGCCv1                     October 2021
 
 
    +------------------------------+-----------------------------------+
@@ -1287,7 +1287,7 @@ Parks & Parrish               Informational                    [Page 22]
 
 Parks & Parrish               Informational                    [Page 23]
 
-                                 VGCCv1                   September 2021
+                                 VGCCv1                     October 2021
 
 
    |                              | OEM part / Shell / Free-text:     |
@@ -1343,7 +1343,7 @@ Parks & Parrish               Informational                    [Page 23]
 
 Parks & Parrish               Informational                    [Page 24]
 
-                                 VGCCv1                   September 2021
+                                 VGCCv1                     October 2021
 
 
    *Multiplayer Adapters:* These fit under the 3PA category, and include
@@ -1399,7 +1399,7 @@ Parks & Parrish               Informational                    [Page 24]
 
 Parks & Parrish               Informational                    [Page 25]
 
-                                 VGCCv1                   September 2021
+                                 VGCCv1                     October 2021
 
 
 6.4.  Conflicting Codes & other considerations
@@ -1455,7 +1455,7 @@ Parks & Parrish               Informational                    [Page 25]
 
 Parks & Parrish               Informational                    [Page 26]
 
-                                 VGCCv1                   September 2021
+                                 VGCCv1                     October 2021
 
 
 7.2.  Warranty Disclaimer
