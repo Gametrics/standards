@@ -18,17 +18,17 @@ status = "informational"
 initials="M."
 surname="Parks"
 fullname="Michael Parks"
-organization="TKWare Enterprises"
+organization="Gametrics Foundation"
 [author.address]
-email = "mparks@tkware.info"
+email = "mparks@gametrics.org"
 
 [[author]] 
-initials="A."
-surname="Parrish"
-fullname="Alexander Parrish"
-organization="A Force Dynamic"
+initials="L."
+surname="DeVille"
+fullname="Lexi DeVille"
+organization="Gametrics Foundation"
 [author.address]
-email = "nuvandibe@gmail.com"
+email = "ldeville@gametrics.org"
 
 %%%
 
@@ -42,7 +42,7 @@ This standard is currently in a developmental, RFC draft phase. It should not be
 
 .# Copyright Notice
 
-Copyright 2021 - Mike Parks, Alexander Parrish, and contributors
+Copyright 2021 - Lexi DeVille, Mike Parks, and contributors
 
 Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A copy of the license is included in the file [LICENSE.MD](https://raw.githubusercontent.com/Karunamon/grc/master/LICENSE.md), located in the same repository as this standard doc.
 
@@ -58,7 +58,7 @@ Most who have tried curating their own collection of video games understands tha
 
 The Video Game Condition Report aims to standardize the way that video game hardware and software is described insofar as the actual status of the collectible, as well as provide a method for encoding concise information (the VGCC) into a QR code, NFC tag, or any similar medium for decoding by a portable device such as a phone or scanner.
 
-By creating and releasing this standard we, the VGCR Foundation, hope to help mitigate any misunderstandings where it comes to sales, trading, and describing of collectibles.
+By creating and releasing this standard we, the Gameetrics Foundation, hope to help mitigate any misunderstandings where it comes to sales, trading, and describing of collectibles.
 
 ## Terminology
 
@@ -66,7 +66,7 @@ The keywords **MUST**, **MUST NOT**, **REQUIRED**, **SHALL**, **SHALL NOT**, **S
 
 ## Availability & Updates
 
-The latest version document will always be hosted at https://gamerepair.codes
+The latest version document will always be hosted at https://gametrics.org
 
 To propose changes, please submit a pull request at https://github.com/Karunamon/grc
 
@@ -94,7 +94,7 @@ Item type                           | Reasoning
 ------------------------------------|---------------------------------------------------
 Pinball tables                      | Not considered video games
 Electronically-assisted board games | Not considered video games
-IBM-compatible PCs or software      | Impossible to determine a specific brand or model
+IBM or Mac PCs and clones           | Impossible to determine a specific brand or model
 Arcade machines                     | Planned for a future version of the standard
 
 # General Syntax
@@ -103,7 +103,7 @@ A valid VGCC string **MUST** follow this format:
 
 `VGCC Version Field|Hardware Identity Field|Condition Field|Repair History Field|`
 
-A "field" is a broad delineation of related information that may contain one or more attributes.
+A "field" is a broad delineation of related information that contains one or more attributes.
 
 An "attribute" is a section of information within a field that concretely describes some facet of information about a physical item, prefixed by a fixed number of one or more ASCII letters or numbers.
 
@@ -113,13 +113,13 @@ Field prefixes are case-sensitive.
 
 ## Length
 
-To ease encoding, a VGCC string **MUST NOT** exceed 1024 characters *before* compression. If a given code would be above this limit after adding a repair record, the creator of the code **MUST** use their best judgment to remove old or less-important records, paying special attention to any attributes in the `Condition` field that may no longer apply as a result of maintenance undertaken.
+A VGCC string **MUST NOT** exceed 1024 characters *before* compression. If a given code would be above this limit after adding a repair record, the creator of the code **MUST** use their best judgment to remove old or less-important records, paying special attention to any attributes in the `Condition` field that may no longer apply as a result of maintenance undertaken.
 
 ## Encoding
 
 Usable characters in a VGCC string are the ASCII letters A through Z in mixed case, numbers 0 through 9, and the symbols `!?;-|_,`.  
 
-The pipe (`|`) and comma (`,`) characters are reserved as field and attribute separators respectively, and **MUST NOT** appear in any other context. "Escaping" these characters is not permitted.
+The pipe (`|`) and comma (`,`) characters are reserved as field and attribute separators respectively, and **MUST NOT** appear in any other context. "Escaping" these characters for other uses is not permitted.
 
 The PCRE regular expression `^([A-Z]|[a-z]|[0-9]|[\!\?\|\-,;_])+$` **MAY** be used to check whether a VGCC string contains invalid characters.
 
