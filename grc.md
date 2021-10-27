@@ -34,11 +34,11 @@ email = "ldeville@gametrics.org"
 
 .# Abstract
 
-This memo defines a new encoding method for video game hardware/software identity and condition, and optionally, repair history.
+This memo defines a new encoding method for video game hardware/software identity, condition, and, optionally, repair history.
 
 .# Status of This Memo
 
-This standard is currently in a developmental, RFC draft phase. It should not be used for any non-development purpose until it has been finalized and tooling has been developed.
+This standard is currently in a developmental, RFC draft phase. Therefore, it should not be used for any non-development purpose until it has been finalized and tooling has been developed.
 
 .# Copyright Notice
 
@@ -50,15 +50,15 @@ Permission is granted to copy, distribute and/or modify this document under the 
 
 # Introduction
 
-The VGCC, Video Game Condition Code, is a condensed text string intended to denote the general status, details, and repair history of consumer video game consoles, software, and peripherals. It is intended for use by collectors, curators, retailers, resellers and enthusiasts, for any use case where a standardized way of representing the history and condition of video game paraphernalia would be beneficial.
+The Video Game Condition Code (VGCC) is a condensed text string intended to denote the general status, details, and repair history of consumer video game consoles, software, and peripherals. The target user base is  composed of collectors, curators, retailers, resellers, and enthusiasts. The VGCC can be applied in cases where a standardized method for representing the history and condition of video game paraphernalia would be beneficial.
 
 ## The Need for a Standard
 
-Most who have tried curating their own collection of video games understands that doing so has historically been a hassle. Whereas there are clearly-defined, community-accepted guidelines for collecting in other fields, such as coins, comics, and artwork, video games have been notably lacking in this department.
+Those who have attempted to curate their own collection of video games understand that doing so has historically been a hassle. While there are clearly-defined, community-accepted guidelines for collecting in other fields such as coins, comics, and artwork, video games have been notably lacking in this department.
 
-The Video Game Condition Report aims to standardize the way that video game hardware and software is described insofar as the actual status of the collectible, as well as provide a method for encoding concise information (the VGCC) into a QR code, NFC tag, or any similar medium for decoding by a portable device such as a phone or scanner.
+The Video Game Condition Report aims to standardize the way in which video game hardware and software is described insofar as the actual status of the collectible. It also seeks to provide a method for encoding concise information (the VGCC) into a QR code, NFC tag, or any similar medium for decoding by a portable device such as a phone or scanner.
 
-By creating and releasing this standard we, the Gameetrics Foundation, hope to help mitigate any misunderstandings where it comes to sales, trading, and describing of collectibles.
+By creating and releasing this standard, we, the Gameetrics Foundation, hope to help mitigate any misunderstandings related to selling, trading, and describing collectibles.
 
 ## Terminology
 
@@ -66,7 +66,7 @@ The keywords **MUST**, **MUST NOT**, **REQUIRED**, **SHALL**, **SHALL NOT**, **S
 
 ## Availability & Updates
 
-The latest version document will always be hosted at https://gametrics.org
+The latest version of this document will always be hosted at https://gametrics.org
 
 To propose changes, please submit a pull request at https://github.com/Karunamon/grc
 
@@ -80,30 +80,30 @@ The version number will be given:
 
 * In the title of this document
 * In a tag with the prefix `v` in the above-mentioned git repository
-* In the version field in a compliant VGCC
+* In the version field of a compliant VGCC
 
 Any backward-incompatible changes, such as changing the format or ordering of a field or attribute, will be reflected by incrementing the counter by one.
 
 ## Scope
 
-The VGCC is intended as a standard for encoding and displaying the condition of *only* physical video game hardware, software, and peripherals. 
+The VGCC is intended to serve as a standard for encoding and displaying the condition of *only* physical video game hardware, software, and peripherals. 
 
-The following specific types of items are explicitly considered out-of-scope despite their categorical relationship with video games. This standard **MAY** be used for classification of these items, but the specific needs of these items will not be considered by the VGCR working group, either in this standard or any supporting documentation or tooling:
+The following specific types of items are explicitly considered out-of-scope, despite their categorical relationship with video games. This standard **MAY** be used for classification of these items, but the specific needs of these items will not be considered by the VGCR working group, either in this standard or any supporting documentation or tooling:
 
 Item type                           | Reasoning
 ------------------------------------|---------------------------------------------------
 Pinball tables                      | Not considered video games
 Electronically-assisted board games | Not considered video games
-IBM or Mac PCs and clones           | Impossible to determine a specific brand or model
-Arcade machines                     | Planned for a future version of the standard
+IBM or Mac PCs and clones           | Impossible to determine the specific brand or model
+Arcade machines                     | Planned to be included in a future version of the standard
 
 # General Syntax
 
-A valid VGCC string **MUST** follow this format:
+A valid VGCC string **MUST** follow the format listed below:
 
 `VGCC Version Field|Hardware Identity Field|Condition Field|Repair History Field|`
 
-A "field" is a broad delineation of related information that contains one or more attributes.
+Here, a "field" is a broad delineation of related information that contains one or more attributes.
 
 An "attribute" is a section of information within a field that concretely describes some facet of information about a physical item, prefixed by a fixed number of one or more ASCII letters or numbers.
 
@@ -113,19 +113,19 @@ Field prefixes are case-sensitive.
 
 ## Length
 
-A VGCC string **MUST NOT** exceed 1024 characters *before* compression. If a given code would be above this limit after adding a repair record, the creator of the code **MUST** use their best judgment to remove old or less-important records, paying special attention to any attributes in the `Condition` field that may no longer apply as a result of maintenance undertaken.
+A VGCC string **MUST NOT** exceed 1024 characters *before* compression. If a code exceeds this limit after adding a repair record, the creator of the code **MUST** use their best judgment to remove old or less-important records, paying special attention to any attributes in the `Condition` field that may no longer apply as a result of undertaken maintenance.
 
 ## Encoding
 
-Usable characters in a VGCC string are the ASCII letters A through Z in mixed case, numbers 0 through 9, and the symbols `!?;-|_,`.  
+For this application, usable characters in a VGCC string include mixed case ASCII letters A through Z, numbers 0 through 9, and the symbols `!?;-|_,`.  
 
-The pipe (`|`) and comma (`,`) characters are reserved as field and attribute separators respectively, and **MUST NOT** appear in any other context. "Escaping" these characters for other uses is not permitted.
+The pipe (`|`) and comma (`,`) characters are reserved as field and attribute separators, respectively, and **MUST NOT** appear in any other context. "Escaping" these characters for other uses is not permitted.
 
 The PCRE regular expression `^([A-Z]|[a-z]|[0-9]|[\!\?\|\-,;_])+$` **MAY** be used to check whether a VGCC string contains invalid characters.
 
 ## Free-text attributes
 
-Certain attributes are designated as free-text. A free-text attribute contains 32 characters or less of alphanumeric characters subject to the encoding rules above. This text **SHOULD** be understood by tools that create or parse codes as arbitrary and conforming to no standard save for the description here.
+Certain attributes are designated as free-text. A free-text attribute contains 32 characters or less of alphanumeric characters subject to the encoding rules provided above. This text **SHOULD** be understood by tools that create or parse codes as arbitrary and conforming to no standard, aside from this description.
 
 Since whitespace is not allowed per the encoding rules, the underscore (`_`) **MAY** be used as a word separator if desired.
 
@@ -135,13 +135,13 @@ Any attribute designated as "optional" **MUST** still include its attribute pref
 
 # Design Philosophy
 
-The syntax of a VGCC hardware identity field is laid out in a hierarchical structure, starting broadly and then narrowing down to the identity of an individual item.
+The syntax of a VGCC hardware identity field is laid out in a hierarchical structure, starting broadly and then narrowing down to the identity of an individual item. This broad-to-narrow design was chosen because it allows for maximum flexibility in describing different types of items. 
 
-Consider the example of a launch day US Playstation 2. The hardware field could look like:
+Consider the following example of a launch day US Playstation 2. The hardware field could look like:
 
 `|BSONY,AO,FPS2,RU,TCON,MPS2,CBLK,VSCPH-90001,SU3565655,I|`
 
-Hierarchically, this breaks down as
+Hierarchically, this breaks down as:
 
 ```
 Sony
@@ -156,13 +156,12 @@ Sony
                   No added information
 ```
 
-This broad-to-narrow design was chosen because it allows for maximum flexibility in describing different types of items. 
 
 # Field Syntax
 
 ## Version Field
 
-This field **MUST** begin with an all-caps "VGCC" followed by a digit indicating the revision of the standard used:
+As shown below, this field **MUST** begin with an all-caps "VGCC" followed by a digit indicating the revision of the standard used:
 
 `VGCC(version number)`
 
@@ -174,7 +173,7 @@ For representation in QR codes or in a space-constrained medium, a VGCC **MAY** 
 
 ## Hardware Identity Field
 
-The hardware identity field defines, hierarchically, the identity of the item the code is being written for. 
+The hardware identity field defines, hierarchically, the identity of the item for which the code is being written. 
 
 This field **MUST** be ordered as follows:
 
@@ -184,7 +183,7 @@ This field **MUST** be ordered as follows:
 
 The Brand attribute is a four-letter representation of the original manufacturer of the hardware or software.
 
-Owing to the large number of possible brands, the VGCC standard will not attempt to define a list of all brands. Nevertheless, it is **RECOMMENDED** that companies appearing in the following table use the given brand code:
+Due to the large number of possible brands, the VGCC standard will not attempt to define a list of all brands. Nevertheless, it is **RECOMMENDED** that common companies appearing in the following table use the given brand codes:
 
 Code | Company
 -----|--------
@@ -195,7 +194,7 @@ SEGA | Sega
 ATAR | Atari
 COMM | Commodore
 
-Codes prefixed with a `!` indicate missing information. These special codes **MUST NOT** be used for any other purpose.
+Codes prefixed with a `!` indicate entries with missing information. These special codes **MUST NOT** be used for any other purpose.
 
 Code | Meaning
 -----|--------
@@ -203,35 +202,35 @@ Code | Meaning
 !UNKN| Unknown brand (but one probably exists)
 
 
-- `!NONA` indicates that the brand is unknown *and* unknow*able*. This could be a "no name" item with no meaningful brand information available, and it is unlikely that it will ever be known.
-- `!UNKN` indicates that there probably is a brand, but that the information is not known to the creator of the code
+- `!NONA` indicates that the brand is unknown *and* unknow*able*. This could refer to a "no name" item with no meaningful brand information available, where it is unlikely that the brand will ever be known.
+- `!UNKN` indicates that there is likely a brand associated with the item, but the information is not known to the creator of the code.
 
-When creating brand codes, it is **RECOMMENDED** that the following considerations apply:
+When creating brand codes, it is **RECOMMENDED** that users apply the following considerations:
 
-- If an item is known to be released by a subsidiary of a larger company, use the subsidiary's name (and so Tengen would be its own company, not Atari, even though Tengen was an Atari subsidiary).
-- For similarly-named regional subsidiaries, such as Nintendo of Japan or Nintendo of America, use the code of the parent company. Splitting regional subsidiaries into their own brands may represent too much granularity.
+- If an item is known to be released by a subsidiary of a larger company, use the subsidiary's name (i.e., Tengen would be its own company, separate from its parent Atari, even though Tengen was an Atari subsidiary).
+- For similarly-named regional subsidiaries, such as Nintendo of Japan or Nintendo of America, use the code of the parent company. Splitting regional subsidiaries into their own brands may present too much granularity.
 
 ### Authenticity \(A\)
 
-This attribute represents the authenticity of the device, i.e if the hardware is made by who it claims to be made by.
+This attribute represents the authenticity of the device, i.e., whether the hardware is actually made by whoever claims to have made it.
 
-The attribute takes the form of:
+This attribute takes the form of:
 
 - **`O`** if this is original or OEM hardware/software.
 - **`R`** if it is a repro or bootleg.
 
-Consider the brand/manufacturer when determining whether a device is original or repro. For example, if a piece of hardware passes itself off as Nintendo hardware but is not made by Nintendo, its proper code is **`R`**. Third-party consoles, even if they run OEM software (example: [the RetroN series of consoles](https://en.wikipedia.org/wiki/RetroN)), still do not pass themselves off as OEM hardware, and **MUST** be given as their own company name with an authenticity attribute of `O`
+Consider the brand/manufacturer when determining whether a device is original or repro. For example, if a piece of hardware presents itself as Nintendo hardware, but is not made by Nintendo, its proper code is **`R`**. Third-party consoles, even if they run OEM software (example: [the RetroN series of consoles](https://en.wikipedia.org/wiki/RetroN)), still are not genuine OEM hardware, and **MUST** be represented with their own company name and an authenticity attribute of `O`.
 
 
 ### Family \(F\)
 
-This attribute represents the general hardware family of the item. It is composed of a 3-character ALL-CAPS alphanumeric string.
+This attribute represents the item's general hardware family. It is composed of a 3-character ALL-CAPS alphanumeric string.
 
 The *first* release of any hardware system in any region defines the family. For example, the US NES is part of the Famicom family of systems.
 
-For software, the family indicates the primary system the software is intended to run on.
+For software, the family indicates the primary system on which the software is intended to run.
 
-Owing to the large number of possible brands, the VGCC standard will not attempt to define all possible families. Nevertheless, it is **RECOMMENDED** that hardware appearing in the following table use the given family code:
+Owing to the large number of possible brands, the VGCC standard will not attempt to define all possible families. Nevertheless, it is **RECOMMENDED** that common hardware appearing in the following table use the given family codes:
 
 Family Code | Description
 ------------|-----------
@@ -256,7 +255,7 @@ PC8         | NEC PC-88
 
 ### Region \(R\)
 
-This attribute represents the original release region of the item. It **MUST** be a recognized 1 to 3-letter GoodTools country code. [@goodtools-country]
+This attribute represents the original release region of the item. This **MUST** be a recognized 1- to 3-letter GoodTools country code. [@goodtools-country]
 
 ### Type \(T\)
 
@@ -278,15 +277,15 @@ AMD       | Alternate media device (ex: N64 Disk Drive, Famicom disk system, Suf
 
 This attribute is considered free-text.
 
-This attribute represents different releases of a given set of hardware of the same type and family with different features or functionality. For example, the Sega Genesis models 1, 2, or 3, or the PS2 fat or slim.
+This represents different releases of a given set of hardware of the same type and family with different features or functionality. For example, the Sega Genesis models 1, 2, or 3, or the PS2 fat or slim.
 
-It is **RECOMMENDED** that, if a VGCC is describing a piece of hardware that is the first in its family, that this attribute be set to the same value as the family attribute.
+It is **RECOMMENDED** that, if a VGCC is describing a piece of hardware that is the first in its family, this attribute be set to the same value as the family attribute.
 
 ### Color \(C\)
 
 This attribute is **OPTIONAL** and may be left empty.
 
-Represents the official color of the device as given by the manufacturer at manufacture time. 
+It represents the official color of the device as given by the manufacturer. 
 
 If provided, this attribute **MUST** contain the first three letters of the official color as given by the manufacturer. If the manufacturer calls their color "platinum", use PLA rather than SIL (silver).
 
@@ -294,19 +293,19 @@ If provided, this attribute **MUST** contain the first three letters of the offi
 
 This attribute is **OPTIONAL** and may be left empty. If provided, it is considered free-text.
 
-Represents a distinct hardware variant of a given model. For example, the "standard" Sega Dreamcast has the VA0, VA1, and VA2 variants
+This represents a distinct hardware variant of a given model. For example, the "standard" Sega Dreamcast has the VA0, VA1, and VA2 variants.
 
 ### Serial number \(S\)
 
 This attribute is **OPTIONAL** and may be left empty. If provided, it is considered free-text.
 
-Represents the full manufacturer serial number (*not* model number) of the device. If the serial number is unknown or non-existent, this field **MUST** be left blank.
+This represents the full manufacturer serial number (*not* the model number) of the device. If the serial number is unknown or non-existent, this field **MUST** be left blank.
 
 ### Information \(I\)
 
 This attribute is **OPTIONAL** and may be left empty. If provided, it is considered free-text.
 
-Contains any other special information the code creator wishes to share. This field **SHOULD** be used sparingly and only when the information provided is not duplicated by any other field and is significantly important to the identity of the item being cataloged.
+This contains any other special information the code creator wishes to share. This field **SHOULD** be used sparingly and only when the information provided is not covered or addressed by any other field and is significant to the identity of the item.
 
 ## Condition Field
 
@@ -324,27 +323,27 @@ Condition Code | Description
 ---------------|------------
 NEW            | New, still in *unopened* factory packaging.
 MNT            | Mint, opened, but in best concievable OEM physical condition. **No damage or mods**.
-USD            | Used, but fully functional. May have damage or be modified. Includes the presence of manufacturer refurbished hardware.
-PNF            | Used, partially nonfunctional (system is fit for purpose but certain functions are degraded)
-CNF            | Completely nonfunctional (system is no longer fit for purpose)
+USD            | Used, but fully functional. May have damage or modifications. Includes the presence of manufacturer refurbished hardware.
+PNF            | Used, partially nonfunctional (system is fit for purpose but certain functions are degraded).
+CNF            | Completely nonfunctional (system is no longer fit for purpose).
 
 ### Currently Known Damage \(D\) {#damagecodes}
 
 This attribute tracks various kinds of damage or degradation of an item. Damage consists of hardware or software deficiencies, with each class of damage having its own unique 3-letter code.
 
-If multiple damage classes apply to the item, they **MUST** be listed consecutively, with no delimiter. For example, an item with a yellowed case, smoke damage, and missing clips would have a damage attribute of `SHYSMKFST`.
+If multiple damage classes apply to the item, they **MUST** be listed consecutively, with no delimiter. For example, an item with a yellowed case, smoke damage, and missing clips would have a damage attribute of `SHYSMKFST`. Similarly, consecutive types of the same class of damage **MUST** be coded consecutively. For example, for a yellowed and cracked shell, the code is `SHCSHY` rather than `SHYC`.
 
 If new damage occurs, or if the damage is repaired by servicing, such as a shell replacement, the known damage fields **MUST** be updated to reflect the item's ***current*** condition.
 
-The list below is formatted for ease of reading. Consecutive types of the same class of damage **MUST** be coded consecutively, so for a yellowed and cracked shell, the code is `SHCSHY` rather than `SHYC`.
-
-A minor convention used in damage codes is that a code ending in `___X` indicates destruction or unknown damage to the component, where `___Z` indicates the component is outright missing.
+A minor convention used in damage codes is that a code ending in `___X` indicates destruction or unknown damage to the component, whereas `___Z` indicates the component is outright missing.
 
 Here we describe two sets of damage codes, quantifiable and non-quantifiable. 
 
-A quantifiable code is one where a severity of damage **MUST** be assigned, represented in the code as a digit from 1 to 3, where 1 is trivial and 3 is severe. For example, a scratched or fogged display could have a severity of "1" if the scratches are in a small area of the screen and don't effect readability, or a "3" if the scratches are ubiqitous and make the screen unusable. This severity entails a judgment call on the part of code creators, so decodiing tools **SHOULD NOT** attempt to read more meaning into 1, 2, and 3 beyond "superficial, moderate, and severe".
+A quantifiable code is one where a severity of the damage **MUST** be assigned, represented in the code as a digit from 1 to 3. Here, a value of 1 is trivial damage and 3 is severe damage. For example, a scratched or fogged display could have a severity of "1" if the scratches are in a small area of the screen and don't affect readability, but a "3" could be assigned if the scratches are ubiqitous and make the screen unusable. This severity entails a judgment call on the part of the code creator, so decodiing tools **SHOULD NOT** attempt to read more meaning into 1, 2, and 3 beyond "superficial, moderate, and severe".
 
 For formatting purposes, quantifiable codes are displayed here with a `#`. In real codes, this will be a number.
+
+The list below is formatted for ease of reading. 
 
 Code  | Description
 ------| -----------
@@ -355,15 +354,15 @@ Code  | Description
 `HID#`| Intermittent or non-functional gameplay controls
 `LCP#`| Partially or completely nonfunctional PCB edge connector (cartridge slot or similar)
 `LMC#`| Loose controller port
-`LMC#`| Loose or damaged PCB edge connector (cartridge slot, etc)
+`LMC#`| Loose or damaged PCB edge connector (cartridge slot, etc.)
 `LME#`| Loose expansion or memory card port
 `LMP#`| Loose power connector
-`LMS#`| Loose switch of any kind (power/mode/etc.)
+`LMS#`| Loose switch of any kind (power,mode,etc.)
 `LMV#`| Loose video port
 `ODX#`| Optical drive damaged (intermittent, unreliable, or non-functional)
-`OMC#`| Disc cracked (center ring or in an area that doesn't render the disc unreadable)
+`OMC#`| Disc cracked (in the center ring or an area that doesn't render the disc unreadable)
 `OMR#`| Visible damage or holes in the data layer due to label damage or "Disc rot"
-`OMS#`| Dis scratched
+`OMS#`| Disc scratched
 `OSX#`| On-board storage is corrupt or non-functional
 `SCC#`| Screen cracks
 `SCD#`| Digitizer (touchscreen) issues
@@ -381,14 +380,14 @@ Code  | Description
 `WAT#`| Water/moisture/other liquid damage, including rust
 Table: Quantifiable Damage Codes {#qdamage}
 
-A non-quantifiable damage code is one that describes a binary state. For example, `SHZ` describes a device missing its entire shell, but a missing shell cannot be more or less severe; it is either missing or it is not. For `__Z` codes that describe a missing item, a code creator **SHOULD** precisely define the missing item in a `TXT` if the code does not; for example, if connectors are missing, explain which ones.
+A non-quantifiable damage code is one that describes a binary state. For example, `SHZ` describes a device missing its entire shell. In cases like this, a missing shell cannot be more or less severe; it is either missing or it is not. For `__Z` codes that describe a missing item, the code creator **SHOULD** precisely define the missing item in a `TXT` if not defined by the code. For example, if connectors are missing, explain which specific ones are missing.
 
 Code | Description
 -----| -----------
 `BUG`| Evidence of insect infestation
 `DNS`| Does not save, battery backup/saving failure
 `ECZ`| Electrical components are missing
-`FST`| Missing fasteners (clips, screws, etc)
+`FST`| Missing fasteners (clips, screws, etc.)
 `LMZ`| Outright missing connectors
 `ODZ`| Optical drive missing
 `OLX`| Limited access to online services (game bans, or restriction to updates only)
@@ -399,23 +398,23 @@ Code | Description
 `SCZ`| Screen is missing
 `SHX`| Missing shell parts, such as a battery or port cover
 `SHZ`| Shell is missing outright
-`XXX`| This item has been irreperably destroyed.
+`XXX`| Item has been irreperably destroyed.
 `TXT`| Free-text follows. **MUST** come last.
 Table: Non-quantifiable Damage Codes {#nonqdamage}
 
 ### Modifications \(M\) {#modcodes}
 
-This attribute represents a list of the item's aftermarket modifications, including custom shells, LED modifications, etc., including those done to the item's software.
+This attribute represents a list of an item's aftermarket modifications, including custom shells, LED modifications, etc.. This also includes any modifications to the item's software.
 
-What constitutes a modification rather than a repair is whether the console appears or behaves differently from a stock console. Replacing a damaged shell with an identical shell is a repair (swap), whereas replacing a shell with a different colored shell is a modification.
+What constitutes a modification, and separates it from a repair, is whether the console appears or behaves differently from a stock console. Replacing a damaged shell with an identical shell is a repair (swap), whereas replacing a shell with a different colored shell is a modification.
 
 If there are no known modifications present, this field **MUST** be populated with "STK".
 
 Code  | Meaning
 ------|------------
 `STK` | No known modifications present on this console
-`LED` | LED modification; lights have been added to part of the item that did not have them before, or existing colors were replaced
-`SHL` | Shell modification; replacing with a non-stock shell or painting a shell with a custom color
+`LED` | LED modification; lights have been added to the item where there were none before, or existing colors were replaced
+`SHL` | Shell modification; replaced with a non-stock shell or painted a shell with a custom color
 `BKL` | Backlight
 `RGF` | Region-free
 `CHP` | Modchip
@@ -427,15 +426,15 @@ Code  | Meaning
 `AUD` | Audio-output modifications (speakers, headphones)
 `PCB` | Circuit or PCB-level mods, not including region-free or modchip installation
 `ODE` | Optical drive emulator
-`INT` | Integration, installing normally external peripherals into a shell (ex: Genesis [@Neptune] mod) 
+`INT` | Integration, installation of normally external peripherals into a shell (ex: Genesis [@Neptune] mod) 
 
 ### Known Repairs/Replacements \(E\)
 
 This attribute represents a list of non-modification repairs. It includes replacing OEM parts with reproduction parts that look and perform identically to their OEM counterparts. This would include replacing a cracked shell with an identical one, replacing minor electronic components, screen repair, etc.
 
-Generally, what differentiates a `M` (mod) from an `E` (repair) is whether the system has been customized or substantially changed from its OEM state. If this difference is ambiguous for your use case, you **SHOULD** default to using the `M` code instead.
+Generally, what differentiates a `M` (mod) from an `E` (repair) is whether the system has been customized or substantially changed from its OEM state. If this difference is ambiguous for your use case, you **SHOULD** default to using the `M` code.
 
-- Repairs/replacements of already-modified components **MUST** be treated as a re-modification and not included in this field.
+- Repairs/replacements of already-modified components **MUST** be treated as a re-modification and should thus not be included in this field.
 - Repair codes **MUST** be considered permanent and never be removed for any reason unless inaccurate.
 
 The list of repair codes is as follows:
@@ -448,7 +447,7 @@ Code | Description
 `DIG`| Digitizer (touchscreen)
 `HID`| Game controls (dpads, buttons, sticks - use `SHL` for system controls like power, volume, brightness)
 `LBL`| Label or printing replacement
-`NRO`| No repairs, has been opened (seals broken, if unsure, use this code)
+`NRO`| No repairs, has been opened (seals broken, use this code if unsure)
 `NRS`| No repairs, all seals still intact
 `PCB`| PCB components
 `PRT`| Ports (controller, data, video, sound etc.)
@@ -463,19 +462,19 @@ Table: List of Repair Codes {#repaircodes}
 
 ### Refurbished / Non-OEM Parts \(U\)
 
-This attribute represents a list of components of an item which are non-stock. It **MUST** be a consecutive list of items as defined in (#repaircodes)
+This attribute represents a list of an item's components that are non-stock. It **MUST** be a consecutive list of items as defined in (#repaircodes).
 
 ## Service History Field
 
 This field is **OPTIONAL** and may be skipped.
 
-The service history field represents a list of repair events. A "repair event" defined as service of a single item or directly related group of items in a sub-assembly.
+The service history field represents a list of repair events. A "repair event" is defined as service of a single item or directly related group of items in a sub-assembly.
 
 The format for a repair event is as follows:
 
 `(Datestamp)(Repair type)(Item repaired)(Free-text),`
 
-- The history list **MUST** be in chronological order, oldest events first.
+- The history list **MUST** be in chronological order, with oldest events first.
 - Each event **MUST** be comma-separated.
 - If a service history entry is invalidated or duplicated by a later event, such as the same component being replaced twice, the earlier entry **MUST** be removed.
 - Code creators **MUST NOT** add new service history items that they did not either personally perform or have performed on their behalf, unless a specific record of the repair or modification is available, such as an invoice.
@@ -488,20 +487,20 @@ If the repair date is entirely unknown, but you know a repair was made, you **MU
 
 ### Repair Types
 
-Represents the general disposition of the changes made to the item. This **MUST** be one of the codes below:
+This represents the general disposition of the changes made to the item. This **MUST** be one of the codes below:
 
 Code | Meaning
 -----|---------
 M    | Mod
 O    | Swapped in an OEM part
 T    | Swapped in a third-party or reproduction part
-R    | Repair (existing parts condition improved, or significant cleaning that resolves a concrete functional problem)
+R    | Repair (existing part's condition improved, or significant cleaning performed that resolves a concrete functional problem)
 
 Swaps or repairs that require no tools, such as battery replacements or cleaning intended to be done by the end user (for example, taking a cotton swab to a the laser on a disc system) **MUST NOT** have a repair entry added.
 
 ### Item Repaired
 
-Use a valid code from (#repaircodes)
+Use a valid code from (#repaircodes).
 
 # Example Code
 
@@ -532,7 +531,7 @@ PUSD | Physical condition: Used
 DSHCSMKTXTSmoking_home | Damage: Cracks in shell, smoke. Free-text: Smoking home
 MCHPLED | Modifications: Modchip and LEDs installed
 ESHLPRTDDA | Repairs made: Shell, port(s), disc drive assembly
-USHL| Refurbisehed parts used: Shell
+USHL| Refurbished parts used: Shell
  _ | **Field separator, repair history section begins**
 20200829MCHPHyperBoot | August 29, 2020: Mod installed / Modchip / Free-text: Hyperboot
 20200829MLEDCtrlr | August 29, 2020: Mod installed / LED(s) / Free-text: Controller ports
@@ -545,53 +544,53 @@ USHL| Refurbisehed parts used: Shell
 
 # Corner Cases and Ambiguities
 
-The organization scheme this standard sets out is suitable for nearly all purposes, yet there are specific niche pieces of hardware that could lead to ambiguity when defining codes. Some of these will be covered here as a sort of FAQ.
+The organization scheme set by this standard is suitable for nearly all purposes. However, there are specific niche pieces of hardware that could lead to ambiguity when defining codes. Some of these cases are covered in this section.
 
-**Multi-part Peripherals:** In the case of peripherals that have multiple independent parts (example: The SNES Super Scope itself, and the IR dongle that connects to the console), each part **MUST** be considered as its own unique peripheral, so the scope and the dongle would have their own individual VGCCs. Batching components together **MUST NOT** be done.
+**Multi-part Peripherals:** In the case of peripherals that have multiple independent parts (example: The SNES Super Scope itself, and the IR dongle that connects to the console), each part **MUST** be considered its own unique peripheral, so the scope and the dongle would have their own individual VGCCs. Batching components together **MUST NOT** be done.
 
 ## Type Classification
 
 Certain items may defy the code `T` classification scheme, or have good arguments for falling under multiple categories. The VGCR working group **RECOMMENDS** the following:
 
-**Cheat Devices:** All-in-one devices (that is, the cheat hardware and software are part of a single physical unit, ex: the NES Game Genie) are considered `SFT`. In the case of devices that have a separate cheat device as well as software, such as the PlayStation or Gamecube Action Replay, these must have their own separate VGCCs. The disc is `SFT`, and the hardware is `SNT` (as the device is intrinsic to the function of the software).
+**Cheat Devices:** All-in-one devices (that is, the cheat hardware and software are part of a single physical unit, ex: the NES Game Genie) are considered `SFT`. In the case of devices that have a separate cheat device as well as software, such as the PlayStation or Gamecube Action Replay, these must have their own separate VGCCs. Here, the disc is `SFT`, and the hardware is `SNT` (as the device is intrinsic to the function of the software).
 
 **Cartridge Copiers / Backup Devices:** These are all considered `3PA`.
 
 **Multiplayer Adapters:** These fit under the `3PA` category, and include devices such as the XBAND for SNES or Genesis. Multitap devices made by the console OEM are considered `1PA`.
 
-**Cartridge Peripherals:** These would generally fit under the category of `AMD` - devices that plug into the cartridge slot and allow you to play additional content in a format that was not possible on the original hardware. This would include devices where content is downloaded from the internet, received over broadcast services, or alternate physical media formats. Examples would include the Broadcast Satellaview or Sega Channel, Mega CD, Famicom Disk System, etc. It would also include retro compatibility add-ons, such as the Game Boy Player for the GameCube. Note that the software and hardware must have their own codes if they can be separated. The Satellaview cartridge, memory unit, and satellite adapter are all distinct devices with distinct VGCCs.
+**Cartridge Peripherals:** These would generally fit under the category of `AMD` - devices that plug into the cartridge slot and allow you to play additional content in a format that was not possible on the original hardware. This would include devices where content is downloaded from the internet or received over broadcast services, as well as alternate physical media formats. Examples would include the Broadcast Satellaview or Sega Channel, Mega CD, Famicom Disk System, etc. It would also include retro compatibility add-ons, such as the Game Boy Player for the GameCube. Note that the software and hardware must have their own codes if they can be separated. The Satellaview cartridge, memory unit, and satellite adapter are all distinct devices with distinct VGCCs.
 
 **Software for Alternate Media Devices:** Use the family code of the parent console. "Sonic CD" would have a family code of `SMD`. 
 
 ## Ambiguity in Authenticity
 
-To avoid "ship of Theseus" situations when determining authenticity, it is **RECOMMENDED** to think in terms of non-replaceable components. For instance, it is quite possible to replace the shell and a number of electronic components on an NES, but it still contains a OEM NES CPU and PPU at the en of the day. If those components are replaced with an FPGA of some kind, and the device still claims to be made by Nintendo, then it is clearly a repro.
+To avoid "ship of Theseus" situations when determining authenticity, it is **RECOMMENDED** that users think in terms of non-replaceable components. For instance, it is quite possible to replace the shell and a number of electronic components on an NES, but nevertheless it still contains an OEM NES CPU and PPU. If those components are replaced with an FPGA of some kind, and the device still claims to be made by Nintendo, then it is clearly a repro.
 
-The VGCR working group can not hope to objectively determine the line between "real" and "repro". Code creators are encouraged to consider the expectations of the human readers of their codes and encode information according to the principle of least astonishment [@POLA].
+Objectively determining the line between "real" and "repro" is outside the scope of the VGCR working group. Therefore, code creators are encouraged to consider the expectations of the human readers of their codes and encode information according to the principle of least astonishment [@POLA].
 
 ## Refurbishment
 
-When sending consoles into OEMs, they may repair a system and send it back *or* send an entirely new refurbished console. Check the serial numbers in this case. If a new serial number is received, you have received a new console and **MUST** start a brand new VGCC. **Do not carry any history over.** If the hardware you received is not in its factory packaging, you **MUST** add a `REF` under code `D` and note its status as `USD` under code `C`
+When sending consoles into OEMs, they may repair a system and send it back *or* send an entirely new refurbished console. Check the serial numbers in this case. If a new serial number is received, you have received a new console and **MUST** start a brand new VGCC. **Do not carry any history over.** If the hardware you received is not in its factory packaging, you **MUST** add a `REF` under code `D` and note its status as `USD` under code `C`.
 
 Refurbished consoles likely have had components repaired. Even so, code creators **MUST NOT** guess which components are repaired/refurbished.
 
-## Conflicting Codes & other considerations
+## Conflicting Codes & Other Considerations
 
-Generally speaking, the "rules" for a VGCC are:
+Generally speaking, the "rules" for a VGCC are as follows:
 
-1. Codes **MUST NOT** conflict with one another under any circumstances. Any situation which would result in a conflict is a case where one or multiple codes must be adjusted, or is an unforeseen design flaw with the VGCC standard.
+1. Codes **MUST NOT** conflict with one another under any circumstances. Any situation that would result in a conflict is a case where one or multiple codes must be adjusted, or is an unforeseen design flaw with the VGCC standard.
 2. Codes **MUST NOT** convey the same information more than once, with the exception of the repair history field which may necessarily duplicate information in the condition or damage fields.
 3. Codes in the [hardware identity](#hardware) field are considered intrinsic to the identity of the item being cataloged, and **MUST NOT** be changed unless correcting an error. The attributes **MUST** be written according to their validity at the time the item was manufactured.
 4. Codes in the [condition](#condition) field relate to the *present* condition of the item and **SHOULD** be updated often.
-5. Codes **SHOULD** be constructed such that all pertinent information about a piece of hardware is present even if the [service history](#servicehistory) field is blank.
-6. Ambiguities **SHOULD** be resolved in a way that is least favorable to the value of the item. In other words, if you're not sure if something is a swap or a mod, default to considering it a mod.
-7. VGCCs are intended to classify individual items, not retail bundles. For instance, it is common for OEMs to sell different console bundles with different hardware, peripherals, and software. Each item in the bundle would have its own VGCC, not the bundle as a whole.
+5. Codes **SHOULD** be constructed such that all pertinent information about a piece of hardware is present, even if the [service history](#servicehistory) field is blank.
+6. Ambiguities **SHOULD** be resolved in the manner that is least favorable to the value of the item. For example, if you are not sure if an item should be considered a swap or a mod, default to considering it a mod.
+7. VGCCs are intended to classify individual items, not retail bundles. For instance, it is common for OEMs to sell different console bundles with different hardware, peripherals, and software. In this case, each item in the bundle would have its own VGCC, rather than the bundle as a whole.
 
 # Legal
 
 ## Safety/Security Considerations
 
-Nothing prevents an unscrupulous seller from misrepresenting their product. A VGCC is intended for shorthand to describe an item and its history, not as a mark of safety or trustworthiness. The VGCR working group take no responsibility for its use by third parties or the accuracy of the information those parties encode.
+Nothing prevents an unscrupulous seller from misrepresenting their product. A VGCC is intended to serve as shorthand to describe an item and its history, not as a mark of safety or trustworthiness. The VGCR working group takes no responsibility for its use by third parties or the accuracy of the information those parties encode.
 
 ## Warranty Disclaimer
 
@@ -623,4 +622,3 @@ The VGCC working group offers this standard and any related applications or serv
        <date month='September' day="15" year='2019'/>
     </front>
 </reference>
-
