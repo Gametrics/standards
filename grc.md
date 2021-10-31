@@ -24,8 +24,8 @@ email = "mparks@gametrics.org"
 
 [[author]] 
 initials="L."
-surname="DeVille"
-fullname="Lexi DeVille"
+surname="Deville"
+fullname="Lexi Deville"
 organization="Gametrics Foundation"
 [author.address]
 email = "ldeville@gametrics.org"
@@ -42,7 +42,7 @@ This standard is currently in a developmental, RFC draft phase. It should not be
 
 .# Copyright Notice
 
-Copyright 2021 - Lexi DeVille, Mike Parks, and contributors
+Copyright 2021 - Lexi Deville, Mike Parks, and contributors
 
 Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A copy of the license is included in the file [LICENSE.MD](https://raw.githubusercontent.com/Karunamon/grc/master/LICENSE.md), located in the same repository as this standard doc.
 
