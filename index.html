@@ -8,7 +8,7 @@
 <meta content="Michael Parks" name="author">
 <meta content="Lexi Deville" name="author">
 <meta content="
-       This memo defines a new encoding method for video game hardware/software identity and condition, and optionally, repair history. 
+       This memo defines a new encoding method for video game hardware/software identity, condition, and, optionally, repair history. 
     " name="description">
 <meta content="xml2rfc 3.10.0" name="generator">
 <meta content="draft-vgccv1-01" name="ietf.draft">
@@ -1214,13 +1214,13 @@ li > p:last-of-type {
 <h1 id="title">Video Game Condition Code v1</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">This memo defines a new encoding method for video game hardware/software identity and condition, and optionally, repair history.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+<p id="section-abstract-1">This memo defines a new encoding method for video game hardware/software identity, condition, and, optionally, repair history.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note" id="section-note.1">
       <h2 id="name-status-of-this-memo">
 <a href="#name-status-of-this-memo" class="section-name selfRef">Status of This Memo</a>
       </h2>
-<p id="section-note.1-1">This standard is currently in a developmental, RFC draft phase. It should not be used for any non-development purpose until it has been finalized and tooling has been developed.<a href="#section-note.1-1" class="pilcrow">¶</a></p>
+<p id="section-note.1-1">This standard is currently in a developmental, RFC draft phase. Therefore, it should not be used for any non-development purpose until it has been finalized and tooling has been developed.<a href="#section-note.1-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note" id="section-note.2">
       <h2 id="name-copyright-notice">
@@ -1373,7 +1373,7 @@ li > p:last-of-type {
                 <p id="section-toc.1-1.6.2.3.1"><a href="#section-6.3" class="xref">6.3</a>.  <a href="#name-refurbishment" class="xref">Refurbishment</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.4">
-                <p id="section-toc.1-1.6.2.4.1"><a href="#section-6.4" class="xref">6.4</a>.  <a href="#name-conflicting-codes-other-con" class="xref">Conflicting Codes &amp; other considerations</a></p>
+                <p id="section-toc.1-1.6.2.4.1"><a href="#section-6.4" class="xref">6.4</a>.  <a href="#name-conflicting-codes-other-con" class="xref">Conflicting Codes &amp; Other Considerations</a></p>
 </li>
             </ul>
 </li>
@@ -1403,15 +1403,15 @@ li > p:last-of-type {
       <h2 id="name-introduction">
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
-<p id="section-1-1">The VGCC, Video Game Condition Code, is a condensed text string intended to denote the general status, details, and repair history of consumer video game consoles, software, and peripherals. It is intended for use by collectors, curators, retailers, resellers and enthusiasts, for any use case where a standardized way of representing the history and condition of video game paraphernalia would be beneficial.<a href="#section-1-1" class="pilcrow">¶</a></p>
+<p id="section-1-1">The Video Game Condition Code (VGCC) is a condensed text string intended to denote the general status, details, and repair history of consumer video game consoles, software, and peripherals. The target user base is  composed of collectors, curators, retailers, resellers, and enthusiasts. The VGCC can be applied in cases where a standardized method for representing the history and condition of video game paraphernalia would be beneficial.<a href="#section-1-1" class="pilcrow">¶</a></p>
 <div id="the-need-for-a-standard">
 <section id="section-1.1">
         <h3 id="name-the-need-for-a-standard">
 <a href="#section-1.1" class="section-number selfRef">1.1. </a><a href="#name-the-need-for-a-standard" class="section-name selfRef">The Need for a Standard</a>
         </h3>
-<p id="section-1.1-1">Most who have tried curating their own collection of video games understands that doing so has historically been a hassle. Whereas there are clearly-defined, community-accepted guidelines for collecting in other fields, such as coins, comics, and artwork, video games have been notably lacking in this department.<a href="#section-1.1-1" class="pilcrow">¶</a></p>
-<p id="section-1.1-2">The Video Game Condition Report aims to standardize the way that video game hardware and software is described insofar as the actual status of the collectible, as well as provide a method for encoding concise information (the VGCC) into a QR code, NFC tag, or any similar medium for decoding by a portable device such as a phone or scanner.<a href="#section-1.1-2" class="pilcrow">¶</a></p>
-<p id="section-1.1-3">By creating and releasing this standard we, the Gameetrics Foundation, hope to help mitigate any misunderstandings where it comes to sales, trading, and describing of collectibles.<a href="#section-1.1-3" class="pilcrow">¶</a></p>
+<p id="section-1.1-1">Those who have attempted to curate their own collection of video games understand that doing so has historically been a hassle. While there are clearly-defined, community-accepted guidelines for collecting in other fields such as coins, comics, and artwork, video games have been notably lacking in this department.<a href="#section-1.1-1" class="pilcrow">¶</a></p>
+<p id="section-1.1-2">The Video Game Condition Report aims to standardize the way in which video game hardware and software is described insofar as the actual status of the collectible. It also seeks to provide a method for encoding concise information (the VGCC) into a QR code, NFC tag, or any similar medium for decoding by a portable device such as a phone or scanner.<a href="#section-1.1-2" class="pilcrow">¶</a></p>
+<p id="section-1.1-3">By creating and releasing this standard, we, the Gameetrics Foundation, hope to help mitigate any misunderstandings related to selling, trading, and describing collectibles.<a href="#section-1.1-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="terminology">
@@ -1427,7 +1427,7 @@ li > p:last-of-type {
         <h3 id="name-availability-updates">
 <a href="#section-1.3" class="section-number selfRef">1.3. </a><a href="#name-availability-updates" class="section-name selfRef">Availability &amp; Updates</a>
         </h3>
-<p id="section-1.3-1">The latest version document will always be hosted at <a href="https://gametrics.org">https://gametrics.org</a><a href="#section-1.3-1" class="pilcrow">¶</a></p>
+<p id="section-1.3-1">The latest version of this document will always be hosted at <a href="https://gametrics.org">https://gametrics.org</a><a href="#section-1.3-1" class="pilcrow">¶</a></p>
 <p id="section-1.3-2">To propose changes, please submit a pull request at <a href="https://github.com/Karunamon/grc">https://github.com/Karunamon/grc</a><a href="#section-1.3-2" class="pilcrow">¶</a></p>
 <p id="section-1.3-3">The latest release tag of the above-named repository is considered to be the most up-to-date version of this standard. The <code>MASTER</code> branch represents work in progress.<a href="#section-1.3-3" class="pilcrow">¶</a></p>
 </section>
@@ -1444,7 +1444,7 @@ li > p:last-of-type {
 </li>
           <li class="normal" id="section-1.4-3.2">In a tag with the prefix <code>v</code> in the above-mentioned git repository<a href="#section-1.4-3.2" class="pilcrow">¶</a>
 </li>
-          <li class="normal" id="section-1.4-3.3">In the version field in a compliant VGCC<a href="#section-1.4-3.3" class="pilcrow">¶</a>
+          <li class="normal" id="section-1.4-3.3">In the version field of a compliant VGCC<a href="#section-1.4-3.3" class="pilcrow">¶</a>
 </li>
         </ul>
 <p id="section-1.4-4">Any backward-incompatible changes, such as changing the format or ordering of a field or attribute, will be reflected by incrementing the counter by one.<a href="#section-1.4-4" class="pilcrow">¶</a></p>
@@ -1455,8 +1455,8 @@ li > p:last-of-type {
         <h3 id="name-scope">
 <a href="#section-1.5" class="section-number selfRef">1.5. </a><a href="#name-scope" class="section-name selfRef">Scope</a>
         </h3>
-<p id="section-1.5-1">The VGCC is intended as a standard for encoding and displaying the condition of <em>only</em> physical video game hardware, software, and peripherals.<a href="#section-1.5-1" class="pilcrow">¶</a></p>
-<p id="section-1.5-2">The following specific types of items are explicitly considered out-of-scope despite their categorical relationship with video games. This standard <span class="bcp14">MAY</span> be used for classification of these items, but the specific needs of these items will not be considered by the VGCR working group, either in this standard or any supporting documentation or tooling:<a href="#section-1.5-2" class="pilcrow">¶</a></p>
+<p id="section-1.5-1">The VGCC is intended to serve as a standard for encoding and displaying the condition of <em>only</em> physical video game hardware, software, and peripherals.<a href="#section-1.5-1" class="pilcrow">¶</a></p>
+<p id="section-1.5-2">The following specific types of items are explicitly considered out-of-scope, despite their categorical relationship with video games. This standard <span class="bcp14">MAY</span> be used for classification of these items, but the specific needs of these items will not be considered by the VGCR working group, either in this standard or any supporting documentation or tooling:<a href="#section-1.5-2" class="pilcrow">¶</a></p>
 <table class="center" id="table-1">
           <caption><a href="#table-1" class="selfRef">Table 1</a></caption>
 <thead>
@@ -1476,11 +1476,11 @@ li > p:last-of-type {
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">IBM or Mac PCs and clones</td>
-              <td class="text-left" rowspan="1" colspan="1">Impossible to determine a specific brand or model</td>
+              <td class="text-left" rowspan="1" colspan="1">Impossible to determine the specific brand or model</td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">Arcade machines</td>
-              <td class="text-left" rowspan="1" colspan="1">Planned for a future version of the standard</td>
+              <td class="text-left" rowspan="1" colspan="1">Planned to be included in a future version of the standard</td>
             </tr>
           </tbody>
         </table>
@@ -1493,9 +1493,9 @@ li > p:last-of-type {
       <h2 id="name-general-syntax">
 <a href="#section-2" class="section-number selfRef">2. </a><a href="#name-general-syntax" class="section-name selfRef">General Syntax</a>
       </h2>
-<p id="section-2-1">A valid VGCC string <span class="bcp14">MUST</span> follow this format:<a href="#section-2-1" class="pilcrow">¶</a></p>
+<p id="section-2-1">A valid VGCC string <span class="bcp14">MUST</span> follow the format listed below:<a href="#section-2-1" class="pilcrow">¶</a></p>
 <p id="section-2-2"><code>VGCC Version Field|Hardware Identity Field|Condition Field|Repair History Field|</code><a href="#section-2-2" class="pilcrow">¶</a></p>
-<p id="section-2-3">A "field" is a broad delineation of related information that contains one or more attributes.<a href="#section-2-3" class="pilcrow">¶</a></p>
+<p id="section-2-3">Here, a "field" is a broad delineation of related information that contains one or more attributes.<a href="#section-2-3" class="pilcrow">¶</a></p>
 <p id="section-2-4">An "attribute" is a section of information within a field that concretely describes some facet of information about a physical item, prefixed by a fixed number of one or more ASCII letters or numbers.<a href="#section-2-4" class="pilcrow">¶</a></p>
 <p id="section-2-5">All fields and attributes are <span class="bcp14">REQUIRED</span> unless otherwise stated.<a href="#section-2-5" class="pilcrow">¶</a></p>
 <p id="section-2-6">Field prefixes are case-sensitive.<a href="#section-2-6" class="pilcrow">¶</a></p>
@@ -1504,7 +1504,7 @@ li > p:last-of-type {
         <h3 id="name-length">
 <a href="#section-2.1" class="section-number selfRef">2.1. </a><a href="#name-length" class="section-name selfRef">Length</a>
         </h3>
-<p id="section-2.1-1">A VGCC string <span class="bcp14">MUST NOT</span> exceed 1024 characters <em>before</em> compression. If a given code would be above this limit after adding a repair record, the creator of the code <span class="bcp14">MUST</span> use their best judgment to remove old or less-important records, paying special attention to any attributes in the <code>Condition</code> field that may no longer apply as a result of maintenance undertaken.<a href="#section-2.1-1" class="pilcrow">¶</a></p>
+<p id="section-2.1-1">A VGCC string <span class="bcp14">MUST NOT</span> exceed 1024 characters <em>before</em> compression. If a code exceeds this limit after adding a repair record, the creator of the code <span class="bcp14">MUST</span> use their best judgment to remove old or less-important records, paying special attention to any attributes in the <code>Condition</code> field that may no longer apply as a result of undertaken maintenance.<a href="#section-2.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="encoding">
@@ -1512,8 +1512,8 @@ li > p:last-of-type {
         <h3 id="name-encoding">
 <a href="#section-2.2" class="section-number selfRef">2.2. </a><a href="#name-encoding" class="section-name selfRef">Encoding</a>
         </h3>
-<p id="section-2.2-1">Usable characters in a VGCC string are the ASCII letters A through Z in mixed case, numbers 0 through 9, and the symbols <code>!?;-|_,</code>.<a href="#section-2.2-1" class="pilcrow">¶</a></p>
-<p id="section-2.2-2">The pipe (<code>|</code>) and comma (<code>,</code>) characters are reserved as field and attribute separators respectively, and <span class="bcp14">MUST NOT</span> appear in any other context. "Escaping" these characters for other uses is not permitted.<a href="#section-2.2-2" class="pilcrow">¶</a></p>
+<p id="section-2.2-1">For this application, usable characters in a VGCC string include mixed case ASCII letters A through Z, numbers 0 through 9, and the symbols <code>!?;-|_,</code>.<a href="#section-2.2-1" class="pilcrow">¶</a></p>
+<p id="section-2.2-2">The pipe (<code>|</code>) and comma (<code>,</code>) characters are reserved as field and attribute separators, respectively, and <span class="bcp14">MUST NOT</span> appear in any other context. "Escaping" these characters for other uses is not permitted.<a href="#section-2.2-2" class="pilcrow">¶</a></p>
 <p id="section-2.2-3">The PCRE regular expression <code>^([A-Z]|[a-z]|[0-9]|[\!\?\|\-,;_])+$</code> <span class="bcp14">MAY</span> be used to check whether a VGCC string contains invalid characters.<a href="#section-2.2-3" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -1522,7 +1522,7 @@ li > p:last-of-type {
         <h3 id="name-free-text-attributes">
 <a href="#section-2.3" class="section-number selfRef">2.3. </a><a href="#name-free-text-attributes" class="section-name selfRef">Free-text attributes</a>
         </h3>
-<p id="section-2.3-1">Certain attributes are designated as free-text. A free-text attribute contains 32 characters or less of alphanumeric characters subject to the encoding rules above. This text <span class="bcp14">SHOULD</span> be understood by tools that create or parse codes as arbitrary and conforming to no standard save for the description here.<a href="#section-2.3-1" class="pilcrow">¶</a></p>
+<p id="section-2.3-1">Certain attributes are designated as free-text. A free-text attribute contains 32 characters or less of alphanumeric characters subject to the encoding rules provided above. This text <span class="bcp14">SHOULD</span> be understood by tools that create or parse codes as arbitrary and conforming to no standard, aside from this description.<a href="#section-2.3-1" class="pilcrow">¶</a></p>
 <p id="section-2.3-2">Since whitespace is not allowed per the encoding rules, the underscore (<code>_</code>) <span class="bcp14">MAY</span> be used as a word separator if desired.<a href="#section-2.3-2" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -1541,10 +1541,10 @@ li > p:last-of-type {
       <h2 id="name-design-philosophy">
 <a href="#section-3" class="section-number selfRef">3. </a><a href="#name-design-philosophy" class="section-name selfRef">Design Philosophy</a>
       </h2>
-<p id="section-3-1">The syntax of a VGCC hardware identity field is laid out in a hierarchical structure, starting broadly and then narrowing down to the identity of an individual item.<a href="#section-3-1" class="pilcrow">¶</a></p>
-<p id="section-3-2">Consider the example of a launch day US Playstation 2. The hardware field could look like:<a href="#section-3-2" class="pilcrow">¶</a></p>
+<p id="section-3-1">The syntax of a VGCC hardware identity field is laid out in a hierarchical structure, starting broadly and then narrowing down to the identity of an individual item. This broad-to-narrow design was chosen because it allows for maximum flexibility in describing different types of items.<a href="#section-3-1" class="pilcrow">¶</a></p>
+<p id="section-3-2">Consider the following example of a launch day US Playstation 2. The hardware field could look like:<a href="#section-3-2" class="pilcrow">¶</a></p>
 <p id="section-3-3"><code>|BSONY,AO,FPS2,RU,TCON,MPS2,CBLK,VSCPH-90001,SU3565655,I|</code><a href="#section-3-3" class="pilcrow">¶</a></p>
-<p id="section-3-4">Hierarchically, this breaks down as<a href="#section-3-4" class="pilcrow">¶</a></p>
+<p id="section-3-4">Hierarchically, this breaks down as:<a href="#section-3-4" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-3-5">
 <pre>Sony
   Original OEM
@@ -1558,7 +1558,6 @@ li > p:last-of-type {
                   No added information
 </pre><a href="#section-3-5" class="pilcrow">¶</a>
 </div>
-<p id="section-3-6">This broad-to-narrow design was chosen because it allows for maximum flexibility in describing different types of items.<a href="#section-3-6" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="field-syntax">
@@ -1571,7 +1570,7 @@ li > p:last-of-type {
         <h3 id="name-version-field">
 <a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-version-field" class="section-name selfRef">Version Field</a>
         </h3>
-<p id="section-4.1-1">This field <span class="bcp14">MUST</span> begin with an all-caps "VGCC" followed by a digit indicating the revision of the standard used:<a href="#section-4.1-1" class="pilcrow">¶</a></p>
+<p id="section-4.1-1">As shown below, this field <span class="bcp14">MUST</span> begin with an all-caps "VGCC" followed by a digit indicating the revision of the standard used:<a href="#section-4.1-1" class="pilcrow">¶</a></p>
 <p id="section-4.1-2"><code>VGCC(version number)</code><a href="#section-4.1-2" class="pilcrow">¶</a></p>
 <div id="compression">
 <section id="section-4.1.1">
@@ -1589,7 +1588,7 @@ li > p:last-of-type {
         <h3 id="name-hardware-identity-field">
 <a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-hardware-identity-field" class="section-name selfRef">Hardware Identity Field</a>
         </h3>
-<p id="section-4.2-1">The hardware identity field defines, hierarchically, the identity of the item the code is being written for.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
+<p id="section-4.2-1">The hardware identity field defines, hierarchically, the identity of the item for which the code is being written.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
 <p id="section-4.2-2">This field <span class="bcp14">MUST</span> be ordered as follows:<a href="#section-4.2-2" class="pilcrow">¶</a></p>
 <p id="section-4.2-3"><code>B(brand),A(authenticity),F(family),R(region),T(type),M(model),C(color),V(variant),S(serial),I(information)</code><a href="#section-4.2-3" class="pilcrow">¶</a></p>
 <div id="brand-manufacturer-b">
@@ -1598,7 +1597,7 @@ li > p:last-of-type {
 <a href="#section-4.2.1" class="section-number selfRef">4.2.1. </a><a href="#name-brand-manufacturer-b" class="section-name selfRef">Brand/Manufacturer (B)</a>
           </h4>
 <p id="section-4.2.1-1">The Brand attribute is a four-letter representation of the original manufacturer of the hardware or software.<a href="#section-4.2.1-1" class="pilcrow">¶</a></p>
-<p id="section-4.2.1-2">Owing to the large number of possible brands, the VGCC standard will not attempt to define a list of all brands. Nevertheless, it is <span class="bcp14">RECOMMENDED</span> that companies appearing in the following table use the given brand code:<a href="#section-4.2.1-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.1-2">Due to the large number of possible brands, the VGCC standard will not attempt to define a list of all brands. Nevertheless, it is <span class="bcp14">RECOMMENDED</span> that common companies appearing in the following table use the given brand codes:<a href="#section-4.2.1-2" class="pilcrow">¶</a></p>
 <table class="center" id="table-2">
             <caption><a href="#table-2" class="selfRef">Table 2</a></caption>
 <thead>
@@ -1634,7 +1633,7 @@ li > p:last-of-type {
               </tr>
             </tbody>
           </table>
-<p id="section-4.2.1-4">Codes prefixed with a <code>!</code> indicate missing information. These special codes <span class="bcp14">MUST NOT</span> be used for any other purpose.<a href="#section-4.2.1-4" class="pilcrow">¶</a></p>
+<p id="section-4.2.1-4">Codes prefixed with a <code>!</code> indicate entries with missing information. These special codes <span class="bcp14">MUST NOT</span> be used for any other purpose.<a href="#section-4.2.1-4" class="pilcrow">¶</a></p>
 <table class="center" id="table-3">
             <caption><a href="#table-3" class="selfRef">Table 3</a></caption>
 <thead>
@@ -1656,17 +1655,17 @@ li > p:last-of-type {
           </table>
 <ul class="normal">
 <li class="normal" id="section-4.2.1-6.1">
-              <code>!NONA</code> indicates that the brand is unknown <em>and</em> unknow<em>able</em>. This could be a "no name" item with no meaningful brand information available, and it is unlikely that it will ever be known.<a href="#section-4.2.1-6.1" class="pilcrow">¶</a>
+              <code>!NONA</code> indicates that the brand is unknown <em>and</em> unknow<em>able</em>. This could refer to a "no name" item with no meaningful brand information available, where it is unlikely that the brand will ever be known.<a href="#section-4.2.1-6.1" class="pilcrow">¶</a>
 </li>
             <li class="normal" id="section-4.2.1-6.2">
-              <code>!UNKN</code> indicates that there probably is a brand, but that the information is not known to the creator of the code<a href="#section-4.2.1-6.2" class="pilcrow">¶</a>
+              <code>!UNKN</code> indicates that there is likely a brand associated with the item, but the information is not known to the creator of the code.<a href="#section-4.2.1-6.2" class="pilcrow">¶</a>
 </li>
           </ul>
-<p id="section-4.2.1-7">When creating brand codes, it is <span class="bcp14">RECOMMENDED</span> that the following considerations apply:<a href="#section-4.2.1-7" class="pilcrow">¶</a></p>
+<p id="section-4.2.1-7">When creating brand codes, it is <span class="bcp14">RECOMMENDED</span> that users apply the following considerations:<a href="#section-4.2.1-7" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-4.2.1-8.1">If an item is known to be released by a subsidiary of a larger company, use the subsidiary's name (and so Tengen would be its own company, not Atari, even though Tengen was an Atari subsidiary).<a href="#section-4.2.1-8.1" class="pilcrow">¶</a>
+<li class="normal" id="section-4.2.1-8.1">If an item is known to be released by a subsidiary of a larger company, use the subsidiary's name (i.e., Tengen would be its own company, separate from its parent Atari, even though Tengen was an Atari subsidiary).<a href="#section-4.2.1-8.1" class="pilcrow">¶</a>
 </li>
-            <li class="normal" id="section-4.2.1-8.2">For similarly-named regional subsidiaries, such as Nintendo of Japan or Nintendo of America, use the code of the parent company. Splitting regional subsidiaries into their own brands may represent too much granularity.<a href="#section-4.2.1-8.2" class="pilcrow">¶</a>
+            <li class="normal" id="section-4.2.1-8.2">For similarly-named regional subsidiaries, such as Nintendo of Japan or Nintendo of America, use the code of the parent company. Splitting regional subsidiaries into their own brands may present too much granularity.<a href="#section-4.2.1-8.2" class="pilcrow">¶</a>
 </li>
           </ul>
 </section>
@@ -1676,8 +1675,8 @@ li > p:last-of-type {
           <h4 id="name-authenticity-a">
 <a href="#section-4.2.2" class="section-number selfRef">4.2.2. </a><a href="#name-authenticity-a" class="section-name selfRef">Authenticity (A)</a>
           </h4>
-<p id="section-4.2.2-1">This attribute represents the authenticity of the device, i.e if the hardware is made by who it claims to be made by.<a href="#section-4.2.2-1" class="pilcrow">¶</a></p>
-<p id="section-4.2.2-2">The attribute takes the form of:<a href="#section-4.2.2-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.2-1">This attribute represents the authenticity of the device, i.e., whether the hardware is actually made by whoever claims to have made it.<a href="#section-4.2.2-1" class="pilcrow">¶</a></p>
+<p id="section-4.2.2-2">This attribute takes the form of:<a href="#section-4.2.2-2" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-4.2.2-3.1">
               <strong><code>O</code></strong> if this is original or OEM hardware/software.<a href="#section-4.2.2-3.1" class="pilcrow">¶</a>
@@ -1686,7 +1685,7 @@ li > p:last-of-type {
               <strong><code>R</code></strong> if it is a repro or bootleg.<a href="#section-4.2.2-3.2" class="pilcrow">¶</a>
 </li>
           </ul>
-<p id="section-4.2.2-4">Consider the brand/manufacturer when determining whether a device is original or repro. For example, if a piece of hardware passes itself off as Nintendo hardware but is not made by Nintendo, its proper code is <strong><code>R</code></strong>. Third-party consoles, even if they run OEM software (example: <a href="https://en.wikipedia.org/wiki/RetroN">the RetroN series of consoles</a>), still do not pass themselves off as OEM hardware, and <span class="bcp14">MUST</span> be given as their own company name with an authenticity attribute of <code>O</code><a href="#section-4.2.2-4" class="pilcrow">¶</a></p>
+<p id="section-4.2.2-4">Consider the brand/manufacturer when determining whether a device is original or repro. For example, if a piece of hardware presents itself as Nintendo hardware, but is not made by Nintendo, its proper code is <strong><code>R</code></strong>. Third-party consoles, even if they run OEM software (example: <a href="https://en.wikipedia.org/wiki/RetroN">the RetroN series of consoles</a>), still are not genuine OEM hardware, and <span class="bcp14">MUST</span> be represented with their own company name and an authenticity attribute of <code>O</code>.<a href="#section-4.2.2-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="family-f">
@@ -1694,10 +1693,10 @@ li > p:last-of-type {
           <h4 id="name-family-f">
 <a href="#section-4.2.3" class="section-number selfRef">4.2.3. </a><a href="#name-family-f" class="section-name selfRef">Family (F)</a>
           </h4>
-<p id="section-4.2.3-1">This attribute represents the general hardware family of the item. It is composed of a 3-character ALL-CAPS alphanumeric string.<a href="#section-4.2.3-1" class="pilcrow">¶</a></p>
+<p id="section-4.2.3-1">This attribute represents the item's general hardware family. It is composed of a 3-character ALL-CAPS alphanumeric string.<a href="#section-4.2.3-1" class="pilcrow">¶</a></p>
 <p id="section-4.2.3-2">The <em>first</em> release of any hardware system in any region defines the family. For example, the US NES is part of the Famicom family of systems.<a href="#section-4.2.3-2" class="pilcrow">¶</a></p>
-<p id="section-4.2.3-3">For software, the family indicates the primary system the software is intended to run on.<a href="#section-4.2.3-3" class="pilcrow">¶</a></p>
-<p id="section-4.2.3-4">Owing to the large number of possible brands, the VGCC standard will not attempt to define all possible families. Nevertheless, it is <span class="bcp14">RECOMMENDED</span> that hardware appearing in the following table use the given family code:<a href="#section-4.2.3-4" class="pilcrow">¶</a></p>
+<p id="section-4.2.3-3">For software, the family indicates the primary system on which the software is intended to run.<a href="#section-4.2.3-3" class="pilcrow">¶</a></p>
+<p id="section-4.2.3-4">Owing to the large number of possible brands, the VGCC standard will not attempt to define all possible families. Nevertheless, it is <span class="bcp14">RECOMMENDED</span> that common hardware appearing in the following table use the given family codes:<a href="#section-4.2.3-4" class="pilcrow">¶</a></p>
 <table class="center" id="table-4">
             <caption><a href="#table-4" class="selfRef">Table 4</a></caption>
 <thead>
@@ -1788,7 +1787,7 @@ li > p:last-of-type {
           <h4 id="name-region-r">
 <a href="#section-4.2.4" class="section-number selfRef">4.2.4. </a><a href="#name-region-r" class="section-name selfRef">Region (R)</a>
           </h4>
-<p id="section-4.2.4-1">This attribute represents the original release region of the item. It <span class="bcp14">MUST</span> be a recognized 1 to 3-letter GoodTools country code. <span>[<a href="#goodtools-country" class="xref">goodtools-country</a>]</span><a href="#section-4.2.4-1" class="pilcrow">¶</a></p>
+<p id="section-4.2.4-1">This attribute represents the original release region of the item. This <span class="bcp14">MUST</span> be a recognized 1- to 3-letter GoodTools country code. <span>[<a href="#goodtools-country" class="xref">goodtools-country</a>]</span><a href="#section-4.2.4-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="type-t">
@@ -1845,8 +1844,8 @@ li > p:last-of-type {
 <a href="#section-4.2.6" class="section-number selfRef">4.2.6. </a><a href="#name-model-m" class="section-name selfRef">Model (M)</a>
           </h4>
 <p id="section-4.2.6-1">This attribute is considered free-text.<a href="#section-4.2.6-1" class="pilcrow">¶</a></p>
-<p id="section-4.2.6-2">This attribute represents different releases of a given set of hardware of the same type and family with different features or functionality. For example, the Sega Genesis models 1, 2, or 3, or the PS2 fat or slim.<a href="#section-4.2.6-2" class="pilcrow">¶</a></p>
-<p id="section-4.2.6-3">It is <span class="bcp14">RECOMMENDED</span> that, if a VGCC is describing a piece of hardware that is the first in its family, that this attribute be set to the same value as the family attribute.<a href="#section-4.2.6-3" class="pilcrow">¶</a></p>
+<p id="section-4.2.6-2">This represents different releases of a given set of hardware of the same type and family with different features or functionality. For example, the Sega Genesis models 1, 2, or 3, or the PS2 fat or slim.<a href="#section-4.2.6-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.6-3">It is <span class="bcp14">RECOMMENDED</span> that, if a VGCC is describing a piece of hardware that is the first in its family, this attribute be set to the same value as the family attribute.<a href="#section-4.2.6-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="color-c">
@@ -1855,7 +1854,7 @@ li > p:last-of-type {
 <a href="#section-4.2.7" class="section-number selfRef">4.2.7. </a><a href="#name-color-c" class="section-name selfRef">Color (C)</a>
           </h4>
 <p id="section-4.2.7-1">This attribute is <span class="bcp14">OPTIONAL</span> and may be left empty.<a href="#section-4.2.7-1" class="pilcrow">¶</a></p>
-<p id="section-4.2.7-2">Represents the official color of the device as given by the manufacturer at manufacture time.<a href="#section-4.2.7-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.7-2">It represents the official color of the device as given by the manufacturer.<a href="#section-4.2.7-2" class="pilcrow">¶</a></p>
 <p id="section-4.2.7-3">If provided, this attribute <span class="bcp14">MUST</span> contain the first three letters of the official color as given by the manufacturer. If the manufacturer calls their color "platinum", use PLA rather than SIL (silver).<a href="#section-4.2.7-3" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -1865,7 +1864,7 @@ li > p:last-of-type {
 <a href="#section-4.2.8" class="section-number selfRef">4.2.8. </a><a href="#name-variant-revision-v" class="section-name selfRef">Variant/Revision (V)</a>
           </h4>
 <p id="section-4.2.8-1">This attribute is <span class="bcp14">OPTIONAL</span> and may be left empty. If provided, it is considered free-text.<a href="#section-4.2.8-1" class="pilcrow">¶</a></p>
-<p id="section-4.2.8-2">Represents a distinct hardware variant of a given model. For example, the "standard" Sega Dreamcast has the VA0, VA1, and VA2 variants<a href="#section-4.2.8-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.8-2">This represents a distinct hardware variant of a given model. For example, the "standard" Sega Dreamcast has the VA0, VA1, and VA2 variants.<a href="#section-4.2.8-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="serial-number-s">
@@ -1874,7 +1873,7 @@ li > p:last-of-type {
 <a href="#section-4.2.9" class="section-number selfRef">4.2.9. </a><a href="#name-serial-number-s" class="section-name selfRef">Serial number (S)</a>
           </h4>
 <p id="section-4.2.9-1">This attribute is <span class="bcp14">OPTIONAL</span> and may be left empty. If provided, it is considered free-text.<a href="#section-4.2.9-1" class="pilcrow">¶</a></p>
-<p id="section-4.2.9-2">Represents the full manufacturer serial number (<em>not</em> model number) of the device. If the serial number is unknown or non-existent, this field <span class="bcp14">MUST</span> be left blank.<a href="#section-4.2.9-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.9-2">This represents the full manufacturer serial number (<em>not</em> the model number) of the device. If the serial number is unknown or non-existent, this field <span class="bcp14">MUST</span> be left blank.<a href="#section-4.2.9-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="information-i">
@@ -1883,7 +1882,7 @@ li > p:last-of-type {
 <a href="#section-4.2.10" class="section-number selfRef">4.2.10. </a><a href="#name-information-i" class="section-name selfRef">Information (I)</a>
           </h4>
 <p id="section-4.2.10-1">This attribute is <span class="bcp14">OPTIONAL</span> and may be left empty. If provided, it is considered free-text.<a href="#section-4.2.10-1" class="pilcrow">¶</a></p>
-<p id="section-4.2.10-2">Contains any other special information the code creator wishes to share. This field <span class="bcp14">SHOULD</span> be used sparingly and only when the information provided is not duplicated by any other field and is significantly important to the identity of the item being cataloged.<a href="#section-4.2.10-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.10-2">This contains any other special information the code creator wishes to share. This field <span class="bcp14">SHOULD</span> be used sparingly and only when the information provided is not covered or addressed by any other field and is significant to the identity of the item.<a href="#section-4.2.10-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1921,15 +1920,15 @@ li > p:last-of-type {
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">USD</td>
-                <td class="text-left" rowspan="1" colspan="1">Used, but fully functional. May have damage or be modified. Includes the presence of manufacturer refurbished hardware.</td>
+                <td class="text-left" rowspan="1" colspan="1">Used, but fully functional. May have damage or modifications. Includes the presence of manufacturer refurbished hardware.</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">PNF</td>
-                <td class="text-left" rowspan="1" colspan="1">Used, partially nonfunctional (system is fit for purpose but certain functions are degraded)</td>
+                <td class="text-left" rowspan="1" colspan="1">Used, partially nonfunctional (system is fit for purpose but certain functions are degraded).</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">CNF</td>
-                <td class="text-left" rowspan="1" colspan="1">Completely nonfunctional (system is no longer fit for purpose)</td>
+                <td class="text-left" rowspan="1" colspan="1">Completely nonfunctional (system is no longer fit for purpose).</td>
               </tr>
             </tbody>
           </table>
@@ -1941,13 +1940,13 @@ li > p:last-of-type {
 <a href="#section-4.3.2" class="section-number selfRef">4.3.2. </a><a href="#name-currently-known-damage-d" class="section-name selfRef">Currently Known Damage (D)</a>
           </h4>
 <p id="section-4.3.2-1">This attribute tracks various kinds of damage or degradation of an item. Damage consists of hardware or software deficiencies, with each class of damage having its own unique 3-letter code.<a href="#section-4.3.2-1" class="pilcrow">¶</a></p>
-<p id="section-4.3.2-2">If multiple damage classes apply to the item, they <span class="bcp14">MUST</span> be listed consecutively, with no delimiter. For example, an item with a yellowed case, smoke damage, and missing clips would have a damage attribute of <code>SHYSMKFST</code>.<a href="#section-4.3.2-2" class="pilcrow">¶</a></p>
+<p id="section-4.3.2-2">If multiple damage classes apply to the item, they <span class="bcp14">MUST</span> be listed consecutively, with no delimiter. For example, an item with a yellowed case, smoke damage, and missing clips would have a damage attribute of <code>SHYSMKFST</code>. Similarly, consecutive types of the same class of damage <span class="bcp14">MUST</span> be coded consecutively. For example, for a yellowed and cracked shell, the code is <code>SHCSHY</code> rather than <code>SHYC</code>.<a href="#section-4.3.2-2" class="pilcrow">¶</a></p>
 <p id="section-4.3.2-3">If new damage occurs, or if the damage is repaired by servicing, such as a shell replacement, the known damage fields <span class="bcp14">MUST</span> be updated to reflect the item's <strong><em>current</em></strong> condition.<a href="#section-4.3.2-3" class="pilcrow">¶</a></p>
-<p id="section-4.3.2-4">The list below is formatted for ease of reading. Consecutive types of the same class of damage <span class="bcp14">MUST</span> be coded consecutively, so for a yellowed and cracked shell, the code is <code>SHCSHY</code> rather than <code>SHYC</code>.<a href="#section-4.3.2-4" class="pilcrow">¶</a></p>
-<p id="section-4.3.2-5">A minor convention used in damage codes is that a code ending in <code>___X</code> indicates destruction or unknown damage to the component, where <code>___Z</code> indicates the component is outright missing.<a href="#section-4.3.2-5" class="pilcrow">¶</a></p>
-<p id="section-4.3.2-6">Here we describe two sets of damage codes, quantifiable and non-quantifiable.<a href="#section-4.3.2-6" class="pilcrow">¶</a></p>
-<p id="section-4.3.2-7">A quantifiable code is one where a severity of damage <span class="bcp14">MUST</span> be assigned, represented in the code as a digit from 1 to 3, where 1 is trivial and 3 is severe. For example, a scratched or fogged display could have a severity of "1" if the scratches are in a small area of the screen and don't effect readability, or a "3" if the scratches are ubiqitous and make the screen unusable. This severity entails a judgment call on the part of code creators, so decodiing tools <span class="bcp14">SHOULD NOT</span> attempt to read more meaning into 1, 2, and 3 beyond "superficial, moderate, and severe".<a href="#section-4.3.2-7" class="pilcrow">¶</a></p>
-<p id="section-4.3.2-8">For formatting purposes, quantifiable codes are displayed here with a <code>#</code>. In real codes, this will be a number.<a href="#section-4.3.2-8" class="pilcrow">¶</a></p>
+<p id="section-4.3.2-4">A minor convention used in damage codes is that a code ending in <code>___X</code> indicates destruction or unknown damage to the component, whereas <code>___Z</code> indicates the component is outright missing.<a href="#section-4.3.2-4" class="pilcrow">¶</a></p>
+<p id="section-4.3.2-5">Here we describe two sets of damage codes, quantifiable and non-quantifiable.<a href="#section-4.3.2-5" class="pilcrow">¶</a></p>
+<p id="section-4.3.2-6">A quantifiable code is one where a severity of the damage <span class="bcp14">MUST</span> be assigned, represented in the code as a digit from 1 to 3. Here, a value of 1 is trivial damage and 3 is severe damage. For example, a scratched or fogged display could have a severity of "1" if the scratches are in a small area of the screen and don't affect readability, but a "3" could be assigned if the scratches are ubiqitous and make the screen unusable. This severity entails a judgment call on the part of the code creator, so decodiing tools <span class="bcp14">SHOULD NOT</span> attempt to read more meaning into 1, 2, and 3 beyond "superficial, moderate, and severe".<a href="#section-4.3.2-6" class="pilcrow">¶</a></p>
+<p id="section-4.3.2-7">For formatting purposes, quantifiable codes are displayed here with a <code>#</code>. In real codes, this will be a number.<a href="#section-4.3.2-7" class="pilcrow">¶</a></p>
+<p id="section-4.3.2-8">The list below is formatted for ease of reading.<a href="#section-4.3.2-8" class="pilcrow">¶</a></p>
 <span id="name-quantifiable-damage-codes"></span><div id="qdamage">
 <table class="center" id="table-7">
             <caption>
@@ -2007,7 +2006,7 @@ li > p:last-of-type {
                 <td class="text-left" rowspan="1" colspan="1">
                   <code>LMC#</code>
 </td>
-                <td class="text-left" rowspan="1" colspan="1">Loose or damaged PCB edge connector (cartridge slot, etc)</td>
+                <td class="text-left" rowspan="1" colspan="1">Loose or damaged PCB edge connector (cartridge slot, etc.)</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">
@@ -2025,7 +2024,7 @@ li > p:last-of-type {
                 <td class="text-left" rowspan="1" colspan="1">
                   <code>LMS#</code>
 </td>
-                <td class="text-left" rowspan="1" colspan="1">Loose switch of any kind (power/mode/etc.)</td>
+                <td class="text-left" rowspan="1" colspan="1">Loose switch of any kind (power,mode,etc.)</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">
@@ -2043,7 +2042,7 @@ li > p:last-of-type {
                 <td class="text-left" rowspan="1" colspan="1">
                   <code>OMC#</code>
 </td>
-                <td class="text-left" rowspan="1" colspan="1">Disc cracked (center ring or in an area that doesn't render the disc unreadable)</td>
+                <td class="text-left" rowspan="1" colspan="1">Disc cracked (in the center ring or an area that doesn't render the disc unreadable)</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">
@@ -2055,7 +2054,7 @@ li > p:last-of-type {
                 <td class="text-left" rowspan="1" colspan="1">
                   <code>OMS#</code>
 </td>
-                <td class="text-left" rowspan="1" colspan="1">Dis scratched</td>
+                <td class="text-left" rowspan="1" colspan="1">Disc scratched</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">
@@ -2150,7 +2149,7 @@ li > p:last-of-type {
             </tbody>
           </table>
 </div>
-<p id="section-4.3.2-10">A non-quantifiable damage code is one that describes a binary state. For example, <code>SHZ</code> describes a device missing its entire shell, but a missing shell cannot be more or less severe; it is either missing or it is not. For <code>__Z</code> codes that describe a missing item, a code creator <span class="bcp14">SHOULD</span> precisely define the missing item in a <code>TXT</code> if the code does not; for example, if connectors are missing, explain which ones.<a href="#section-4.3.2-10" class="pilcrow">¶</a></p>
+<p id="section-4.3.2-10">A non-quantifiable damage code is one that describes a binary state. For example, <code>SHZ</code> describes a device missing its entire shell. In cases like this, a missing shell cannot be more or less severe; it is either missing or it is not. For <code>__Z</code> codes that describe a missing item, the code creator <span class="bcp14">SHOULD</span> precisely define the missing item in a <code>TXT</code> if not defined by the code. For example, if connectors are missing, explain which specific ones are missing.<a href="#section-4.3.2-10" class="pilcrow">¶</a></p>
 <span id="name-non-quantifiable-damage-cod"></span><div id="nonqdamage">
 <table class="center" id="table-8">
             <caption>
@@ -2186,7 +2185,7 @@ li > p:last-of-type {
                 <td class="text-left" rowspan="1" colspan="1">
                   <code>FST</code>
 </td>
-                <td class="text-left" rowspan="1" colspan="1">Missing fasteners (clips, screws, etc)</td>
+                <td class="text-left" rowspan="1" colspan="1">Missing fasteners (clips, screws, etc.)</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">
@@ -2252,7 +2251,7 @@ li > p:last-of-type {
                 <td class="text-left" rowspan="1" colspan="1">
                   <code>XXX</code>
 </td>
-                <td class="text-left" rowspan="1" colspan="1">This item has been irreperably destroyed.</td>
+                <td class="text-left" rowspan="1" colspan="1">Item has been irreperably destroyed.</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">
@@ -2270,8 +2269,8 @@ li > p:last-of-type {
           <h4 id="name-modifications-m">
 <a href="#section-4.3.3" class="section-number selfRef">4.3.3. </a><a href="#name-modifications-m" class="section-name selfRef">Modifications (M)</a>
           </h4>
-<p id="section-4.3.3-1">This attribute represents a list of the item's aftermarket modifications, including custom shells, LED modifications, etc., including those done to the item's software.<a href="#section-4.3.3-1" class="pilcrow">¶</a></p>
-<p id="section-4.3.3-2">What constitutes a modification rather than a repair is whether the console appears or behaves differently from a stock console. Replacing a damaged shell with an identical shell is a repair (swap), whereas replacing a shell with a different colored shell is a modification.<a href="#section-4.3.3-2" class="pilcrow">¶</a></p>
+<p id="section-4.3.3-1">This attribute represents a list of an item's aftermarket modifications, including custom shells, LED modifications, etc.. This also includes any modifications to the item's software.<a href="#section-4.3.3-1" class="pilcrow">¶</a></p>
+<p id="section-4.3.3-2">What constitutes a modification, and separates it from a repair, is whether the console appears or behaves differently from a stock console. Replacing a damaged shell with an identical shell is a repair (swap), whereas replacing a shell with a different colored shell is a modification.<a href="#section-4.3.3-2" class="pilcrow">¶</a></p>
 <p id="section-4.3.3-3">If there are no known modifications present, this field <span class="bcp14">MUST</span> be populated with "STK".<a href="#section-4.3.3-3" class="pilcrow">¶</a></p>
 <table class="center" id="table-9">
             <caption><a href="#table-9" class="selfRef">Table 9</a></caption>
@@ -2292,13 +2291,13 @@ li > p:last-of-type {
                 <td class="text-left" rowspan="1" colspan="1">
                   <code>LED</code>
 </td>
-                <td class="text-left" rowspan="1" colspan="1">LED modification; lights have been added to part of the item that did not have them before, or existing colors were replaced</td>
+                <td class="text-left" rowspan="1" colspan="1">LED modification; lights have been added to the item where there were none before, or existing colors were replaced</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">
                   <code>SHL</code>
 </td>
-                <td class="text-left" rowspan="1" colspan="1">Shell modification; replacing with a non-stock shell or painting a shell with a custom color</td>
+                <td class="text-left" rowspan="1" colspan="1">Shell modification; replaced with a non-stock shell or painted a shell with a custom color</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">
@@ -2370,7 +2369,7 @@ li > p:last-of-type {
                 <td class="text-left" rowspan="1" colspan="1">
                   <code>INT</code>
 </td>
-                <td class="text-left" rowspan="1" colspan="1">Integration, installing normally external peripherals into a shell (ex: Genesis <span>[<a href="#Neptune" class="xref">Neptune</a>]</span> mod)</td>
+                <td class="text-left" rowspan="1" colspan="1">Integration, installation of normally external peripherals into a shell (ex: Genesis <span>[<a href="#Neptune" class="xref">Neptune</a>]</span> mod)</td>
               </tr>
             </tbody>
           </table>
@@ -2382,9 +2381,9 @@ li > p:last-of-type {
 <a href="#section-4.3.4" class="section-number selfRef">4.3.4. </a><a href="#name-known-repairs-replacements-" class="section-name selfRef">Known Repairs/Replacements (E)</a>
           </h4>
 <p id="section-4.3.4-1">This attribute represents a list of non-modification repairs. It includes replacing OEM parts with reproduction parts that look and perform identically to their OEM counterparts. This would include replacing a cracked shell with an identical one, replacing minor electronic components, screen repair, etc.<a href="#section-4.3.4-1" class="pilcrow">¶</a></p>
-<p id="section-4.3.4-2">Generally, what differentiates a <code>M</code> (mod) from an <code>E</code> (repair) is whether the system has been customized or substantially changed from its OEM state. If this difference is ambiguous for your use case, you <span class="bcp14">SHOULD</span> default to using the <code>M</code> code instead.<a href="#section-4.3.4-2" class="pilcrow">¶</a></p>
+<p id="section-4.3.4-2">Generally, what differentiates a <code>M</code> (mod) from an <code>E</code> (repair) is whether the system has been customized or substantially changed from its OEM state. If this difference is ambiguous for your use case, you <span class="bcp14">SHOULD</span> default to using the <code>M</code> code.<a href="#section-4.3.4-2" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-4.3.4-3.1">Repairs/replacements of already-modified components <span class="bcp14">MUST</span> be treated as a re-modification and not included in this field.<a href="#section-4.3.4-3.1" class="pilcrow">¶</a>
+<li class="normal" id="section-4.3.4-3.1">Repairs/replacements of already-modified components <span class="bcp14">MUST</span> be treated as a re-modification and should thus not be included in this field.<a href="#section-4.3.4-3.1" class="pilcrow">¶</a>
 </li>
             <li class="normal" id="section-4.3.4-3.2">Repair codes <span class="bcp14">MUST</span> be considered permanent and never be removed for any reason unless inaccurate.<a href="#section-4.3.4-3.2" class="pilcrow">¶</a>
 </li>
@@ -2443,7 +2442,7 @@ li > p:last-of-type {
                 <td class="text-left" rowspan="1" colspan="1">
                   <code>NRO</code>
 </td>
-                <td class="text-left" rowspan="1" colspan="1">No repairs, has been opened (seals broken, if unsure, use this code)</td>
+                <td class="text-left" rowspan="1" colspan="1">No repairs, has been opened (seals broken, use this code if unsure)</td>
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">
@@ -2515,7 +2514,7 @@ li > p:last-of-type {
           <h4 id="name-refurbished-non-oem-parts-u">
 <a href="#section-4.3.5" class="section-number selfRef">4.3.5. </a><a href="#name-refurbished-non-oem-parts-u" class="section-name selfRef">Refurbished / Non-OEM Parts (U)</a>
           </h4>
-<p id="section-4.3.5-1">This attribute represents a list of components of an item which are non-stock. It <span class="bcp14">MUST</span> be a consecutive list of items as defined in <a href="#repaircodes" class="xref">Table 10</a><a href="#section-4.3.5-1" class="pilcrow">¶</a></p>
+<p id="section-4.3.5-1">This attribute represents a list of an item's components that are non-stock. It <span class="bcp14">MUST</span> be a consecutive list of items as defined in <a href="#repaircodes" class="xref">Table 10</a>.<a href="#section-4.3.5-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -2526,11 +2525,11 @@ li > p:last-of-type {
 <a href="#section-4.4" class="section-number selfRef">4.4. </a><a href="#name-service-history-field" class="section-name selfRef">Service History Field</a>
         </h3>
 <p id="section-4.4-1">This field is <span class="bcp14">OPTIONAL</span> and may be skipped.<a href="#section-4.4-1" class="pilcrow">¶</a></p>
-<p id="section-4.4-2">The service history field represents a list of repair events. A "repair event" defined as service of a single item or directly related group of items in a sub-assembly.<a href="#section-4.4-2" class="pilcrow">¶</a></p>
+<p id="section-4.4-2">The service history field represents a list of repair events. A "repair event" is defined as service of a single item or directly related group of items in a sub-assembly.<a href="#section-4.4-2" class="pilcrow">¶</a></p>
 <p id="section-4.4-3">The format for a repair event is as follows:<a href="#section-4.4-3" class="pilcrow">¶</a></p>
 <p id="section-4.4-4"><code>(Datestamp)(Repair type)(Item repaired)(Free-text),</code><a href="#section-4.4-4" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-4.4-5.1">The history list <span class="bcp14">MUST</span> be in chronological order, oldest events first.<a href="#section-4.4-5.1" class="pilcrow">¶</a>
+<li class="normal" id="section-4.4-5.1">The history list <span class="bcp14">MUST</span> be in chronological order, with oldest events first.<a href="#section-4.4-5.1" class="pilcrow">¶</a>
 </li>
           <li class="normal" id="section-4.4-5.2">Each event <span class="bcp14">MUST</span> be comma-separated.<a href="#section-4.4-5.2" class="pilcrow">¶</a>
 </li>
@@ -2553,7 +2552,7 @@ li > p:last-of-type {
           <h4 id="name-repair-types">
 <a href="#section-4.4.2" class="section-number selfRef">4.4.2. </a><a href="#name-repair-types" class="section-name selfRef">Repair Types</a>
           </h4>
-<p id="section-4.4.2-1">Represents the general disposition of the changes made to the item. This <span class="bcp14">MUST</span> be one of the codes below:<a href="#section-4.4.2-1" class="pilcrow">¶</a></p>
+<p id="section-4.4.2-1">This represents the general disposition of the changes made to the item. This <span class="bcp14">MUST</span> be one of the codes below:<a href="#section-4.4.2-1" class="pilcrow">¶</a></p>
 <table class="center" id="table-11">
             <caption><a href="#table-11" class="selfRef">Table 11</a></caption>
 <thead>
@@ -2577,7 +2576,7 @@ li > p:last-of-type {
               </tr>
               <tr>
                 <td class="text-left" rowspan="1" colspan="1">R</td>
-                <td class="text-left" rowspan="1" colspan="1">Repair (existing parts condition improved, or significant cleaning that resolves a concrete functional problem)</td>
+                <td class="text-left" rowspan="1" colspan="1">Repair (existing part's condition improved, or significant cleaning performed that resolves a concrete functional problem)</td>
               </tr>
             </tbody>
           </table>
@@ -2589,7 +2588,7 @@ li > p:last-of-type {
           <h4 id="name-item-repaired">
 <a href="#section-4.4.3" class="section-number selfRef">4.4.3. </a><a href="#name-item-repaired" class="section-name selfRef">Item Repaired</a>
           </h4>
-<p id="section-4.4.3-1">Use a valid code from <a href="#repaircodes" class="xref">Table 10</a><a href="#section-4.4.3-1" class="pilcrow">¶</a></p>
+<p id="section-4.4.3-1">Use a valid code from <a href="#repaircodes" class="xref">Table 10</a>.<a href="#section-4.4.3-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -2690,7 +2689,7 @@ li > p:last-of-type {
           </tr>
           <tr>
             <td class="text-left" rowspan="1" colspan="1">USHL</td>
-            <td class="text-left" rowspan="1" colspan="1">Refurbisehed parts used: Shell</td>
+            <td class="text-left" rowspan="1" colspan="1">Refurbished parts used: Shell</td>
           </tr>
           <tr>
             <td class="text-left" rowspan="1" colspan="1">_</td>
@@ -2735,18 +2734,18 @@ li > p:last-of-type {
       <h2 id="name-corner-cases-and-ambiguitie">
 <a href="#section-6" class="section-number selfRef">6. </a><a href="#name-corner-cases-and-ambiguitie" class="section-name selfRef">Corner Cases and Ambiguities</a>
       </h2>
-<p id="section-6-1">The organization scheme this standard sets out is suitable for nearly all purposes, yet there are specific niche pieces of hardware that could lead to ambiguity when defining codes. Some of these will be covered here as a sort of FAQ.<a href="#section-6-1" class="pilcrow">¶</a></p>
-<p id="section-6-2"><strong>Multi-part Peripherals:</strong> In the case of peripherals that have multiple independent parts (example: The SNES Super Scope itself, and the IR dongle that connects to the console), each part <span class="bcp14">MUST</span> be considered as its own unique peripheral, so the scope and the dongle would have their own individual VGCCs. Batching components together <span class="bcp14">MUST NOT</span> be done.<a href="#section-6-2" class="pilcrow">¶</a></p>
+<p id="section-6-1">The organization scheme set by this standard is suitable for nearly all purposes. However, there are specific niche pieces of hardware that could lead to ambiguity when defining codes. Some of these cases are covered in this section.<a href="#section-6-1" class="pilcrow">¶</a></p>
+<p id="section-6-2"><strong>Multi-part Peripherals:</strong> In the case of peripherals that have multiple independent parts (example: The SNES Super Scope itself, and the IR dongle that connects to the console), each part <span class="bcp14">MUST</span> be considered its own unique peripheral, so the scope and the dongle would have their own individual VGCCs. Batching components together <span class="bcp14">MUST NOT</span> be done.<a href="#section-6-2" class="pilcrow">¶</a></p>
 <div id="type-classification">
 <section id="section-6.1">
         <h3 id="name-type-classification">
 <a href="#section-6.1" class="section-number selfRef">6.1. </a><a href="#name-type-classification" class="section-name selfRef">Type Classification</a>
         </h3>
 <p id="section-6.1-1">Certain items may defy the code <code>T</code> classification scheme, or have good arguments for falling under multiple categories. The VGCR working group <strong>RECOMMENDS</strong> the following:<a href="#section-6.1-1" class="pilcrow">¶</a></p>
-<p id="section-6.1-2"><strong>Cheat Devices:</strong> All-in-one devices (that is, the cheat hardware and software are part of a single physical unit, ex: the NES Game Genie) are considered <code>SFT</code>. In the case of devices that have a separate cheat device as well as software, such as the PlayStation or Gamecube Action Replay, these must have their own separate VGCCs. The disc is <code>SFT</code>, and the hardware is <code>SNT</code> (as the device is intrinsic to the function of the software).<a href="#section-6.1-2" class="pilcrow">¶</a></p>
+<p id="section-6.1-2"><strong>Cheat Devices:</strong> All-in-one devices (that is, the cheat hardware and software are part of a single physical unit, ex: the NES Game Genie) are considered <code>SFT</code>. In the case of devices that have a separate cheat device as well as software, such as the PlayStation or Gamecube Action Replay, these must have their own separate VGCCs. Here, the disc is <code>SFT</code>, and the hardware is <code>SNT</code> (as the device is intrinsic to the function of the software).<a href="#section-6.1-2" class="pilcrow">¶</a></p>
 <p id="section-6.1-3"><strong>Cartridge Copiers / Backup Devices:</strong> These are all considered <code>3PA</code>.<a href="#section-6.1-3" class="pilcrow">¶</a></p>
 <p id="section-6.1-4"><strong>Multiplayer Adapters:</strong> These fit under the <code>3PA</code> category, and include devices such as the XBAND for SNES or Genesis. Multitap devices made by the console OEM are considered <code>1PA</code>.<a href="#section-6.1-4" class="pilcrow">¶</a></p>
-<p id="section-6.1-5"><strong>Cartridge Peripherals:</strong> These would generally fit under the category of <code>AMD</code> - devices that plug into the cartridge slot and allow you to play additional content in a format that was not possible on the original hardware. This would include devices where content is downloaded from the internet, received over broadcast services, or alternate physical media formats. Examples would include the Broadcast Satellaview or Sega Channel, Mega CD, Famicom Disk System, etc. It would also include retro compatibility add-ons, such as the Game Boy Player for the GameCube. Note that the software and hardware must have their own codes if they can be separated. The Satellaview cartridge, memory unit, and satellite adapter are all distinct devices with distinct VGCCs.<a href="#section-6.1-5" class="pilcrow">¶</a></p>
+<p id="section-6.1-5"><strong>Cartridge Peripherals:</strong> These would generally fit under the category of <code>AMD</code> - devices that plug into the cartridge slot and allow you to play additional content in a format that was not possible on the original hardware. This would include devices where content is downloaded from the internet or received over broadcast services, as well as alternate physical media formats. Examples would include the Broadcast Satellaview or Sega Channel, Mega CD, Famicom Disk System, etc. It would also include retro compatibility add-ons, such as the Game Boy Player for the GameCube. Note that the software and hardware must have their own codes if they can be separated. The Satellaview cartridge, memory unit, and satellite adapter are all distinct devices with distinct VGCCs.<a href="#section-6.1-5" class="pilcrow">¶</a></p>
 <p id="section-6.1-6"><strong>Software for Alternate Media Devices:</strong> Use the family code of the parent console. "Sonic CD" would have a family code of <code>SMD</code>.<a href="#section-6.1-6" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -2755,8 +2754,8 @@ li > p:last-of-type {
         <h3 id="name-ambiguity-in-authenticity">
 <a href="#section-6.2" class="section-number selfRef">6.2. </a><a href="#name-ambiguity-in-authenticity" class="section-name selfRef">Ambiguity in Authenticity</a>
         </h3>
-<p id="section-6.2-1">To avoid "ship of Theseus" situations when determining authenticity, it is <span class="bcp14">RECOMMENDED</span> to think in terms of non-replaceable components. For instance, it is quite possible to replace the shell and a number of electronic components on an NES, but it still contains a OEM NES CPU and PPU at the en of the day. If those components are replaced with an FPGA of some kind, and the device still claims to be made by Nintendo, then it is clearly a repro.<a href="#section-6.2-1" class="pilcrow">¶</a></p>
-<p id="section-6.2-2">The VGCR working group can not hope to objectively determine the line between "real" and "repro". Code creators are encouraged to consider the expectations of the human readers of their codes and encode information according to the principle of least astonishment <span>[<a href="#POLA" class="xref">POLA</a>]</span>.<a href="#section-6.2-2" class="pilcrow">¶</a></p>
+<p id="section-6.2-1">To avoid "ship of Theseus" situations when determining authenticity, it is <span class="bcp14">RECOMMENDED</span> that users think in terms of non-replaceable components. For instance, it is quite possible to replace the shell and a number of electronic components on an NES, but nevertheless it still contains an OEM NES CPU and PPU. If those components are replaced with an FPGA of some kind, and the device still claims to be made by Nintendo, then it is clearly a repro.<a href="#section-6.2-1" class="pilcrow">¶</a></p>
+<p id="section-6.2-2">Objectively determining the line between "real" and "repro" is outside the scope of the VGCR working group. Therefore, code creators are encouraged to consider the expectations of the human readers of their codes and encode information according to the principle of least astonishment <span>[<a href="#POLA" class="xref">POLA</a>]</span>.<a href="#section-6.2-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="refurbishment">
@@ -2764,18 +2763,18 @@ li > p:last-of-type {
         <h3 id="name-refurbishment">
 <a href="#section-6.3" class="section-number selfRef">6.3. </a><a href="#name-refurbishment" class="section-name selfRef">Refurbishment</a>
         </h3>
-<p id="section-6.3-1">When sending consoles into OEMs, they may repair a system and send it back <em>or</em> send an entirely new refurbished console. Check the serial numbers in this case. If a new serial number is received, you have received a new console and <span class="bcp14">MUST</span> start a brand new VGCC. <strong>Do not carry any history over.</strong> If the hardware you received is not in its factory packaging, you <span class="bcp14">MUST</span> add a <code>REF</code> under code <code>D</code> and note its status as <code>USD</code> under code <code>C</code><a href="#section-6.3-1" class="pilcrow">¶</a></p>
+<p id="section-6.3-1">When sending consoles into OEMs, they may repair a system and send it back <em>or</em> send an entirely new refurbished console. Check the serial numbers in this case. If a new serial number is received, you have received a new console and <span class="bcp14">MUST</span> start a brand new VGCC. <strong>Do not carry any history over.</strong> If the hardware you received is not in its factory packaging, you <span class="bcp14">MUST</span> add a <code>REF</code> under code <code>D</code> and note its status as <code>USD</code> under code <code>C</code>.<a href="#section-6.3-1" class="pilcrow">¶</a></p>
 <p id="section-6.3-2">Refurbished consoles likely have had components repaired. Even so, code creators <span class="bcp14">MUST NOT</span> guess which components are repaired/refurbished.<a href="#section-6.3-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="conflicting-codes-other-considerations">
 <section id="section-6.4">
         <h3 id="name-conflicting-codes-other-con">
-<a href="#section-6.4" class="section-number selfRef">6.4. </a><a href="#name-conflicting-codes-other-con" class="section-name selfRef">Conflicting Codes &amp; other considerations</a>
+<a href="#section-6.4" class="section-number selfRef">6.4. </a><a href="#name-conflicting-codes-other-con" class="section-name selfRef">Conflicting Codes &amp; Other Considerations</a>
         </h3>
-<p id="section-6.4-1">Generally speaking, the "rules" for a VGCC are:<a href="#section-6.4-1" class="pilcrow">¶</a></p>
+<p id="section-6.4-1">Generally speaking, the "rules" for a VGCC are as follows:<a href="#section-6.4-1" class="pilcrow">¶</a></p>
 <ol start="1" type="1" class="normal type-1" id="section-6.4-2">
-<li id="section-6.4-2.1">Codes <span class="bcp14">MUST NOT</span> conflict with one another under any circumstances. Any situation which would result in a conflict is a case where one or multiple codes must be adjusted, or is an unforeseen design flaw with the VGCC standard.<a href="#section-6.4-2.1" class="pilcrow">¶</a>
+<li id="section-6.4-2.1">Codes <span class="bcp14">MUST NOT</span> conflict with one another under any circumstances. Any situation that would result in a conflict is a case where one or multiple codes must be adjusted, or is an unforeseen design flaw with the VGCC standard.<a href="#section-6.4-2.1" class="pilcrow">¶</a>
 </li>
           <li id="section-6.4-2.2">Codes <span class="bcp14">MUST NOT</span> convey the same information more than once, with the exception of the repair history field which may necessarily duplicate information in the condition or damage fields.<a href="#section-6.4-2.2" class="pilcrow">¶</a>
 </li>
@@ -2783,11 +2782,11 @@ li > p:last-of-type {
 </li>
           <li id="section-6.4-2.4">Codes in the <a href="#condition">condition</a> field relate to the <em>present</em> condition of the item and <span class="bcp14">SHOULD</span> be updated often.<a href="#section-6.4-2.4" class="pilcrow">¶</a>
 </li>
-          <li id="section-6.4-2.5">Codes <span class="bcp14">SHOULD</span> be constructed such that all pertinent information about a piece of hardware is present even if the <a href="#servicehistory">service history</a> field is blank.<a href="#section-6.4-2.5" class="pilcrow">¶</a>
+          <li id="section-6.4-2.5">Codes <span class="bcp14">SHOULD</span> be constructed such that all pertinent information about a piece of hardware is present, even if the <a href="#servicehistory">service history</a> field is blank.<a href="#section-6.4-2.5" class="pilcrow">¶</a>
 </li>
-          <li id="section-6.4-2.6">Ambiguities <span class="bcp14">SHOULD</span> be resolved in a way that is least favorable to the value of the item. In other words, if you're not sure if something is a swap or a mod, default to considering it a mod.<a href="#section-6.4-2.6" class="pilcrow">¶</a>
+          <li id="section-6.4-2.6">Ambiguities <span class="bcp14">SHOULD</span> be resolved in the manner that is least favorable to the value of the item. For example, if you are not sure if an item should be considered a swap or a mod, default to considering it a mod.<a href="#section-6.4-2.6" class="pilcrow">¶</a>
 </li>
-          <li id="section-6.4-2.7">VGCCs are intended to classify individual items, not retail bundles. For instance, it is common for OEMs to sell different console bundles with different hardware, peripherals, and software. Each item in the bundle would have its own VGCC, not the bundle as a whole.<a href="#section-6.4-2.7" class="pilcrow">¶</a>
+          <li id="section-6.4-2.7">VGCCs are intended to classify individual items, not retail bundles. For instance, it is common for OEMs to sell different console bundles with different hardware, peripherals, and software. In this case, each item in the bundle would have its own VGCC, rather than the bundle as a whole.<a href="#section-6.4-2.7" class="pilcrow">¶</a>
 </li>
         </ol>
 </section>
@@ -2804,7 +2803,7 @@ li > p:last-of-type {
         <h3 id="name-safety-security-considerati">
 <a href="#section-7.1" class="section-number selfRef">7.1. </a><a href="#name-safety-security-considerati" class="section-name selfRef">Safety/Security Considerations</a>
         </h3>
-<p id="section-7.1-1">Nothing prevents an unscrupulous seller from misrepresenting their product. A VGCC is intended for shorthand to describe an item and its history, not as a mark of safety or trustworthiness. The VGCR working group take no responsibility for its use by third parties or the accuracy of the information those parties encode.<a href="#section-7.1-1" class="pilcrow">¶</a></p>
+<p id="section-7.1-1">Nothing prevents an unscrupulous seller from misrepresenting their product. A VGCC is intended to serve as shorthand to describe an item and its history, not as a mark of safety or trustworthiness. The VGCR working group takes no responsibility for its use by third parties or the accuracy of the information those parties encode.<a href="#section-7.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="warranty-disclaimer">
