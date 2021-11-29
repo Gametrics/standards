@@ -1,18 +1,26 @@
 %%%
 title = "Video Game Condition Code v1"
-abbrev = "VGCCv1"
-docName = "draft-vgccv1-01"
+abbrev = "GS001"
+docName = "draft-GS001-01"
 category = "info"
 
 ipr = "none"
 area = "General"
 workgroup = "Video Game Condition Report Workgroup"
 
-[seriesInfo] 
+[seriesInfo]
 name = "RFC"
-value = "draft-vgccv1-01"
+value = "draft-GS001-01"
 stream = "IETF"
 status = "informational"
+
+[[author]]
+initials="L."
+surname="Deville"
+fullname="Lexi Deville"
+organization="Gametrics Foundation"
+[author.address]
+email = "ldeville@gametrics.org"
 
 [[author]]
 initials="M."
@@ -22,13 +30,6 @@ organization="Gametrics Foundation"
 [author.address]
 email = "mparks@gametrics.org"
 
-[[author]] 
-initials="L."
-surname="Deville"
-fullname="Lexi Deville"
-organization="Gametrics Foundation"
-[author.address]
-email = "ldeville@gametrics.org"
 
 %%%
 
