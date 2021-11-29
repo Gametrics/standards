@@ -2,14 +2,14 @@
 
 
 
-Video Game Condition Report Workgroup                           M. Parks
-                                                              L. Deville
+Video Game Condition Report Workgroup                         L. Deville
+                                                                M. Parks
                                                     Gametrics Foundation
-                                                        28 November 2021
+                                                        29 November 2021
 
 
                       Video Game Condition Code v1
-                            draft-vgccv1-01
+                             draft-GS001-01
 
 Abstract
 
@@ -53,9 +53,9 @@ Table of Contents
 
 
 
-Parks & Deville               Informational                     [Page 1]
+Deville & Parks               Informational                     [Page 1]
 
-                                 VGCCv1                    November 2021
+                                  GS001                    November 2021
 
 
        4.1.1.  Compression . . . . . . . . . . . . . . . . . . . . .   6
@@ -109,9 +109,9 @@ Parks & Deville               Informational                     [Page 1]
 
 
 
-Parks & Deville               Informational                     [Page 2]
+Deville & Parks               Informational                     [Page 2]
 
-                                 VGCCv1                    November 2021
+                                  GS001                    November 2021
 
 
 1.1.  The Need for a Standard
@@ -165,9 +165,9 @@ Parks & Deville               Informational                     [Page 2]
 
 
 
-Parks & Deville               Informational                     [Page 3]
+Deville & Parks               Informational                     [Page 3]
 
-                                 VGCCv1                    November 2021
+                                  GS001                    November 2021
 
 
    *  In the version field of a compliant VGCC
@@ -221,9 +221,9 @@ Parks & Deville               Informational                     [Page 3]
 
 
 
-Parks & Deville               Informational                     [Page 4]
+Deville & Parks               Informational                     [Page 4]
 
-                                 VGCCv1                    November 2021
+                                  GS001                    November 2021
 
 
    An "attribute" is a section of information within a field that
@@ -277,9 +277,9 @@ Parks & Deville               Informational                     [Page 4]
 
 
 
-Parks & Deville               Informational                     [Page 5]
+Deville & Parks               Informational                     [Page 5]
 
-                                 VGCCv1                    November 2021
+                                  GS001                    November 2021
 
 
 3.  Design Philosophy
@@ -333,9 +333,9 @@ Parks & Deville               Informational                     [Page 5]
 
 
 
-Parks & Deville               Informational                     [Page 6]
+Deville & Parks               Informational                     [Page 6]
 
-                                 VGCCv1                    November 2021
+                                  GS001                    November 2021
 
 
 4.2.  Hardware Identity Field
@@ -389,9 +389,9 @@ Parks & Deville               Informational                     [Page 6]
 
 
 
-Parks & Deville               Informational                     [Page 7]
+Deville & Parks               Informational                     [Page 7]
 
-                                 VGCCv1                    November 2021
+                                  GS001                    November 2021
 
 
             +=======+=========================================+
@@ -445,9 +445,9 @@ Parks & Deville               Informational                     [Page 7]
 
 
 
-Parks & Deville               Informational                     [Page 8]
+Deville & Parks               Informational                     [Page 8]
 
-                                 VGCCv1                    November 2021
+                                  GS001                    November 2021
 
 
    (https://en.wikipedia.org/wiki/RetroN)), still are not genuine OEM
@@ -501,9 +501,9 @@ Parks & Deville               Informational                     [Page 8]
 
 
 
-Parks & Deville               Informational                     [Page 9]
+Deville & Parks               Informational                     [Page 9]
 
-                                 VGCCv1                    November 2021
+                                  GS001                    November 2021
 
 
        +=============+============================================+
@@ -557,9 +557,9 @@ Parks & Deville               Informational                     [Page 9]
 
 
 
-Parks & Deville               Informational                    [Page 10]
+Deville & Parks               Informational                    [Page 10]
 
-                                 VGCCv1                    November 2021
+                                  GS001                    November 2021
 
 
 4.2.5.  Type (T)
@@ -613,9 +613,9 @@ Parks & Deville               Informational                    [Page 10]
 
 
 
-Parks & Deville               Informational                    [Page 11]
+Deville & Parks               Informational                    [Page 11]
 
-                                 VGCCv1                    November 2021
+                                  GS001                    November 2021
 
 
 4.2.7.  Color (C)
@@ -669,9 +669,9 @@ Parks & Deville               Informational                    [Page 11]
 
 
 
-Parks & Deville               Informational                    [Page 12]
+Deville & Parks               Informational                    [Page 12]
 
-                                 VGCCv1                    November 2021
+                                  GS001                    November 2021
 
 
 4.3.1.  Physical Condition (P)
@@ -725,9 +725,9 @@ Parks & Deville               Informational                    [Page 12]
 
 
 
-Parks & Deville               Informational                    [Page 13]
+Deville & Parks               Informational                    [Page 13]
 
-                                 VGCCv1                    November 2021
+                                  GS001                    November 2021
 
 
    Here we describe two sets of damage codes, quantifiable and non-
@@ -781,9 +781,9 @@ Parks & Deville               Informational                    [Page 13]
 
 
 
-Parks & Deville               Informational                    [Page 14]
+Deville & Parks               Informational                    [Page 14]
 
-                                 VGCCv1                    November 2021
+                                  GS001                    November 2021
 
 
           | LMS# | Loose switch of any kind (power,mode,etc.)  |
@@ -837,9 +837,9 @@ Parks & Deville               Informational                    [Page 14]
 
 
 
-Parks & Deville               Informational                    [Page 15]
+Deville & Parks               Informational                    [Page 15]
 
-                                 VGCCv1                    November 2021
+                                  GS001                    November 2021
 
 
           +------+---------------------------------------------+
@@ -893,9 +893,9 @@ Parks & Deville               Informational                    [Page 15]
 
 
 
-Parks & Deville               Informational                    [Page 16]
+Deville & Parks               Informational                    [Page 16]
 
-                                 VGCCv1                    November 2021
+                                  GS001                    November 2021
 
 
           +======+==============================================+
@@ -949,9 +949,9 @@ Parks & Deville               Informational                    [Page 16]
 
 
 
-Parks & Deville               Informational                    [Page 17]
+Deville & Parks               Informational                    [Page 17]
 
-                                 VGCCv1                    November 2021
+                                  GS001                    November 2021
 
 
    What constitutes a modification, and separates it from a repair, is
@@ -1005,9 +1005,9 @@ Parks & Deville               Informational                    [Page 17]
 
 
 
-Parks & Deville               Informational                    [Page 18]
+Deville & Parks               Informational                    [Page 18]
 
-                                 VGCCv1                    November 2021
+                                  GS001                    November 2021
 
 
    +======+============================================================+
@@ -1061,9 +1061,9 @@ Parks & Deville               Informational                    [Page 18]
 
 
 
-Parks & Deville               Informational                    [Page 19]
+Deville & Parks               Informational                    [Page 19]
 
-                                 VGCCv1                    November 2021
+                                  GS001                    November 2021
 
 
 4.3.4.  Known Repairs/Replacements (E)
@@ -1117,9 +1117,9 @@ Parks & Deville               Informational                    [Page 19]
 
 
 
-Parks & Deville               Informational                    [Page 20]
+Deville & Parks               Informational                    [Page 20]
 
-                                 VGCCv1                    November 2021
+                                  GS001                    November 2021
 
 
       +======+=====================================================+
@@ -1173,9 +1173,9 @@ Parks & Deville               Informational                    [Page 20]
 
 
 
-Parks & Deville               Informational                    [Page 21]
+Deville & Parks               Informational                    [Page 21]
 
-                                 VGCCv1                    November 2021
+                                  GS001                    November 2021
 
 
 4.3.5.  Refurbished / Non-OEM Parts (U)
@@ -1229,9 +1229,9 @@ Parks & Deville               Informational                    [Page 21]
 
 
 
-Parks & Deville               Informational                    [Page 22]
+Deville & Parks               Informational                    [Page 22]
 
-                                 VGCCv1                    November 2021
+                                  GS001                    November 2021
 
 
           +======+=============================================+
@@ -1285,9 +1285,9 @@ VGCC1|BNINT,AO,FNGC,RU,TCON,MNGC,CIND,VDOL-001,SDS315060768,I|PUSD,DSHCSMKTXTSmo
 
 
 
-Parks & Deville               Informational                    [Page 23]
+Deville & Parks               Informational                    [Page 23]
 
-                                 VGCCv1                    November 2021
+                                  GS001                    November 2021
 
 
    +------------------------------+-----------------------------------+
@@ -1341,9 +1341,9 @@ Parks & Deville               Informational                    [Page 23]
 
 
 
-Parks & Deville               Informational                    [Page 24]
+Deville & Parks               Informational                    [Page 24]
 
-                                 VGCCv1                    November 2021
+                                  GS001                    November 2021
 
 
    +------------------------------+-----------------------------------+
@@ -1397,9 +1397,9 @@ Parks & Deville               Informational                    [Page 24]
 
 
 
-Parks & Deville               Informational                    [Page 25]
+Deville & Parks               Informational                    [Page 25]
 
-                                 VGCCv1                    November 2021
+                                  GS001                    November 2021
 
 
    *Multiplayer Adapters:* These fit under the 3PA category, and include
@@ -1453,9 +1453,9 @@ Parks & Deville               Informational                    [Page 25]
 
 
 
-Parks & Deville               Informational                    [Page 26]
+Deville & Parks               Informational                    [Page 26]
 
-                                 VGCCv1                    November 2021
+                                  GS001                    November 2021
 
 
    Refurbished consoles likely have had components repaired.  Even so,
@@ -1509,9 +1509,9 @@ Parks & Deville               Informational                    [Page 26]
 
 
 
-Parks & Deville               Informational                    [Page 27]
+Deville & Parks               Informational                    [Page 27]
 
-                                 VGCCv1                    November 2021
+                                  GS001                    November 2021
 
 
 7.1.  Safety/Security Considerations
@@ -1552,17 +1552,17 @@ Parks & Deville               Informational                    [Page 27]
 
 Authors' Addresses
 
-   Michael Parks
-   Gametrics Foundation
-
-   Email: mparks@gametrics.org
-
-
    Lexi Deville
    Gametrics Foundation
 
    Email: ldeville@gametrics.org
 
 
+   Michael Parks
+   Gametrics Foundation
 
-Parks & Deville               Informational                    [Page 28]
+   Email: mparks@gametrics.org
+
+
+
+Deville & Parks               Informational                    [Page 28]
