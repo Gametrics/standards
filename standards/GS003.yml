@@ -1,5 +1,6 @@
 meta:
   version: 1
+  vgcc-version: 1
   status: DRAFT
   
 brand:
