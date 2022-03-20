@@ -1,0 +1,14 @@
+meta:
+  version: 1
+  status: DRAFT
+  
+brand:
+  NINT: Nintendo
+  SEGA: Sega
+  
+family:
+  FCM: Famicom
+  SFC: Super Famicom
+  GCN: Gamecube
+  DCR: Dreamcast
+  
