@@ -4,7 +4,9 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - main
+      - master
+    paths:
+      - standards/*.md
 
 jobs:
   build_docs:
@@ -42,7 +44,7 @@ jobs:
 
     - name: Copy to Server
       run: |
-        scp -v work/* gametrics@rgbcast.com:public_html/standards/
+        scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no work/* ${{ secrets.DEPLOY_ADDRESS }}:public_html/standards/
 
     - name: Send Notification
       uses: Ilshidur/action-discord@master
