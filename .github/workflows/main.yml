@@ -47,7 +47,8 @@ jobs:
         scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no work/* ${{ secrets.DEPLOY_ADDRESS }}:public_html/standards/
 
     - name: Send Notification
-      uses: Ilshidur/action-discord@master
+      uses: Ilshidur/action-discord@0.3.2
+      env:
+        DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL }}
       with:
-        webhook: ${{ secrets.DISCORD_WEBHOOK_URL }}
-        content: "Build and deployment succeeded"
+        args: 'The project {{ EVENT_PAYLOAD.repository.full_name }} has been deployed.'
