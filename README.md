@@ -30,4 +30,4 @@ Imagine this on a curator's shelf, or an eBay or Craigslist posting. Lots of inf
 
 ## How do I make one?
 
-There will be an application, web and mobile both, to assist with this process in the future. For now, [read through the v1 RFC](http://gamerepair.codes) and simply construct each field as prompted. The spec answers many questions and considers many edge cases - but in the event that it doesn't, and you find something that's been overlooked, please consider [letting us know on Discord](https://discord.gg/XF6dK2S) or opening a pull request here.
+There will be an application, web and mobile both, to assist with this process in the future. For now, [read through the v1 RFC](http://gametrics.org) and simply construct each field as prompted. The spec answers many questions and considers many edge cases - but in the event that it doesn't, and you find something that's been overlooked, please consider [letting us know on Discord](https://discord.gg/XF6dK2S) or opening a pull request here.
