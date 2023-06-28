@@ -1,0 +1,50 @@
+name: Build and Deploy Documentation
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_docs:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Set up SSH
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+    - name: Convert Markdown to XML
+      run: |
+        docker pull ghcr.io/karunamon/mmark:latest
+        for i in `ls standards/*.md`; do
+          base=$(basename $i)
+          fname=$(echo $base | cut -d '.' -f 1)
+          echo $fname
+          docker run --rm -v $(pwd):/workdir ghcr.io/karunamon/mmark /workdir/$i > /workdir/$fname.xml
+        done
+        echo $(ls -l)
+      
+    - name: Convert XML to RFC
+      run: |
+        docker pull ghcr.io/karunamon/xml2rfc:latest
+        for i in `ls *.xml`; do
+          fname=$(echo $i | cut -d '.' -f 1)
+          echo $fname
+          docker run --rm -v $(pwd):/workdir ghcr.io/karunamon/xml2rfc --text /workdir/$i -o /workdir/$fname.txt
+          docker run --rm -v $(pwd):/workdir ghcr.io/karunamon/xml2rfc --html /workdir/$i -o /workdir/$fname.html
+        done
+
+    - name: Copy to Server
+      run: |
+        scp -r standards/ gametrics@rgbcast.com:public_html/
+
+    - name: Send Notification
+      uses: Ilshidur/action-discord@1.5.0
+      with:
+        webhook: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        content: "Build and deployment succeeded"
