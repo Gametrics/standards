@@ -22,27 +22,27 @@ jobs:
     - name: Convert Markdown to XML
       run: |
         docker pull ghcr.io/karunamon/mmark:latest
-        for i in `ls standards/*.md`; do
+        for i in `ls standards/GS*.md`; do
           base=$(basename $i)
           fname=$(echo $base | cut -d '.' -f 1)
           echo $fname
-          docker run --rm -v $(pwd):/workdir ghcr.io/karunamon/mmark /workdir/$i > /workdir/$fname.xml
+          docker run --rm -v $(pwd):/workdir ghcr.io/karunamon/mmark mmark /workdir/$i > $fname.xml
         done
-        echo $(ls -l)
       
     - name: Convert XML to RFC
       run: |
+        mkdir work
         docker pull ghcr.io/karunamon/xml2rfc:latest
         for i in `ls *.xml`; do
           fname=$(echo $i | cut -d '.' -f 1)
           echo $fname
-          docker run --rm -v $(pwd):/workdir ghcr.io/karunamon/xml2rfc --text /workdir/$i -o /workdir/$fname.txt
-          docker run --rm -v $(pwd):/workdir ghcr.io/karunamon/xml2rfc --html /workdir/$i -o /workdir/$fname.html
+          docker run --rm -v $(pwd):/workdir ghcr.io/karunamon/xml2rfc xml2rfc --text /workdir/$i -o /workdir/work/$fname.txt
+          docker run --rm -v $(pwd):/workdir ghcr.io/karunamon/xml2rfc xml2rfc --html /workdir/$i -o /workdir/work/$fname.html
         done
 
     - name: Copy to Server
       run: |
-        scp -v /workdir/* gametrics@rgbcast.com:public_html/standards/
+        scp -v work/* gametrics@rgbcast.com:public_html/standards/
 
     - name: Send Notification
       uses: Ilshidur/action-discord@master
