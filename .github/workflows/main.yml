@@ -42,10 +42,10 @@ jobs:
 
     - name: Copy to Server
       run: |
-        scp -r standards/ gametrics@rgbcast.com:public_html/
+        scp -v /workdir/* gametrics@rgbcast.com:public_html/standards/
 
     - name: Send Notification
-      uses: Ilshidur/action-discord@1.5.0
+      uses: Ilshidur/action-discord@master
       with:
         webhook: ${{ secrets.DISCORD_WEBHOOK_URL }}
         content: "Build and deployment succeeded"
